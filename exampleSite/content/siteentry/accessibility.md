@@ -36,6 +36,6 @@ acted upon.
 
 ## If You Find A Barrier to Accessibility
 
-Please do not hesitate to [contact the site operator](/siteentry/contactform) in
+Please do not hesitate to [contact the site operator](siteentry/contactform) in
 the event you find some barrier to accessibility on this site.  The site
 operator strives to keep the site accessible.

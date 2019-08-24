@@ -18,7 +18,7 @@ Version 0.8.0
 with new-era CSS3, HTML5, etc. That is the look is a combination of
 90's and postmodern.
 
-Jump to [Reference Guide](/siteentry/#referenceguide)
+Jump to [Reference Guide](siteentry#referenceguide)
 
 ## Example Site
 
@@ -220,7 +220,7 @@ and so on.
                    file, or by setting 'no*block*: true' (e.g
                    ``nodocdate: true``) in the front-matter of the page
                 (for per-page) settings.
-                *   See [A note on Licenses](/siteentry/#notelicenses) above
+                *   See [A note on Licenses](siteentry#notelicenses) above
                     for information on setting the copyright and license
                     information to appear in the colophon.
 
@@ -268,7 +268,7 @@ and so on.
         *   Each of these is a div containing a span with class 'label',
               some text, and an unordered lists of licenses (generated
               from the parameters mentioned in
-              [A note on Licenses](/siteentry/#notelicenses) above).
+              [A note on Licenses](siteentry#notelicenses) above).
         *   The unordered list has been styled to appear as a
             comma-separated list as one line (i.e. as inline
             rather than block level elements) with wrapping.  It
@@ -276,4 +276,4 @@ and so on.
 
 ## Description of Site Logo
 
-[Description of the Site Logo](/siteentry/site-badge-description)
+[Description of the Site Logo](siteentry/site-badge-description)
