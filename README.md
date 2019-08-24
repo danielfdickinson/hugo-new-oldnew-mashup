@@ -2,7 +2,7 @@
 
 Version 0.8.0
 
-[![Travis CI results](https://travis-ci.org/cshoredaniel/hugo-oldnew-mashup.svg?branch=master)](https://travis-ci.org/cshoredaniel/hugo-oldnew-mashup?branch=master)
+[![Travis CI results](https://travis-ci.org/cshoredaniel/new-oldnew-mashup.svg?branch=master)](https://travis-ci.org/cshoredaniel/new-oldnew-mashup?branch=master)
 
 ## Overview
 
