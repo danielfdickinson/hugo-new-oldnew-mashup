@@ -24,7 +24,6 @@
           {{ $curPage.Scratch.Set "lnfpPrevPage" ($curPage.Scratch.Get "lnfpCurPage") }}
           {{ if eq $curPage $curSection }}
             {{ $curPage.Scratch.Set "lnfpFoundPage" true }}
-            {{ $curPage.Scratch.Get "lnfpCurPage" }}
           {{ else if not ($curPage.Scratch.Get "lnfpFoundPage") }}
             {{ $curPage.Scratch.Set "lnfpCurPage" . }}
           {{ end }}
