@@ -5,8 +5,8 @@ license = "CC-BY-4.0"
 licenselink = "https://github.com/cshoredaniel/hugo-pure-oldnew-mashup/blob/master/LICENSE.md"
 description = "Hugo Theme mixing old school design elements with new-era"
 homepage = "https://hugo-oldnew-mashup.thecshore.com/"
-keywords = ['hugo', 'old-school', 'modern', 'postmodern', 'high-contrast']
-features = ['blog', 'responsive', 'high-contrast', 'a11y', 'accessibility']
+features = ['blog', 'high-contrast', 'a11y', 'accessibility']
+tags = ['hugo', 'old-school', 'modern', 'postmodern', 'high-contrast']
 min_version = "0.56.3"
 summaryLength = "30"
 
