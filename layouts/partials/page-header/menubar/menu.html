@@ -2,14 +2,28 @@
 <ul id="menubar-site-menu-list" class="menubar-site-menu-list">
   <!-- Copyright 2018-2019 Daniel F. Dickinson,
        Released under the Creative Commons 4.0 BY (Attribution) License -->
-{{ range $.Site.Sections }}
-  <li class="menu-item">
-    {{ partial "generic-site-menu/menu-item" . }}
-    <ul class="menu-parent">
-      {{ partial "generic-site-menu/menu-section" . }}
-    </ul>
-  </li>
+
+{{ range $.Site.Home.Pages }}
+  {{ if (and (eq .Type "page" ) (not (in .Aliases .Page ))) }}
+    <li class="menu-item">
+      {{ partial "generic-site-menu/menu-item" . }}
+     </li>
+   {{ end }}
 {{ end }}
+
+{{ range $.Site.Sections }}
+  {{ if (and (.IsSection) (not (in .Aliases .Section))) }}
+    <li class="menu-item">
+      {{ partial "generic-site-menu/menu-item" . }}
+      {{ if .IsSection }}
+        <ul class="menu-parent">
+          {{ partial "generic-site-menu/menu-section" . }}
+        </ul>
+      {{ end }}
+    </li>
+  {{ end }}
+{{ end }}
+
 <li aria-labelledby="search-query" class="top-search"><form action="{{ "/siteentry/search" | relURL }}">
   <input id="search-query" aria-label="Search box" type="search" name="s" size="4" /><input id="search-button" type="submit" value="Search" size="3" />
 </form></li>

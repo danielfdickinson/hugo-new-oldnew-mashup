@@ -1,0 +1,11 @@
+{{ if (where (where .Pages ".Type" "eq" "page") ".Params.notinmenu" "ne" true ) }}
+  {{ range (first 1 (where (where .Pages ".Type" "eq" "page") ".Params.notinmenu" "ne" true) ) }}
+    <a class="enter-button" href="{{ .RelPermalink }}">Enter Site</a>
+  {{ end }}
+{{ else if (where .Sections ".Params.notinmenu" "ne" true ) }}
+  {{ range (first 1 ( where .Sections ".Params.notinmenu" "ne" true ) ) }}
+   <a class="enter-button" href="{{ .RelPermalink }}">Enter Site</a>
+  {{ end }}
+{{ else }}
+  <a class="enter-button" href="{{ "." }}">Site does not exist</a>
+{{ end }}

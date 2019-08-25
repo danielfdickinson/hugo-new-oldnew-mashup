@@ -20,7 +20,7 @@
       <div class="taglines">
         <h2 class="one-liner">{{.Page.Params.oneliner}}</h2>
         <h3 class="sub-liner">{{.Page.Params.subliner}}</h3>
-        <a class="enter-button" href="{{ "/siteentry/" | relURL }}">Enter Site</a>
+        {{ partial "find-real-home/findnextpage" . }}
       </div>
       <aside class="aside">
         {{ markdownify .Page.Params.aside}}
