@@ -1,6 +1,5 @@
 ---
 title: "The C Shore About Page Description"
-notinmenu: true
 ---
 
 A screen shot of an old version of The C Shore About Page.  It consists

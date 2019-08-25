@@ -1,6 +1,5 @@
 ---
 title: "Screenshot of The CShore Website Homepage Description"
-notinmenu: true
 ---
 
 Screenshot of an old version of The CShore Website Homepage which is

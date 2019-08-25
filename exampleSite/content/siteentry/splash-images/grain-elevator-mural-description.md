@@ -1,6 +1,5 @@
 ---
 title: "Photo of Grain Elevator with Mural Description"
-notinmenu: true
 ---
 
 Photo with a hazy sky at the top, with a hill of trees with autumn

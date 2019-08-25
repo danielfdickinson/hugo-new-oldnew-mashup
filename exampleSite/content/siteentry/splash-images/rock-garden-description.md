@@ -1,6 +1,5 @@
 ---
 title: "Rock Garden Screenshot Description"
-notinmenu: true
 ---
 
 Photo with multiple levels of a rock garden on a hill.  At the bottom of

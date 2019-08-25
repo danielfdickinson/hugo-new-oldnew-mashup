@@ -24,6 +24,9 @@ disableKinds = ['taxonomy', 'taxonomyTerm']
   pygmentsCodeFences = true
   rssfeedlink = true
   validatorlink = true
+  site_badge_graphic = "/images/sample_image.png"
+  site_badge_graphic_alt_text = "[Logo for Hugo OldNew Mashup Theme Homepage]"
+  splash_images_bundle = "siteentry/splash-images"
 
 [outputs]
   home = ["HTML", "JSON", "RSS"]
