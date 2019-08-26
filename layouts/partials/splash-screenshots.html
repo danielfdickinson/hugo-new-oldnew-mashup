@@ -1,5 +1,5 @@
 {{ $curPage := . }}
-{{ $splashImageBundle := .Params.splash_images_bundle }}
+{{ $splashImageBundle := .Param "splash_images_bundle" }}
 {{ if $splashImageBundle }}
   {{ $resPage := $.Site.GetPage $splashImageBundle }}
   {{ $splashImages := $resPage.Resources.ByType "image" }}
