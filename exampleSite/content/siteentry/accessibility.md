@@ -3,6 +3,7 @@ title: "Accessibility Statement"
 date: 2019-08-14T06:19:45-04:00
 copyright: 2019 Daniel F. Dickinson
 license: CC-BY-4.0
+weight: 14
 ---
 
 # Accessibility Statement
@@ -36,6 +37,6 @@ acted upon.
 
 ## If You Find A Barrier to Accessibility
 
-Please do not hesitate to [contact the site operator](/siteentry/contactform) in
+Please do not hesitate to [contact the site operator](siteentry/contactform) in
 the event you find some barrier to accessibility on this site.  The site
 operator strives to keep the site accessible.

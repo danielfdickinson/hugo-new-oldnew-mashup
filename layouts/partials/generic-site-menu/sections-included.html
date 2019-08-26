@@ -1,0 +1,11 @@
+{{ $scratch := newScratch }}
+{{ range (where .Sections "Params.notinmenu" "ne" true) }}
+  {{ if (not (in .Aliases .Type ) ) }}
+    {{ if $scratch.Get "nonAliasSections" }}
+      {{ $scratch.Add "nonAliasSections" . }}
+    {{ else }}
+      {{ $scratch.Set "nonAliasSections" ( slice . ) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return $scratch.Get "nonAliasSections" }}

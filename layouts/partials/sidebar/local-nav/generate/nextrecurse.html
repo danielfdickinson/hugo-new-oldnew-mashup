@@ -1,12 +1,54 @@
-{{ $curPage := .Scratch.Get "lnfpCurPage" }}
-{{ if .PrevInSection }}
-  {{ if (not .PrevInSection.Params.notinmenu) }}
-     <a href="{{ .PrevInSection.RelPermalink }}">Next</a>
+{{ $curCtx := . }}
+{{ $foundNext := false }}
+{{ $foundPage := false }}
+{{ $curPage := .Scratch.Get "aNil" }}
+{{ $nextPage := .Scratch.Get "aNil" }}
+{{ $nextNodes := .Scratch.Get "aNil" }}
+{{ $curNode := .Scratch.Get "aNil" }}
+{{ with .menu_node }}
+  <!-- find whether we're a leaf section -->
+  {{ if (eq . .Site.Home ) }}
+    {{ $fullNodes := ( partial "generic-site-menu/merge-node-slices" (dict "curPages" .Pages "curSections" .Sections) ) }}
+    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" $fullNodes "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
   {{ else }}
-    {{ .PrevInSection.Scratch.Set "lnfpCurPage" $curPage }}
-    {{ partial "sidebar/local-nav/generate/nextrecurse" .PrevInSection }}
+    {{ $fullNodes := ( partial "generic-site-menu/merge-node-slices" ( dict "curPages" .Pages "curSections" .Sections ) ) }}
+    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" $fullNodes "menu_node" . "menu_type" "local-nav" ) ) }}
   {{ end }}
-{{ else }}
-  {{ $curPage.Scratch.Set "lnfpCurPage" $curPage }}
-  {{ partial "sidebar/local-nav/generate/findnextpage" $curPage }}
+  {{ if and $nextNodes ( ne $curCtx.no_down true ) }}
+    {{/*We're a parent, go down, not sideways*/}}
+    {{ partial "sidebar/local-nav/generate/findnextsectionleaf" ( dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
+  {{ else if .Parent }}
+    {{ if (eq .Parent .Site.Home ) }}
+      {{ $fullNodes := ( partial "generic-site-menu/merge-node-slices" (dict "curPages" .Parent.Pages "curSections" .Parent.Sections) ) }}
+      {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" $fullNodes "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
+    {{ else }}
+      {{ $fullNodes := ( partial "generic-site-menu/merge-node-slices" ( dict "curPages" .Parent.Pages "curSections" .Parent.Sections ) ) }}
+      {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" $fullNodes "menu_node" . "menu_type" "local-nav" ) ) }}
+    {{ end }}
+    {{ $curNode = . }}
+    {{ range $nextNodes }}
+      {{ $curPage = . }}
+      {{ if ( and $foundPage ( not $nextPage ) )  }}
+        {{ $nextPage = $curPage }}
+      {{ end }}
+      {{ if eq $curPage $curNode }}
+        {{ $foundPage = true }}
+      {{ end }}
+    {{ end }}
+    {{ if $foundPage }}
+      {{/*We at least found ourselves*/}}
+      {{ if $nextPage }}
+        {{/*We also found a next page so use it*/}}
+        <a href="{{ $nextPage.RelPermalink}}">Next</a>
+      {{ else }}
+        {{/*We must be the last page here, go up a level and try again*/}}
+        {{ partial "sidebar/local-nav/generate/nextrecurse" (dict "cur_node" $curCtx.cur_node "menu_node" $curCtx.menu_node.Parent "no_down" true) }}
+      {{ end }}
+    {{ else }}
+      {{/*No next page this level so go up a level and try again*/}}
+      {{ partial "sidebar/local-nav/generate/nextrecurse" (dict "cur_node" $curCtx.cur_node "menu_node" $curCtx.menu_node.Parent "no_down" true) }}
+    {{ end }}
+  {{ else }}
+<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  {{ end }}
 {{ end }}

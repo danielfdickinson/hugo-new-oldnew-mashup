@@ -1,6 +1,6 @@
 # Config for using theme as Hugo website
 
-baseURL = 'https://hugo-oldnew-mashup.thecshore.com/'
+baseURL = 'http://example.com/'
 languageCode = 'en-ca'
 languageLang = 'en'
 title = 'Oldnew Mashup'
@@ -24,6 +24,10 @@ disableKinds = ['taxonomy', 'taxonomyTerm']
   pygmentsCodeFences = true
   rssfeedlink = true
   validatorlink = true
+  site_badge_graphic = "/images/sample_image.png"
+  site_badge_graphic_alt_text = "[Logo for Hugo OldNew Mashup Theme Homepage]"
+  splash_images_bundle = "siteentry/splash-images"
+  enable_search = true
 
 [outputs]
   home = ["HTML", "JSON", "RSS"]

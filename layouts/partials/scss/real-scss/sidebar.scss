@@ -29,7 +29,8 @@
   text-align: center;
   width: 100%;
 
-  & a {
+  & a,
+  & span {
     color: $local-nav-text-color;
     display: inline-block;
     margin: 0;

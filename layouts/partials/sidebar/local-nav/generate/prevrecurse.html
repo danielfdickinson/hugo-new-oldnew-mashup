@@ -1,12 +1,56 @@
-{{ $curPage := .Scratch.Get "lnfpCurPage" }}
-{{ if .NextInSection }}
-  {{ if (not .NextInSection.Params.notinmenu) }}
-    <a href="{{ .NextInSection.RelPermalink }}">Prev</a>
-  {{ else }}
-    {{ .NextInSection.Scratch.Set "lnfpCurPage" $curPage }}
-    {{ partial "sidebar/local-nav/generate/prevrecurse" .NextInSection }}
+{{ $curCtx := . }}
+{{ $foundPrev := false }}
+{{ $foundPage := false }}
+{{ $curPage := .Scratch.Get "aNil" }}
+{{ $prevPage := .Scratch.Get "aNil" }}
+{{ $prevNodes := .Scratch.Get "aNil" }}
+{{ $curNode := .Scratch.Get "aNil" }}
+{{ with .menu_node }}
+  {{ if .Parent }}
+    {{/*Find the previous page*/}}
+    {{ if (eq .Parent .Site.Home ) }}
+      {{ $fullNodes := ( partial "generic-site-menu/merge-node-slices" (dict "curPages" .Parent.Pages "curSections" .Parent.Sections) ) }}
+      {{ $prevNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" $fullNodes "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
+    {{ else }}
+      {{ $fullNodes := ( partial "generic-site-menu/merge-node-slices" (dict "curPages" .Parent.Pages "curSections" .Parent.Sections ) ) }}
+      {{ $prevNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" $fullNodes "menu_node" . "menu_type" "local-nav" ) ) }}
+    {{ end }}
+    {{ $curNode = . }}
+    {{ range $prevNodes }}
+      {{ $curPage = . }}
+      {{ if eq $curPage $curNode }}
+        {{ $foundPage = true }}
+      {{ else if not $foundPage }}
+        {{ $prevPage = $curPage }}
+      {{ end }}
+    {{ end }}
+    {{ if and ( and $foundPage ( $curNode.IsAncestor $curCtx.cur_node ) ) ( ne $curNode $curCtx.cur_node ) }}
+      {{/*For the ancestors of the current node, just stop at the current page*/}}
+      <a href="{{ $curNode.Permalink }}">Prev</a>
+    {{ else if and $foundPage $prevPage }}
+      {{/*We found a previous page*/}}
+      {{/*descend into it's bottom leaf*/}}
+      {{ $fullPrevNodes := ( partial "generic-site-menu/merge-node-slices" (dict "curPages" $prevPage.Pages "curSections" $prevPage.Sections ) ) }}
+      {{ $prevChildNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" $fullPrevNodes "menu_node" . "menu_type" "local-nav" ) ) }}
+      {{ if not $prevChildNodes }}
+        {{/*No previous child leaf, just go to previous page*/}}
+        <a href="{{ $prevPage.RelPermalink }}">Prev</a>
+      {{ else }}
+        {{/*Go to previous page's leaf node*/}}
+        {{ partial "sidebar/local-nav/generate/findlastinsection" (dict "menu_node" $prevPage "cur_node" $curCtx.cur_node ) }}
+      {{ end }}
+    {{ else if $foundPage }}
+      {{/*No previous node, but found ourselves*/}}
+      {{ if not .Parent.Parent }}
+        {{/*Just go up to home*/}}
+        <a href="{{ .Parent.RelPermalink }}">Prev</a>
+      {{ else }}
+        {{/*Go up one level and go to last previous leaf*/}}
+        {{ partial "sidebar/local-nav/generate/prevrecurse" ( dict "cur_node" $curCtx.cur_node "menu_node" .Parent ) }}
+      {{ end }}
+    {{ else }}
+      {{/*Just go up to home*/}}
+      <a href="{{ .Parent.RelPermalink }}">Prev</a>
+    {{ end }}
   {{ end }}
-{{ else }}
-    {{ $curPage.Scratch.Set "lnfpCurPage" $curPage }}
-    {{ partial "sidebar/local-nav/generate/findprevsectionleaf" $curPage }}
 {{ end }}
