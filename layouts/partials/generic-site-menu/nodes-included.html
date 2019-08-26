@@ -7,9 +7,11 @@
   {{ range $ctx.nodes }}
     {{ $includeNode = true }}
     {{ if ( eq $ctx.trimHomeChildren true )}}
-      {{ if and (or (ne ( path.Base .File.Dir ) ( path.Dir .File.Path ) ) ( ne .File.BaseFileName  "_index" )  ) ( ne .File.Dir "/" ) }}
-        {{/*Top-level only*/}}
-        {{ $includeNode = false }}
+      {{ if .File }}
+        {{ if and (or (ne ( path.Base .File.Dir ) ( path.Dir .File.Path ) ) ( ne .File.BaseFileName  "_index" )  ) ( ne .File.Dir "/" ) }}
+          {{/*Top-level only*/}}
+          {{ $includeNode = false }}
+        {{ end }}
       {{ end }}
     {{ end }}
     {{ $not_in_lists := .Param "not_in_lists" }}
@@ -20,14 +22,18 @@
       {{ end }}
     {{ end }}
     {{ if ( eq .Kind "section" ) }}
-      {{ if ( in .Aliases (path.Dir .File.Path) ) }}
-        {{/*This node an alias*/}}
-        {{ $includeNode = false }}
+      {{ if .File }}
+        {{ if ( in .Aliases (path.Dir .File.Path) ) }}
+          {{/*This node an alias*/}}
+          {{ $includeNode = false }}
+        {{ end }}
       {{ end }}
     {{ else }}
-      {{ if ( in .Aliases .File.Path ) }}
-        {{/*This node is an alias*/}}
-        {{ $includeNode = false }}
+      {{ if .File }}
+        {{ if ( in .Aliases .File.Path ) }}
+          {{/*This node is an alias*/}}
+          {{ $includeNode = false }}
+        {{ end }}
       {{ end }}
     {{ end }}
     {{ if ( in ( slice "home" "taxonomy" "taxonomyTerm" ) .Kind ) }}
