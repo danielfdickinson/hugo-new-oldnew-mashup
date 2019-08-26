@@ -466,7 +466,8 @@ input[type='text'] {
   display: block;
   text-align: center;
   width: 100%; }
-  .local-nav-bar a {
+  .local-nav-bar a,
+  .local-nav-bar span {
     color: #000;
     display: inline-block;
     margin: 0;
@@ -474,16 +475,24 @@ input[type='text'] {
     text-align: center;
     text-decoration: none;
     width: 30%; }
-    .local-nav-bar a:link, .local-nav-bar a:visited, .local-nav-bar a:active, .local-nav-bar a:hover {
+    .local-nav-bar a:link, .local-nav-bar a:visited, .local-nav-bar a:active, .local-nav-bar a:hover,
+    .local-nav-bar span:link,
+    .local-nav-bar span:visited,
+    .local-nav-bar span:active,
+    .local-nav-bar span:hover {
       display: inline-block;
       margin: 0;
       padding: 0;
       text-align: center;
       text-decoration: none;
       width: 30%; }
-    .local-nav-bar a:link, .local-nav-bar a:visited {
+    .local-nav-bar a:link, .local-nav-bar a:visited,
+    .local-nav-bar span:link,
+    .local-nav-bar span:visited {
       color: #222; }
-    .local-nav-bar a:active, .local-nav-bar a:hover {
+    .local-nav-bar a:active, .local-nav-bar a:hover,
+    .local-nav-bar span:active,
+    .local-nav-bar span:hover {
       background-color: #ddd;
       color: #222; }
 

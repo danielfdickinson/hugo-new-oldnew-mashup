@@ -1,6 +1,6 @@
 ---
 title: Splash Images Resources
-notinmenu: true
+not_in_lists: [site, sidebar-nav, local-nav, sidebar-recent, section]
 resources:
   - src: splash-demo-image1.jpg
     params:

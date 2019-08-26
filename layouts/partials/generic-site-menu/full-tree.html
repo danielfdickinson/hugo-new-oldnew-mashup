@@ -1,0 +1,19 @@
+{{ $curCtx := . }}
+{{ with .menu_node }}
+  {{ $topLevelPages := ( partial "generic-site-menu/top-level-pages" . ) }}
+  {{ $nodes := ( partial "generic-site-menu/merge-node-slices" (dict "curSections" .Site.Sections "curPages" $topLevelPages ) ) }}
+  {{ range ( partial "generic-site-menu/nodes-included" (dict "nodes" $nodes "menu_node" . "menu_type" $curCtx.menu_type ) ) }}
+  <li class="menu-item">
+    {{ partial "generic-site-menu/menu-item" ( dict "cur_node" $curCtx.menu_node "menu_node" . ) }}
+    {{ if (eq .Kind "page" ) }}
+    </li>
+    {{ else if (eq .Kind "section" ) }}
+      <ul class="menu-parent">
+        {{ partial "generic-site-menu/menu-section" ( dict "cur_node" $curCtx.menu_node "menu_node" . "menu_type" $curCtx.menu_type ) }}
+      </ul>
+    </li>
+    {{ else }}
+    <!-- unknown {{ .Kind }} --></li>
+    {{ end }}
+  {{ end }}
+{{ end }}

@@ -3,6 +3,7 @@ title: "Accessibility Statement"
 date: 2019-08-14T06:19:45-04:00
 copyright: 2019 Daniel F. Dickinson
 license: CC-BY-4.0
+weight: 14
 ---
 
 # Accessibility Statement

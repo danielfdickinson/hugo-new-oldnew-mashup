@@ -1,1 +1,1 @@
-<div class="menu-entry-wrapper" ><a class="menu-link" title="{{ if .Name }}{{ .Name }}{{ else }}Home{{ end }}" href="{{ .RelPermalink }}"><span class="menu-entry">{{ if .Name }}{{ .Name }}{{ else }}Home{{ end }}</span></a></div>
+<div class="menu-entry-wrapper {{ if (eq .cur_node .menu_node ) }}current-page{{ end }}" ><a class="menu-link" title="{{ if .menu_node.Name }}{{ .menu_node.Name }}{{ else }}Home{{ end }}" href="{{ .menu_node.RelPermalink }}"><span class="menu-entry">{{ if .menu_node.Name }}{{ .menu_node.Name }}{{ else }}Home{{ end }}</span></a></div>

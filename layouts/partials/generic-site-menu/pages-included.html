@@ -1,0 +1,11 @@
+{{ $scratch := newScratch }}
+{{ range (where .Pages "Params.notinmenu" "ne" true) }}
+  {{ if (not (or (in .Aliases .Name ) (in .Parent.Aliases .Parent.Type ) ) ) }}
+    {{ if $scratch.Get "nonAliasPages" }}
+      {{ $scratch.Add "nonAliasPages" . }}
+    {{ else }}
+      {{ $scratch.Set "nonAliasPages" ( slice . ) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return $scratch.Get "nonAliasPages" }}
