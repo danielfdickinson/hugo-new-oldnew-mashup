@@ -5,6 +5,13 @@ copyright: 2018 Daniel F. Dickinson
 license: CC-BY-4.0
 weight: 100000000
 layout: section
+categories:
+  - licenses
+  - listing
+tags:
+  - licenses
+  - open source
+
 ---
 
 # Licenses

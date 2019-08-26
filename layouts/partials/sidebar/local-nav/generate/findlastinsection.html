@@ -12,10 +12,10 @@
       {{ end }}
     {{ else }}
       {{/*No children, we must be terminal*/}}
-      <a href="{{ .RelPermalink }}">Prev</a>
+      {{ if .RelPermalink }}<a href="{{ .RelPermalink }}">Prev</a>{{ end }}
     {{ end }}
   {{ else }}
     {{/*else we are the target*/}}
-    <a href="{{ .RelPermalink }}">Prev</a>
+    {{ if .RelPermalink }}<a href="{{ .RelPermalink }}">Prev</a>{{ end }}
   {{ end }}
 {{ end }}

@@ -5,6 +5,14 @@ copyright: 2018 Daniel F. Dickinson
 license: CC-BY-4.0
 weight: -1000
 layout: siteentry
+categories:
+  - homepage
+  - documentation
+tags:
+  - homepage
+  - documentation
+  - theme
+  - information
 ---
 # Hugo OldNew Mashup Theme
 

@@ -14,7 +14,7 @@
     {{ if (first 1 $nextNodes) }}
       {{/*We have children so go down one level*/}}
       {{ range (first 1 $nextNodes) }}
-        <a href="{{ .RelPermalink }}">Next</a>
+        {{ if .RelPermalink }}<a href="{{ .RelPermalink }}">Next</a>{{ end }}
       {{ end }}
     {{ else }}
       {{/*We don't actually have children*/}}

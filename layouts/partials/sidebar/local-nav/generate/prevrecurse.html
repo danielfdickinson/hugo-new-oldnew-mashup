@@ -26,7 +26,7 @@
     {{ end }}
     {{ if and ( and $foundPage ( $curNode.IsAncestor $curCtx.cur_node ) ) ( ne $curNode $curCtx.cur_node ) }}
       {{/*For the ancestors of the current node, just stop at the current page*/}}
-      <a href="{{ $curNode.Permalink }}">Prev</a>
+      {{ if $curNode.RelPermalink }}<a href="{{ $curNode.RelPermalink }}">Prev</a>{{ end }}
     {{ else if and $foundPage $prevPage }}
       {{/*We found a previous page*/}}
       {{/*descend into it's bottom leaf*/}}
@@ -34,7 +34,7 @@
       {{ $prevChildNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" $fullPrevNodes "menu_node" . "menu_type" "local-nav" ) ) }}
       {{ if not $prevChildNodes }}
         {{/*No previous child leaf, just go to previous page*/}}
-        <a href="{{ $prevPage.RelPermalink }}">Prev</a>
+        {{ if $prevPage.RelPermalink }}<a href="{{ $prevPage.RelPermalink }}">Prev</a>{{ end }}
       {{ else }}
         {{/*Go to previous page's leaf node*/}}
         {{ partial "sidebar/local-nav/generate/findlastinsection" (dict "menu_node" $prevPage "cur_node" $curCtx.cur_node ) }}
@@ -43,14 +43,14 @@
       {{/*No previous node, but found ourselves*/}}
       {{ if not .Parent.Parent }}
         {{/*Just go up to home*/}}
-        <a href="{{ .Parent.RelPermalink }}">Prev</a>
+        {{ if .Parent.RelPermalink }}<a href="{{ .Parent.RelPermalink }}">Prev</a>{{ end }}
       {{ else }}
         {{/*Go up one level and go to last previous leaf*/}}
         {{ partial "sidebar/local-nav/generate/prevrecurse" ( dict "cur_node" $curCtx.cur_node "menu_node" .Parent ) }}
       {{ end }}
     {{ else }}
       {{/*Just go up to home*/}}
-      <a href="{{ .Parent.RelPermalink }}">Prev</a>
+      {{ if .Parent.RelPermalink }}<a href="{{ .Parent.RelPermalink }}">Prev</a>{{ end }}
     {{ end }}
   {{ end }}
 {{ end }}

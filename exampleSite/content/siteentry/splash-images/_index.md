@@ -1,5 +1,16 @@
 ---
 title: Splash Images Resources
+categories:
+  - images
+  - descriptions
+  - listing
+  - back-end
+tags:
+  - images
+  - descriptions
+  - listing
+  - back-end
+
 not_in_lists: [site, sidebar-nav, local-nav, sidebar-recent, section]
 resources:
   - src: splash-demo-image1.jpg

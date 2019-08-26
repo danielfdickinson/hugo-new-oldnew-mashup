@@ -4,6 +4,15 @@ title: "Lorem"
 copyright: 2018 Daniel F. Dickinson
 license: CC0-1.0
 weight: 100
+categories:
+- demo
+- placeholder
+tags:
+- demo
+- lorem ipsum
+- dummy
+- placeholder
+
 ---
 
 # A Collection of Lorem Ipsum Texts

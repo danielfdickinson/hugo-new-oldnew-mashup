@@ -6,6 +6,7 @@
 <ul class="sitemap-list">
   <!-- Copyright 2018-2019 Daniel F. Dickinson,
        Released under the Creative Commons 4.0 BY (Attribution) License -->
+{{ if .Parent }}
 {{ $curNode := . }}
 {{ if (and .IsPage (and .Parent .Parent.Parent) ) }}
   {{ $nodes := ( slice .Parent ) }}
@@ -39,5 +40,6 @@
     <!-- unknown {{ .Kind }} --></li>
     {{ end }}
   {{ end }}
+{{ end }}
 {{ end }}
 </ul></nav>

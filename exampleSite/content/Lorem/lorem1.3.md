@@ -4,6 +4,15 @@ title: "Neque Convallis"
 copyright: 2018 Daniel F. Dickinson and Others
 license: Custom&CC0-1.0
 weight: 120000
+categories:
+- demo
+- placeholder
+tags:
+- demo
+- lorem ipsum
+- dummy
+- placeholder
+
 ---
 # Neque Convallis
 

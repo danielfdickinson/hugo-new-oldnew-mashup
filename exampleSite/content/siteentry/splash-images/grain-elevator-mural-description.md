@@ -1,6 +1,14 @@
 ---
 title: "Photo of Grain Elevator with Mural Description"
 not_in_lists: [site, sidebar-nav, local-nav, sidebar-recent]
+categories:
+  - images
+  - descriptions
+  - back-end
+tags:
+  - images
+  - descriptions
+  - back-end
 ---
 
 Photo with a hazy sky at the top, with a hill of trees with autumn
