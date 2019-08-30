@@ -2,6 +2,14 @@
 title: "Rock Garden Screenshot Description"
 notinmenu: true
 not_in_lists: [site, sidebar-nav, local-nav, sidebar-recent]
+categories:
+  - images
+  - descriptions
+  - back-end
+tags:
+  - images
+  - descriptions
+  - back-end
 ---
 
 Photo with multiple levels of a rock garden on a hill.  At the bottom of

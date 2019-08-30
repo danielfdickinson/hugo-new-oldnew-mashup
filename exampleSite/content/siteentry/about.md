@@ -3,6 +3,16 @@ title: "About (Lorem Ipsum)"
 copyright: 2018 Daniel F. Dickinson and Expired
 license: Expired&CC0-1.0
 weight: 1
+categories:
+  - about
+  - placeholder
+  - information
+tags:
+  - placeholder
+  - lorem ipsum
+  - about
+  - typography
+  - latin
 ---
 # About (Lorem Ipsum)
 

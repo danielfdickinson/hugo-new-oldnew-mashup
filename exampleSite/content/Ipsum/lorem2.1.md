@@ -3,6 +3,15 @@ date: 2018-05-20T01:56:30-04:00
 title: "Viverra Justo Nec"
 copyright: 2018 Daniel F. Dickinson and Expired
 license: Custom&CC0-1.0
+categories:
+  - demo
+  - placeholder
+tags:
+  - demo
+  - lorem ipsum
+  - dummy
+  - placeholder
+
 ---
 
 # Viverra Justo Nec

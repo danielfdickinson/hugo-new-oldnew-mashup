@@ -1,6 +1,6 @@
 # Config for using theme as Hugo website
 
-baseURL = 'http://example.com/'
+#baseURL = 'http://example.com/'
 languageCode = 'en-ca'
 languageLang = 'en'
 title = 'Oldnew Mashup'
@@ -9,11 +9,6 @@ theme = 'oldnew-mashup'
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 summaryLength = 30
-
-# RSS, categories and tags disabled for an easy start
-# See configuration options for more details:
-# https://gohugo.io/getting-started/configuration/#toml-configuration
-disableKinds = ['taxonomy', 'taxonomyTerm']
 
 [params]
   siteid = 'OldNew Mashup'

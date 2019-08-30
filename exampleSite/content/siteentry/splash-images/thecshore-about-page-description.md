@@ -2,6 +2,14 @@
 title: "The C Shore About Page Description"
 notinmenu: true
 not_in_lists: [site, sidebar-nav, local-nav, sidebar-recent]
+categories:
+  - images
+  - descriptions
+  - back-end
+tags:
+  - images
+  - descriptions
+  - back-end
 ---
 
 A screen shot of an old version of The C Shore About Page.  It consists

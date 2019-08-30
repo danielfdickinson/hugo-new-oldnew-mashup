@@ -188,26 +188,6 @@ input[type='text'] {
 /*! Copyright 2007-2009,2017-2018 Daniel F. Dickinson <cshored@thecshore.com>
  *  Released under the Creative Commons BY (Attribution) 4.0 License
  */
-@media speech {
-  .screen-reader-element {
-    display: block; } }
-
-@media not speech {
-  .screen-reader-element {
-    display: none; } }
-
-.nav-skip-to-anchor {
-  display: none;
-  float: left;
-  font-size: 0;
-  left: 0;
-  position: absolute !important;
-  top: 0;
-  visibility: hidden; }
-
-/*! Copyright 2007-2009,2017-2018 Daniel F. Dickinson <cshored@thecshore.com>
- *  Released under the Creative Commons BY (Attribution) 4.0 License
- */
 .default-body-wrapper {
   align-content: flex-start;
   align-items: flex-start;

@@ -39,7 +39,7 @@
       {{/*We at least found ourselves*/}}
       {{ if $nextPage }}
         {{/*We also found a next page so use it*/}}
-        <a href="{{ $nextPage.RelPermalink}}">Next</a>
+        {{ if $nextPage.RelPermalink }}<a href="{{ $nextPage.RelPermalink}}">Next</a>{{ end }}
       {{ else }}
         {{/*We must be the last page here, go up a level and try again*/}}
         {{ partial "sidebar/local-nav/generate/nextrecurse" (dict "cur_node" $curCtx.cur_node "menu_node" $curCtx.menu_node.Parent "no_down" true) }}

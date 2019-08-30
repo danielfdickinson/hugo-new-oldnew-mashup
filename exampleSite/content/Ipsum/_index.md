@@ -4,6 +4,15 @@ title: "Ipsum"
 copyright: 2018 Daniel F. Dickinson and Expired
 license: CC0-1.0
 weight: 200
+categories:
+- demo
+- placeholder
+tags:
+- demo
+- lorem ipsum
+- dummy
+- placeholder
+
 ---
 
 # A Second Collection of Lorem Ipsum Texts

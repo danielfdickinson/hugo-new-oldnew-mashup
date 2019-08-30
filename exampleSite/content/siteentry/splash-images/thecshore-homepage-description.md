@@ -2,6 +2,14 @@
 title: "Screenshot of The CShore Website Homepage Description"
 notinmenu: true
 not_in_lists: [site, sidebar-nav, local-nav, sidebar-recent]
+categories:
+  - images
+  - descriptions
+  - back-end
+tags:
+  - images
+  - descriptions
+  - back-end
 ---
 
 Screenshot of an old version of The CShore Website Homepage which is
