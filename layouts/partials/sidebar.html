@@ -17,7 +17,6 @@
   {{ $newsPages := where .Site.Pages.ByLastmod.Reverse "Type" "news" }}
   {{ $newsNodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $newsPages "menu_node" . "menu_type" "sidebar-recent" ) ) }}
   {{ if $newsNodes }}
-    {{ partial "nav-skipto-links" . }}
     <section aria-labelledby="sidebar-news-title" id="sidebar-news" class="page-news sidebar-box">
       <h2 id="sidebar-news-title" class="sidebar-title">News</h2>
         {{ range first 5 $newsNodes }}
@@ -28,7 +27,6 @@
   {{ $eventPages := where .Site.Pages.ByLastmod.Reverse "Type" "events" }}
   {{ $eventNodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $eventPages "menu_node" . "menu_type" "sidebar-recent" ) ) }}
   {{ if $eventNodes }}
-    {{ partial "nav-skipto-links" . }}node
     <section aria-labelledby="sidebar-events-title" id="sidebar-events" class="sidebar-page-events sidebar-box">
       <h2 id="sidebar-events-title" class="sidebar-title">Events</h2>
         {{ range first 5 $eventNodes }}
@@ -39,7 +37,6 @@
   {{ $startNodes := .Site.Pages.ByLastmod.Reverse }}
   {{ $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $startNodes "menu_node" . "menu_type" "sidebar-recent" ) ) }}
   {{ if $nodes }}
-    {{ partial "nav-skipto-links" . }}
       <section aria-labelledby="sidebar-recent-changes" class="sidebar-recent-changes sidebar-box">
         <h2 id="sidebar-recent-changes" class="sidebar-title">Recent Changes</h2>
       {{ range first 5 $nodes }}
