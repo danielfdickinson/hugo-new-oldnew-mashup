@@ -1,8 +1,13 @@
-{{ block "metadata" . }}
+{{ block "metarender" . }}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <!-- Copyright 2018 Daniel F. Dickinson,
        Released under the Creative Commons 4.0 BY (Attribution) License -->
+{{ end }}
+{{ block "metadata" . }}
+  {{ if (index .Params "categories") }}<meta name="keywords" content="{{ delimit (index .Params "categories") ", " }}">{{ end }}
+  {{ if (index .Params "description") }}<meta name="description" content="{{ index .Params "description" }}">{{ end }}
+  {{ if (index .Params "author") }}<meta name="author" content="{{ index .Params "author" }}">{{ end }}
 {{ end }}
 {{ block "links" . }}
     {{ if $.Site.BaseURL }}<base href="{{ $.Site.BaseURL }}">{{ end }}

@@ -124,8 +124,8 @@ function populateResults(result) {
       key: key,
       title: value.item.title,
       link: value.item.permalink,
-      tags: value.item.tags,
-      categories: value.item.categories,
+      tags: value.item.tags.join(', '),
+      categories: value.item.categories.join(', '),
       snippet: snippet
     });
     document.getElementById("search-results").appendChild(htmlToElement(output));

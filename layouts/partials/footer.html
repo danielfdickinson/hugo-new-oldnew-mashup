@@ -1,16 +1,15 @@
-{{/* Default Footer for OldNew Mashup Theme */}}
-  <footer aria-label="Page Footer" id="page-footer" class="footer">
-  <!-- Copyright 2019 Daniel F. Dickinson,
-       Released under the Creative Commons 4.0 BY (Attribution) License -->
-    {{ block "footerlinks" . }}
-      {{ if not (or .Site.Params.nofooterlinks .Params.nofooterlinks) }}
-        {{ partial "footer/links" . }}
-      {{ end }}
+{{/*Default Footer for OldNew Mashup Theme*/}}
+<footer aria-label="Page Footer" id="page-footer" class="page-footer">
+<!-- Copyright 2019 Daniel F. Dickinson,
+     Released under the Creative Commons 4.0 BY (Attribution) License -->
+  {{ block "footerlinks" . }}
+    {{ if not (or .Site.Params.nofooterlinks .Params.nofooterlinks) }}
+      {{ partial "footer/links" . }}
     {{ end }}
-    {{ block "footercolophon" .}}
-      {{ if not (or .Site.Params.nocolophon .Params.nocolophon) }}
-        {{ partial "footer/colophon" . }}
-      {{ end }}
+  {{ end }}
+  {{ block "footercolophon" .}}
+    {{ if not (or .Site.Params.nocolophon .Params.nocolophon) }}
+      {{ partial "footer/colophon" . }}
     {{ end }}
-  </footer>
-{{/* Hugo partial */}}
+  {{ end }}
+</footer>

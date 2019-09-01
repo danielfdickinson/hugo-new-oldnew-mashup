@@ -5,7 +5,9 @@
 <main class="main">
   <div aria-labelledby="main-content" class="main-body">
     <article aria-label="Main Content" id="main-content" class="MainContent">
-      <div id="search-results">
+      <h1 class="page-title">Search Results</h1>
+      {{ partial "generic-helpers/taxonomy/taxonomy-list"  (dict "curRegPage" . "taxonomyType" "category" ) }}
+     <div id="search-results">
         <h3>Matching pages</h3>
      </div>
     </article>
@@ -14,7 +16,8 @@
       {{ markdownify .Params.aside }}
     </aside>
     {{ end }}
-  </div>
+    {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "tag" ) }}
+   </div>
   {{ partial "sidebar" . }}
 </main>
 <!-- this template is sucked in by search.js and appended to the search-results div above. So editing here will adjust style -->

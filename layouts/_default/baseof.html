@@ -22,7 +22,10 @@
         <main class="main">
           <div aria-labelledby="main-content" class="main-body">
             <article aria-label="Main Content" id="main-content" class="MainContent">
+              {{ if .Title }}<h1 class="page-title">{{ .Title }}</h1>{{ end }}
+              {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "category" ) }}
               {{ .Content }}
+              {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "tag" ) }}
             </article>
           </div>
           {{ partial "sidebar-right" . }}

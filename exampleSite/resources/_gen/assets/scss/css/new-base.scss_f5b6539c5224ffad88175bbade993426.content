@@ -99,8 +99,13 @@ a {
     color: #f00; }
 
 h1 {
+  display: none;
   font-family: Georgia, serif;
   text-align: center; }
+  h1.page-title {
+    display: block;
+    font-family: Georgia, serif;
+    text-align: center; }
 
 input[type='text'] {
   width: 100%; }
@@ -338,63 +343,63 @@ input[type='text'] {
   .graphics-row {
     flex: 0 0 48px; } }
 
-.footer {
+.page-footer {
   flex: 1 1 100%;
   font-size: smaller;
   margin-top: .4em;
   order: 999; }
-  .footer .footer-links {
+  .page-footer .footer-links {
     border-top: 2px solid #909090;
     display: flex;
     justify-content: space-between;
     padding: .3em;
     text-align: center; }
-    .footer .footer-links a:link, .footer .footer-links a:visited, .footer .footer-links a:active, .footer .footer-links a:hover {
+    .page-footer .footer-links a:link, .page-footer .footer-links a:visited, .page-footer .footer-links a:active, .page-footer .footer-links a:hover {
       text-decoration: none; }
-    .footer .footer-links span {
+    .page-footer .footer-links span {
       border-left: 2px solid #909090;
       border-right: 2px solid #909090;
       display: inline-block;
       padding-left: .2em;
       padding-right: .2em; }
-  .footer .colophon {
+  .page-footer .colophon {
     border-top: 2px solid #909090;
     padding: .3em;
     text-align: left; }
-    .footer .colophon .license-block {
+    .page-footer .colophon .license-block {
       display: inline-block;
       font-style: italic; }
-      .footer .colophon .license-block .page-license .license-list {
+      .page-footer .colophon .license-block .page-license .license-list {
         display: inline;
         list-style: none;
         margin: 0;
         padding: 0; }
-        .footer .colophon .license-block .page-license .license-list .license-item {
+        .page-footer .colophon .license-block .page-license .license-list .license-item {
           display: inline;
           list-style: none;
           margin: 0;
           padding: 0; }
-          .footer .colophon .license-block .page-license .license-list .license-item::after {
+          .page-footer .colophon .license-block .page-license .license-list .license-item::after {
             content: ', '; }
-          .footer .colophon .license-block .page-license .license-list .license-item:last-child::after {
+          .page-footer .colophon .license-block .page-license .license-list .license-item:last-child::after {
             content: ''; }
-      .footer .colophon .license-block .site-license .license-list {
+      .page-footer .colophon .license-block .site-license .license-list {
         display: inline;
         list-style: none;
         margin: 0;
         padding: 0; }
-        .footer .colophon .license-block .site-license .license-list .license-item {
+        .page-footer .colophon .license-block .site-license .license-list .license-item {
           display: inline;
           list-style: none;
           margin: 0;
           padding: 0; }
-          .footer .colophon .license-block .site-license .license-list .license-item::after {
+          .page-footer .colophon .license-block .site-license .license-list .license-item::after {
             content: ', '; }
-          .footer .colophon .license-block .site-license .license-list .license-item:last-child::after {
+          .page-footer .colophon .license-block .site-license .license-list .license-item:last-child::after {
             content: ''; }
-      .footer .colophon .license-block .label {
+      .page-footer .colophon .license-block .label {
         font-weight: normal; }
-    .footer .colophon .doc-date-block {
+    .page-footer .colophon .doc-date-block {
       border: 4px solid #ccc;
       color: #ccc;
       padding: .6em;
@@ -1254,6 +1259,8 @@ input[type='text'] {
             z-index: 7; }
           .homepage .main-content .splash .screenshot-list li:nth-child(4) {
             transform: translate(0, -55%) rotate(0deg); }
+    .homepage .main-content .page-taxonomy-list.tags-list {
+      display: none; }
 
 /*! Copyright 2007-2009,2017-2018 Daniel F. Dickinson <cshored@thecshore.com>
  *  Released under the Creative Commons BY (Attribution) 4.0 License
@@ -1280,15 +1287,17 @@ input[type='text'] {
 
 .four-oh-four {
   display: block;
+  margin-top: 0;
   text-align: center; }
   .four-oh-four .main {
+    margin-top: 0;
     align-content: stretch;
-    align-items: stretch;
+    align-items: flex-start;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    padding-bottom: 4em;
-    padding-top: 2em; }
+    margin-top: 0;
+    padding-bottom: 4em; }
     .four-oh-four .main .title {
       display: block;
       flex: 1 1 100%;
@@ -1311,6 +1320,8 @@ input[type='text'] {
         padding-right: 0;
         padding-top: .5em;
         text-align: left; }
+      .four-oh-four .main .not-found-box.sidebar {
+        margin-top: 1em; }
 
 .contact-form {
   height: 100%;
@@ -1327,6 +1338,28 @@ input[type='text'] {
     .contact-form .question-comment-wrapper .question-comment {
       height: 8em;
       width: 100%; }
+
+.page-taxonomy-list {
+  background-color: #222;
+  color: #ccc;
+  font-size: .8em;
+  font-style: italic; }
+  .page-taxonomy-list.tags-list {
+    background-color: #333;
+    color: #eee;
+    font-size: .8em;
+    margin-top: .8em;
+    text-align: center; }
+    .page-taxonomy-list.tags-list .page-tag {
+      background-color: #222;
+      border-radius: 16px;
+      color: #ccc;
+      padding: .2em; }
+    .page-taxonomy-list.tags-list .tags-label {
+      display: none; }
+    .page-taxonomy-list.tags-list a:link, .page-taxonomy-list.tags-list a:visited, .page-taxonomy-list.tags-list a:active, .page-taxonomy-list.tags-list a:hover {
+      border-radius: 16px;
+      text-decoration: none; }
 
 @media print {
   html body .github-fork-ribbon.left-bottom.fixed {

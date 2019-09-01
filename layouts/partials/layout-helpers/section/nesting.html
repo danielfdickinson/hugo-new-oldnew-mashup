@@ -1,3 +1,22 @@
-        {{ range .Pages }}
-          {{ .Render "li" }}
-        {{ end }}
+{{ $curCtx := . }}
+{{ $pages := .Data.Pages }}
+{{ if .Data.Terms }}
+  {{ if eq ( .Title | lower | singularize ) "category" }}
+    {{ $pages = .Data.Terms.Alphabetical }}
+  {{ else if eq ( .Title | lower | singularize ) "tag" }}
+    {{ $pages = .Data.Terms.ByCount }}
+  {{ else }}
+    {{ $pages = .Data.Terms }}
+  {{end }}
+  {{ range $pages }}
+    {{ partial "layout-helpers/section/listitem" (dict "itemPage" .Page "parentPage" $curCtx "taxonomyPage" . ) }}
+  {{ end }}
+{{ else if .Data.Singular }}
+  {{ range .Data.Pages }}
+    {{ partial "layout-helpers/section/listitem" (dict "itemPage" .Page "parentPage" $curCtx ) }}
+  {{ end }}
+{{ else }}
+  {{ range $pages }}
+    {{ partial "layout-helpers/section/listitem" (dict "itemPage" . "parentPage" $curCtx ) }}
+  {{ end }}
+{{ end }}

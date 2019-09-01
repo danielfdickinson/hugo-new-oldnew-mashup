@@ -2,7 +2,7 @@
 title: "Search Results"
 sitemap:
   priority : 0.1
-layout: "search"
+layout: search
 nortoc: true
 not_in_lists: [site,sidebar-nav,local-nav,sidebar-recent,section,sitemap]
 ---
