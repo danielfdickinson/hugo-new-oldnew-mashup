@@ -9,23 +9,26 @@
 {{ define "main" }}
     <div class="four-oh-four">
       <main class="main">
-        <h1 class="title">404 Resource not found</h1>
-        <article class="not-found-box">
-          <div class="not-found-block">
-            {{ print "It seems we can't find that for which you are looking... :disappointed:" | emojify | markdownify }}
-          </div>
-          <div class="search-to-find-block">
-            <form class="search-form-404" action="{{ "/siteentry/search" | relURL }}">
-              <label for="search-query-404">Search to find it:</label> <input id="search-query-404" aria-label="Search box" type="search" name="s" size="2" /><input id="search-button-404" type="submit" value="Search" size="2" />
-            </form>
-          </div>
-          <div class="browse-to-find-block">
-            {{ markdownify "Or you can try to [Browse to find it](/)" }}
-          </div>
-          <div class="sitemap-to-find-block">
-            {{ markdownify "Alternatively, you can [View the Sitemap](siteentry/sitemap)" }}
-          </div>
-        </article>
+        <div aria-labelledby="main-content" class="main-body">
+          <article aria-label="Main Content" id="main-content" class="MainContent not-found-box">
+            <h1 class="title">404 Resource not found</h1>
+            <div class="not-found-block">
+              {{ print "It seems we can't find that for which you are looking... :disappointed:" | emojify | markdownify }}
+            </div>
+            <div class="search-to-find-block">
+              <form class="search-form-404" action="{{ "/siteentry/search" | relURL }}">
+                <label for="search-query-404">Search to find it:</label> <input id="search-query-404" aria-label="Search box" type="search" name="s" size="2" /><input id="search-button-404" type="submit" value="Search" size="2" />
+              </form>
+            </div>
+            <div class="browse-to-find-block">
+              {{ markdownify "Or you can try to [Browse to find it](/)" }}
+            </div>
+            <div class="sitemap-to-find-block">
+              {{ markdownify "Alternatively, you can [View the Sitemap](siteentry/sitemap)" }}
+            </div>
+          </article>
+        </div>
+        {{ partial "sidebar" . }}
       </main>
     </div>
 {{ end }}

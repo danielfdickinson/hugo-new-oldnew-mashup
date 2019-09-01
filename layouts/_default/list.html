@@ -1,5 +1,5 @@
 {{ define "title" }}
-  {{.Title}}
+  {{ if .Title }}{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title | singularize | humanize }}{{ else }}{{ .Title }}{{ end }}{{ end }}{{ end }}
 {{ end }}
 {{ define "bodytag" }}
   <body>
@@ -10,21 +10,28 @@
   <main aria-label="Page Body" class="section-page-main">
     <div aria-labelledby="main-content" class="main-body">
       <article aria-label="Main Content" id="main-content" class="MainContent">
+        {{ if .Title }}<h1 class="page-title">{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title | singularize | humanize }}{{ else }}{{ .Title }}{{ end }}{{ end }}</h1>{{ end }}
+        {{ partial "generic-helpers/taxonomy/taxonomy-list"  (dict "curRegPage" . "taxonomyType" "category" ) }}
         {{ .Content }}
       </article>
       {{ if (or .Data.Pages .Sections) }}
         <section aria-labelledby="section-contents-heading" class="section-toc">
-          <h2 id="section-contents-heading" class="section-contents-heading">Section Contents</h2>
+          {{ if .Data.Singular }}
+            <h2 id="section-contents-heading" class="section-contents-heading">{{ if .Data.Terms }}{{ .Data.Singular | singularize | humanize }} List{{ else}}{{ .Title | singularize | humanize }} Pages{{ end }}</h2>
+          {{ else }}
+            <h2 id="section-contents-heading" class="section-contents-heading">Section Contents</h2>
+          {{ end }}
           <ol class="section-contents">
       {{ end }}
-            {{ partial "layout-helpers/section/nesting" . }}
-            {{ range .Sections }}
-              {{ partial "layout-helpers/section/listing" . }}
-            {{ end }}
+        {{ partial "layout-helpers/section/nesting" . }}
+        {{ range .Sections }}
+          {{ partial "layout-helpers/section/listing" . }}
+        {{ end }}
       {{ if (or .Data.Pages .Sections) }}
           </ol>
         </section>
       {{ end }}
+      {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "tag" ) }}
     </div>
     {{ partial "sidebar" . }}
   </main>

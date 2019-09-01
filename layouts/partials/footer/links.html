@@ -9,6 +9,11 @@
       {{ partial "footer/footer-links/sitemap" . }}
     {{ end }}
   {{ end }}
+  {{ block "taxonomies" . }}
+    {{ if not (.Param "nofootertaxonomies") }}
+      {{ partial "footer/footer-links/taxonomies" . }}
+    {{ end }}
+  {{ end }}
   {{ block "privacy" . }}
     {{ if not (or .Site.Params.noprivacy .Params.noprivacy) }}
       {{ partial "footer/footer-links/privacy" . }}

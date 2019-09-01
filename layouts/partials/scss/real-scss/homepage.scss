@@ -190,6 +190,14 @@
   }
 }
 
+@mixin homepage-footer {
+  .page-taxonomy-list {
+    &.tags-list {
+      display: none;
+    }
+  }
+}
+
 .homepage {
   align-content: flex-start;
   align-items: flex-start;
@@ -203,6 +211,7 @@
     @include homepage-taglines;
     @include homepage-title;
     @include splash-section;
+    @include homepage-footer;
 
     align-items: center;
     display: inline-flex;

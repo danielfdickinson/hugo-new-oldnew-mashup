@@ -130,8 +130,15 @@ a {
 }
 
 h1 {
+  display: none;
   font-family: $serif-font-stack;
   text-align: center;
+
+  &.page-title {
+    display: block;
+    font-family: $serif-font-stack;
+    text-align: center;
+  }
 }
 
 // We always surround input by divs if we want to contain the size

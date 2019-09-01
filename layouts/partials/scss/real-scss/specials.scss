@@ -33,6 +33,8 @@
 }
 
 @mixin four-oh-four-main {
+  margin-top: 0;
+
   & .title {
     display: block;
     flex: 1 1 100%;
@@ -59,23 +61,28 @@
       padding-top: .5em;
       text-align: left;
     }
+
+    &.sidebar {
+      margin-top: 1em;
+    }
   }
 }
 
 .four-oh-four {
   display: block;
+  margin-top: 0;
   text-align: center;
 
   & .main {
     @include four-oh-four-main;
 
     align-content: stretch;
-    align-items: stretch;
+    align-items: flex-start;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    margin-top: 0;
     padding-bottom: 4em;
-    padding-top: 2em;
   }
 }
 
@@ -109,4 +116,47 @@
 
   height: 100%;
   width: 100%;
+}
+
+@mixin taxonomy-list-row {
+  background-color: $default-container-background-color;
+  color: $default-container-text-color;
+  font-size: .8em;
+  font-style: italic;
+}
+
+@mixin tags-list {
+  &.tags-list {
+    background-color: $default-background-color;
+    color: $default-text-color;
+    font-size: .8em;
+    margin-top: .8em;
+    text-align: center;
+
+    .page-tag {
+      background-color: $default-container-background-color;
+      border-radius: 16px;
+      color: $default-container-text-color;
+      padding: .2em;
+    }
+
+    .tags-label {
+      display: none;
+    }
+
+    & a {
+      &:link,
+      &:visited,
+      &:active,
+      &:hover {
+        border-radius: 16px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.page-taxonomy-list {
+  @include taxonomy-list-row;
+  @include tags-list;
 }

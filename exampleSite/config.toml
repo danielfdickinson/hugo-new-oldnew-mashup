@@ -9,6 +9,8 @@ theme = 'oldnew-mashup'
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 summaryLength = 30
+description = "Sample site for OldNew Mashup Theme (the new version)"
+author = "Daniel F. Dickinson <cshored@thecshore.com>"
 
 [params]
   siteid = 'OldNew Mashup'
