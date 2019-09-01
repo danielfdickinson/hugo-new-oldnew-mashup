@@ -19,3 +19,7 @@ text, the leftmost being much larger and also having a headshot of
 Daniel Dickinson.  The smaller right side column contains a navigation
 menu and 'Recent Changes' section with titles and summaries from various
 pages on The C Shore.
+
+<a href="/siteentry/splash-images/thecshore-homepage-description"><img
+alt="The C Shore About Page Screenshot" src="/siteentry/splash-images/splash-demo-image3.jpg"
+width="100%"></a>

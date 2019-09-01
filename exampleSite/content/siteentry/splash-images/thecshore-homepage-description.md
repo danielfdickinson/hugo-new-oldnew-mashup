@@ -23,3 +23,7 @@ screenshots, slightly rotated, one of an older version of the website,
 and the other of cshoredaniel (Daniel Dickinson)'s GitHub profile.  The
 bottom of the screen is missing from the screenshot.  The background is
 a very pale blue with an ASCII smiley face watermark
+
+<a href="/siteentry/splash-images/thecshore-homepage-description"><img
+alt="The C Shore Website Screenshot" src="/siteentry/splash-images/splash-demo-image3.jpg"
+width="100%"></a>
