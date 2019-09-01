@@ -8,5 +8,4 @@ straddling the right hand stroke of the 'O'.
 In the landing page it is followed by large text which says, "OldNew Mashup".
 
 <a href="/siteentry/site-badge-description"><img
-alt="Site Badge (Logo)" src="/images/sample_image.png"
-width="auto"></a>
+alt="Site Badge (Logo)" src="/images/sample_image.png"></a>
