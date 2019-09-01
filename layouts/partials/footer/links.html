@@ -29,6 +29,11 @@
       {{ partial "footer/footer-links/feed-link" . }}
     {{ end }}
   {{ end }}
+  {{ block "getsource" . }}
+    {{ if not ( .Param "nogetsource" ) }}
+      {{ partial "footer/footer-links/getsource" . }}
+    {{ end }}
+  {{ end }}
   {{ block "validator" . }}
     {{ if not (or .Site.Params.novalidator .Params.novalidator) }}
       {{ partial "footer/footer-links/validator" . }}
