@@ -1,4 +1,4 @@
-language: c
+language: go
 before_install:
   - sudo apt update
 install:
@@ -12,3 +12,4 @@ branches:
   - /^stable-[0-9.]+$/
   - /^\d+\.\d+\.\d+$/
   - /^\d+\.\d+\-[a-zA-Z0-9_-]+$/
+go: 1.12
