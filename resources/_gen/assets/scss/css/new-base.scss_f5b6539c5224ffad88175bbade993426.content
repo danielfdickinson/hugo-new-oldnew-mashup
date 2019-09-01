@@ -349,19 +349,20 @@ input[type='text'] {
   margin-top: .4em;
   order: 999; }
   .page-footer .footer-links {
-    border-top: 2px solid #909090;
+    border-top: 4px ridge #909090;
     display: flex;
+    flex: 1 1 100%;
+    flex-flow: row wrap;
     justify-content: space-between;
     padding: .3em;
     text-align: center; }
     .page-footer .footer-links a:link, .page-footer .footer-links a:visited, .page-footer .footer-links a:active, .page-footer .footer-links a:hover {
       text-decoration: none; }
     .page-footer .footer-links span {
-      border-left: 2px solid #909090;
-      border-right: 2px solid #909090;
+      border: 3px ridge #909090;
       display: inline-block;
-      padding-left: .2em;
-      padding-right: .2em; }
+      margin: .2em;
+      padding: .2em; }
   .page-footer .colophon {
     border-top: 2px solid #909090;
     padding: .3em;
