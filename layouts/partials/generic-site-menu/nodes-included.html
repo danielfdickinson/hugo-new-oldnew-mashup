@@ -21,21 +21,6 @@
         {{ $includeNode = false }}
       {{ end }}
     {{ end }}
-    {{ if ( eq .Kind "section" ) }}
-      {{ if .File }}
-        {{ if ( in .Aliases (path.Dir .File.Path) ) }}
-          {{/*This node an alias*/}}
-          {{ $includeNode = false }}
-        {{ end }}
-      {{ end }}
-    {{ else }}
-      {{ if .File }}
-        {{ if ( in .Aliases .File.Path ) }}
-          {{/*This node is an alias*/}}
-          {{ $includeNode = false }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
     {{ if ( in ( slice "home" "taxonomy" "taxonomyTerm" ) .Kind ) }}
       {{ $includeNode = false }}
     {{ end }}

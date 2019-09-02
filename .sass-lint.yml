@@ -6,5 +6,5 @@ files:
   ignore:
     - '**/partials/scss/common/main.scss'
     - '**/partials/scss/base/*.scss'
-    - 'assets/scss/hugo-templates/*.scss'
+    - 'assets/css/new-base.scss'
 rules:
