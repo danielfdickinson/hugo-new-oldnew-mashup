@@ -8,7 +8,7 @@
   {{ end }}
   {{ if reflect.IsSlice $taxLinks }}
     {{ $clean := apply $taxLinks "chomp" "." }}
-    <span class="tags-label" aria-label="Tags">{{ $curCtx.taxonomyType | pluralize | humanize }}: </span>{{ delimit $clean ", " }}
+    <span class="tags-label">{{ $curCtx.taxonomyType | pluralize | humanize }}: </span><span class="taxonomy-items {{ $curCtx.taxonomyType | pluralize | urlize }}-items" title="{{ $curCtx.taxonomyType | pluralize | humanize }}">{{ delimit $clean ", " }}</span>
   {{ end }}
 </div>
 {{ end }}
