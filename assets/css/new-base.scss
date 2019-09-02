@@ -1,6 +1,8 @@
 
 {{ partial "scss/base/main.scss" }}
 
+@import "normalize.css";
+
 @media print {
   html {
     & body {

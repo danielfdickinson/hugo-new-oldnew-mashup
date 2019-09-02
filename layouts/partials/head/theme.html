@@ -12,10 +12,8 @@
 {{ block "links" . }}
     {{ if $.Site.BaseURL }}<base href="{{ $.Site.BaseURL }}">{{ end }}
     {{ $options := (dict "enableSourceMap" true "compress" true) }}
-    {{ $nm := resources.Get "css/normalize.css" | resources.ToCSS $options }}
     {{ $nb := resources.Get "css/new-base.scss" }}
     {{ $nbstyle := $nb | resources.ExecuteAsTemplate "css/new-base.scss" . | resources.ToCSS $options }}
-    <link rel="stylesheet" href="{{ $nm.Permalink }}"/>
     <link rel="stylesheet" href="{{ $nbstyle.Permalink }}"/>
 {{ end }}
 {{ block "output-formats" . }}
