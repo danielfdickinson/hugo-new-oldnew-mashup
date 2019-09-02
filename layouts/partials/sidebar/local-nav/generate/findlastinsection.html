@@ -1,7 +1,6 @@
 {{ $curCtx := . }}
 {{ with .menu_node }}
-  {{ $fullNodes := ( partial "generic-site-menu/merge-node-slices" (dict "curPages" .Pages "curSections" .Sections ) ) }}
-  {{ $childNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" $fullNodes "menu_node" . "menu_type" "local-nav" ) ) }}
+  {{ $childNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Pages "menu_node" . "menu_type" "local-nav" ) ) }}
   {{/*If there are sections below us*/}}
   {{ if $childNodes }}
     {{ if (last 1 $childNodes ) }}

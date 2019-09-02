@@ -4,11 +4,9 @@
 {{ with .menu_node }}
   <!-- find whether we're a leaf section -->
   {{ if (eq . .Site.Home ) }}
-    {{ $fullNodes := ( partial "generic-site-menu/merge-node-slices" (dict "curPages" .Pages "curSections" .Sections) ) }}
-    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" $fullNodes "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
+    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Pages "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
   {{ else }}
-    {{ $fullNodes := ( partial "generic-site-menu/merge-node-slices" ( dict "curPages" .Pages "curSections" .Sections ) ) }}
-    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" $fullNodes "menu_node" . "menu_type" "local-nav" ) ) }}
+    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Pages "menu_node" . "menu_type" "local-nav" ) ) }}
   {{ end }}
   {{ if $nextNodes }}
     {{ if (first 1 $nextNodes) }}
