@@ -14,7 +14,7 @@
         {{ partial "generic-helpers/taxonomy/taxonomy-list"  (dict "curRegPage" . "taxonomyType" "category" ) }}
         {{ .Content }}
       </article>
-      {{ if (or .Data.Pages .Sections) }}
+      {{ if .Data.Pages }}
         <section aria-labelledby="section-contents-heading" class="section-toc">
           {{ if .Data.Singular }}
             <h2 id="section-contents-heading" class="section-contents-heading">{{ if .Data.Terms }}{{ .Data.Singular | singularize | humanize }} List{{ else}}{{ .Title | singularize | humanize }} Pages{{ end }}</h2>
@@ -22,12 +22,7 @@
             <h2 id="section-contents-heading" class="section-contents-heading">Section Contents</h2>
           {{ end }}
           <ol class="section-contents">
-      {{ end }}
-        {{ partial "layout-helpers/section/nesting" . }}
-        {{ range .Sections }}
-          {{ partial "layout-helpers/section/listing" . }}
-        {{ end }}
-      {{ if (or .Data.Pages .Sections) }}
+          {{ partial "layout-helpers/section/nesting" . }}
           </ol>
         </section>
       {{ end }}

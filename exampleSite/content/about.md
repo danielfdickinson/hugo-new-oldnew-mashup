@@ -1,29 +1,32 @@
-# OldNew Mashup
+---
+title: "About OldNew Mashup"
+copyright: 2018-2019 Daniel F. Dickinson
+license: CC-BY-4.0
+weight: -20
+categories:
+  - about
+  - documentation
+tags:
+  - about
+  - docs
+  - documentation
+  - introduction
+---
+## About OldNew Mashup
 
 Version 0.9.0
 
-[![Travis CI results](https://travis-ci.org/cshoredaniel/new-oldnew-mashup.svg?branch=master)](https://travis-ci.org/cshoredaniel/new-oldnew-mashup?branch=master)
-
-## Overview
-
-Modern high-contrast CSS3 & HTML5 [Hugo](https://gohugo.io) theme
-inspired by old-school themes.
+Modern high-contrast CSS3 & HTML5 Hugo theme inspired by old-school themes.
 
 It attempts to be accessible, private, and responsive(in progress).
 
-The theme is currently a work in progress, and has not yet been released
-since refactoring.
+The theme is currently a work in progress, and has not yet been released since refactoring.
 
-## Documentation
+You can view the [documentation for New OldNew Mashup Theme](/docs)
 
-View the [OldNew Mashup Documentation](https://new-oldnew-mashup.thecshore.com/docs)
-for detailed information on how to use the OldNew Mashup theme.
-
-## Example Site
-
-``/exampleSite`` contains some example content as per
-["Add a theme to hugoThemes list"](https://github.com/gohugoio/hugoThemes#adding-a-theme-to-the-list),
-including the documentation and a sample of how to use the theme.
+## Examples of Sites Using This Theme
+*   TODO: [The C Shore](https://www.thecshore.com)
+*   Old version: [CShore's Maker Workshops](https://maker-workshops.thecshore.com)
 
 ## Interesting Features
 
@@ -93,33 +96,6 @@ A Human-readable sitemap shortcode is available.
 
 Hugo Taxonomies are implemented.
 
-## Quick Start
-
-1.  Grab a release tarball from <https://github.com/cshoredaniel/new-oldnew-mashup/releases>
-    and place it in your site's ``themes`` directory OR
-    ``git clone <https://github.com/cshoredaniel/new-oldnew-mashup>``
-    within your themes directory,
-    OR ``git submodule add <https://github.com/cshoredaniel/new-oldnew-mashup>``
-    in your themes directory OR ``hugo mod get <https://github.com/cshoredaniel/new-oldnew-mashup>``
-    define the use of a [Hugo Module](https://gohugo.io/hugo-modules/)
-    correctly.
-2.  Add ``theme = "new-oldnew-mashup"`` to your ``config.toml`` (or the
-    equivalent for YAML or JSON if you use those).
-3.  Generate your site with ``hugo`` (or a a local live version with
-    ``hugo server``), and in the former case copy ``public`` to a web
-    server and browse there, or for the latter browse to <http://localhost:1313>.
-4.  For configuration and options see [OldNew Mashup](https://new-oldnew-mashup.thecshore.com/docs).
-
-## Issues / Bugs / Enhancements
-
-Go to the [OldNew Mashup issue tracker on GitHub](https://github.com/cshoredaniel/new-oldnew-mashup/issues).
-
 ## Development
 
 If wish to submit a Pull Request for a submission please do so!
-
-## Copyright & License
-
-© 2009-2019 Daniel F. Dickinson
-Licensed under the Creative Commons Attribution License:
-[![Creative Commons License](http://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
