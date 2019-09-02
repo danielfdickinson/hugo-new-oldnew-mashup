@@ -24,7 +24,7 @@
             <h3 class="sub-liner">{{ .Param "subliner" }}</h3>
           {{ end }}
         {{ end }}
-        {{ partial "find-real-home/findnextpage" . }}
+        {{ partial "generic-helpers/find-real-home/findnextpage" . }}
       </div>
       <aside class="aside">
         {{ markdownify .Page.Params.aside}}

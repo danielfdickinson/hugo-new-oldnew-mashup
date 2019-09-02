@@ -9,14 +9,14 @@
     {{ $pages = .Data.Terms }}
   {{end }}
   {{ range $pages }}
-    {{ partial "layout-helpers/section/listitem" (dict "itemPage" .Page "parentPage" $curCtx "taxonomyPage" . ) }}
+    {{ partial "generic-helpers/section/listitem" (dict "itemPage" .Page "parentPage" $curCtx "taxonomyPage" . ) }}
   {{ end }}
 {{ else if .Data.Singular }}
   {{ range .Data.Pages }}
-    {{ partial "layout-helpers/section/listitem" (dict "itemPage" .Page "parentPage" $curCtx ) }}
+    {{ partial "generic-helpers/section/listitem" (dict "itemPage" .Page "parentPage" $curCtx ) }}
   {{ end }}
 {{ else }}
   {{ range $pages }}
-    {{ partial "layout-helpers/section/listitem" (dict "itemPage" . "parentPage" $curCtx ) }}
+    {{ partial "generic-helpers/section/listitem" (dict "itemPage" . "parentPage" $curCtx ) }}
   {{ end }}
 {{ end }}
