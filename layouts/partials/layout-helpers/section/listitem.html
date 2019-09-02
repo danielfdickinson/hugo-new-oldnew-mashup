@@ -2,5 +2,11 @@
      Released under the Creative Commons BY (Attribution) 4.0 License -->
 {{ $curCtx := . }}
 {{ with .itemPage }}
-  <li class="PageListItem"><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if $curCtx.taxonomyPage }}{{ if $curCtx.taxonomyPage.Count }} &mdash; {{ $curCtx.taxonomyPage.Count }}{{ end }}{{ end }}</li>
+  <li class="PageListItem"><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if $curCtx.taxonomyPage }}{{ if $curCtx.taxonomyPage.Count }} &mdash; {{ $curCtx.taxonomyPage.Count }}{{ end }}{{ end }}
+  {{ if (and .Data.Pages (not $curCtx.taxonomyPage) ) }}
+    <ol>
+    {{ partial "layout-helpers/section/nesting" . }}
+   </ol>
+  {{ end }}
+  </li>
 {{ end }}
