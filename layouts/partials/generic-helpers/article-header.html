@@ -1,0 +1,6 @@
+<header class="article-header">
+{{ if .Title }}
+  <h1 class="article-title">{{ .Title }}</h1>
+  {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "category" ) }}
+{{ end }}
+</header>

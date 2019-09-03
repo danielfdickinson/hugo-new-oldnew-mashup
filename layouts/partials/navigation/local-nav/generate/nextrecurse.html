@@ -14,7 +14,7 @@
   {{ end }}
   {{ if and $nextNodes ( ne $curCtx.no_down true ) }}
     {{/*We're a parent, go down, not sideways*/}}
-    {{ partial "sidebar/local-nav/generate/findnextsectionleaf" ( dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
+    {{ partial "navigation/local-nav/generate/findnextsectionleaf" ( dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
   {{ else if .Parent }}
     {{ if (eq .Parent .Site.Home ) }}
       {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Pages "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
@@ -40,11 +40,11 @@
         {{ if $nextPage.RelPermalink }}<a href="{{ $nextPage.RelPermalink }}">Next</a>{{ end }}
       {{ else }}
         {{/*We must be the last page here, go up a level and try again*/}}
-        {{ partial "sidebar/local-nav/generate/nextrecurse" (dict "cur_node" $curCtx.cur_node "menu_node" $curCtx.menu_node.Parent "no_down" true) }}
+        {{ partial "navigation/local-nav/generate/nextrecurse" (dict "cur_node" $curCtx.cur_node "menu_node" $curCtx.menu_node.Parent "no_down" true) }}
       {{ end }}
     {{ else }}
       {{/*No next page this level so go up a level and try again*/}}
-      {{ partial "sidebar/local-nav/generate/nextrecurse" (dict "cur_node" $curCtx.cur_node "menu_node" $curCtx.menu_node.Parent "no_down" true) }}
+      {{ partial "navigation/local-nav/generate/nextrecurse" (dict "cur_node" $curCtx.cur_node "menu_node" $curCtx.menu_node.Parent "no_down" true) }}
     {{ end }}
   {{ else }}
     {{/*Go to first child of home*/}}

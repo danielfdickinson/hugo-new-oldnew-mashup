@@ -17,11 +17,11 @@
     {{ else }}
       {{/*We don't actually have children*/}}
       {{/*Go up a level and try again*/}}
-      {{ partial "sidebar/local-nav/generate/nextrecurse" ( dict "cur_node" $curCtx.cur_node "menu_node" $curCtx.menu_node.Parent "no_down" true ) }}
+      {{ partial "navigation/local-nav/generate/nextrecurse" ( dict "cur_node" $curCtx.cur_node "menu_node" $curCtx.menu_node.Parent "no_down" true ) }}
     {{ end }}
   {{ else }}
     {{/*No children so we are a leaf*/}}
     {{/*Go up a level and try again*/}}
-    {{ partial "sidebar/local-nav/generate/nextrecurse" ( dict "cur_node" $curCtx.cur_node "menu_node" $curCtx.menu_node.Parent "no_down" true ) }}
+    {{ partial "navigation/local-nav/generate/nextrecurse" ( dict "cur_node" $curCtx.cur_node "menu_node" $curCtx.menu_node.Parent "no_down" true ) }}
   {{ end }}
 {{ end }}

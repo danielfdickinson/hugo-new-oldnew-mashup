@@ -13,7 +13,7 @@
     {{ partial "generic-site-menu/menu-item" (dict "menu_node" . "cur_node" $curCtx.cur_node ) }}
     {{ if (eq .Kind "page" ) }}
     </li>
-    {{ else if (eq .Kind "section" ) }}
+    {{ else if (and (eq .Kind "section" ) .Data.Pages) }}
       <ul class="menu-parent has-submenu">
         {{ partial "generic-site-menu/menu-section" ( dict "cur_node" $curCtx.cur_node "menu_node" . "menu_type" $curCtx.menu_type ) }}
       </ul>

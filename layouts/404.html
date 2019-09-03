@@ -9,8 +9,8 @@
 {{ define "main" }}
     <div class="four-oh-four">
       <main class="main">
-        <div aria-labelledby="main-content" class="main-body">
-          <article aria-label="Main Content" id="main-content" class="MainContent not-found-box">
+        <div aria-labelledby="main-article" class="main-body">
+          <article aria-label="Main Article" id="main-article" class="main-article not-found-box">
             <h1 class="title">404 Resource not found</h1>
             <div class="not-found-block">
               {{ print "It seems we can't find that for which you are looking... :disappointed:" | emojify | markdownify }}
@@ -28,7 +28,6 @@
             </div>
           </article>
         </div>
-        {{ partial "sidebar" . }}
       </main>
     </div>
 {{ end }}

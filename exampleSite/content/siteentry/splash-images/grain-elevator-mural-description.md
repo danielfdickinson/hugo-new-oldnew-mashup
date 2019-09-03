@@ -1,6 +1,6 @@
 ---
 title: "Photo of Grain Elevator with Mural Description"
-not_in_lists: [site, sidebar-nav, local-nav, sidebar-recent]
+not_in_lists: [site, section-nav, local-nav, sidebar-recent]
 categories:
   - images
   - descriptions
