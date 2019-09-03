@@ -39,6 +39,12 @@ $sidebar-box-row-background-color: {{ default "$default-container-row-background
 
 $sidebar-menu-entry-row-background-color: {{ default "$sidebar-box-row-background-color" (.Param "sidebar_menu_entry_row_background_color") }};
 
+$toc-box-border: {{ default "2px dotted" ( .Param "sidebar_box_border" ) }};
+$toc-box-border-color: {{ default "#666" ( .Param "toc_box_border_color" ) }};
+$toc-box-background-color: {{ default "#444" ( .Param "toc_box_background_color" ) }};
+$toc-box-text-color: {{ default "#ddd" ( .Param "toc_box_text_color" ) }};
+$toc-box-row-background-color: {{ default "#222" (.Param "toc_box_row_background_color") }};
+
 $doc-date-border: {{ default "$default-container-border" ( .Param "doc_date_border" ) }};
 $doc-date-border-color: {{ default "$default-container-border-color" ( .Param "doc_date_border_color" ) }};
 $doc-date-background-color: {{ default "$default-container-background-color" ( .Param "doc_date_background_color" ) }};

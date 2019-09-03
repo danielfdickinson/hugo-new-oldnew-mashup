@@ -1,6 +1,6 @@
 {{ $scratch := newScratch }}
 {{ $ctx := . }}
-{{ $allListTypes := ( slice "site" "section" "local-nav" "sidebar-nav" "sidebar-news" "sidebar-recent" "sidebar-events" ) }}
+{{ $allListTypes := ( slice "site" "section" "local-nav" "section-nav" "sidebar-news" "sidebar-recent" "sidebar-events" ) }}
 {{ $includeNode := false }}
 
 {{ with .menu_node }}

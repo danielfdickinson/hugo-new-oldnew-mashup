@@ -1,0 +1,6 @@
+{{ if (and (ne (.Param "noptoc") true) .TableOfContents ) }}
+  <section aria-labelledby="article-toc-title" class="article-toc toc-box">
+    <h2 id="article-toc-title">Table of Contents</h2>
+    {{ replace .TableOfContents `href="#` (printf `href="%s#` .Permalink) | safeHTML }}
+  </section>
+{{ end }}

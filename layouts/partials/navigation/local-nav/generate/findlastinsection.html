@@ -7,7 +7,7 @@
       {{/*Find child*/}}
       {{ range (last 1 $childNodes ) }}
         {{/*repeat*/}}
-        {{ partial "sidebar/local-nav/generate/findlastinsection" (dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
+        {{ partial "navigation/local-nav/generate/findlastinsection" (dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
       {{ end }}
     {{ else }}
       {{/*No children, we must be terminal*/}}

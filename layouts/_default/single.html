@@ -1,21 +1,5 @@
-{{ define "title" }}
-  {{.Title}}
-{{ end }}
-{{ define "main" }}
-  <main class="main">
-    <div aria-labelledby="main-content" class="main-body">
-      <article aria-label="Main Content" id="main-content" class="MainContent">
-        {{ if .Title }}<h1 class="page-title">{{ .Title }}</h1>{{ end }}
-        {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "category" ) }}
-        {{ .Content }}
-      </article>
-     {{ if .Params.aside }}
-      <aside>
-        {{ markdownify .Params.aside }}
-      </aside>
-      {{ end }}
-      {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "tag" ) }}
-    </div>
-    {{ partial "sidebar" . }}
-  </main>
+{{ define "bodytag" }}
+  <body>
+<!-- Copyright 2018-2019 Daniel F. Dickinson
+     Released under the Create Commons BY (Attribution) 4.0 License -->
 {{ end }}

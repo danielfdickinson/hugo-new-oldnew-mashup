@@ -4,7 +4,7 @@ sitemap:
   priority : 0.1
 layout: search
 nortoc: true
-not_in_lists: [site,sidebar-nav,local-nav,sidebar-recent,section,sitemap]
+not_in_lists: [site,section-nav,local-nav,sidebar-recent,section,sitemap]
 ---
 
 This file exists solely to respond to /siteentry/search URL with the related `search` layout template.

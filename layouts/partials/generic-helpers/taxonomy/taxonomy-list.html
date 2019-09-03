@@ -1,6 +1,6 @@
 {{ $curCtx := . }}
 {{ with (index .curRegPage.Params ( .taxonomyType | pluralize ) ) }}
-  <div class="page-taxonomy-list {{ $curCtx.taxonomyType | pluralize }}-list">
+  <aside class="page-taxonomy-list {{ $curCtx.taxonomyType | pluralize }}-list">
   {{ $taxSorted := sort . }}
   {{ $taxLinks := intersect (slice "3") (slice "4") }}
   {{ range $taxSorted }}
@@ -10,5 +10,5 @@
     {{ $clean := apply $taxLinks "chomp" "." }}
     <span class="tags-label">{{ $curCtx.taxonomyType | pluralize | humanize }}: </span><span class="taxonomy-items {{ $curCtx.taxonomyType | pluralize | urlize }}-items" title="{{ $curCtx.taxonomyType | pluralize | humanize }}">{{ delimit $clean ", " }}</span>
   {{ end }}
-</div>
+</aside>
 {{ end }}

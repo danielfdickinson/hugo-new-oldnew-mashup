@@ -34,7 +34,7 @@
         {{ if $prevPage.RelPermalink }}<a href="{{ $prevPage.RelPermalink }}">Prev</a>{{ end }}
       {{ else }}
         {{/*Go to previous page's leaf node*/}}
-        {{ partial "sidebar/local-nav/generate/findlastinsection" (dict "menu_node" $prevPage "cur_node" $curCtx.cur_node ) }}
+        {{ partial "navigation/local-nav/generate/findlastinsection" (dict "menu_node" $prevPage "cur_node" $curCtx.cur_node ) }}
       {{ end }}
     {{ else if $foundPage }}
       {{/*No previous node, but found ourselves*/}}
@@ -47,13 +47,13 @@
             {{/*Find child*/}}
             {{ range (last 1 $childNodes ) }}
               {{/*repeat*/}}
-              {{ partial "sidebar/local-nav/generate/findlastinsection" (dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
+              {{ partial "navigation/local-nav/generate/findlastinsection" (dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
             {{ end }}
           {{ end }}
         {{ end }}
       {{ else }}
         {{/*Go up one level and go to last previous leaf*/}}
-        {{ partial "sidebar/local-nav/generate/prevrecurse" ( dict "cur_node" $curCtx.cur_node "menu_node" .Parent ) }}
+        {{ partial "navigation/local-nav/generate/prevrecurse" ( dict "cur_node" $curCtx.cur_node "menu_node" .Parent ) }}
       {{ end }}
     {{ else }}
       {{/*Just go to home's last child's bottom leaf*/}}
@@ -64,7 +64,7 @@
           {{/*Find child*/}}
           {{ range (last 1 $childNodes ) }}
             {{/*repeat*/}}
-            {{ partial "sidebar/local-nav/generate/findlastinsection" (dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
+            {{ partial "navigation/local-nav/generate/findlastinsection" (dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
           {{ end }}
         {{ end }}
       {{ end }}

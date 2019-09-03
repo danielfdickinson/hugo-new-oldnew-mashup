@@ -7,27 +7,31 @@
      Released under the Create Commons BY (Attribution) 4.0 License -->
 {{ end }}
 {{ define "main" }}
-  <main aria-label="Page Body" class="section-page-main">
-    <div aria-labelledby="main-content" class="main-body">
-      <article aria-label="Main Content" id="main-content" class="MainContent">
-        {{ if .Title }}<h1 class="page-title">{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title | singularize | humanize }}{{ else }}{{ .Title }}{{ end }}{{ end }}</h1>{{ end }}
-        {{ partial "generic-helpers/taxonomy/taxonomy-list"  (dict "curRegPage" . "taxonomyType" "category" ) }}
-        {{ .Content }}
-      </article>
-      {{ if .Data.Pages }}
-        <section aria-labelledby="section-contents-heading" class="section-toc">
-          {{ if .Data.Singular }}
-            <h2 id="section-contents-heading" class="section-contents-heading">{{ if .Data.Terms }}{{ .Data.Singular | singularize | humanize }} List{{ else}}{{ .Title | singularize | humanize }} Pages{{ end }}</h2>
-          {{ else }}
-            <h2 id="section-contents-heading" class="section-contents-heading">Section Contents</h2>
-          {{ end }}
-          <ol class="section-contents">
-          {{ partial "layout-helpers/section/nesting" . }}
-          </ol>
-        </section>
-      {{ end }}
-      {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "tag" ) }}
-    </div>
-    {{ partial "sidebar" . }}
-  </main>
+<main class="section-page-main">
+<article aria-label="Main Article" id="main-article" class="main-article">
+  <section class="regular-content">
+    <header class="article-header">
+  {{ if .Title }}<h1 class="article-title">{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title | singularize | humanize }}{{ else }}{{ .Title }}{{ end }}{{ end }}</h1>{{ end }}
+  {{/*}}{{ partial "generic-helpers/taxonomy/taxonomy-list"  (dict "curRegPage" . "taxonomyType" "category" ) }}*/}}
+    </header>
+  {{ .Content }}
+  {{ partial "generic-helpers/aside" . }}
+  </section>
+  {{ if .Data.Pages }}
+  <section aria-labelledby="section-contents-heading" class="section-toc">
+    {{ if .Data.Singular }}
+      <h2 id="section-contents-heading" class="section-contents-heading">{{ if .Data.Terms }}{{ .Data.Singular | singularize | humanize }} List{{ else}}{{ .Title | singularize | humanize }} Pages{{ end }}</h2>
+    {{ else }}
+      <h2 id="section-contents-heading" class="section-contents-heading">Section Contents</h2>
+    {{ end }}
+    <ol class="section-contents">
+    {{ partial "generic-helpers/section/nesting" . }}
+    </ol>
+  </section>
+  {{ end }}
+  {{/*}}{{ if not .Data.Singular }}
+    {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "tag" ) }}
+  {{ end }}*/}}
+</article>
+</main>
 {{ end }}

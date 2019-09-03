@@ -5,7 +5,7 @@
   <li class="PageListItem"><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if $curCtx.taxonomyPage }}{{ if $curCtx.taxonomyPage.Count }} &mdash; {{ $curCtx.taxonomyPage.Count }}{{ end }}{{ end }}
   {{ if (and .Data.Pages (not $curCtx.taxonomyPage) ) }}
     <ol>
-    {{ partial "layout-helpers/section/nesting" . }}
+    {{ partial "generic-helpers/section/nesting" . }}
    </ol>
   {{ end }}
   </li>
