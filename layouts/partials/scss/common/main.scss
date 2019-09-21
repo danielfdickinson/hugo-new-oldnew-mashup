@@ -17,11 +17,11 @@ $default-pre-link-color: {{ default "#999" ( .Param "default_pre_link_color" ) }
 $default-pre-visited-color: {{ default "$default-visited-link-color" ( .Param "default_pre_visited_color" ) }};
 $default-pre-hover-color: {{ default "#fff" ( .Param "default_pre_hover_color" ) }};
 
-$default-inline-pre-background-color: {{ default "#bbb" ( .Param "default_pre_background_color" ) }};
-$default-inline-pre-text-color: {{ default "#000" (.Param "default_pre_text_color" ) }};
-$default-inline-pre-link-color: {{ default "#222" ( .Param "default_pre_link_color" ) }};
-$default-inline-pre-visited-color: {{ default "#111" ( .Param "default_pre_visited_color" ) }};
-$default-inline-pre-hover-color: {{ default "#fff" ( .Param "default_pre_hover_color" ) }};
+$default-inline-pre-background-color: {{ default "#bbb" ( .Param "default_pre_inline_background_color" ) }};
+$default-inline-pre-text-color: {{ default "#000" (.Param "default_pre_inline_text_color" ) }};
+$default-inline-pre-link-color: {{ default "#222" ( .Param "default_pre_inline_link_color" ) }};
+$default-inline-pre-visited-color: {{ default "#111" ( .Param "default_pre_inline_visited_color" ) }};
+$default-inline-pre-hover-color: {{ default "#fff" ( .Param "default_pre_inline_hover_color" ) }};
 
 $default-separator-color: {{ default "#909090" ( .Param "default_separator_color" ) }};
 
@@ -75,3 +75,9 @@ $splash-screenshot-frame-border: {{ default "20px solid #fff" ( .Param "splash_s
 $splash-screenshot-image-border: {{ default "2px solid #202020" ( .Param "splash_screenshot_image_border" ) }};
 $splash-screenshot-outside-border: {{ default "2px solid #202020" ( .Param "splash_screenshot_outside_border" ) }};
 $splash-screenshot-box-shadow: {{ default "6px 6px 6px #000" ( .Param "splash_screenshot_box_shadow" ) }};
+
+$search-results-background-color: {{ default "$default-inline-pre-background-color" ( .Param "search_results_background_color" ) }};
+$search-results-text-color: {{ default "$default-inline-pre-text-color" (.Param "search_results_text_color" ) }};
+$search-results-link-color: {{ default "$default-inline-pre-link-color" ( .Param "search_results_link_color" ) }};
+$search-results-visited-color: {{ default "$default-inline-pre-visited-color" ( .Param "search_results_visited_color" ) }};
+$search-results-hover-color: {{ default "$default-inline-pre-hover-color" ( .Param "search_results_hover_color" ) }};

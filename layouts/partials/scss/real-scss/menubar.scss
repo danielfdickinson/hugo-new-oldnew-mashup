@@ -183,6 +183,38 @@
       margin-left: 0;
     }
   }
+
+  & > .search-results {
+    background-color: $search-results-background-color;
+    bottom: 0;
+    color: $search-results-text-color;
+    display: none;
+    max-height: 80%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    z-index: 40;
+
+    & a {
+      background-color: $search-results-background-color;
+      color: $search-results-link-color;
+
+      &:link {
+        color: $search-results-link-color;
+      }
+
+      &:visited {
+        color: $search-results-visited-color;
+      }
+
+      &:active,
+      &:hover {
+        color: $search-results-hover-color;
+      }
+    }
+  }
 }
 
 @mixin menubar-active-menu-parent-active {

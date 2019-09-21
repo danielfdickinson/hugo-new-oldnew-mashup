@@ -1,4 +1,4 @@
-function ready(fn) {
+/* function ready(fn) {
   if (document.readyState != 'loading') {
     fn();
   } else {
@@ -7,6 +7,7 @@ function ready(fn) {
 }
 
 ready(doSearch);
+*/
 
 summaryInclude = 60;
 var fuseOptions = {
@@ -41,12 +42,19 @@ function param(name) {
   return decodeURIComponent((location.search.split(name + '=')[1] || '').split('&')[0]).replace(/\+/g, ' ');
 }
 
-var searchQuery = param("s");
+//var searchQuery = param("s");
+
+function doCloseSearch() {
+  if (document.getElementById("search-results")) {
+    document.getElementById("search-results").style = "display: none;"
+  }
+}
 
 function doSearch() {
+  var searchQuery = document.search_form.s.value;
   if (searchQuery) {
     if (document.getElementById("search-query")) {
-      document.getElementById("search-query").value = searchQuery;
+      document.getElementById("search-results").style = "display: block;"
       executeSearch(searchQuery);
     }
   } else {
@@ -56,6 +64,7 @@ function doSearch() {
       document.getElementById("search-results").appendChild(para);
     }
   }
+  return false
 }
 
 function getJSON(url, fn) {
@@ -84,7 +93,7 @@ function executeSearch(searchQuery) {
       "matches": result
     });
     if (result.length > 0) {
-      populateResults(result);
+      populateResults(result, searchQuery);
     } else {
       var para = document.createElement("P");
       para.innerText = "No matches found";
@@ -93,7 +102,7 @@ function executeSearch(searchQuery) {
   });
 }
 
-function populateResults(result) {
+function populateResults(result, searchQuery) {
   result.forEach(function (value, key) {
     var content = value.item.content;
     var snippet = "";
@@ -124,8 +133,8 @@ function populateResults(result) {
       key: key,
       title: value.item.title,
       link: value.item.permalink,
-      tags: value.item.tags.join(', '),
-      categories: value.item.categories.join(', '),
+      tags: value.item.tags ? value.item.tags.join(', ') : "",
+      categories: value.item.categories ? value.item.categories.join(', ') : "",
       snippet: snippet
     });
     document.getElementById("search-results").appendChild(htmlToElement(output));

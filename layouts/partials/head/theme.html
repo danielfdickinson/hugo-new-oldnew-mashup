@@ -27,7 +27,7 @@
 {{ block "scripts" . }}
   {{ $fusejs := resources.Get "js/modules/krisk-Fuse/dist/fuse.js" }}
   {{ $jmarkjs := resources.Get "js/modules/julmot-mark.js/dist/mark.js" | resources.Minify }}
-  {{ $search := resources.Get "js/search.js"| resources.Minify }}
+  {{ $search := resources.Get "js/search.js" | resources.Minify }}
   {{ $confirmation := resources.Get "js/confirmation.js" | resources.Minify }}
   <script src="{{ $fusejs.RelPermalink }}"></script>
   <script src="{{ $jmarkjs.RelPermalink }}"></script>
