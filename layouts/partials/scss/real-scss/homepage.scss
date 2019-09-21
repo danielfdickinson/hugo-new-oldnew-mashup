@@ -35,20 +35,22 @@
     list-style: none outside;
     margin: 0;
     padding: 0;
+    position: relative;
 
     &:nth-child(odd) {
       transform: rotate(-3deg);
-      z-index: 8;
     }
 
     &:nth-child(even) {
       transform: rotate(5deg);
+    }
+
+    &:nth-child(2) {
       z-index: 8;
     }
 
     &:nth-child(3) {
       transform: translate(0, -60%) rotate(3deg);
-      z-index: 7;
     }
 
     &:nth-child(4) {
