@@ -8,7 +8,8 @@ tags:
   - navigation
   - sitemap
   - listing
-  - website  
+  - website
+noptoc: true
 ---
 # Sitemap
 

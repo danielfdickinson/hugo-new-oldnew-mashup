@@ -30,7 +30,9 @@
       <main class="main">
       <article aria-label="Main Article" id="main-article" class="main-article">
     {{ partial "generic-helpers/article-header" . }}
+    {{ if (not (or .Data.Terms .Data.Singular ) ) }}
     {{ partial "generic-helpers/article-toc" . }}
+    {{ end }}
     {{ .Content }}
     {{ partial "generic-helpers/aside" . }}
     {{ block "tags-list" . }}
