@@ -2,7 +2,9 @@
 title: "Viverra Justo"
 date: 2018-05-27T03:43:48-04:00
 copyright: 2018 Daniel F. Dickinson and Others
-license: Custom&CC0-1.0
+licenses:
+  - Custom
+  - CC0-1.0
 weight: 4000
 ---
 

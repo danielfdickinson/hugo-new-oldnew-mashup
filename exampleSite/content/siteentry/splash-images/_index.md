@@ -10,7 +10,8 @@ tags:
   - descriptions
   - listing
   - back-end
-
+licenses:
+  - CC-BY-4.0
 not_in_lists: [site, section-nav, local-nav, sidebar-recent, section]
 resources:
   - src: splash-demo-image1.jpg

@@ -10,6 +10,8 @@ tags:
   - listing
   - website
 noptoc: true
+licenses:
+  - CC-BY-4.0
 ---
 # Sitemap
 

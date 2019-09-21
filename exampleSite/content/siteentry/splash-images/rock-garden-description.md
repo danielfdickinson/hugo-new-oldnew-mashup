@@ -10,6 +10,8 @@ tags:
   - images
   - descriptions
   - back-end
+licenses:
+  - CC-BY-4.0
 ---
 
 Photo with multiple levels of a rock garden on a hill.  At the bottom of

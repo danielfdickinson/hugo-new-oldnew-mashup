@@ -2,7 +2,10 @@
 title: "Ut Enim"
 date: 2018-05-27T03:45:35-04:00
 copyright: 2018 Daniel F. Dickinson and Others
-license: Custom&CC0-1.0&Expired
+licenses:
+  - Custom
+  - CC0-1.0
+  - Expired
 categories: [latin, placeholder, history]
 keywords: [latin, placeholder, history, "lorem ipsum"]
 ---

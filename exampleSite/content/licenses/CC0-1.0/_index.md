@@ -1,18 +1,13 @@
 ---
-title: "Creative Commons Zero License"
+title: CC0-1.0
 date: 2018-02-04T06:07:30-05:00
 copyright: 2018 Daniel F. Dickinson
-license: CC0-1.0
-licenseFile: CC0-1.0
+licenses:
+  - CC0-1.0
 categories:
   - licenses
   - legal
 tags:
   - licenses
   - open source
-
 ---
-
-# Creative Commons Zero License
-
-{{< license >}}

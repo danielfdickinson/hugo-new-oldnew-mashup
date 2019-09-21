@@ -1,7 +1,8 @@
 ---
 title: "About OldNew Mashup"
 copyright: 2018-2019 Daniel F. Dickinson
-license: CC-BY-4.0
+licenses:
+  - CC-BY-4.0
 weight: -20
 categories:
   - about

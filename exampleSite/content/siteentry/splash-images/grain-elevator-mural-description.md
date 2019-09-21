@@ -9,6 +9,8 @@ tags:
   - images
   - descriptions
   - back-end
+licenses:
+  - CC-BY-4.0
 ---
 Photo with a hazy sky at the top, with a hill of trees with autumn
 (colourful) leaves.  Below that is a grain elevator with a large outdoor
