@@ -32,6 +32,14 @@
   }
 }
 
+.sitemap-main-list {
+  list-style-position: outside;
+
+  & ul {
+    list-style-position: outside;
+  }
+}
+
 @mixin four-oh-four-main {
   margin-top: 0;
 

@@ -80,6 +80,8 @@ kbd {
 }
 
 UL {
+  list-style-position: inside;
+
   & LI {
     padding-bottom: 3px;
 

@@ -315,10 +315,12 @@ kbd {
     kbd a:hover {
       color: #fff; }
 
-UL LI {
-  padding-bottom: 3px; }
-  UL LI:last-child {
-    padding-bottom: 0; }
+UL {
+  list-style-position: inside; }
+  UL LI {
+    padding-bottom: 3px; }
+    UL LI:last-child {
+      padding-bottom: 0; }
 
 html {
   font-size: 16px; }
@@ -542,6 +544,7 @@ input[type='text'] {
 .article-toc {
   display: block;
   font-size: .9em;
+  margin-right: .8em;
   margin-top: .4em;
   padding-top: 0;
   width: 100%; }
@@ -577,7 +580,7 @@ input[type='text'] {
     grid-row-start: 2; }
   .article-toc {
     display: block;
-    float: right;
+    float: left;
     margin-top: .4em;
     padding-top: 0;
     width: 33%; } }
@@ -1786,6 +1789,16 @@ input[type='text'] {
   .chroma .gu {
     color: #97927f; }
 
+pre code {
+  background-color: #000;
+  color: #aaa;
+  display: block;
+  width: 100%; }
+  pre code a:link {
+    color: #999; }
+  pre code a:active, pre code a:hover {
+    color: #fff; }
+
 .highlight {
   display: block;
   resize: none;
@@ -1969,7 +1982,8 @@ input[type='text'] {
           flex: 1 0 40%;
           list-style: none outside;
           margin: 0;
-          padding: 0; }
+          padding: 0;
+          position: relative; }
           .homepage .main-content .splash .screenshot-list li a {
             border: 20px solid #fff;
             display: block;
@@ -1983,14 +1997,13 @@ input[type='text'] {
               padding: 0;
               width: 100%; }
           .homepage .main-content .splash .screenshot-list li:nth-child(odd) {
-            transform: rotate(-3deg);
-            z-index: 8; }
+            transform: rotate(-3deg); }
           .homepage .main-content .splash .screenshot-list li:nth-child(even) {
-            transform: rotate(5deg);
+            transform: rotate(5deg); }
+          .homepage .main-content .splash .screenshot-list li:nth-child(2) {
             z-index: 8; }
           .homepage .main-content .splash .screenshot-list li:nth-child(3) {
-            transform: translate(0, -60%) rotate(3deg);
-            z-index: 7; }
+            transform: translate(0, -60%) rotate(3deg); }
           .homepage .main-content .splash .screenshot-list li:nth-child(4) {
             transform: translate(0, -55%) rotate(0deg); }
     .homepage .main-content .page-taxonomy-list.tags-list {
@@ -2027,6 +2040,11 @@ input[type='text'] {
     flex: 0 1 auto;
     padding-left: 0;
     padding-right: 0; }
+
+.sitemap-main-list {
+  list-style-position: outside; }
+  .sitemap-main-list ul {
+    list-style-position: outside; }
 
 .four-oh-four {
   display: block;

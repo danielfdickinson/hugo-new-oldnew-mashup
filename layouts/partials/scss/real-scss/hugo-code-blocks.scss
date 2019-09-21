@@ -285,6 +285,10 @@
   }
 }
 
+pre {
+  @include hugo-code-block;
+}
+
 .highlight {
   display: block;
   resize: none;
