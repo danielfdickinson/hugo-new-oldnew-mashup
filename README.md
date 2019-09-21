@@ -9,7 +9,7 @@ Version 0.9.0
 Modern high-contrast CSS3 & HTML5 [Hugo](https://gohugo.io) theme
 inspired by old-school themes.
 
-It attempts to be accessible, private, and responsive(in progress).
+It attempts to be accessible, private, and responsive (in progress).
 
 The theme is currently a work in progress, and has not yet been released
 since refactoring.

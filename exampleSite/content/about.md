@@ -22,7 +22,7 @@ It attempts to be accessible, private, and responsive (in progress).
 
 The theme is currently a work in progress, and has not yet been released since refactoring.
 
-You can view the [documentation for New OldNew Mashup Theme](/docs)
+You can view the [documentation for New OldNew Mashup Theme](docs)
 
 ## Examples of Sites Using This Theme
 *   TODO: [The C Shore](https://www.thecshore.com)
