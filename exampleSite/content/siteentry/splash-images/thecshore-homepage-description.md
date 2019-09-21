@@ -10,6 +10,8 @@ tags:
   - images
   - descriptions
   - back-end
+licenses:
+  - CC-BY-4.0
 ---
 
 Screenshot of an old version of The CShore Website Homepage which is

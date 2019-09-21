@@ -47,3 +47,8 @@ min_version = "0.57.2"
     disable = true
   [privacy.youtube]
     disable = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  license = "licenses"

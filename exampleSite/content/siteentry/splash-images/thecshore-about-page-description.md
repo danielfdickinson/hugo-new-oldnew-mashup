@@ -10,6 +10,8 @@ tags:
   - images
   - descriptions
   - back-end
+licenses:
+  - CC-BY-4.0
 ---
 
 A screen shot of an old version of The C Shore About Page.  It consists

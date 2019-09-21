@@ -1,0 +1,54 @@
+{{ define "title" }}
+  {{ if eq .Data.Singular "license" }}
+    {{ if .Title }}License: {{ .Title }}{{ end }}
+  {{ else }}
+    {{ if .Title }}{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title | singularize | humanize }}{{ else }}{{ .Title }}{{ end }}{{ end }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ define "bodytag" }}
+  <body>
+<!-- Copyright 2018-2019 Daniel F. Dickinson
+     Released under the Create Commons BY (Attribution) 4.0 License -->
+{{ end }}
+{{ define "main" }}
+<main class="section-page-main">
+{{ $license := "" }}
+<article aria-label="Main Article" id="main-article" class="main-article">
+  {{ if eq .Data.Singular "license" }}
+  <section class="license-section">
+    <header class="article-header">
+    {{ if .Title }}<h1 class="article-title">License: {{ .Title }}</h1>{{ end }}
+  {{/*}}{{ partial "generic-helpers/taxonomy/taxonomy-list"  (dict "curRegPage" . "taxonomyType" "category" ) }}*/}}
+    </header>
+  {{ else }}
+  <section class="regular-content">
+    <header class="article-header">
+  {{ if .Title }}<h1 class="article-title">{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title | singularize | humanize }}{{ else }}{{ .Title }}{{ end }}{{ end }}</h1>{{ end }}
+  {{/*}}{{ partial "generic-helpers/taxonomy/taxonomy-list"  (dict "curRegPage" . "taxonomyType" "category" ) }}*/}}
+    </header>
+  {{ end }}
+  {{ if eq .Data.Singular "license" }}
+    <h2>License Text</h2>
+      <pre class="license-block chroma">{{ $license = .Data.Term }}{{ if $license }}{{ $licenseFile := resources.Get (print "licenses/" $license) }}{{ with $licenseFile }}{{ .Content }}{{ else }}Missing{{ end }}{{ else }}Missing Term{{ end }}</pre>
+  {{ else }}
+    {{ .Content }}
+  {{ end }}
+  {{ partial "generic-helpers/aside" . }}
+  </section>
+  {{ if eq .Data.Singular "license" }}
+  <section class="license-pages-section">
+    <h2>Pages with {{ $license }} license</h2>
+  {{ else }}
+  <section aria-labelledby="section-contents-heading" class="section-toc">
+    <h2 id="section-contents-heading" class="section-contents-heading">{{ if .Data.Terms }}{{ .Data.Singular | singularize | humanize }} List{{ else}}{{ .Title | singularize | humanize }} Pages{{ end }}</h2>
+  {{ end }}
+      <ol class="section-contents">
+  {{ partial "generic-helpers/section/nesting" . }}
+      </ol>
+  </section>
+  {{/*}}{{ if not .Data.Singular }}
+    {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "tag" ) }}
+  {{ end }}*/}}
+</article>
+</main>
+{{ end }}

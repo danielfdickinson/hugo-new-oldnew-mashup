@@ -102,23 +102,30 @@
   width: 100%;
 }
 
-.license-pages-section {
-  align-content: center;
-  align-items: center;
-  display: flex;
-  flex-flow: column nowrap;
-  width: 100%;
-
+@mixin license-pages {
   & h2 {
     flex: 1 1 100%;
     order: 1;
+    text-align: center;
   }
 
-  & .page-license-list {
-    flex: 0 1 60%;
-    order: 2;
-    text-align: left;
+  & .section-contents {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+
+    & ol {
+      flex: 0 1 60%;
+      order: 2;
+      text-align: left;
+    }
   }
+}
+
+.license-pages-section {
+  @include license-pages;
 }
 
 .side-by-side {

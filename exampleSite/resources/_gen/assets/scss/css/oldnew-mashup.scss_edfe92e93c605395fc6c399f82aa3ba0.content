@@ -516,16 +516,18 @@ input[type='text'] {
   text-align: center;
   width: 100%; }
 
-.license-pages-section {
+.license-pages-section h2 {
+  flex: 1 1 100%;
+  order: 1;
+  text-align: center; }
+
+.license-pages-section .section-contents {
   align-content: center;
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
   width: 100%; }
-  .license-pages-section h2 {
-    flex: 1 1 100%;
-    order: 1; }
-  .license-pages-section .page-license-list {
+  .license-pages-section .section-contents ol {
     flex: 0 1 60%;
     order: 2;
     text-align: left; }
