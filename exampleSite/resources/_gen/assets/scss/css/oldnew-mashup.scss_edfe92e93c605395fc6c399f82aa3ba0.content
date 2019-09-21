@@ -1266,6 +1266,27 @@ input[type='text'] {
         .menubar-site-menu > .menubar-site-menu-list > .top-search form input[type='submit'] {
           display: inline-block;
           flex: 0 1 1em; }
+  .menubar-site-menu > .search-results {
+    background-color: #bbb;
+    bottom: 0;
+    color: #000;
+    display: none;
+    max-height: 80%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    z-index: 40; }
+    .menubar-site-menu > .search-results a {
+      background-color: #bbb;
+      color: #222; }
+      .menubar-site-menu > .search-results a:link {
+        color: #222; }
+      .menubar-site-menu > .search-results a:visited {
+        color: #111; }
+      .menubar-site-menu > .search-results a:active, .menubar-site-menu > .search-results a:hover {
+        color: #fff; }
 
 .menubar-site-menu-list > .menu-item:active > UL, .menubar-site-menu-list > .menu-item:hover > UL {
   display: block; }
