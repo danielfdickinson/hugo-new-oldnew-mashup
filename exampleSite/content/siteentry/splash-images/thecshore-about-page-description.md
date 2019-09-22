@@ -23,5 +23,5 @@ menu and 'Recent Changes' section with titles and summaries from various
 pages on The C Shore.
 
 <a href="/siteentry/splash-images/thecshore-homepage-description"><img
-alt="The C Shore About Page Screenshot" src="/siteentry/splash-images/splash-demo-image3.jpg"
+alt="The C Shore About Page Screenshot" src="/siteentry/splash-images/splash-demo-image4.jpg"
 width="100%"></a>
