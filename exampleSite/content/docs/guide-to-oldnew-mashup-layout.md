@@ -32,21 +32,21 @@ weight: 20
 
 ## HTML BODY
 
-### Header
+### Page Header
 
 | Part                           | Description                         |
 |--------------------------------|-------------------------------------|
 | site-badge                     | The site logo (if it exists) and title as a button that loads the landing page |
 | menubar                        | The dropdown/flyout menu and the search box and results element (the results element is hidden by default) |
 
-#### Site Badge
+#### Site Badge for Page
 
 | Part                           | Description                         |
 |--------------------------------|-------------------------------------|
 | graphics-row                   | The combined set of ``site-badge-graphic`` classed images and/or text (one row) |
 | siteid                         | The short text acting as user-visible site identifier (e.g. OldNew Mashup) |
 
-#### Menubar
+#### Top Bar Menubar
 
 | Part                           | Description                         |
 |--------------------------------|-------------------------------------|
@@ -65,7 +65,7 @@ weight: 20
 | Sidebar                        | Optional: sidebar if enough room on screen (otherwise after main body) |
 | Footer                         | Footer (Links and Colophon) |
 
-#### Main article
+#### Main Article for Page
 
 | Part                           | Description                         |
 |--------------------------------|-------------------------------------|
@@ -75,7 +75,7 @@ weight: 20
 | The actual article             | Varies                              |
 | Tags (if present in metadata)  | Page tags (taxonomies)              |
 
-#### Sidebar
+#### Page Sidebar
 
 | Part                           | Description                         |
 |--------------------------------|-------------------------------------|
@@ -85,14 +85,14 @@ weight: 20
 | Recently modified pages        | Optional: max 5                     |
 | Events                         | Optional: max 5                     |
 
-### Footer
+### Footer for Page
 
 | Part                           | Description                         |
 |--------------------------------|-------------------------------------|
 | footer-links                   | Various links (see [Reference Guide](/docs/reference-guide) ) |
 | colophon                       | Various document information bits |
 
-#### Colophon
+#### Colophon for Document
 
 | Part                           | Description                         |
 |--------------------------------|-------------------------------------|
