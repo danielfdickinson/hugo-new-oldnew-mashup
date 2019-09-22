@@ -65,9 +65,18 @@ appropriate server-side POST receiver).
 
 ### A note on displaying copyright / licenses
 
-This theme has an archetype and layouts that make it easy to indicate
+This theme has an archetype and taxonomy that make it easy to indicate
 the copyright and licensing for your pages.  In the front-matter add
-the license (or licenses, separated by &amp;) in a license field.
+the license (or licenses) as a list in a licenses field, and copyright
+in a copyright field.
+
+```yaml
+---
+copyright: © 2019 Daniel F. Dickinson
+licenses:
+  - CC-BY-4.0
+---
+```
 
 The copyright and license information will appear in the colophon in the
 footer of the page.
