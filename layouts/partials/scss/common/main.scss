@@ -81,3 +81,10 @@ $search-results-text-color: {{ default "$default-inline-pre-text-color" (.Param 
 $search-results-link-color: {{ default "$default-inline-pre-link-color" ( .Param "search_results_link_color" ) }};
 $search-results-visited-color: {{ default "$default-inline-pre-visited-color" ( .Param "search_results_visited_color" ) }};
 $search-results-hover-color: {{ default "$default-inline-pre-hover-color" ( .Param "search_results_hover_color" ) }};
+
+$default-table-border: {{ default "$default-container-border" ( .Param "default_table_border" ) }};
+$default-table-border-color: {{ default "$default-container-border-color" ( .Param "default_table_border_color" ) }};
+$default-table-background-color: {{ default "#333" ( .Param "default_table_background_color" ) }};
+$default-table-text-color: {{ default "$default-container-text-color" ( .Param "default_table_text_color" ) }};
+$default-table-even-row-backround-color: {{ default "#111" ( .Param "default_table_even_row_background_color" ) }};
+$default-table-heading-background-colour: {{ default "$default-pre-background-color" ( .Param "default_table_heading_background_color" ) }};

@@ -10,8 +10,6 @@ tags: [theme, website, docs, manual, quick-start]
 weight: -1
 ---
 
-## Quick Start
-
 1.  Grab a release tarball from <https://github.com/cshoredaniel/new-oldnew-mashup/releases>
     and place it in your site's ``themes`` directory OR
     ``git clone <https://github.com/cshoredaniel/new-oldnew-mashup>``
