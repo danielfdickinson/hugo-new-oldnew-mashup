@@ -1,6 +1,4 @@
 {{ $footerPage := "/siteentry/accessibility" }}
-{{ if .Params.footersection }}
-{{ $footerPage = printf "/%s/accessibility" .Params.footersection }}
-{{ else if .Site.Params.footersection }}
-{{ $footerPage = printf "/%s/accessibility" .Site.Params.footersection }}
+{{ if (.Param "footersection") }}
+{{ $footerPage = printf "/%s/accessibility" (.Param "footersection") }}
 {{ end }}{{ if .Site.GetPage $footerPage }}<span class="accessibility"><a href="{{ $footerPage | relURL }}" title="Accessibility Statement">Accessibility</a></span>{{ end }}

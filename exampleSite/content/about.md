@@ -13,7 +13,9 @@ tags:
   - documentation
   - introduction
 ---
-## About OldNew Mashup
+# About OldNew Mashup
+
+## Overview
 
 Version 0.9.0
 
@@ -108,4 +110,4 @@ Hugo Taxonomies are implemented.
 
 ## Development
 
-If wish to submit a Pull Request for a submission please do so!
+If you wish to make a submission, please send a pull request.

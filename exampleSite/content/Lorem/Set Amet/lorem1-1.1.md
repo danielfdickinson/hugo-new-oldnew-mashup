@@ -2,7 +2,8 @@
 date: 2018-05-20T01:35:15-04:00
 title: "Ullamcorper Dignissum"
 copyright: 2018 Daniel F. Dickinson and Others
-license: Custom&CC0-1.0
+licenses:
+  - Custom&CC0-1.0
 categories:
 - demo
 - placeholder

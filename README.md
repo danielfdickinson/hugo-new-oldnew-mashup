@@ -104,20 +104,26 @@ Hugo Taxonomies are implemented.
 
 ## Quick Start
 
-1.  Grab a release tarball from <https://github.com/cshoredaniel/new-oldnew-mashup/releases>
-    and place it in your site's ``themes`` directory OR
-    ``git clone <https://github.com/cshoredaniel/new-oldnew-mashup>``
-    within your themes directory,
-    OR ``git submodule add <https://github.com/cshoredaniel/new-oldnew-mashup>``
-    in your themes directory OR ``hugo mod get <https://github.com/cshoredaniel/new-oldnew-mashup>``
-    define the use of a [Hugo Module](https://gohugo.io/hugo-modules/)
-    correctly.
+1.  Obtain the code in one of the following ways:
+    *   Grab a release tarball from <https://github.com/cshoredaniel/new-oldnew-mashup/releases>
+        and place it in your site's ``themes`` directory
+    *   ``git clone https://github.com/cshoredaniel/new-oldnew-mashup``
+        within your themes directory,
+    *   ``git submodule add https://github.com/cshoredaniel/new-oldnew-mashup``
+        in your themes directory
+    *   ``hugo mod get https://github.com/cshoredaniel/new-oldnew-mashup``
+        to define the use of a [Hugo Module](https://gohugo.io/hugo-modules/)
+        correctly.
 2.  Add ``theme = "new-oldnew-mashup"`` to your ``config.toml`` (or the
-    equivalent for YAML or JSON if you use those).
-3.  Generate your site with ``hugo`` (or a a local live version with
-    ``hugo server``), and in the former case copy ``public`` to a web
-    server and browse there, or for the latter browse to <http://localhost:1313>.
-4.  For configuration and options see [OldNew Mashup](https://new-oldnew-mashup.thecshore.com/docs).
+    equivalent for YAML or JSON if you use one of those).
+3.  Generate and view the site:
+    *   Generate your site with ``hugo``, and copy the `public``
+        directory to a web server and browse to the appropriate location
+        on the server.
+    *   Generate and serve a local live version with ``hugo server -b http://localhost:1313/``,
+        and browse to <http://localhost:1313>.
+4.  For configuration and options see
+    [OldNew Mashup](https://new-oldnew-mashup.thecshore.com/docs).
 
 ## Issues / Bugs / Enhancements
 
@@ -125,7 +131,8 @@ Go to the [OldNew Mashup issue tracker on GitHub](https://github.com/cshoredanie
 
 ## Development
 
-If wish to submit a Pull Request for a submission please do so!
+If you wish to make submission to the repository, please send a pull
+request.
 
 ## Copyright & License
 

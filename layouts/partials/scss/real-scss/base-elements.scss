@@ -162,7 +162,7 @@ table {
   & tbody {
     & tr {
       &:nth-child(even) {
-        background-color: $default-table-even-row-backround-color;
+        background-color: $default-table-even-row-background-color;
       }
     }
   }

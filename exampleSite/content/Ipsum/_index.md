@@ -2,7 +2,8 @@
 date: 2018-05-20T01:55:38-04:00
 title: "Ipsum"
 copyright: 2018 Daniel F. Dickinson and Expired
-license: CC0-1.0
+licenses:
+  - CC0-1.0
 weight: 200
 categories:
 - demo

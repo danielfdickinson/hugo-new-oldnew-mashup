@@ -603,8 +603,14 @@ table {
   background-color: #bbb;
   border-bottom-left-radius: 12px;
   border-top-left-radius: 12px; }
+  .graphics-row .site-badge-graphic {
+    align-self: center;
+    flex: 0 0 37px; }
 
 .site-badge {
+  align-content: center;
+  align-items: stretch;
+  align-self: stretch;
   background-color: #333;
   border: 2px solid #222;
   border-radius: 12px;
@@ -612,8 +618,10 @@ table {
   color: #ccf;
   display: flex;
   flex: 1 1 100%;
+  justify-content: stretch;
   opacity: 1;
-  padding-right: .4em; }
+  padding-right: .4em;
+  text-align: center; }
   .site-badge:link, .site-badge:visited, .site-badge:hover, .site-badge:active {
     border-radius: 12px;
     text-decoration: none; }
@@ -623,14 +631,17 @@ table {
     .site-badge:hover .graphics-row, .site-badge:active .graphics-row {
       background: transparent; }
   .site-badge .graphics-row {
-    align-items: center;
+    align-content: center;
+    align-items: stretch;
     display: inline-flex;
-    flex: 0 0 37px;
-    justify-content: space-between; }
+    justify-content: stretch; }
   .site-badge .site-id {
+    align-self: center;
     display: inline-block;
     font-family: Georgia, serif;
-    padding-left: .3em; }
+    padding-left: .3em;
+    text-align: center;
+    width: 100%; }
 
 .top-bar {
   align-content: flex-start;

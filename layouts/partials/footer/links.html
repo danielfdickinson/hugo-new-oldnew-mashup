@@ -1,11 +1,11 @@
 <div class="footer-links">
   {{ block "contact" . }}
-    {{ if not (or .Site.Params.nocontact .Params.nocontact) }}
+    {{ if not (.Param "nocontact") }}
       {{ partial "footer/footer-links/contact" . }}
     {{ end }}
   {{ end }}
   {{ block "sitemap" . }}
-    {{ if not (or .Site.Params.nositemap .Params.nositemap) }}
+    {{ if not (.Param "nositemap") }}
       {{ partial "footer/footer-links/sitemap" . }}
     {{ end }}
   {{ end }}
@@ -15,17 +15,17 @@
     {{ end }}
   {{ end }}
   {{ block "privacy" . }}
-    {{ if not (or .Site.Params.noprivacy .Params.noprivacy) }}
+    {{ if not (.Param "noprivacy") }}
       {{ partial "footer/footer-links/privacy" . }}
     {{ end }}
   {{ end }}
   {{ block "accessibility" . }}
-    {{ if not (or .Site.Params.noaccessibility .Params.noaccessibility) }}
+    {{ if not (.Param "noaccessibility") }}
       {{ partial "footer/footer-links/accessibility" . }}
     {{ end }}
   {{ end }}
   {{ block "feedlink" . }}
-    {{ if not (or .Site.Params.nofeedlink .Params.nofeedlink) }}
+    {{ if not (.Param "nofeedlink") }}
       {{ partial "footer/footer-links/feed-link" . }}
     {{ end }}
   {{ end }}
@@ -35,7 +35,7 @@
     {{ end }}
   {{ end }}
   {{ block "validator" . }}
-    {{ if not (or .Site.Params.novalidator .Params.novalidator) }}
+    {{ if not (.Param "novalidator") }}
       {{ partial "footer/footer-links/validator" . }}
     {{ end }}
   {{ end }}

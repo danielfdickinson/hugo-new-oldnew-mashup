@@ -1,6 +1,4 @@
 {{ $footerPage := "/siteentry/sitemap" }}
-{{ if .Params.footersection }}
-{{ $footerPage = printf "/%s/sitemap" .Params.footersection }}
-{{ else if .Site.Params.footersection }}
-{{ $footerPage = printf "/%s/sitemap" .Site.Params.footersection }}
+{{ if .Param "footersection" }}
+{{ $footerPage = printf "/%s/sitemap" (.Param "footersection") }}
 {{ end }}{{ if .Site.GetPage $footerPage }}<span class="sitemap"><a href="{{ $footerPage | relURL }}" title="Site Map">Site Map</a></span>{{ end }}

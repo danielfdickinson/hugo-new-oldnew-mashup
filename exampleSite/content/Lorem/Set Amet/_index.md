@@ -2,7 +2,8 @@
 date: 2018-05-20T01:34:14-04:00
 title: "Set Amet"
 copyright: 2018 Daniel F. Dickinson
-license: CC0-1.0
+licenses:
+  - CC0-1.0
 categories:
 - demo
 - placeholder
