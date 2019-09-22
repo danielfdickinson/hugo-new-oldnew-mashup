@@ -12,7 +12,7 @@ $default-hover-background-color: {{ default "#777" ( .Param "default_hover_backg
 $default-hover-color: {{ default "#f00" ( .Param "default_hover_color" ) }};
 
 $default-pre-background-color: {{ default "#000" ( .Param "default_pre_background_color" ) }};
-$default-pre-text-color: {{ default "#aaa" (.Param "defaul_pre_text_color" ) }};
+$default-pre-text-color: {{ default "#aaa" (.Param "default_pre_text_color" ) }};
 $default-pre-link-color: {{ default "#999" ( .Param "default_pre_link_color" ) }};
 $default-pre-visited-color: {{ default "$default-visited-link-color" ( .Param "default_pre_visited_color" ) }};
 $default-pre-hover-color: {{ default "#fff" ( .Param "default_pre_hover_color" ) }};
@@ -69,7 +69,7 @@ $local-nav-hover-background-color: {{ default "#ddd" ( .Param "local_nav_hover_b
 $local-nav-hover-color: {{ default "#222" ( .Param "local_nav_hover_color" ) }};
 
 $homepage-title-background-color: {{ default "#777" ( .Param "homepage_title_background_color" ) }};
-$homepage-title-text-color: {{ default "#fff" ( .Param "homepage_title_background_color" ) }};
+$homepage-title-text-color: {{ default "#fff" ( .Param "homepage_title_text_color" ) }};
 
 $splash-screenshot-frame-border: {{ default "20px solid #fff" ( .Param "splash_screenshot_frame_border" ) }};
 $splash-screenshot-image-border: {{ default "2px solid #202020" ( .Param "splash_screenshot_image_border" ) }};
