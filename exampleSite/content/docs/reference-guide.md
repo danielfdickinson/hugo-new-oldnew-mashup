@@ -1,15 +1,56 @@
 ---
 title: "Reference Guide"
 date: 2019-09-02T01:20:56-04:00
-copyright: 2019 Daniel F. Dickinson
+copyright: © 2019 Daniel F. Dickinson
 author: Daniel F. Dickinson <cshored@thecshore.com>
 description: Reference guide for using OldNew Mashup theme
-license: CC-BY-4.0
+licenses:
+  - CC-BY-4.0
 categories: [theme, documentation, reference]
 tags: [theme, website, docs, manual, reference-guide, reference]
 weight: 10
 ---
 # Reference Guide
+
+## Enabling Search
+
+In your site configuration file add JSON as an output type, and in set
+the site parameter ``enable_search = true``.
+
+E.g. for a ``config.toml`` you might have:
+
+```toml
+baseURL = 'https://example.com/'
+languageCode = 'en-ca'
+languageLang = 'en'
+title = 'Site Title'
+enableGitInfo = true
+theme = 'new-oldnew-mashup'
+
+[outputs]
+  home = ["HTML", "JSON", "RSS"]
+
+[params]
+  enable_search = true
+```
+### Enabling Licenses Taxonomy
+
+In your site configuration file add the `licenses` taxonomy.
+E.g. for ``config.toml`` you might have:
+
+```toml
+baseURL = 'https://example.com/'
+languageCode = 'en-ca'
+languageLang = 'en'
+title = 'Site Title'
+enableGitInfo = true
+theme = 'new-oldnew-mashup'
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  license = "licenses"
+```
 
 ## Site Params
 
@@ -30,30 +71,154 @@ theme = 'new-oldnew-mashup'
   copyright = '© 2018 Daniel F. Dickinson'
   default_background_color = '#aba'
   default_text_color = '#454'
+  GitHubRepo = 'cshoredaniel/new-oldnew-mashup'
   ...
 
 ```
 and so on.
 
-### Table of Theme Params
+### Miscellaneous Site Parameters
+
+| Param                               | Description                    |
+|-------------------------------------|--------------------------------|
+| siteid                              | Appears in the site badge as the site identifier |
+| license                             | License for the site as a whole (needs the matching taxonomy to exist for the colophon link) |
+| copyright                           | The copyright year and holder name |
+| site_badge_graphic                  | path to graphic for the site badge |
+| site_badge_graphic_alt_text         | ALT text for graphic for the site badge |
+| splash_images_bundle                | path to a leaf bundle containing the splash screen images and descriptions (see below) |
+| enable_search                       | see above |
+
+### Site or Page Params
+
+The following may be defined as Site Params (see above) — in that case
+the parameter becomes the site-wide default — or as a Page param (which
+applies only to a individual page).
+
+| Param                               | Description                    |
+|-------------------------------------|--------------------------------|
+| nofooterlinks                       | Don't display the footer links section |
+| nocontact                           | Don't display contact footer link |
+| nositemap                           | Don't display sitemap footer link |
+| nofootertaxonomies                  | Don't display taxonomyTerms (with links) in footer |
+| noprivacy                           | Don't display privacy statement page link |
+| noaccessibility                     | Don't display accessibility statement page link |
+| nofeedlink                          | Don't display RSS feed for page |
+| nogetsource                         | Don't display 'Get Source' link to git repo |
+| novalidator                         | Don't display link to W3.org Unicorn validator for the current page |
+| footersection                       | Where to find pages linked from the footer (see below) |
+| rssfeedlink                         | true means include a link to RSS feeds for a list page when an RSS feed exists for that page |
+| validatorlink                       | true means include a link which applies the W3.org Unicorn validator to the page |
+| nocolophon                          | Don't display the colophon (page information, e.g. license and document dates) |
+| nolicense                           | Don't display page license     |
+| nodocdate                           | Don't have document date box (and hoversite) |
+| GitHubRepo                          | If present a link to the repository may appear in the footer |
+| norbar                              | Don't display right sidebar    |
+| noptoc                              | Don't display article Table of Contents |
+| not_in_lists                        | List (type) of lists / menus from which to exclude the current page (see below) |
+
+### Footer Pages
+
+This theme will looks for the following pages at either
+``/footersection/<page>`` or ``/siteentry/<page>`` (if ``footersection``
+  is not defined).  If the page exists the footer will link the page.
+
+| Page                                 | Description                   |
+|--------------------------------------|-------------------------------|
+| accessibility                        | Accessibility Statement / Information |
+| privacy                              | Privacy Statement / Information |
+| contact                              | Site Contact Form             |
+| sitemap                              | Human readable site map       |
+
+### Lists / Menus from which pages may be excluded
+
+| List / Menu                          | Description                   |
+|--------------------------------------|-------------------------------|
+| site                                 | site menu (e.g. topbar menubar) |
+| section-nav                          | section menu (sidebar section navigation) |
+| local-nav                            | linear traversal bar (Prev\|Up\|Next) |
+| section                              | currently unused              |
+| sidebar-news                         | news items section of sidebar         |
+| sidebar-recent                       | recently modified item section of sidebar |
+| sidebar-events                       | events section of sidebar     |
+| sitemap                              | Human readable site map       |
+
+### Theme Styling Parameters
 
 | Param                               | Description                    |
 |-------------------------------------|--------------------------------|
 | sans_font_stack                     | Default sans-serif font selection preferences |
+| serif_mono_font_stack               | Default serif font selection preferences
 | mono_font_stack                     | Default monospace font selection preferences |
 | default_background_color            | self-explanatory               |
 | default_background_image            | ditto (default no image)       |
-| default_pre_background_color        | default background for pre-formatted text boxes |
-| default_hover_background_color      | default link hover background colour  |
-| default_container_background_color  | default background for 'containers' (e.g. boxes) |
 | default_text_color                  | default colour for any text not otherwise styled |
 | default_link_color                  | default colour for non-visited (new) links |
 | default_visited_link_color          | default colour for visited links |
+| default_hover_background_color      | default background colour for hovered over links |
 | default_hover_color                 | default text colour for hovered over links |
+| default_pre_background_color        | default background for pre-formatted text boxes |
+| default_pre_text_color              | default colour for any pre-formatted text not otherwise styled |
+| default_pre_link_color              | default colour for pre-formatted non-visited (new) links |
+| default_pre_visited_link_color      | default colour for pre-formatted visited links |
+| default_pre_hover_color             | default preformatted text colour for hovered over links |
+| default_inline_pre_background_color | default background for inline pre-formatted text boxes |
+| default_inline_pre_text_color       | default colour for any inline pre-formatted text not otherwise styled |
+| default_inline_pre_link_color       | default colour for inline pre-formatted non-visited (new) links |
+| default_inline_pre_visited_link_color | default colour for inline pre-formatted visited links |
+| default_inline_pre_hover_color      | default inline pre-formatted text colour for hovered over links |
 | default_separator_color             | default colour for separating lines / borders |
 | default_container_border            | default border for 'containers' (e.g. boxes) not including colour. E.g. '4px solid' |
 | default_container_border_color      | default colour for 'containers' (e.g. boxes) borders |
-| doc_date_background_color           | background colour for the document date information colophon hover block |
+| default_container_background_color  | default background for 'containers' (e.g. boxes) |
+| default_container_text_color        | default colour for any text in 'containers' (e.g. boxes) |
+| default_container_row_background_color | default background color for highlighted text in 'containers' (e.g. boxes) |
+| sidebar_box_border                  | default border for sidebar boxes not including colour. E.g. '4px solid' |
+| sidebar_box_border_color            | default colour for sidebar boxes borders |
+| sidebar_box_background_color        | default background for sidebar boxes |
+| sidebar_box_text_color              | default colour for any text in sidebar boxes |
+| sidebar_box_row_background_color    | default background color for highlighted text in sidebar boxes |
+| sidebar_menu_entry_row_background_color | background color for rows containing menu items in a sidebar box |
+| toc_box_border                  | default border for table-of-contents boxes notable-of-contentst including colour. E.g. '4px solid' |
+| toc_box_border_color            | default colour for table-of-contents boxes botable-of-contents
+| toc_box_background_color        | default background for table-of-contents boxes |
+| toc_box_text_color              | default colour for any text in table-of-contents boxes |
+| toc_box_row_background_color    | default background color for highlighted text in table-of-contents boxes |
+| doc_date_border                 | default border for document date boxes notable-of-contentst including colour. E.g. '4px solid' |
+| doc_date_border_color           | default colour for document date boxes botable-of-contents
+| doc_date_background_color       | background colour for the document date information colophon hover block |
+| doc_date_text_color             | default colour for any text in document date boxes |
+| default_top_bar_background_color | default background for top bar |
+| default_top_bar_box_shadow_color | default colour for top bar box shadow  |
+| default_top_bar_border_color     | default colour for top bar border |
+| default_top_bar_hover_border_color | default colour for top bar item being hovered over |
+| default_top_bar_hover_box_shadow_color | default box shadow colour for top bar item that is hovered over |
+| site_badge_graphic_background_color | background colour for site badge graphic row |
+| menubar_box_shadow_color            | colour for menubar box shadow  |
+| menubar_top_level_border_color      | colour for top-level menubar border |
+| menubar_submenu-background_color    | background colour for menubar submenu |
+| local_nav_background_color          | self-explanatory               |
+| local_nav_text_color                | local navbar colour for any text not otherwise styled |
+| local_nav_link_color                | local navbar colour for non-visited (new) links |
+| local_nav_hover_background_color    | local navbar background colour for hovered over links |
+| local_nav_hover_color               | local navbar text colour for hovered over links |
+| homepage_title_background_color     | self-explanatory               |
+| homepage_title_text_color           | homepage title colour for any text not otherwise styled |
+| splash_screenshot_frame_border      | colour of simulated photograph border |
+| splash_screenshot_image_border      | inner border color for homepage 'splash' screenshots |
+| splash_screenshot_outside_border    | border colour for the outside of hompage 'splash' screenshots |
+| splash_screenshot_box_shadow        | box shadow colour for homepage 'splash' screenshots |
+| search_results_background_color     | self-explanatory               |
+| search_results_text_color           | search results colour for any text not otherwise styled |
+| search_results_link_color           | search results colour for non-visited (new) links |
+| search_results_visted_color         | search results colour for visited links |
+| search_results_hover_color          | search results text colour for hovered over links |
+| default_table_border            | default border for tables not including colour. E.g. '4px solid' |
+| default_table_border_color      | default colour for tables' borders |
+| default_table_background_color  | default background for tables |
+| default_table_text_color        | default colour for any text in tables |
+| default_table_even_row_background_color | default background color for even rows in tables |
+| default_table_heading_background_color | default background color for heading row(s) in tables |
 
 ## Generic Styles Available
 
@@ -61,112 +226,67 @@ and so on.
 |---------------------|-----------------------------------------------|
 | clear               | Causes HTML following to be rendered on the next line (never beside) the element with this class |
 | label               | Element is intended as a label for following text (but is not necessarily in a form, so not label element |
-| screen-reader-element | Element is for rending in screen readers but not regular pages |
 | rollup-hoversite    | When this a block named with this class is hovered over, rollup-element gets ``display: block`` instead of ``display: none`` |
 | rollup-element      | Is hidden (``display:none``) by default, but when a rollup-hoversite classed element is hovered over it is displayed (as block) |
 | semiblock           | For paragraphs that need an initial indent    |
 | semiblockwrapper    | For a wrapper around paragraphs that need an initial indent on every paragraph |
 | start-para-pic      | For a an image intended to be at the start of a paragraph of text (but done as a div because p elements can't contain block-level elements) |
 
-## Organization and Knobs
+## Splash Screen bundle
 
-### Footer
+*   Needs to be a content bundle
 
-*   contains 'footerlinks' and 'footercolophon' blocks
-    *   for each of these, you may omit the section with a no&lt;block&gt;
-        Site or Page Param (e.g. ``nofooterlinks`` would omit the
-        footerlinks block in footer
-    *   'footerlinks'
-        *   just references 'footer/links' partial
-        *   contains 'contact', 'sitemap', 'privacy', 'accessibility',
-           'feed-link', and 'validator' blocks
-        *   for each of these, you may omit the section with by setting
-            a parameter of the same name with a 'no' prefix (e.g.
-            ``nositemap = true``) in the site configuration file, or by
-            setting 'no*block*: true' (e.g ``nositemap: true``) in the
-            front-matter of the page (for per-page) settings.
-        *   for 'contact', 'sitemap', 'privacy', and 'accessibility'
-            blocks
-            *   The default section expected for these pages is
-              ``/siteentry``.
-            *   The default section can be overridden by setting a
-                parameter named ``footersection`` in the site config file,
-                or by setting ``footersection: desired-section`` in the
-                front-matter of the page (for per-page definitions).
-            *   The default partial only displays the link if a
-                content pages with the same name exists in the section
-                as defined above.  E.g. the privacy page is only displayed
-                if ``/contents/siteentry/privacy.md`` exists in the site,
-                when using the default settings.  '.md' can be any page
-                type supported by [Hugo](https://gohugo.io)).
-        *   'feed-link' displays a links for the RSS feed for the current
-            section (for sections) or is not displayed (for pages).  The
-            link can be suppressed with a ``nofeedlink`` parameter set to
-            true in either the site config file, or in the front-matter of
-            the page (for per-page suppression).
-        *   'validator' likewise can be suppressed with ``novalidator``.
-            When present there will be a link to the the
-            [W3C Unicorn Validator](https://validator.w3.org/unicorn/) set
-            to automatically validate the page on which it appears.
-    *   'footercolophon'
-        *   just references 'footer/colophon' partial
-            *   contains 'docdate' and 'license' blocks
-                *   for each of these, you may omit the section with by
-                    setting a parameter of the same name with a 'no' prefix
-                   (e.g.``nodocdate = true``) in the site configuration
-                   file, or by setting 'no*block*: true' (e.g
-                   ``nodocdate: true``) in the front-matter of the page
-                (for per-page) settings.
-                *   See [A note on Licenses](siteentry#notelicenses) above
-                    for information on setting the copyright and license
-                    information to appear in the colophon.
+### Sample _index.md for splash_images_bundle
 
+```yaml
+---
+title: Splash Images Resources
+resources:
+  - src: splash-demo-image1.jpg
+    params:
+      dlinkfile: /siteentry/splash-images/rock-garden-description
+      alt: \[Photo of a rock garden in bloom, slightly rotated left with a whie border\]
+  - src: splash-demo-image2.jpg
+    params:
+      dlinkfile: /siteentry/splash-images/grain-elevator-mural-description
+      alt: \[Photo of a large outdoor mural on a grain elevator, seen through trees and hydro wires\]
+  - src: splash-demo-image3.jpg
+    params:
+      dlinkfile: /siteentry/splash-images/thecshore-homepage-description
+      alt: \[The C Shore Website Screenshot\]
+  - src: splash-demo-image4.jpg
+    params:
+      dlinkfile: /siteentry/splash-images/thecshore-about-page-description
+      alt: \[The C Shore About Page Screenshot\]
+---
+```
 
-## Styling
+*   Notice the ``resources`` map
+    *   Contains a ``src`` which is an image in the splash_images_bundle
+    *   Contains a ``params`` map which contains:
+        *   ``dlinkfile``: URL of the description of the image (for
+            accessibility).
+        *   ``alt``: ALT text for the image (also for accessibility).
 
-### Footer
+## Sample Landing (Home) Page metadata
 
-*   Style name is 'footer'
-    *   Smaller font size
-    *   Uses entire width of page
-    *   Is a flex item (``order: 999`` so that it normally appears last on
-        the page, but can be overridden by having order greater than 999
-        on elements under the 'default-body-wrapper' or 'homepage'
-        top-level container (div)).
-    *   Contains 'footer-links' and 'colophon'
-        *   'footer-links'
-            *   has a top border (2px grey) that acts a separator from the
-                previous sections
-            *   is slightly padded on all sides
-            *   Text (contents) are centred within the 'footer-links' div.
-            *   Contains 'contact', 'sitemap', 'privacy', 'accessibility',
-                'feed-link', and 'validator' spans.  By default these are
-                styled via the combination of the footer-links followed by
-                a span, but the above classes may be used to override the
-                default styling on a per-section basis.
-        *   'colophon'
-
-#### Colophon
-
-*   Style name is 'colophon'
-*   has a top border (2px grey) that acts a separator from the
-    previous sections
-*   is slightly padded on all sides
-*   Text (contents) is left-justified within the 'colophon'
-    div.
-*   Contains 'doc-date' and 'license-block' classed divs
-    *   'doc-date' contains 'doc-date-hoversite' and 'doc-date-block'
-        *   'doc-date-hoversite' controls whether 'doc-date-block' is
-            visible, when using the default styling (when
-            'doc-date-hoversite' is hovered over, or is clicked, then
-            'doc-date-block' gets ``display: block`` style, otherwise
-            it is ``display: none``)
-        *   'license-block' contains 'page-license' and 'site-license'
-        *   Each of these is a div containing a span with class 'label',
-              some text, and an unordered lists of licenses (generated
-              from the parameters mentioned in
-              [A note on Licenses](siteentry#notelicenses) above).
-        *   The unordered list has been styled to appear as a
-            comma-separated list as one line (i.e. as inline
-            rather than block level elements) with wrapping.  It
-            consists of a 'license-list' with 'license-item's.
+```yaml
+---
+title: "Landing page tab title"
+date: 2018-01-06T14:23:41-05:00
+copyright: © 2019 Daniel Dickinson
+licenses:
+  - CC-BY-4.0
+author: Somebody Someone
+description: Description of the site
+categories: [hugo, theme, html, css, test]
+aside: >
+  An aside with footnote<a href="#afoot1b" id="afoot1a"><sup>1</sup></a>.  Having an aside is optional.  Handy for a  quirky comment on a personal site.
+asidefooter: >
+  <a href="#afoot1a" id="afoot1b"><sup>1</sup></a>A footnote to the aside.  Using a footnote to the aside is optional.
+oneliner: A short oneliner for the site
+subliner: And a longer sub-oneliner for the site.
+---
+```
+*   The special bits are _aside_, _asidefooter_, _oneliner_, and
+    _suboneliner_ .

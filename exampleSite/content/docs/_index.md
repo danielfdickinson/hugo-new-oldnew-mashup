@@ -4,7 +4,8 @@ date: 2019-09-02T00:51:16-04:00
 copyright: 2019 Daniel F. Dickinson
 author: Daniel F. Dickinson <cshored@thecshore.com>
 description: Documentation for OldNew Mashup Theme
-license: CC-BY-4.0
+licenses:
+  - CC-BY-4.0
 categories: [theme, documentation, manual]
 tags: [theme, website, docs, manual]
 weight: 2

@@ -1,4 +1,4 @@
-{{ if not (or .Params.norbar .Site.Params.norbar) }}
+{{ if not (.Param "norbar") }}
 <div class="sidebar">
   {{ $newsPages := where .Site.Pages.ByLastmod.Reverse "Type" "news" }}
   {{ $newsNodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $newsPages "menu_node" . "menu_type" "sidebar-news" ) ) }}

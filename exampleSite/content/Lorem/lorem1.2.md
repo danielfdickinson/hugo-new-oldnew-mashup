@@ -2,7 +2,9 @@
 date: 2018-05-20T01:25:22-04:00
 title: "Ornare Massa"
 copyright: 2018 Daniel F. Dickinson and Others
-license: Custom&CC0-1.0
+licenses:
+  - Custom
+  - CC0-1.0
 categories:
 - demo
 - placeholder
