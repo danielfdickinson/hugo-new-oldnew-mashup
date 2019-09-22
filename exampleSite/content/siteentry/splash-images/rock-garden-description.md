@@ -21,5 +21,5 @@ and rock roses, with some daffodils.  At the top are more rock, rock
 roses, and at the very top, the bottoms of cedar trees.
 
 <a href="/siteentry/splash-images/thecshore-about-page-description"><img
-alt="" src="/siteentry/splash-images/splash-demo-image4.jpg"
+alt="" src="/siteentry/splash-images/splash-demo-image1.jpg"
 width="100%"></a>
