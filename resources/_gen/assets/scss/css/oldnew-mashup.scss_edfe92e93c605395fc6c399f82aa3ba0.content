@@ -1331,6 +1331,10 @@ table {
     flex-flow: row nowrap;
     justify-content: stretch;
     margin-left: 2em; }
+    .menubar-site-menu .menu-parent .menu-item .menu-parent:nth-child(1n+2) {
+      display: none; }
+      .menubar-site-menu .menu-parent .menu-item .menu-parent:nth-child(1n+2) .menu-item {
+        display: none; }
     .menubar-site-menu > .menubar-site-menu-list {
       align-content: space-around;
       align-items: center;
