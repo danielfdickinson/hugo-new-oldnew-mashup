@@ -150,6 +150,24 @@ input {
   }
 }
 
+table {
+  border: $default-table-border $default-table-border-color;
+  max-width: 100%;
+
+  & th,
+  & thead {
+    background-color: $default-table-heading-background-colour;
+  }
+
+  & tbody {
+    & tr {
+      &:nth-child(even) {
+        background-color: $default-table-even-row-backround-color;
+      }
+    }
+  }
+}
+
 @media not speech {
   html {
     font-size: 16px;
