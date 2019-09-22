@@ -1,5 +1,5 @@
 
-{{ partial "scss/base/main.scss" }}
+{{ partial "scss/base/main.scss" . }}
 
 @media print {
   html {
