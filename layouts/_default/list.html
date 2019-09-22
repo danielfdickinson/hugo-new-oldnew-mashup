@@ -9,11 +9,11 @@
 {{ define "main" }}
 <main class="section-page-main">
 <article aria-label="Main Article" id="main-article" class="main-article">
-  <section class="regular-content">
-    <header class="article-header">
+  <header class="article-header">
   {{ if .Title }}<h1 class="article-title">{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title | singularize | humanize }}{{ else }}{{ .Title }}{{ end }}{{ end }}</h1>{{ end }}
   {{/*}}{{ partial "generic-helpers/taxonomy/taxonomy-list"  (dict "curRegPage" . "taxonomyType" "category" ) }}*/}}
-    </header>
+  </header>
+  <section class="regular-content">
   {{ .Content }}
   {{ partial "generic-helpers/aside" . }}
   </section>
