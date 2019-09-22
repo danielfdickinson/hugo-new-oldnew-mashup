@@ -35,6 +35,10 @@ DFN {
 pre {
   background-color: $default-pre-background-color;
   color: $default-pre-text-color;
+  display: block;
+  max-width: 16em;
+  overflow: hidden;
+  padding-bottom: 12px;
 
   & a {
     color: $default-pre-text-color;
@@ -51,6 +55,12 @@ pre {
     &:hover {
       color: $default-pre-hover-color;
     }
+  }
+
+  &:active,
+  &:hover {
+    overflow-x: scroll;
+    padding-bottom: 0;
   }
 }
 
@@ -207,5 +217,53 @@ table {
 @media screen {
   * {
     box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 42em) {
+  pre {
+    max-width: 20em;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  pre {
+    max-width: 24em;
+  }
+}
+
+@media screen and (min-width: 56em) {
+  pre {
+    max-width: 26em;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  pre {
+    max-width: 32em;
+  }
+}
+
+@media screen and (min-width: 70em) {
+  pre {
+    max-width: 38em;
+  }
+}
+
+@media screen and (min-width: 76em) {
+  pre {
+    max-width: 44em;
+  }
+}
+
+@media screen and (min-width: 82em) {
+  pre {
+    max-width: 50em;
+  }
+}
+
+@media screen and (min-width: 90em) {
+  pre {
+    max-width: 56em;
   }
 }

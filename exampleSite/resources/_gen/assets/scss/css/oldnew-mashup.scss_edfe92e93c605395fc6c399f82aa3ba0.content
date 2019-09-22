@@ -275,7 +275,11 @@ DFN {
 
 pre {
   background-color: #000;
-  color: #aaa; }
+  color: #aaa;
+  display: block;
+  max-width: 16em;
+  overflow: hidden;
+  padding-bottom: 12px; }
   pre a {
     color: #aaa; }
     pre a:link {
@@ -284,6 +288,9 @@ pre {
       color: #cde; }
     pre a:active, pre a:hover {
       color: #fff; }
+  pre:active, pre:hover {
+    overflow-x: scroll;
+    padding-bottom: 0; }
 
 code,
 samp,
@@ -396,6 +403,38 @@ table {
 @media screen {
   * {
     box-sizing: border-box; } }
+
+@media screen and (min-width: 42em) {
+  pre {
+    max-width: 20em; } }
+
+@media screen and (min-width: 48em) {
+  pre {
+    max-width: 24em; } }
+
+@media screen and (min-width: 56em) {
+  pre {
+    max-width: 26em; } }
+
+@media screen and (min-width: 64em) {
+  pre {
+    max-width: 32em; } }
+
+@media screen and (min-width: 70em) {
+  pre {
+    max-width: 38em; } }
+
+@media screen and (min-width: 76em) {
+  pre {
+    max-width: 44em; } }
+
+@media screen and (min-width: 82em) {
+  pre {
+    max-width: 50em; } }
+
+@media screen and (min-width: 90em) {
+  pre {
+    max-width: 56em; } }
 
 /*! Copyright 2007-2009,2017-2018 Daniel F. Dickinson <cshored@thecshore.com>
  *  Released under the Creative Commons BY (Attribution) 4.0 License
