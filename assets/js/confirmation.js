@@ -19,7 +19,6 @@ function doConfirmation() {
     if (confirmationCode) {
       document.getElementById("ConfirmationCode").value = confirmationCode;
     } else {
-      var para = document.createElement("P");
       document.getElementById("ConfirmationCode").value = "Missing confirmation code";
     }
   }
