@@ -9,9 +9,9 @@ categories: [theme, documentation, reference]
 tags: [theme, website, docs, manual, reference-guide, reference]
 weight: 10
 ---
-## Reference Guide
+# Reference Guide
 
-### Site Params
+## Site Params
 
 Set these in your site configuration file in the ``params`` section.
 E.g. for a ``config.toml`` you might have:
@@ -35,7 +35,7 @@ theme = 'new-oldnew-mashup'
 ```
 and so on.
 
-#### Table of Theme Params
+### Table of Theme Params
 
 | Param                               | Description                    |
 |-------------------------------------|--------------------------------|
@@ -55,7 +55,7 @@ and so on.
 | default_container_border_color      | default colour for 'containers' (e.g. boxes) borders |
 | doc_date_background_color           | background colour for the document date information colophon hover block |
 
-### Generic Styles Available
+## Generic Styles Available
 
 | Class Name          | Description                                   |
 |---------------------|-----------------------------------------------|
@@ -68,9 +68,9 @@ and so on.
 | semiblockwrapper    | For a wrapper around paragraphs that need an initial indent on every paragraph |
 | start-para-pic      | For a an image intended to be at the start of a paragraph of text (but done as a div because p elements can't contain block-level elements) |
 
-### Organization and Knobs
+## Organization and Knobs
 
-#### Footer
+### Footer
 
 *   contains 'footerlinks' and 'footercolophon' blocks
     *   for each of these, you may omit the section with a no&lt;block&gt;
@@ -122,9 +122,9 @@ and so on.
                     information to appear in the colophon.
 
 
-### Styling
+## Styling
 
-#### Footer
+### Footer
 
 *   Style name is 'footer'
     *   Smaller font size
@@ -146,7 +146,7 @@ and so on.
                 default styling on a per-section basis.
         *   'colophon'
 
-##### Colophon
+#### Colophon
 
 *   Style name is 'colophon'
 *   has a top border (2px grey) that acts a separator from the
