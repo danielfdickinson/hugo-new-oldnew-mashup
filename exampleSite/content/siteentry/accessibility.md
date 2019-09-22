@@ -14,6 +14,8 @@ tags:
   - a11y
   - statement
   - features
+  - contrast
+  - colour
 ---
 
 # Accessibility Statement
@@ -22,6 +24,16 @@ tags:
 
 The following statements apply to this site when hosted at
 [https://hugo-oldnew-mashup.thecshore.com](https://hugo-oldnew-mashup.thecshore.com)
+
+## Colour Scheme
+
+The display colours have been chosen for high contrast.  All
+combinations of foreground and background colour in the theme used on
+this site should meet or exceed the w3.org's WCAG 2.0 (Web Content
+Accessibility Guidelines) AAA standard for contrast.  In addition,
+effort has been made to avoid the use of colour alone to provide
+information (that is colour is an enhancement not a requirement to
+effectively use and understand the site).
 
 ## Font Size
 
