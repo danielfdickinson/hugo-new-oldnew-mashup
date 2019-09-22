@@ -2166,82 +2166,149 @@ pre code {
       text-decoration: none; }
 
 @media print {
-  html body .github-fork-ribbon.left-bottom.fixed {
-    display: none;
-    position: static; }
-    html body .github-fork-ribbon.left-bottom.fixed::before {
-      display: none;
-      position: static; }
-    html body .github-fork-ribbon.left-bottom.fixed::after {
-      display: none;
-      position: static; }
-  html body .NavSkiptoLinks {
-    display: none; }
-  html body .default-body-wrapper {
+  html body .default-body-wrapper,
+  html body .homepage {
     display: inline;
     position: static;
     width: auto; }
-    html body .default-body-wrapper .top-bar {
-      display: inline;
+    html body .default-body-wrapper code,
+    html body .homepage code {
+      max-width: none;
+      width: 100%; }
+      html body .default-body-wrapper code pre,
+      html body .homepage code pre {
+        max-width: none;
+        width: 100%; }
+    html body .default-body-wrapper pre,
+    html body .homepage pre {
+      max-width: none;
+      width: 100%; }
+      html body .default-body-wrapper pre code,
+      html body .homepage pre code {
+        max-width: none;
+        width: 100%; }
+    html body .default-body-wrapper .highlight,
+    html body .homepage .highlight {
+      max-width: none;
+      width: 100%; }
+      html body .default-body-wrapper .highlight pre,
+      html body .homepage .highlight pre {
+        max-width: none;
+        width: 100%; }
+        html body .default-body-wrapper .highlight pre code,
+        html body .homepage .highlight pre code {
+          max-width: none;
+          width: 100%; }
+    html body .default-body-wrapper .top-bar,
+    html body .homepage .top-bar {
+      display: block;
+      margin: .8em;
       position: static;
       width: auto;
       z-index: 0; }
-      html body .default-body-wrapper .top-bar .SiteBadge {
+      html body .default-body-wrapper .top-bar .site-badge,
+      html body .homepage .top-bar .site-badge {
         display: inline-block;
         position: static;
+        vertical-align: middle;
         width: auto; }
-        html body .default-body-wrapper .top-bar .SiteBadge .GraphicsRow {
+        html body .default-body-wrapper .top-bar .site-badge .graphics-row,
+        html body .homepage .top-bar .site-badge .graphics-row {
           display: inline-block;
           position: static;
+          vertical-align: middle;
           width: auto; }
-          html body .default-body-wrapper .top-bar .SiteBadge .GraphicsRow .SiteBadgeGraphic {
+          html body .default-body-wrapper .top-bar .site-badge .graphics-row .site-badge-graphic,
+          html body .homepage .top-bar .site-badge .graphics-row .site-badge-graphic {
             display: inline-block;
             position: static;
             width: 37px; }
-        html body .default-body-wrapper .top-bar .SiteBadge .SiteId {
+        html body .default-body-wrapper .top-bar .site-badge .site-id,
+        html body .homepage .top-bar .site-badge .site-id {
           display: inline-block;
           position: static;
+          vertical-align: middle;
           width: auto; }
-      html body .default-body-wrapper .top-bar .Sitemenu {
+      html body .default-body-wrapper .top-bar .menubar-site-menu,
+      html body .homepage .top-bar .menubar-site-menu {
         display: none;
         position: static;
         width: auto;
         z-index: 0; }
-    html body .default-body-wrapper .Main,
-    html body .default-body-wrapper .SectionPageMain {
+    html body .default-body-wrapper .local-nav-bar,
+    html body .homepage .local-nav-bar {
+      display: none;
+      position: static;
+      width: auto; }
+    html body .default-body-wrapper .section-nav-sitemap,
+    html body .homepage .section-nav-sitemap {
+      display: none;
+      position: static;
+      width: auto; }
+    html body .default-body-wrapper .main,
+    html body .default-body-wrapper .section-page-main,
+    html body .homepage .main,
+    html body .homepage .section-page-main {
       display: inline;
       position: static;
       width: auto; }
-      html body .default-body-wrapper .Main .main-body,
-      html body .default-body-wrapper .SectionPageMain .main-body {
+      html body .default-body-wrapper .main .main-article,
+      html body .default-body-wrapper .section-page-main .main-article,
+      html body .homepage .main .main-article,
+      html body .homepage .section-page-main .main-article {
         display: inline;
         position: static;
         width: auto; }
-        html body .default-body-wrapper .Main .main-body .MainContent,
-        html body .default-body-wrapper .SectionPageMain .main-body .MainContent {
+        html body .default-body-wrapper .main .main-article .regular-content,
+        html body .default-body-wrapper .section-page-main .main-article .regular-content,
+        html body .homepage .main .main-article .regular-content,
+        html body .homepage .section-page-main .main-article .regular-content {
           display: inline;
           position: static;
           width: auto; }
-        html body .default-body-wrapper .Main .main-body .section-toc,
-        html body .default-body-wrapper .SectionPageMain .main-body .section-toc {
-          display: none; }
-      html body .default-body-wrapper .Main .RightSidebar,
-      html body .default-body-wrapper .SectionPageMain .RightSidebar {
-        display: none;
+        html body .default-body-wrapper .main .main-article .article-header,
+        html body .default-body-wrapper .section-page-main .main-article .article-header,
+        html body .homepage .main .main-article .article-header,
+        html body .homepage .section-page-main .main-article .article-header {
+          display: inline;
+          position: static;
+          width: auto; }
+        html body .default-body-wrapper .main .main-article .article-toc,
+        html body .default-body-wrapper .section-page-main .main-article .article-toc,
+        html body .homepage .main .main-article .article-toc,
+        html body .homepage .section-page-main .main-article .article-toc {
+          border: none;
+          display: inline;
+          position: static;
+          width: auto; }
+      html body .default-body-wrapper .main .section-toc,
+      html body .default-body-wrapper .section-page-main .section-toc,
+      html body .homepage .main .section-toc,
+      html body .homepage .section-page-main .section-toc {
+        display: inline;
         position: static;
         width: auto; }
-    html body .default-body-wrapper .footer {
+    html body .default-body-wrapper .sidebar,
+    html body .homepage .sidebar {
+      display: none;
+      position: static;
+      width: auto; }
+    html body .default-body-wrapper .page-footer,
+    html body .homepage .page-footer {
       display: inline;
       position: static;
       width: auto; }
-      html body .default-body-wrapper .footer .footer-links {
+      html body .default-body-wrapper .page-footer .footer-links,
+      html body .homepage .page-footer .footer-links {
         display: none; }
-      html body .default-body-wrapper .footer .colophon .doc-date-block {
+      html body .default-body-wrapper .page-footer .colophon .doc-date-block,
+      html body .homepage .page-footer .colophon .doc-date-block {
         border: 0px none;
         background-color: initial;
         margin-top: .3em;
         padding: 0; }
-        html body .default-body-wrapper .footer .colophon .doc-date-block .label {
+        html body .default-body-wrapper .page-footer .colophon .doc-date-block .label,
+        html body .homepage .page-footer .colophon .doc-date-block .label {
           font-weight: normal; } }
 
 /*# sourceMappingURL=oldnew-mashup.css.map */
