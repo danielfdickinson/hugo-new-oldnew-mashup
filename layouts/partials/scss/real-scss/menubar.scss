@@ -388,6 +388,21 @@
     justify-content: stretch;
     margin-left: 2em;
 
+    .menu-parent {
+      // sass-lint:disable nesting-depth
+      & .menu-item {
+        & .menu-parent {
+          &:nth-child(1n+2) {
+            display: none;
+
+            & .menu-item {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
     & > .menubar-site-menu-list {
       @include large-screen-menu-item-search;
 
