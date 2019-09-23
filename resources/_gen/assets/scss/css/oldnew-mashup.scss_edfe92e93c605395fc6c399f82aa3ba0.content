@@ -364,6 +364,11 @@ h1 {
     font-family: Georgia, serif;
     text-align: center; }
 
+.article-title {
+  display: block;
+  font-family: Georgia, serif;
+  text-align: center; }
+
 input[type='text'] {
   width: 100%; }
 
@@ -503,23 +508,21 @@ table {
   width: 100%;
   z-index: 0; }
 
-.article-header {
+.article-title {
+  border-bottom: 6px ridge;
+  border-top: 6px ridge;
   display: block;
-  margin: 0;
-  padding: 0; }
-  .article-header .article-title {
-    border-bottom: 6px ridge;
-    border-top: 6px ridge;
-    display: block;
-    margin-bottom: .1em;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding: .2em;
-    width: 100%; }
+  margin-bottom: .1em;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding: .2em;
+  width: 100%; }
 
 .main,
-.section-page-main {
+.section-page-main,
+.taxonomy-term-page-main,
+.taxonomy-page-main {
   display: block;
   flex: 1 1 100%;
   line-height: 1.5;
@@ -569,13 +572,17 @@ table {
   order: 1;
   text-align: center; }
 
-.license-pages-section .section-contents {
+.license-pages-section .section-contents,
+.license-pages-section .taxonomy-term-contents,
+.license-pages-section .taxonomy-contents {
   align-content: center;
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
   width: 100%; }
-  .license-pages-section .section-contents ol {
+  .license-pages-section .section-contents ol,
+  .license-pages-section .taxonomy-term-contents ol,
+  .license-pages-section .taxonomy-contents ol {
     flex: 0 1 60%;
     order: 2;
     text-align: left; }
@@ -590,6 +597,11 @@ table {
 
 .sitemap-main .menu-item .menu-link {
   display: block; }
+
+.summary {
+  font-size: 1.2em;
+  font-style: italic;
+  font-weight: bold; }
 
 .article-toc {
   display: block;
@@ -623,7 +635,9 @@ table {
     grid-auto-flow: row;
     grid-template-columns: 74% 25%; }
   .main,
-  .section-page-main {
+  .section-page-main,
+  .taxonomy-term-page-main,
+  .taxonomy-page-main {
     grid-column-end: 1;
     grid-column-start: 2;
     grid-row-end: 6;

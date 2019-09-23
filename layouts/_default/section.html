@@ -1,0 +1,44 @@
+{{ define "title" }}
+  {{ if .Title }}{{ .Title }}{{ end }}
+{{ end }}
+{{ define "bodytag" }}
+  <body>
+<!-- Copyright 2018-2019 Daniel F. Dickinson
+     Released under the Create Commons BY (Attribution) 4.0 License -->
+{{ end }}
+{{ define "main" }}
+<main class="section-page-main">
+<article aria-label="Main Article" id="main-article" class="main-article">
+  {{ if .Title }}<h1 class="article-title">{{ .Title }}</h1>{{ end }}
+  {{ if .Page.Params.description }}<section class="summary">{{ .Page.Params.description }}</section>{{ end }}
+  <section class="regular-content">
+  {{ .Content }}
+  {{ partial "generic-helpers/aside" . }}
+  </section>
+  {{ if .Data.Pages }}
+  <section aria-labelledby="section-contents-heading" class="section-toc">
+    <h2 id="section-contents-heading" class="section-contents-heading">Section Contents</h2>
+    {{ $timeTypes := .Param "time_types" }}
+    {{ if (in $timeTypes .Type ) }}
+      {{ $timeTypes := .Param "time_types" }}
+      {{ range .Data.Pages.GroupByDate "2006-01" "desc" }}
+      <h3>{{ .Key }}</h3>
+      <ul>
+        {{ range .Pages.ByTitle }}
+        <li>
+          <span class="list-item-date">{{ .Date.Format "Mon, 2006/01/02 15:04 MST" }}</span>
+          <span class="date-list-item"><a href="{{ .Permalink }}">{{ .Title }}</a></span>
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    {{ else }}
+    <ol class="section-contents">
+      {{ partial "generic-helpers/section/nesting" . }}
+    </ol>
+    {{ end }}
+  </section>
+  {{ end }}
+</article>
+</main>
+{{ end }}
