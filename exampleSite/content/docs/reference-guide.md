@@ -88,6 +88,7 @@ and so on.
 | site_badge_graphic_alt_text         | ALT text for graphic for the site badge |
 | splash_images_bundle                | path to a leaf bundle containing the splash screen images and descriptions (see below) |
 | enable_search                       | see above |
+| time_types                          | list of page '.Type's that should be listed in time order |
 
 ### Site or Page Params
 

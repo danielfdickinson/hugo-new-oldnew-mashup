@@ -152,6 +152,11 @@ h1 {
     text-align: center;
   }
 }
+.article-title {
+  display: block;
+  font-family: $serif-font-stack;
+  text-align: center;
+}
 
 // We always surround input by divs if we want to contain the size
 input {

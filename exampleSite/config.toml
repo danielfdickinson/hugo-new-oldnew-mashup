@@ -25,6 +25,7 @@ min_version = "0.57.2"
   site_badge_graphic_alt_text = "[Logo for Hugo OldNew Mashup Theme Homepage]"
   splash_images_bundle = "/siteentry/splash-images"
   enable_search = true
+  time_types = ["Viverra Justo", "Ipsum"]
 
 [outputs]
   home = ["HTML", "JSON", "RSS"]
