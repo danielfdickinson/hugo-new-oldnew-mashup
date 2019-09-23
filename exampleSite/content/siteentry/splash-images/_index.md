@@ -14,19 +14,19 @@ licenses:
   - CC-BY-4.0
 not_in_lists: [site, section-nav, local-nav, sidebar-recent, section]
 resources:
-  - src: splash-demo-image1.jpg
+  - src: splash-demo-image1.png
     params:
-      dlinkfile: /siteentry/splash-images/rock-garden-description
-      alt: \[Photo of a rock garden in bloom, slightly rotated left with a whie border\]
-  - src: splash-demo-image2.jpg
+      dlinkfile: /siteentry/splash-images/thecshore-search-results-description
+      alt: \[Screenshot of Search Results on The C Shore\]
+  - src: splash-demo-image4.png
     params:
-      dlinkfile: /siteentry/splash-images/grain-elevator-mural-description
-      alt: \[Photo of a large outdoor mural on a grain elevator, seen through trees and hydro wires\]
-  - src: splash-demo-image3.jpg
+      dlinkfile: /siteentry/splash-images/oldnew-mashup-about-page-description
+      alt: \[Screenshot of OldNew Mashup Theme About Page\]
+  - src: splash-demo-image3.png
     params:
-      dlinkfile: /siteentry/splash-images/thecshore-homepage-description
-      alt: \[The C Shore Website Screenshot\]
-  - src: splash-demo-image4.jpg
+      dlinkfile: /siteentry/splash-images/oldnew-mashup-homepage-description
+      alt: \[OldNew Mashup Homepage Screenshot\]
+  - src: splash-demo-image2.png
     params:
       dlinkfile: /siteentry/splash-images/thecshore-about-page-description
       alt: \[The C Shore About Page Screenshot\]
