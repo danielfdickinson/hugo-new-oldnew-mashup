@@ -1,6 +1,6 @@
-{{ $licenses := .Param "licenses" }}
+{{ $licenses := $.Site.Param "licenses" }}
 {{ if eq $licenses nil }}
-  {{ $licenses = slice "CC-BY-4.0" }}
+  {{ $licenses = slice "Proprietary" }}
 {{ end }}
 <ul class="license-list">
   <!-- Copyright 2018-2019 Daniel F. Dickinson,
