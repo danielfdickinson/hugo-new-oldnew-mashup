@@ -67,7 +67,7 @@ theme = 'new-oldnew-mashup'
 
 [params]
   siteid = 'Site Title/ID'
-  license = 'CC-BY-4.0'
+  licenses = ['CC-BY-4.0']
   copyright = '© 2018 Daniel F. Dickinson'
   default_background_color = '#aba'
   default_text_color = '#454'
@@ -82,7 +82,7 @@ and so on.
 | Param                               | Description                    |
 |-------------------------------------|--------------------------------|
 | siteid                              | Appears in the site badge as the site identifier |
-| license                             | License for the site as a whole (needs the matching taxonomy to exist for the colophon link) |
+| licenses                             | Licenses for the site as a whole (needs the matching taxonomy to exist for the colophon link); should be a list |
 | copyright                           | The copyright year and holder name |
 | site_badge_graphic                  | path to graphic for the site badge |
 | site_badge_graphic_alt_text         | ALT text for graphic for the site badge |
