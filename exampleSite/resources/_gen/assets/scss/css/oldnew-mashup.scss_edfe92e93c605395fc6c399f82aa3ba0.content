@@ -2124,23 +2124,6 @@ pre code {
 .not-found-block {
   margin-bottom: 1em; }
 
-.search-form-404 {
-  align-content: stretch;
-  align-items: stretch;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  width: 100%; }
-  .search-form-404 label {
-    flex: 0 1 auto;
-    margin-right: 1em; }
-  .search-form-404 input[type='search'] {
-    flex: 5 1 auto; }
-  .search-form-404 input[type='button'] {
-    flex: 0 1 auto;
-    padding-left: 0;
-    padding-right: 0; }
-
 .sitemap-main-list {
   list-style-position: outside; }
   .sitemap-main-list ul {
@@ -2150,7 +2133,7 @@ pre code {
   display: block;
   margin-top: 0;
   text-align: center; }
-  .four-oh-four .main {
+  .four-oh-four.main {
     margin-top: 0;
     align-content: stretch;
     align-items: flex-start;
@@ -2159,13 +2142,13 @@ pre code {
     justify-content: center;
     margin-top: 0;
     padding-bottom: 4em; }
-    .four-oh-four .main .title {
+    .four-oh-four.main .title {
       display: block;
       flex: 1 1 100%;
       font-size: 1.3em;
       margin-top: 0;
       padding: 1em; }
-    .four-oh-four .main .not-found-box {
+    .four-oh-four.main .not-found-box {
       align-content: stretch;
       align-items: flex-start;
       display: flex;
@@ -2173,7 +2156,7 @@ pre code {
       flex-flow: row wrap;
       justify-content: stretch;
       text-align: left; }
-      .four-oh-four .main .not-found-box div {
+      .four-oh-four.main .not-found-box div {
         display: block;
         flex: 1 2 100%;
         padding-bottom: .5em;
@@ -2181,7 +2164,7 @@ pre code {
         padding-right: 0;
         padding-top: .5em;
         text-align: left; }
-      .four-oh-four .main .not-found-box.sidebar {
+      .four-oh-four.main .not-found-box.sidebar {
         margin-top: 1em; }
 
 .contact-form {
