@@ -2,7 +2,7 @@
      Released under the Creative Commons BY (Attribution) 4.0 License -->
 {{ $curCtx := . }}
 {{ with .itemPage }}
-  <li class="page-list-item"><a href="{{ .Permalink }}">{{ if .Title }}{{ .Title }}{{ else if .File }}{{ if .File.BaseTranslationName }}{{ .File.BaseTranslationName }}{{ end }}{{ end }}</a>{{ if $curCtx.taxonomyPage }}{{ if $curCtx.taxonomyPage.Count }} &mdash; {{ $curCtx.taxonomyPage.Count }}{{ end }}{{ end }}
+  <li class="page-list-item"><a href="{{ .Permalink }}">{{ if .Title }}{{ .Title }}{{ else if .File }}{{ if .File.TranslationBaseName }}{{ .File.TranslationBaseName }}{{ end }}{{ end }}</a>{{ if $curCtx.taxonomyPage }}{{ if $curCtx.taxonomyPage.Count }} &mdash; {{ $curCtx.taxonomyPage.Count }}{{ end }}{{ end }}
   {{ if (and .Data.Pages (not $curCtx.taxonomyPage) ) }}
     <ol>
     {{ partial "generic-helpers/section/nesting" . }}
