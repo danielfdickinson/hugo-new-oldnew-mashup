@@ -9,15 +9,15 @@ Version 0.9.0
 Modern high-contrast CSS3 & HTML5 [Hugo](https://gohugo.io) theme
 inspired by old-school themes.
 
-It attempts to be accessible, private, and responsive (in progress).
+It attempts to be accessible, private, and responsive.
 
-The theme is currently a work in progress, and has not yet been released
-since refactoring.
+The theme is currently a work in progress.
 
-## Documentation
+You can view the [documentation for New OldNew Mashup Theme](https://new-oldnew-mashup.thecshore.com/docs)
 
-View the [OldNew Mashup Documentation](https://new-oldnew-mashup.thecshore.com/docs)
-for detailed information on how to use the OldNew Mashup theme.
+## Examples of Sites Using This Theme
+*   [The C Shore](https://www.thecshore.com)
+*   [New OldNew Mashup Demo Site](https://new-oldnew-mashup.thecshore.com)
 
 ## Example Site
 

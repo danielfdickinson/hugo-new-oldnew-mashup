@@ -21,15 +21,15 @@ Version 0.9.0
 
 Modern high-contrast CSS3 & HTML5 Hugo theme inspired by old-school themes.
 
-It attempts to be accessible, private, and responsive (in progress).
+It attempts to be accessible, private, and responsive.
 
-The theme is currently a work in progress, and has not yet been released since refactoring.
+The theme is currently a work in progress.
 
 You can view the [documentation for New OldNew Mashup Theme](docs)
 
 ## Examples of Sites Using This Theme
-*   TODO: [The C Shore](https://www.thecshore.com)
-*   Old version: [CShore's Maker Workshops](https://maker-workshops.thecshore.com)
+*   [The C Shore](https://www.thecshore.com)
+*   [New OldNew Mashup Demo Site](https://new-oldnew-mashup.thecshore.com)
 
 ## Interesting Features
 
