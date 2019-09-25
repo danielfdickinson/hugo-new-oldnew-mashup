@@ -1,14 +1,3 @@
-/* function ready(fn) {
-  if (document.readyState != 'loading') {
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
-
-ready(doSearch);
-*/
-
 summaryInclude = 60;
 var fuseOptions = {
   shouldSort: true,
@@ -41,8 +30,6 @@ var fuseOptions = {
 function param(name) {
   return decodeURIComponent((location.search.split(name + '=')[1] || '').split('&')[0]).replace(/\+/g, ' ');
 }
-
-//var searchQuery = param("s");
 
 function doCloseSearch() {
   if (document.getElementById("search-results")) {
