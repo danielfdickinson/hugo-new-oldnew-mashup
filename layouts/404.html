@@ -15,11 +15,7 @@
             <div class="not-found-block">
               {{ print "It seems we can't find that for which you are looking... :disappointed:" | emojify | markdownify }}
             </div>
-            <div class="search-to-find-block">
-              <form class="search-form-404" action="{{ "/siteentry/search" | relURL }}">
-                <label for="search-query-404">Search to find it:</label> <input id="search-query-404" aria-label="Search box" type="search" name="s" size="2" /><input id="search-button-404" type="submit" value="Search" size="2" />
-              </form>
-            </div>
+            <div class="search-to-find-block">Search using the search bar above</div>
             <div class="browse-to-find-block">
               {{ markdownify "Or you can try to [Browse to find it](/)" }}
             </div>
