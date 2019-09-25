@@ -5,7 +5,7 @@ copyright: 2019 Daniel F. Dickinson
 author: Daniel F. Dickinson <cshored@thecshore.com>
 description:
 licenses:
-  - CC-BY-4.0
+  - Proprietary
 categories:
 tags:
 ---
