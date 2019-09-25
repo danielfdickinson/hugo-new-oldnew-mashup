@@ -1,18 +1,17 @@
 ---
-title: "Search Results"
-sitemap:
-  priority : 0.1
-layout: "search"
-nornav: true
-nortoc: true
-normenu: true
+title: "Search Setup"
+date: 2019-09-25T13:47:56-04:00
+copyright: © 2019 Daniel F. Dickinson
+author: Various contributors
+description: Information on configuration search
+licenses:
+  - CC-BY-4.0
+categories: [theme, documentation, search]
+tags: [theme, website, docs, search, documentation]
+weight: 30
 ---
 
-This file exists solely to respond to /search URL with the related `search` layout template.
-
-No content shown here is rendered, all content is based in the template layouts/page/search.html
-
-Setting a very low sitemap priority will tell search engines this is not important content.
+# Search Setup
 
 This implementation uses Fusejs, jquery and mark.js
 
