@@ -31,7 +31,7 @@ To search additional fields defined in front matter, you must add it in 2 places
 ### Edit layouts/_default/index.json
 This exposes the values in /index.json
 i.e. add `category`
-\```
+```
 ...
   "contents":{{ .Content | plainify | jsonify }}
   {{ if .Params.tags }},
@@ -39,15 +39,15 @@ i.e. add `category`
   {{ if .Params.categories }},
   "categories" : {{ .Params.categories | jsonify }}{{ end }}
 ...
-\```
+```
 
 ### Edit fuse.js options to Search
 `static/js/search.js`
-\```
+```
 keys: [
   "title",
   "contents",
   "tags",
   "categories"
 ]
-\```
+```
