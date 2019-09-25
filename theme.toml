@@ -2,7 +2,7 @@
 
 name = "OldNew Mashup"
 license = "CC-BY-4.0"
-licenselink = "https://github.com/cshoredaniel/hugo-pure-oldnew-mashup/blob/master/LICENSE.md"
+licenselink = "https://github.com/cshoredaniel/new-oldnew-mashup/blob/master/LICENSE"
 description = "Hugo Theme mixing old school design elements with new-era"
 homepage = "https://new-oldnew-mashup.thecshore.com/"
 features = ['blog', 'high-contrast', 'a11y', 'accessibility']
