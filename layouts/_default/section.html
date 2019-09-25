@@ -9,7 +9,7 @@
 {{ define "main" }}
 <main class="section-page-main">
 <article aria-label="Main Article" id="main-article" class="main-article">
-  {{ if .Title }}<h1 class="article-title">{{ .Title }}</h1>{{ end }}
+  {{ if .Title }}<h1 class="article-title">{{ .Title }}</h1>{{ else if .File.TranslationBaseName }}<h1 class="article-title">{{ .File.TranslationBaseName | title }}</h1>{{end }}
   {{ if .Page.Params.description }}<section class="summary">{{ .Page.Params.description }}</section>{{ end }}
   <section class="regular-content">
   {{ .Content }}
@@ -27,7 +27,7 @@
         {{ range .Pages.ByTitle }}
         <li>
           <span class="list-item-date">{{ .Date.Format "Mon, 2006/01/02 15:04 MST" }}</span>
-          <span class="date-list-item"><a href="{{ .Permalink }}">{{ .Title }}</a></span>
+          <span class="date-list-item"><a href="{{ .Permalink }}">{{ if .Title }}{{ .Title }}{{ else if .File.TranslationBaseName }}{{ .File.TranslationBaseName | title }}{{ end }}</a></span>
         </li>
         {{ end }}
       </ul>
