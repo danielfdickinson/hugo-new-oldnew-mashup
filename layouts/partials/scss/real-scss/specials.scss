@@ -6,32 +6,6 @@
   margin-bottom: 1em;
 }
 
-.search-form-404 {
-  align-content: stretch;
-  align-items: stretch;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  width: 100%;
-
-  & label {
-    flex: 0 1 auto;
-    margin-right: 1em;
-  }
-
-  & input {
-    &[type='search'] {
-      flex: 5 1 auto;
-    }
-
-    &[type='button'] {
-      flex: 0 1 auto;
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-}
-
 .sitemap-main-list {
   list-style-position: outside;
 
@@ -81,7 +55,7 @@
   margin-top: 0;
   text-align: center;
 
-  & .main {
+  &.main {
     @include four-oh-four-main;
 
     align-content: stretch;

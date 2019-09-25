@@ -32,6 +32,7 @@ min_version = "0.57.2"
 
 [frontmatter]
   lastmod = ["lastmod",":git","date","publishDate"]
+  date = ["date","publishDate",":git","lastmod"]
 
 [privacy]
   [privacy.disqus]
