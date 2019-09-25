@@ -17,7 +17,7 @@ tags:
 
 ## Overview
 
-Version 0.9.0
+Version 0.9.1
 
 Modern high-contrast CSS3 & HTML5 Hugo theme inspired by old-school themes.
 
