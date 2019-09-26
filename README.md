@@ -2,7 +2,7 @@
 
 Version 0.9.1
 
-[![Travis CI results](https://travis-ci.org/cshoredaniel/new-oldnew-mashup.svg?branch=master)](https://travis-ci.org/cshoredaniel/new-oldnew-mashup?branch=master)
+[![Travis CI results](https://travis-ci.org/cshoredaniel/new-oldnew-mashup.svg?branch=stable-0.9)](https://travis-ci.org/cshoredaniel/new-oldnew-mashup?branch=stable-0.9)
 
 ## Overview
 
