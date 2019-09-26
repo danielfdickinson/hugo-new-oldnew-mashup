@@ -97,7 +97,8 @@ the parameter becomes the site-wide default — or as a Page param (which
 applies only to a individual page).
 
 | Param                               | Description                    |
-|-------------------------------------|--------------------------------| nobaseurl                           | Don't use BaseURL even if one is set in the config |
+|-------------------------------------|--------------------------------|
+| nobaseurl                           | Don't use BaseURL even if one is set in the config |
 | nofooterlinks                       | Don't display the footer links section |
 | nocontact                           | Don't display contact footer link |
 | nositemap                           | Don't display sitemap footer link |
