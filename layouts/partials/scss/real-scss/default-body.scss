@@ -149,13 +149,13 @@
   font-weight: bold;
 }
 
-.article-toc {
+@mixin article-toc {
   display: block;
   font-size: .9em;
   margin-right: .8em;
   margin-top: .4em;
+  padding-right: .8em;
   padding-top: 0;
-  width: 100%;
 
   & h2 {
     margin: 0;
@@ -188,6 +188,81 @@
   }
 }
 
+.article-toc {
+  @include article-toc;
+}
+
+@mixin regular-main {
+  .main-article,
+  .regular-content {
+
+    & .sitemap-main {
+      & .menu-item {
+        // sass-lint:disable nesting-depth
+        display: list-item;
+
+        // sass-lint:disable nesting-depth
+        & .menu-entry-wrapper {
+          display: inline-block;
+        }
+      }
+    }
+
+    & .article-toc {
+      @include article-toc;
+    }
+
+    & ul {
+      list-style-position: inside;
+      margin-left: .8em;
+      padding-left: .8em;
+
+      & ul {
+        margin-left: 0;
+        padding-left: .8em;
+      }
+
+      & li {
+        list-style-position: inside;
+
+        // sass-lint:disable nesting-depth
+        &::marker {
+          display: inline-block;
+        }
+
+        & p {
+          display: inline;
+        }
+      }
+    }
+
+    & ol {
+      margin-left: .8em;
+      padding-left: .8em;
+
+      & ol {
+        margin-left: 0;
+        padding-left: .8em;
+      }
+
+      & li {
+        list-style-position: inside;
+
+        // sass-lint:disable nesting-depth
+        &::marker {
+          display: inline-block;
+        }
+
+        & p {
+          display: inline;
+        }
+      }
+    }
+  }
+}
+
+@include regular-main;
+
 @media screen and (min-height: 28em) and (min-width: 32em) {
   .default-body-wrapper {
     display: grid;
@@ -206,10 +281,48 @@
   }
 
   .article-toc {
-    display: block;
+    display: inline-block;
     float: left;
     margin-top: .4em;
     padding-top: 0;
     width: 33%;
+  }
+
+  .article-toc ~ ul {
+    &:first-of-type {
+      bottom: 0;
+      display: inline-block;
+      position: relative;
+      right: 0;
+      width: 63%;
+
+      & ul {
+        display: block;
+      }
+    }
+  }
+
+  .article-toc ~ h2 {
+    &:first-of-type {
+      bottom: 0;
+      display: inline-block;
+      position: relative;
+      right: 0;
+      width: 63%;
+    }
+  }
+
+  .article-toc ~ ol {
+    &:first-of-type {
+      bottom: 0;
+      display: inline-block;
+      position: relative;
+      right: 0;
+      width: 63%;
+
+      & ol {
+        display: block;
+      }
+    }
   }
 }
