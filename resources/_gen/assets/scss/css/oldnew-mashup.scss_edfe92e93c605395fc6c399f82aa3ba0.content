@@ -268,8 +268,8 @@ var,
 code {
   font-family: "Lucida Console", Monaco, monospace; }
 
-ABBR,
-DFN {
+abbr,
+dfn {
   border-bottom: 1px dotted;
   cursor: help; }
 
@@ -322,11 +322,11 @@ kbd {
     kbd a:hover {
       color: #fff; }
 
-UL {
+ul {
   list-style-position: inside; }
-  UL LI {
+  ul li {
     padding-bottom: 3px; }
-    UL LI:last-child {
+    ul li:last-child {
       padding-bottom: 0; }
 
 html {

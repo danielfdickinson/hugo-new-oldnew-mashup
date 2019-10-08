@@ -26,8 +26,8 @@ code {
   font-family: $mono-font-stack;
 }
 
-ABBR,
-DFN {
+abbr,
+dfn {
   border-bottom: 1px dotted;
   cursor: help;
 }
@@ -89,10 +89,10 @@ kbd {
   }
 }
 
-UL {
+ul {
   list-style-position: inside;
 
-  & LI {
+  & li {
     padding-bottom: 3px;
 
     &:last-child {
@@ -152,6 +152,7 @@ h1 {
     text-align: center;
   }
 }
+
 .article-title {
   display: block;
   font-family: $serif-font-stack;
