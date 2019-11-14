@@ -3,7 +3,12 @@
 {{ $bURL := urls.Parse $.Site.BaseURL }}
 {{ $hostOnly := delimit (first 1 (split $bURL.Host ":")) ""}}
 {{ $port := .Get 0 }}
-{{ if $port }}
+{{ $liveURL := .Get 1 }}
+{{ $isLive := false }}
+{{ if eq $.Site.BaseURL $liveURL }}
+  {{ $isLive = true }}
+{{ end }}
+{{ if and $port $isLive }}
 <form class="contact-form" action="{{ printf "%s://%s:%s" $bURL.Scheme $hostOnly $port }}" method="post" enctype="multipart/form-data" accept-charset="utf-8">
   <p><label for="name">Name:</label> <input type="text" name="name" id="name" /></p>
   <p><label for="subject">Subject:</label> <input type="text" name="subject" id="subject" /></p>
