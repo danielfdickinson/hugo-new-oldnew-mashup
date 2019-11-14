@@ -196,6 +196,8 @@
   .main-article,
   .regular-content {
 
+    overflow-y: hidden;
+
     & .sitemap-main {
       & .menu-item {
         // sass-lint:disable nesting-depth
