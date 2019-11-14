@@ -5,6 +5,7 @@
   color: $sidebar-box-text-color;
   display: block;
   margin-bottom: .4em;
+  overflow-y: hidden;
   padding: .6em;
   text-align: left;
 
@@ -53,7 +54,7 @@
 .recent-change {
   border-bottom: 1px solid;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   padding-bottom: .4em;
 
   &:last-child {
@@ -67,6 +68,7 @@
   font-size: .9em;
   margin: 0;
   order: 50;
+  overflow-y: hidden;
   padding: 0;
 }
 
