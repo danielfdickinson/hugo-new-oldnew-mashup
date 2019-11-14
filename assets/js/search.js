@@ -72,7 +72,7 @@ function getJSON(url, fn) {
 }
 
 function executeSearch(searchQuery) {
-  getJSON("/index.json", function (data) {
+  getJSON(indexurl, function (data) {
     var pages = data;
     var fuse = new Fuse(pages, fuseOptions);
     var result = fuse.search(searchQuery);

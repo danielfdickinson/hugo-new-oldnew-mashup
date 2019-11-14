@@ -312,7 +312,7 @@
     & > .menu-item {
       @include menu-item-contents($item-display, $on-display, $initial-z-index) {
         @include large-screen-menubar-menu-entry-wrapper;
-        @include large-screen-flyout-menu-parent($initial-display, $on-display, $item-display, $initial-z-index + 2, $position, top, -100%, $right) {
+        @include large-screen-flyout-menu-parent($initial-display, $on-display, $item-display, $initial-z-index + 2, $position, top, 0, $right) {
           border-radius: 12px;
           box-shadow: none;
         }
@@ -326,7 +326,6 @@
         margin: 0;
         opacity: 1;
         padding: 0;
-        width: 100%;
       }
     }
   }
@@ -335,7 +334,7 @@
 @mixin large-screen-menubar-menu-entry-wrapper {
   & > .menu-entry-wrapper {
     border-radius: 12px;
-    max-width: 10em;
+    max-width: 20em;
     width: 100%;
 
     & > .menu-link {
@@ -355,7 +354,7 @@
   & > .menu-item {
     @include menu-item-contents(inline-block, block, 20) {
       @include large-screen-menubar-menu-entry-wrapper;
-      @include flyout-menu-parent-parent(none, block, inline-block, 22, top, absolute, 33%);
+      @include flyout-menu-parent-parent(none, block, inline-block, 22, top, absolute, -25%);
 
       flex: 0 2 7em;
       margin: .2em;
@@ -422,7 +421,12 @@
       & > .menu-item {
         @include menu-item-contents(block, block, 20) {
           @include large-screen-menubar-menu-entry-wrapper;
-          @include large-screen-flyout-menu-parent-parent(none, block, inline-block, 20, top, absolute, 33%);
+          @include large-screen-flyout-menu-parent-parent(none, block, inline-block, 20, top, absolute, -25%);
+
+          & > .menu-parent {
+            overflow: visible;
+            width: 200%;
+          }
         }
       }
     }
