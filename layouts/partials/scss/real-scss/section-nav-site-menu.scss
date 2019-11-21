@@ -172,3 +172,16 @@
     padding-top: 0;
   }
 }
+
+// sass-lint:disable no-vendor-prefixes
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .local-nav-bar {
+    display: inline-block;
+    width: 18%;
+  }
+
+  .section-nav-sitemap {
+    display: inline-block;
+    width: 18%;
+  }
+}

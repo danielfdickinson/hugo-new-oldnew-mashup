@@ -432,3 +432,29 @@
     }
   }
 }
+
+// sass-lint:disable no-vendor-prefixes
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .menu-link {
+    text-decoration: none;
+  }
+
+  .menubar-site-menu {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    & > .menubar-site-menu-list {
+      display: inline-block;
+
+      & > .menu-item {
+        display: inline-block;
+        width: 17%;
+      }
+
+      & > .top-search {
+        display: none;
+      }
+    }
+  }
+}

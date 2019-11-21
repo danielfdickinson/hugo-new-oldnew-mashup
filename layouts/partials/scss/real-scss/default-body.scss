@@ -328,3 +328,18 @@
     }
   }
 }
+
+// sass-lint:disable no-vendor-prefixes
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .default-body-wrapper {
+    display: block;
+  }
+
+  .section-page-main {
+    display: block;
+    float: left;
+    max-width: 76%;
+    position: relative;
+    top: 0;
+  }
+}

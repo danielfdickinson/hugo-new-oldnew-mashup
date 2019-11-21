@@ -237,3 +237,36 @@
     grid-row: 2 / span 4;
   }
 }
+
+// sass-lint:disable no-vendor-prefixes
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .homepage {
+    display: flex;
+
+    & .main-content {
+      display: block;
+      text-align: center;
+
+      & .title {
+        margin-left: 20%;
+        width: 60%;
+      }
+
+      & .taglines {
+        display: block;
+        margin-left: 30%;
+        text-align: center;
+        width: 40%;
+      }
+    }
+
+    & .sub-liner {
+      margin-left: 15%;
+    }
+
+    & .enter-button {
+      margin-left: 35%;
+      width: 30%;
+    }
+  }
+}

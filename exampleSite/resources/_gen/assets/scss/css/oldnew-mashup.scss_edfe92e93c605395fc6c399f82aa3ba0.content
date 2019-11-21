@@ -748,6 +748,16 @@ table {
     .article-toc ~ ol:first-of-type ol {
       display: block; } }
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .default-body-wrapper {
+    display: block; }
+  .section-page-main {
+    display: block;
+    float: left;
+    max-width: 76%;
+    position: relative;
+    top: 0; } }
+
 /*! Copyright 2007-2009,2017-2019 Daniel F. Dickinson <cshored@thecshore.com>
  *  Released under the Creative Commons BY (Attribution) 4.0 License
  */
@@ -838,6 +848,24 @@ table {
 @media screen and (min-width: 28em) {
   .graphics-row {
     flex: 0 0 48px; } }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .top-bar {
+    display: inline-block;
+    order: 1;
+    position: static;
+    width: 75%; }
+  .site-badge {
+    display: inline-block;
+    width: 16em; }
+    .site-badge .graphics-row {
+      display: inline-block;
+      width: 48px; }
+    .site-badge .site-id {
+      display: inline-block;
+      width: 80%; }
+  .site-badge-graphic {
+    display: inline-block; } }
 
 .page-footer {
   font-size: smaller;
@@ -996,6 +1024,11 @@ table {
     grid-row-start: 4;
     margin-right: .4em;
     width: 100%; } }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .sidebar {
+    display: inline-block;
+    max-width: 18%; } }
 
 .section-nav-sitemap {
   display: block;
@@ -1226,6 +1259,14 @@ table {
     padding-left: .5em;
     padding-right: .4em;
     padding-top: 0; } }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .local-nav-bar {
+    display: inline-block;
+    width: 18%; }
+  .section-nav-sitemap {
+    display: inline-block;
+    width: 18%; } }
 
 /*! Copyright 2007-2009,2017-2018 Daniel F. Dickinson <cshored@thecshore.com>
  * Released under the Creative Commons BY (Attribution) 4.0 License
@@ -1842,6 +1883,21 @@ table {
             .menubar-site-menu > .menubar-site-menu-list > .menu-item:active > UL > LI:active > UL, .menubar-site-menu > .menubar-site-menu-list > .menu-item:active > UL > LI:hover > UL, .menubar-site-menu > .menubar-site-menu-list > .menu-item:hover > UL > LI:active > UL, .menubar-site-menu > .menubar-site-menu-list > .menu-item:hover > UL > LI:hover > UL {
               display: block; } }
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .menu-link {
+    text-decoration: none; }
+  .menubar-site-menu {
+    display: inline-block;
+    margin: 0;
+    padding: 0; }
+    .menubar-site-menu > .menubar-site-menu-list {
+      display: inline-block; }
+      .menubar-site-menu > .menubar-site-menu-list > .menu-item {
+        display: inline-block;
+        width: 17%; }
+      .menubar-site-menu > .menubar-site-menu-list > .top-search {
+        display: none; } }
+
 .chroma {
   background-color: #272822;
   color: #f8f8f2;
@@ -2220,6 +2276,26 @@ pre code {
   .main-content {
     grid-column: 1 / span 2;
     grid-row: 2 / span 4; } }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .homepage {
+    display: flex; }
+    .homepage .main-content {
+      display: block;
+      text-align: center; }
+      .homepage .main-content .title {
+        margin-left: 20%;
+        width: 60%; }
+      .homepage .main-content .taglines {
+        display: block;
+        margin-left: 30%;
+        text-align: center;
+        width: 40%; }
+    .homepage .sub-liner {
+      margin-left: 15%; }
+    .homepage .enter-button {
+      margin-left: 35%;
+      width: 30%; } }
 
 /*! Copyright 2007-2009,2017-2018 Daniel F. Dickinson <cshored@thecshore.com>
  *  Released under the Creative Commons BY (Attribution) 4.0 License
