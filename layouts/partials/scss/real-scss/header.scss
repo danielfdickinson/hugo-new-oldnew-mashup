@@ -3,6 +3,9 @@
  */
 // OldNew Mashup Theme CSS3 Header Elements
 
+// Detect IE10 and IE11
+
+// sass-lint:disable no-vendor-prefixes
 .graphics-row {
   background-color: $site-badge-graphic-background-color;
   border-bottom-left-radius: 12px;
@@ -127,3 +130,30 @@
 //    position: relative;
 //  }
 //}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .top-bar {
+    display: inline-block;
+    order: 1;
+    position: static;
+    width: 75%;
+  }
+
+  .site-badge {
+    display: inline-block;
+    width: 16em;
+
+    & .graphics-row {
+      display: inline-block;
+      width: 48px;
+    }
+
+    & .site-id {
+      display: inline-block;
+      width: 80%;
+    }
+  }
+
+  .site-badge-graphic {
+    display: inline-block;
+  }
+}

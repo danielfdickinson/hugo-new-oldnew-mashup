@@ -1,6 +1,6 @@
 # OldNew Mashup
 
-Version 0.9.1
+Version 1.0.0
 
 [![Travis CI results](https://travis-ci.org/cshoredaniel/new-oldnew-mashup.svg?branch=master)](https://travis-ci.org/cshoredaniel/new-oldnew-mashup?branch=master)
 
@@ -89,10 +89,14 @@ the footer by default: creation, modification, and site generation.
 
 Hugo's RSS feed generation is enabled and linked to from the footer.
 
-### 100% W3C valid HTML5 and CSS3
+### Goal: 100% W3C valid HTML5 and CSS3
 
 Efforts are made to keep the theme 100% valid HTML5 and CSS3 according
 the the <https://w3.org> [Unicorn validator](https://validator.w3.org/unicorn).
+
+
+At present, due to the requirement to support IE11, there are
+non-compliant media queries used to detect IE11.
 
 ### Human-readable sitemap
 

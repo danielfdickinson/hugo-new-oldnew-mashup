@@ -81,3 +81,11 @@
     width: 100%;
   }
 }
+
+// sass-lint:disable no-vendor-prefixes
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .sidebar {
+    display: inline-block;
+    max-width: 18%;
+  }
+}
