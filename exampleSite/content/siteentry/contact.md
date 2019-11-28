@@ -16,4 +16,4 @@ licenses:
 ---
 # Contact Site Operator
 
-{{% contact/basic-form 8082 "https://new-oldnew-mashup.thecshore.com/" %}}
+{{% contact/basic-form 8082 "https://new-oldnew-mashup.thecshore.com/" "contact@thecshore.com" %}}

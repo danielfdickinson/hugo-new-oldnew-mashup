@@ -14,10 +14,6 @@ weight: -1
 1.  Obtain the code in one of the following ways:
     *   Grab a release tarball from <https://github.com/cshoredaniel/new-oldnew-mashup/releases>
         and place it in your site's ``themes`` directory
-    *   ``git clone https://github.com/cshoredaniel/new-oldnew-mashup``
-        within your themes directory,
-    *   ``git submodule add https://github.com/cshoredaniel/new-oldnew-mashup``
-        in your themes directory
     *   ``hugo mod get https://github.com/cshoredaniel/new-oldnew-mashup``
         to define the use of a [Hugo Module](https://gohugo.io/hugo-modules/)
         correctly.

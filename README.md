@@ -1,6 +1,6 @@
 # OldNew Mashup
 
-Version 1.0.0
+Version 1.1.0
 
 [![Travis CI results](https://travis-ci.org/cshoredaniel/new-oldnew-mashup.svg?branch=master)](https://travis-ci.org/cshoredaniel/new-oldnew-mashup?branch=master)
 
@@ -111,11 +111,7 @@ Hugo Taxonomies are implemented.
 1.  Obtain the code in one of the following ways:
     *   Grab a release tarball from <https://github.com/cshoredaniel/new-oldnew-mashup/releases>
         and place it in your site's ``themes`` directory
-    *   ``git clone https://github.com/cshoredaniel/new-oldnew-mashup``
-        within your themes directory,
-    *   ``git submodule add https://github.com/cshoredaniel/new-oldnew-mashup``
-        in your themes directory
-    *   ``hugo mod get https://github.com/cshoredaniel/new-oldnew-mashup``
+    *   ``hugo mod get github.com/cshoredaniel/new-oldnew-mashup``
         to define the use of a [Hugo Module](https://gohugo.io/hugo-modules/)
         correctly.
 2.  Add ``theme = "new-oldnew-mashup"`` to your ``config.toml`` (or the
