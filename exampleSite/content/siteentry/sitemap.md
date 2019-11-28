@@ -15,4 +15,8 @@ licenses:
 ---
 # Sitemap
 
+A listing of pages on this site.
+
+<!--more-->
+
 {{< sitemap >}}

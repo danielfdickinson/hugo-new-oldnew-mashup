@@ -20,6 +20,8 @@ weight: 20
 | head/theme partial            | BaseURL, CSS, JS, and metadata for all pages in theme |
 | head/site partial             | Allows to override / extend head-theme partial for a particular site |
 
+<!--more-->
+
 ### head/theme partial
 | Part                          | Description                          |
 |-------------------------------|--------------------------------------|
