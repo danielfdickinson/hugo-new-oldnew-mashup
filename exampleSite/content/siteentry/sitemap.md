@@ -1,6 +1,6 @@
 ---
 title: "Sitemap"
-weight: 20
+weight: 9999
 categories:
   - navigation
   - sitemap
