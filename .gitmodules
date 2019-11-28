@@ -1,6 +1,0 @@
-[submodule "assets/js/modules/krisk-Fuse"]
-	path = assets/js/modules/krisk-Fuse
-	url = https://github.com/cshoredaniel/krisk-Fuse
-[submodule "assets/js/modules/julmot-mark.js"]
-	path = assets/js/modules/julmot-mark.js
-	url = https://github.com/cshoredaniel/julmot-mark.js

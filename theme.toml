@@ -7,7 +7,7 @@ description = "Modern HTML5 & CSS3 Hugo theme inspired by old-school themes"
 homepage = "https://new-oldnew-mashup.thecshore.com/"
 features = ['blog', 'high-contrast', 'a11y', 'accessibility','responsive']
 tags = ['old-school', 'modern', 'postmodern', 'high-contrast','responsive']
-min_version = "0.57.2"
+min_version = "0.59.1"
 summaryLength = "30"
 
 [author]
