@@ -825,12 +825,6 @@ table {
     width: 63%; }
     .article-toc ~ ul:first-of-type ul {
       display: block; }
-  .article-toc ~ h2 ~ h2 ul {
-    display: block;
-    width: 100%; }
-  .article-toc ~ h2 ~ h2 ol {
-    display: block;
-    width: 100%; }
   .article-toc ~ h2:first-of-type {
     bottom: 0;
     display: inline-block;
@@ -844,7 +838,23 @@ table {
     right: 0;
     width: 63%; }
     .article-toc ~ ol:first-of-type ol {
-      display: block; } }
+      display: block; }
+  .article-toc ~ h2 ~ h2 ul:first-of-type {
+    display: block;
+    overflow: hidden;
+    width: auto; }
+  .article-toc ~ h2 ~ h2 ol:first-of-type {
+    display: block;
+    overflow: hidden;
+    width: auto; }
+  .article-toc ~ h2 ~ h2 ~ ul:first-of-type {
+    display: block;
+    overflow: hidden;
+    width: auto; }
+  .article-toc ~ h2 ~ h2 ~ ol:first-of-type {
+    display: block;
+    overflow: hidden;
+    width: auto; } }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .default-body-wrapper {

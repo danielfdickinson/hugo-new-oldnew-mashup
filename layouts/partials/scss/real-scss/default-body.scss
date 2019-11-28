@@ -327,6 +327,40 @@
       }
     }
   }
+
+  .article-toc ~ h2 ~ h2 {
+    ul {
+      &:first-of-type {
+        display: block;
+        overflow: hidden;
+        width: auto;
+      }
+    }
+
+    ol {
+      &:first-of-type {
+        display: block;
+        overflow: hidden;
+        width: auto;
+      }
+    }
+  }
+
+  .article-toc ~ h2 ~ h2 ~ ul {
+    &:first-of-type {
+      display: block;
+      overflow: hidden;
+      width: auto;
+    }
+  }
+
+  .article-toc ~ h2 ~ h2 ~ ol {
+    &:first-of-type {
+      display: block;
+      overflow: hidden;
+      width: auto;
+    }
+  }
 }
 
 // sass-lint:disable no-vendor-prefixes
