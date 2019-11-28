@@ -8,11 +8,7 @@
 {{ with .menu_node }}
   {{ if .Parent }}
     {{/*Find the previous page*/}}
-    {{ if (eq .Parent .Site.Home ) }}
-      {{ $prevNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Pages "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
-    {{ else }}
-      {{ $prevNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Parent.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
-    {{ end }}
+     {{ $prevNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Parent.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
     {{ $curNode = . }}
     {{ range $prevNodes }}
       {{ $curPage = . }}
@@ -40,7 +36,7 @@
       {{/*No previous node, but found ourselves*/}}
       {{ if not .Parent.Parent }}
         {{/*Just go to home's last child's bottom leaf*/}}
-        {{ $childNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Pages "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
+        {{ $childNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Home.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
         {{/*If there are sections below us*/}}
         {{ if $childNodes }}
           {{ if (last 1 $childNodes ) }}
@@ -57,7 +53,7 @@
       {{ end }}
     {{ else }}
       {{/*Just go to home's last child's bottom leaf*/}}
-      {{ $childNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Pages "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
+      {{ $childNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Home.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
       {{/*If there are sections below us*/}}
       {{ if $childNodes }}
         {{ if (last 1 $childNodes ) }}

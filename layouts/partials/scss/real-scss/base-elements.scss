@@ -173,6 +173,7 @@ table {
   & th,
   & thead {
     background-color: $default-table-heading-background-colour;
+
   }
 
   & tbody {
@@ -180,6 +181,25 @@ table {
       &:nth-child(even) {
         background-color: $default-table-even-row-background-color;
       }
+
+    }
+  }
+}
+
+tr {
+  & td {
+    border-left: $default-table-border $default-table-border-color;
+
+    &:first-of-type {
+      border-left: 0 none;
+    }
+  }
+
+  & th {
+    border-left: $default-table-border $default-table-border-color;
+
+    &:first-of-type {
+      border-left: 0 none;
     }
   }
 }

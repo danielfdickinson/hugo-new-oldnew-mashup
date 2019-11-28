@@ -3,11 +3,7 @@
 {{ $curCtx := . }}
 {{ with .menu_node }}
   {{ $nodes := .Scratch.Get "aNil" }}
-  {{ if (eq . .Site.Home ) }}
-    {{ $nodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Pages "menu_node" . "menu_type" $curCtx.menu_type "trimHomeChildren" true ) ) }}
-  {{ else }}
-    {{ $nodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Pages "menu_node" . "menu_type" $curCtx.menu_type ) ) }}
-  {{ end }}
+  {{ $nodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Pages "menu_node" . "menu_type" $curCtx.menu_type ) ) }}
   {{ range $nodes }}
     <li class="menu-item">
     {{ partial "generic-site-menu/menu-item" (dict "menu_node" . "cur_node" $curCtx.cur_node ) }}

@@ -1,0 +1,33 @@
+{{ $pageType := .Get 0 }}
+{{ $getItemCount := .Get 1 }}
+{{ $itemCount := 15 }}
+{{ if and $getItemCount (ne $getItemCount "" ) }}
+  {{ $itemCount = int $getItemCount }}
+{{ end }}
+{{ $curPage := .Page }}
+{{ $startNodes := .Scratch.Get "aNil" }}
+{{ $menuType := (printf "%s-%s" "sidebar" $pageType) }}
+{{ if eq $pageType "recent" }}
+  {{ $startNodes = .Site.RegularPages.ByDate.Reverse }}
+{{ else }}
+  {{ $startNodes = (where .Site.RegularPages.ByDate.Reverse "Type" $pageType) }}
+{{ end }}
+{{ $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $startNodes "menu_node" . "menu_type" $menuType ) ) }}
+{{ if $nodes }}
+  {{ range first $itemCount $nodes }}
+    {{ if ne . $curPage }}
+  <section class="recent-changes">
+    <header class="recent-changes-header">
+      <h3><a href='{{ .Permalink }}'>{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}</a></h3>
+      <div class="page-metadata">{{ if .Date }}{{ .Date.Format "Jan 2, 2006 15:04 MST" }}{{ else }}{{ .Lastmod.Format "Jan 2, 2006 15:04 MST" }}{{ end }}</div>
+    </header>
+    <div>{{ .Summary }}</div>
+    <footer class="recent-changes-footer">
+      {{ if .Truncated }}
+      <a href='{{ .RelPermalink }}'>Read full article for "{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}"</a>
+      {{ end }}
+    </footer>
+  </section>
+    {{ end }}
+  {{ end }}
+{{ end }}

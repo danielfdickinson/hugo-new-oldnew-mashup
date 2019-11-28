@@ -1,6 +1,6 @@
 ---
 title: "Sitemap"
-weight: 20
+weight: 9999
 categories:
   - navigation
   - sitemap
@@ -13,6 +13,9 @@ noptoc: true
 licenses:
   - CC-BY-4.0
 ---
-# Sitemap
+
+A listing of pages on this site.
+
+<!--more-->
 
 {{< sitemap >}}

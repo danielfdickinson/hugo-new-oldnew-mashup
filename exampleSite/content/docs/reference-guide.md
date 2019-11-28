@@ -119,6 +119,7 @@ applies only to a individual page).
 | noptoc                              | Don't display article Table of Contents |
 | not_in_lists                        | List (type) of lists / menus from which to exclude the current page (see below) |
 
+
 ### Footer Pages
 
 This theme will looks for the following pages at either
@@ -221,6 +222,37 @@ This theme will looks for the following pages at either
 | default_table_text_color        | default colour for any text in tables |
 | default_table_even_row_background_color | default background color for even rows in tables |
 | default_table_heading_background_color | default background color for heading row(s) in tables |
+
+### Sidebar Expansion Pages
+
+These pages are a longer lists on a regular page of the sidebar items
+such as 'Recent Changes', 'News', and 'Events'.
+
+These have a few elements to make their magic.
+
+*   A shortcode called ``summary-list-expansion`` which takes two
+    parameters.  The first parameter is the type of page (that it
+    matches pages .Type) or "recent" (meaning all regular pages may
+    match).  The second (optional) parameter is the number of pages to
+    display in the summary list (e.g. you can show the first 5 or 25
+    instead of the default 15).
+*   The creation of a content page that uses the shortcode.
+    For example:
+```
+ ## The 30 most recently published events
+ {{ summary-list-expansion "events" 30 >}}
+```
+*  In the sidebar there is a conditional that checks for the site for
+   the following parameters:
+
+| Param | Notes |
+|-------|-------|
+| recent_changes | Check for the existance of the page with this path (e.g. ``/siteentry/recent-changes`` and display from all regular pages |
+| recent_news  | Likewise but only for "news" pages |
+| recent_events | Likewise but only for "events" pages |
+
+*  If page exists at the specified path, then the header (e.g. "News")
+   in the sidebar links to the page at the specified path.
 
 ## Generic Styles Available
 

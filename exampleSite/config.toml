@@ -26,6 +26,9 @@ min_version = "0.59.1"
   splash_images_bundle = "/siteentry/splash-images"
   enable_search = true
   time_types = ["Viverra Justo", "Ipsum"]
+  recent_changes = "/siteentry/recent-changes"
+  recent_events = "/siteentry/recent-events"
+  recent_news = "/siteentry/recent-news"
 
 [outputs]
   home = ["HTML", "JSON", "RSS"]

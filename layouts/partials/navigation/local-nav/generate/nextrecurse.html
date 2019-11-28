@@ -7,20 +7,12 @@
 {{ $curNode := .Scratch.Get "aNil" }}
 {{ with .menu_node }}
   <!-- find whether we're a leaf section -->
-  {{ if (eq . .Site.Home ) }}
-    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Pages "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
-  {{ else }}
-    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Pages "menu_node" . "menu_type" "local-nav" ) ) }}
-  {{ end }}
+  {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Pages "menu_node" . "menu_type" "local-nav" ) ) }}
   {{ if and $nextNodes ( ne $curCtx.no_down true ) }}
     {{/*We're a parent, go down, not sideways*/}}
     {{ partial "navigation/local-nav/generate/findnextsectionleaf" ( dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
   {{ else if .Parent }}
-    {{ if (eq .Parent .Site.Home ) }}
-      {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Pages "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
-    {{ else }}
-      {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Parent.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
-    {{ end }}
+     {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Parent.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
     {{ $curNode = . }}
     {{ range $nextNodes }}
       {{ if not $nextPage }}
@@ -48,7 +40,7 @@
     {{ end }}
   {{ else }}
     {{/*Go to first child of home*/}}
-    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Pages "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
+    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Home.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
     {{ if $nextNodes }}
       {{ if (first 1 $nextNodes) }}
         {{/*We have children so go down one level*/}}
