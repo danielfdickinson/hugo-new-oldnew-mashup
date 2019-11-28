@@ -1,7 +1,6 @@
 {{ $curCtx := . }}
 {{ with .menu_node }}
-  {{ $topLevelPages := ( where .Site.Pages "Kind" "ne" "home" ) }}
-  {{ range ( partial "generic-site-menu/nodes-included" (dict "nodes" $topLevelPages "menu_node" . "menu_type" $curCtx.menu_type "trimHomeChildren" true ) ) }}
+  {{ range ( partial "generic-site-menu/nodes-included" (dict "nodes" .Site.Home.Pages "menu_node" . "menu_type" $curCtx.menu_type ) ) }}
   <li class="menu-item">
     {{ partial "generic-site-menu/menu-item" ( dict "cur_node" $curCtx.menu_node "menu_node" . ) }}
     {{ if (eq .Kind "page" ) }}

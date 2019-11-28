@@ -4,7 +4,7 @@
 {{ with .menu_node }}
   <!-- find whether we're a leaf section -->
   {{ if (eq . .Site.Home ) }}
-    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Pages "menu_node" . "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
+    {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Home.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
   {{ else }}
     {{ $nextNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Pages "menu_node" . "menu_type" "local-nav" ) ) }}
   {{ end }}

@@ -1,7 +1,7 @@
 {{ $curCtx := . }}
 {{ $scratch := newScratch }}
 <!-- find whether we're a leaf section -->
-{{ $nextNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Pages "menu_node" .Site.Home "menu_type" "local-nav" "trimHomeChildren" true ) ) }}
+{{ $nextNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Home.Pages "menu_node" .Site.Home "menu_type" "local-nav" ) ) }}
 {{ if $nextNodes }}
   {{ if (first 1 $nextNodes) }}
     {{/*We have children so use first child*/}}

@@ -6,14 +6,6 @@
 {{ with .menu_node }}
   {{ range $ctx.nodes }}
     {{ $includeNode = true }}
-    {{ if ( eq $ctx.trimHomeChildren true )}}
-      {{ if .File }}
-        {{ if and (or (ne ( path.Base .File.Dir ) ( path.Dir .File.Path ) ) ( ne .File.BaseFileName  "_index" )  ) ( ne .File.Dir "/" ) }}
-          {{/*Top-level only*/}}
-          {{ $includeNode = false }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
     {{ $not_in_lists := .Param "not_in_lists" }}
     {{ if $not_in_lists }}
       {{ if (in $not_in_lists $ctx.menu_type ) }}
