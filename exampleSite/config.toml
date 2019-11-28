@@ -12,7 +12,7 @@ summaryLength = 30
 description = "Sample site for OldNew Mashup Theme (the new version)"
 author = "Daniel F. Dickinson <cshored@thecshore.com>"
 themesDir = "../.."
-min_version = "0.57.2"
+min_version = "0.59.1"
 
 [params]
   siteid = 'OldNew Mashup'
@@ -52,3 +52,40 @@ min_version = "0.57.2"
   category = "categories"
   tag = "tags"
   license = "licenses"
+
+[module]
+
+[module.hugoVersion]
+  min = "0.59.1"
+
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+
+  [[module.mounts]]
+    source = "i18n"
+    target = "i18n"
+
+  [[module.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+
+  [[module.imports]]
+  # We include the theme by "../.." above, but we need one module import for Hugo to detect us as a Hugo Module.
+  path="github.com/bep/empty-hugo-module"

@@ -46,15 +46,15 @@ description = "Modules for OldNew Mashup Theme (the new version)"
     path="github.com/cshoredaniel/julmot-mark.js"
 
   [[module.imports.mounts]]
-    source="julmot-mark.js"
-    target="assets/js/modules/julmot-mark.js"
+    source="dist/mark.js"
+    target="assets/js/julmot-mark.js"
 
   [[module.imports]]
     path="github.com/cshoredaniel/krisk-Fuse"
 
   [[module.imports.mounts]]
-    source="julmot-mark.js"
-    target="assets/js/modules/krisk-Fuse"
+    source="dist/fuse.js"
+    target="assets/js/krisk-Fuse.js"
 
 [author]
   name = "Daniel F. Dickinson"
