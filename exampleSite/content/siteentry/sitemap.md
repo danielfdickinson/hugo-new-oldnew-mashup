@@ -13,7 +13,6 @@ noptoc: true
 licenses:
   - CC-BY-4.0
 ---
-# Sitemap
 
 A listing of pages on this site.
 
