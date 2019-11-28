@@ -473,6 +473,16 @@ table {
   table tbody tr:nth-child(even) {
     background-color: #111; }
 
+tr td {
+  border-left: 4px solid #ccc; }
+  tr td:first-of-type {
+    border-left: 0 none; }
+
+tr th {
+  border-left: 4px solid #ccc; }
+  tr th:first-of-type {
+    border-left: 0 none; }
+
 @media not speech {
   html {
     font-size: 16px; } }
