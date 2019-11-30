@@ -31,7 +31,7 @@
   {{ $confirmation := resources.Get "js/confirmation.js" | resources.Minify }}
   <script src="{{ $fusejs.RelPermalink }}"></script>
   <script src="{{ $jmarkjs.RelPermalink }}"></script>
-  <script type="application/javascript">
+  <script>
     var indexurl = {{ "index.json" | absURL }}
   </script>
   <script src="{{ $search.RelPermalink }}"></script>
