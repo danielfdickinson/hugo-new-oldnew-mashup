@@ -65,6 +65,14 @@ links to various badges and status notifications related to the code.
 Those have been moved to the README.md which is only displayed via the
 Git hosting service and does not appear on this site.
 
+## Search Function Is Purely Local
+
+The search function in the menu bar does not require access to any third
+party sites (i.e. no Google or other search engines) and uses a local
+index and local Javascript to perform the search and display the
+results.  Unforunately it doesn't work with IE11.
+
+
 ## GDPR
 
 The GDPR (General Data Protection Regulation) is a law that governs
