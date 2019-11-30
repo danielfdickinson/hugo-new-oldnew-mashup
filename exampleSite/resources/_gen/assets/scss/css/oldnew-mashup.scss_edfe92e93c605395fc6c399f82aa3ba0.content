@@ -700,9 +700,9 @@ tr th {
   display: block; }
 
 .summary {
-  font-size: 1.2em;
   font-style: italic;
-  font-weight: bold; }
+  font-weight: bold;
+  margin-bottom: .4em; }
 
 .article-toc {
   display: block;
@@ -771,6 +771,10 @@ tr th {
     .main-article .article-toc a,
     .regular-content .article-toc a {
       text-decoration: none; }
+  .main-article > h2,
+  .regular-content > h2 {
+    margin-bottom: 0;
+    margin-top: 0; }
   .main-article ul,
   .regular-content ul {
     list-style-position: inside;
@@ -2500,6 +2504,12 @@ pre code {
     .page-taxonomy-list.tags-list a:link, .page-taxonomy-list.tags-list a:visited, .page-taxonomy-list.tags-list a:active, .page-taxonomy-list.tags-list a:hover {
       border-radius: 16px;
       text-decoration: none; }
+
+.article-date {
+  background-color: #222;
+  color: #ccc;
+  font-size: .8em;
+  font-style: italic; }
 
 @media print {
   html body .default-body-wrapper,
