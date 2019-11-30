@@ -12,6 +12,19 @@ weight: 10
 ---
 # Reference Guide
 
+## Front Matter
+
+The following items in the front matter metdata are handled specially by this theme (in addition to the params further below which are for theming / layout):
+
+| Key | Description |
+| title | Used as the tab title (title in 'head' section in the html), as well as the H1 heading that is displayed in the page body as the page title. |
+| date | Besides the usual Hugo usage, this is used in the article header and is displayed below categories |
+| copyright | Displayed as the article copyright in the page footer |
+| description  | Displayed below date as brief summary of the article |
+| licenses  | a list (in YAML list format) of (copyright) license which apply to the article |
+| categories  | a list of categories (taxonomy) to which the page belongs.  Displayed below the article title (title metadata above) |
+| tags | A list of tags (taxonomy) which the page has. Displayed after the end of the article. |
+
 ## Enabling Search
 
 In your site configuration file add JSON as an output type, and in set
