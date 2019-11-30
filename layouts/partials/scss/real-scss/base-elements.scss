@@ -124,7 +124,6 @@ samp {
 a {
   // anchors default to regular text colour
   color: $default-text-color;
-  display: inline-block;
 
   &:link {
     color: $default-link-color;
