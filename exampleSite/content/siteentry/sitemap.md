@@ -9,7 +9,6 @@ tags:
   - sitemap
   - listing
   - website
-noptoc: true
 licenses:
   - CC-BY-4.0
 ---

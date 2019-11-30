@@ -437,8 +437,7 @@ samp {
   width: 100%; }
 
 a {
-  color: #eee;
-  display: inline-block; }
+  color: #eee; }
   a:link {
     color: #ccf; }
   a:visited {
