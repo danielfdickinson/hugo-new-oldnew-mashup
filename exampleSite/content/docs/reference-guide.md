@@ -17,6 +17,7 @@ weight: 10
 The following items in the front matter metdata are handled specially by this theme (in addition to the params further below which are for theming / layout):
 
 | Key | Description |
+|-----|-------------|
 | title | Used as the tab title (title in 'head' section in the html), as well as the H1 heading that is displayed in the page body as the page title. |
 | date | Besides the usual Hugo usage, this is used in the article header and is displayed below categories |
 | copyright | Displayed as the article copyright in the page footer |
