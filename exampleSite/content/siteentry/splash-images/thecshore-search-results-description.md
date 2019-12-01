@@ -21,6 +21,5 @@ is a light purple-blue background with dark text.  The text consists of
 headings which are links (underlined) combined with summaries of matches
 of pages from the site.
 
-<a href="/siteentry/splash-images/thecshore-search-results-description"><img
-alt="" src="/siteentry/splash-images/splash-demo-image1.png"
-width="100%"></a>
+[{{< figure alt="screenshot of search resuilts on The C Shore website" src="/siteentry/splash-images/splash-demo-image1.png"
+width="100%" >}}](/siteentry/splash-images/thecshore-search-results-description)
