@@ -465,19 +465,25 @@ input[type='text'] {
 
 table {
   border: 4px solid #ccc;
+  border-collapse: collapse;
   max-width: 100%; }
   table th,
   table thead {
     background-color: #000; }
+    table th th,
+    table thead th {
+      border-bottom: 4px solid #ccc; }
   table tbody tr:nth-child(even) {
     background-color: #111; }
 
 tr td {
+  border-bottom: 4px solid #ccc;
   border-left: 4px solid #ccc; }
   tr td:first-of-type {
     border-left: 0 none; }
 
 tr th {
+  border-bottom: 4px solid #ccc;
   border-left: 4px solid #ccc; }
   tr th:first-of-type {
     border-left: 0 none; }
