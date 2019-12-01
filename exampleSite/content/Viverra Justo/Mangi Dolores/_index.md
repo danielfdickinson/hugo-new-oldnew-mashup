@@ -7,6 +7,7 @@ licenses:
   - CC0-1.0
 categories:
 keywords:
+not_in_lists: [section-nav, section]
 ---
 
 # Mangi Dolores
