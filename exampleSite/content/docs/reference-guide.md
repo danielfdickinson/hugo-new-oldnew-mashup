@@ -329,9 +329,9 @@ author: Somebody Someone
 description: Description of the site
 categories: [hugo, theme, html, css, test]
 aside: >
-  An aside with footnote<a href="#afoot1b" id="afoot1a"><sup>1</sup></a>.  Having an aside is optional.  Handy for a  quirky comment on a personal site.
+  An aside. Having an aside is optional. Handy for a  quirky comment on a personal site.
 asidefooter: >
-  <a href="#afoot1a" id="afoot1b"><sup>1</sup></a>A footnote to the aside.  Using a footnote to the aside is optional.
+  Footer to the main body of the this page (above the footer that appears on every page).
 oneliner: A short oneliner for the site
 subliner: And a longer sub-oneliner for the site.
 ---
