@@ -21,7 +21,7 @@ tags:
 ## When located at primary location
 
 The following statements apply to this site when hosted at
-[https://new-oldnew-mashup.thecshore.com](https://new-oldnew-mashup.thecshore.com)
+<https://new-oldnew-mashup.thecshore.com>
 
 ## No Cookies
 

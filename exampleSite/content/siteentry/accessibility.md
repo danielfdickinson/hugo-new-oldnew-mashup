@@ -23,7 +23,7 @@ tags:
 ## When located at primary location
 
 The following statements apply to this site when hosted at
-[https://hugo-oldnew-mashup.thecshore.com](https://hugo-oldnew-mashup.thecshore.com)
+<https://hugo-oldnew-mashup.thecshore.com>
 
 ## Colour Scheme
 
