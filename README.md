@@ -137,5 +137,7 @@ request.
 ## Copyright & License
 
 © 2009-2019 Daniel F. Dickinson
-Licensed under the Creative Commons Attribution License:
-[![Creative Commons License](http://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
+Licensed under the [Creative Commons Attribution License 4.0](https://creativecommons.org/licenses/by/4.0/)
+[![Creative Commons License](by.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+The License Image (above) is Copyright Creative Commons and Licensed under the [Creative Commons Share-Alike 4.0 Internation License](https://creativecommons.org/licenses/by-sa/4.0/)
