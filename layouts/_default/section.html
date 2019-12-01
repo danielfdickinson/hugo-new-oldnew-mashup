@@ -9,8 +9,7 @@
 {{ define "main" }}
 <main class="section-page-main">
 <article aria-label="Main Article" id="main-article" class="main-article">
-  {{ if .Title }}<h1 class="article-title">{{ .Title }}</h1>{{ else if .File.TranslationBaseName }}<h1 class="article-title">{{ .File.TranslationBaseName | title }}</h1>{{end }}
-  {{ if .Page.Params.description }}<section class="summary">{{ .Page.Params.description }}</section>{{ end }}
+  {{ partial "generic-helpers/article-header" . }}
   <section class="regular-content">
   {{ .Content }}
   {{ partial "generic-helpers/aside" . }}
