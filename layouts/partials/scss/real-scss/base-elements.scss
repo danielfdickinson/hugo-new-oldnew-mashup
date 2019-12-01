@@ -124,7 +124,6 @@ samp {
 a {
   // anchors default to regular text colour
   color: $default-text-color;
-  display: inline-block;
 
   &:link {
     color: $default-link-color;
@@ -168,12 +167,16 @@ input {
 
 table {
   border: $default-table-border $default-table-border-color;
+  border-collapse: collapse;
   max-width: 100%;
 
   & th,
   & thead {
     background-color: $default-table-heading-background-colour;
 
+    & th {
+      border-bottom: $default-table-border $default-table-border-color;
+    }
   }
 
   & tbody {
@@ -188,6 +191,7 @@ table {
 
 tr {
   & td {
+    border-bottom: $default-table-border $default-table-border-color;
     border-left: $default-table-border $default-table-border-color;
 
     &:first-of-type {
@@ -196,6 +200,7 @@ tr {
   }
 
   & th {
+    border-bottom: $default-table-border $default-table-border-color;
     border-left: $default-table-border $default-table-border-color;
 
     &:first-of-type {

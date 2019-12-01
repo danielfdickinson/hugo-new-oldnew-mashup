@@ -22,5 +22,4 @@ table of contents.  Is a series of paragraphs.  The smaller right side
 column contains a navigation menu, 'News', and 'Recent Changes' section
 with titles and summaries from various pages on the site.
 
-<a href="/siteentry/splash-images/oldnew-mashup-about-page-description"><img alt="Screenshot of OldNew Mashup Theme About Page"
-src="/siteentry/splash-images/splash-demo-image4.png" width="100%"></a>
+[{{< figure src="/siteentry/splash-images/splash-demo-image4.png" alt="Screenshot of OldNew Mashup Theme About Page" width="100%" >}}](/siteentry/splash-images/oldnew-mashup-about-page-description)

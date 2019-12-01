@@ -27,6 +27,5 @@ page is a placeholder for a catchy phrase with a footnote.  The
 bottom of the screen is missing from the screenshot.  The background is
 a medium dark grey.
 
-<a href="/siteentry/splash-images/oldnew-mashup-homepage-description"><img
-alt="Old New Mashup Homepage Screenshot" src="/siteentry/splash-images/splash-demo-image3.png"
-width="100%"></a>
+[{{< figure alt="Old New Mashup Homepage Screenshot" src="/siteentry/splash-images/splash-demo-image3.png"
+width="100%" >}}](/siteentry/splash-images/oldnew-mashup-homepage-description)

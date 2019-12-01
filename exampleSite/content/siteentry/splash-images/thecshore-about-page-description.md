@@ -24,6 +24,4 @@ Dickinson, then a series of paragraphs.  The smaller right side column
 contains a navigation menu, 'News', and 'Recent Changes' section with
 titles and summaries from various pages on The C Shore.
 
-<a href="/siteentry/splash-images/thecshore-about-page-description"><img
-alt="The C Shore About Page Screenshot" src="/siteentry/splash-images/splash-demo-image2.png"
-width="100%"></a>
+[{{< figure alt="The C Shore About Page Screenshot" src="/siteentry/splash-images/splash-demo-image2.png" width="100%" >}}](/siteentry/splash-images/thecshore-about-page-description)

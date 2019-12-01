@@ -13,6 +13,7 @@ tags:
 - lorem ipsum
 - dummy
 - placeholder
+not_in_lists: [taxonomy-term]
 ---
 
 # Ipsum Dolor

@@ -142,3 +142,10 @@
   @include taxonomy-list-row;
   @include tags-list;
 }
+
+.article-date {
+  background-color: $default-container-background-color;
+  color: $default-container-text-color;
+  font-size: .8em;
+  font-style: italic;
+}

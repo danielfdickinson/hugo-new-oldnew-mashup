@@ -10,7 +10,6 @@ tags:
   - form
   - communication
   - sysadmin
-noptoc: true
 licenses:
   - CC-BY-4.0
 ---

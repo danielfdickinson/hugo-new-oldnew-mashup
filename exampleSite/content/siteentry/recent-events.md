@@ -15,7 +15,6 @@ tags:
   - pages
   - recent
 weight: 50
-noptoc: true
 nrsidebar: true
 ---
 
