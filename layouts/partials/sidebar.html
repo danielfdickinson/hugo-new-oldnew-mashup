@@ -1,31 +1,31 @@
 {{ if not (.Param "norbar") }}
 <div class="sidebar">
-  {{ $newsPages := where .Site.Pages.ByDate.Reverse "Type" "news" }}
+  {{ $newsPages := where (where .Site.Pages "Type" "news") ".Params.date" "!=" nil }}
   {{ $newsNodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $newsPages "menu_node" . "menu_type" "sidebar-news" ) ) }}
   {{ if $newsNodes }}
     <section aria-labelledby="sidebar-news-title" id="sidebar-news" class="page-news sidebar-box">
       <h2 id="sidebar-news-title" class="sidebar-title">{{ if .Param "recent_news" }}{{ if .Site.GetPage ( .Param "recent_news") }}<a href="{{ .Param "recent_news" }}">{{ end }}{{ end }}News{{ if .Param "recent_news" }}{{ if .Site.GetPage (.Param "recent_news") }}</a>{{ end }}{{ end }}</h2>
-        {{ range first 8 $newsNodes }}
+        {{ range first 8 $newsNodes.ByDate.Reverse }}
           {{ partial "generic-helpers/newsitems" . }}
         {{ end }}
      </section>
   {{ end }}
-  {{ $eventPages := where .Site.Pages.ByDate.Reverse "Type" "events" }}
+  {{ $eventPages := where (where .Site.Pages "Type" "events") ".Params.date" "!=" nil }}
   {{ $eventNodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $eventPages "menu_node" . "menu_type" "sidebar-events" ) ) }}
   {{ if $eventNodes }}
     <section aria-labelledby="sidebar-events-title" id="sidebar-events" class="sidebar-page-events sidebar-box">
       <h2 id="sidebar-events-title" class="sidebar-title">{{ if .Param "recent_events" }}{{ if .Site.GetPage ( .Param "recent_events") }}<a href="{{ .Param "recent_events" }}">{{ end }}{{ end }}Events{{ if .Param "recent_events" }}{{ if .Site.GetPage ( .Param "recent_events" ) }}</a>{{ end }}{{ end }}</h2>
-        {{ range first 5 $eventNodes }}
+        {{ range first 5 $eventNodes.ByDate.Reverse }}
         {{ .Render "summary" }}
         {{ end }}
      </section>
   {{ end }}
-  {{ $startNodes := .Site.Pages.ByDate.Reverse }}
+  {{ $startNodes := where .Site.Pages ".Params.date" "!=" nil }}
   {{ $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $startNodes "menu_node" . "menu_type" "sidebar-recent" ) ) }}
   {{ if $nodes }}
       <section aria-labelledby="sidebar-recent-changes" class="sidebar-recent-changes sidebar-box">
         <h2 id="sidebar-recent-changes" class="sidebar-title">{{ if .Param "recent_changes" }}{{ if .Site.GetPage ( .Param "recent_changes") }}<a href="{{ .Param "recent_changes" }}">{{ end }}{{ end }}Recent Changes{{ if .Param "recent_changes" }}{{ if .Site.GetPage (.Param "recent_changes") }}</a>{{ end }}{{ end }}</h2>
-      {{ range first 8 $nodes }}
+      {{ range first 8 $nodes.ByDate.Reverse }}
         {{ .Render "summary" }}
       {{ end }}
       </section>
