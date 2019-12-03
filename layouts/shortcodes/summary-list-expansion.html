@@ -8,13 +8,13 @@
 {{ $startNodes := .Scratch.Get "aNil" }}
 {{ $menuType := (printf "%s-%s" "sidebar" $pageType) }}
 {{ if eq $pageType "recent" }}
-  {{ $startNodes = .Site.RegularPages.ByDate.Reverse }}
+  {{ $startNodes = (where .Site.RegularPages ".Params.date" "!=" nil ) }}
 {{ else }}
-  {{ $startNodes = (where .Site.RegularPages.ByDate.Reverse "Type" $pageType) }}
+  {{ $startNodes = (where (where .Site.RegularPages "Type" $pageType) ".Params.date" "!=" nil) }}
 {{ end }}
-{{ $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $startNodes "menu_node" . "menu_type" $menuType ) ) }}
+{{ $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $startNodes "menu_node" .Page "menu_type" $menuType "exclude_self" true ) ) }}
 {{ if $nodes }}
-  {{ range first $itemCount $nodes }}
+  {{ range first $itemCount $nodes.ByDate.Reverse }}
     {{ if ne . $curPage }}
   <section class="recent-changes">
     <header class="recent-changes-header">

@@ -15,7 +15,7 @@ tags:
   - pages
   - recent
 weight: 50
-nrsidebar: true
+norbar: true
 ---
 
 # Recently Published Events
