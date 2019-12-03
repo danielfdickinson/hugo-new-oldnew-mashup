@@ -16,6 +16,7 @@ tags:
   - recent
 weight: 50
 norbar: true
+not_in_lists: [sidebar-recent,sidebar-events,sidebar-news]
 ---
 
 # Recently Published Events
