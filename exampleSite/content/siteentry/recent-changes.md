@@ -15,7 +15,7 @@ tags:
   - pages
   - recent
 weight: 30
-nrsidebar: true
+norbar: true
 ---
 
 # Recent Changes

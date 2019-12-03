@@ -12,7 +12,7 @@
 {{ else }}
   {{ $startNodes = (where (where .Site.RegularPages "Type" $pageType) ".Params.date" "!=" nil) }}
 {{ end }}
-{{ $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $startNodes "menu_node" . "menu_type" $menuType ) ) }}
+{{ $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $startNodes "menu_node" .Page "menu_type" $menuType "exclude_self" true ) ) }}
 {{ if $nodes }}
   {{ range first $itemCount $nodes.ByDate.Reverse }}
     {{ if ne . $curPage }}
