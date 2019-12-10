@@ -5,6 +5,7 @@ not_in_lists: [site,section-nav,local-nav,sidebar-recent,sitemap,section]
 licenses:
   - CC-BY-4.0
 ---
+
 # Contact Success
 
-{{% contact/basic-success %}}
+{{< contact/basic-success >}}
