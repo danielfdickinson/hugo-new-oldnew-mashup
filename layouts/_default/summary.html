@@ -5,10 +5,9 @@
     <h3><a href='{{ .Permalink }}'>{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}</a></h3>
     <div class="page-metadata">{{ if .Date }}{{ .Date.Format "Jan 2, 2006 15:04 MST" }}{{ else }}{{ .Lastmod.Format "Jan 2, 2006 15:04 MST" }}{{ end }}</div>
   </header>
-  <div>{{ .Summary }}</div>
+  <div>{{ if .Page.Params.description }}{{ .Page.Params.description }}{{ else }}{{ .Summary }}{{ end }}</div>
   <footer class="recent-changes-footer">
-  {{ if .Truncated }}
-    <a href='{{ .RelPermalink }}'>Read full article for "{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}"</a>
+    {{ if (or .Truncated .Page.Params.description) }}  <a href='{{ .RelPermalink }}'>Read full article for "{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}"</a>
   {{ end }}
   </footer>
 </article>
