@@ -8,9 +8,8 @@ enableGitInfo = true
 theme = 'new-oldnew-mashup'
 summaryLength = 30
 description = "Sample site for OldNew Mashup Theme (the new version)"
-author = "Daniel F. Dickinson <cshored@thecshore.com>"
 themesDir = "../.."
-min_version = "0.59.1"
+min_version = "0.61.0"
 
 [params]
   siteid = 'OldNew Mashup'
@@ -23,17 +22,18 @@ min_version = "0.59.1"
   site_badge_graphic_alt_text = "[Logo for Hugo OldNew Mashup Theme Homepage]"
   splash_images_bundle = "/siteentry/splash-images"
   enable_search = true
-  time_types = ["Viverra Justo", "Ipsum"]
+  time_types = ["Viverra Justo", "Ipsum", "news"]
   recent_changes = "/siteentry/recent-changes"
   recent_events = "/siteentry/recent-events"
   recent_news = "/siteentry/recent-news"
+  nobaseurl = false
 
 [outputs]
   home = ["HTML", "JSON", "RSS"]
 
 [frontmatter]
   lastmod = ["lastmod",":git","date","publishDate"]
-  date = ["date","publishDate"]
+  date = ["publishDate", "date"]
 
 [privacy]
   [privacy.disqus]
@@ -90,3 +90,34 @@ min_version = "0.59.1"
   [[module.imports]]
   # We include the theme by "../.." above, but we need one module import for Hugo to detect us as a Hugo Module.
   path="github.com/bep/empty-hugo-module"
+
+[author]
+  name = "Daniel F. Dickinson"
+  homepage = "https://www.thecshore.com"
+  copyright = "©2009-2019 Daniel F. Dickinson"
+  email = "<cshored@thecshore.com>"
+
+[related]
+  threshold = 90
+  includeNewer = true
+  toLower = true
+
+  [[related.indices]]
+    name = "categories"
+    weight = 60
+
+  [[related.indices]]
+    name = "tags"
+    weight = 40
+
+  [[related.description]]
+    name = "type"
+    weight = 100
+
+  [[related.indices]]
+    name = "type"
+    weight = 20
+
+  [[related.indices]]
+    name = "date"
+    weight = 10
