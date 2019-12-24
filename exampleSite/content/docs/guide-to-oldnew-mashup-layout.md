@@ -7,7 +7,7 @@ description: Guide to OldNew Mashup Layout
 licenses:
   - CC-BY-4.0
 categories: [theme, documentation, reference]
-tags: [theme, website, docs, manual, reference-guide, reference]
+tags: [theme, website, documentation, manual, reference-guide, reference]
 weight: 20
 ---
 # Guide to OldNew Mashup Layout

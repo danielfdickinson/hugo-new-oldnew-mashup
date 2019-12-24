@@ -3,13 +3,15 @@ title: "The C Shore About Page Description"
 notinmenu: true
 not_in_lists: [site, section-nav, local-nav, sidebar-recent]
 categories:
-  - images
-  - descriptions
+  - image
+  - description
   - back-end
+  - screenshot
 tags:
-  - images
-  - descriptions
+  - image
+  - description
   - back-end
+  - screenshot
 licenses:
   - CC-BY-4.0
 ---

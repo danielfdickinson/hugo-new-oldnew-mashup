@@ -39,6 +39,8 @@
       {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "tag" ) }}
     {{ end }}
       </article>
+    {{ block "main-footer" . }}
+    {{ end }}
       </main>
   {{ end }}
   {{ block "sidebar" . }}
