@@ -21,7 +21,7 @@
         {{ end }}
      </section>
   {{ end }}
-  {{ $startNodes := (where .Site.Pages ".Params.date" "!=" nil) }}
+  {{ $startNodes := (where (where .Site.Pages ".Params.date" "!=" nil)  "Type" "!=" "news" ) }}
   {{ $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $startNodes "menu_node" . "menu_type" "sidebar-recent"  "exclude_self" true ) ) }}
   {{ if $nodes }}
       <section aria-labelledby="sidebar-recent-changes" class="sidebar-recent-changes sidebar-box">
