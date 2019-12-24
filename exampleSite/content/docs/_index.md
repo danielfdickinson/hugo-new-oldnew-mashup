@@ -7,7 +7,7 @@ description: Documentation for OldNew Mashup Theme
 licenses:
   - CC-BY-4.0
 categories: [theme, documentation, manual]
-tags: [theme, website, docs, manual]
+tags: [theme, website, documentation, manual]
 weight: 2
 ---
 ## Overview

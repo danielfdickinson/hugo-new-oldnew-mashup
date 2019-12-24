@@ -7,7 +7,7 @@ description: Reference guide for using OldNew Mashup theme
 licenses:
   - CC-BY-4.0
 categories: [theme, documentation, reference]
-tags: [theme, website, docs, manual, reference-guide, reference]
+tags: [theme, website, documentation, manual, reference-guide, reference]
 weight: 10
 ---
 # Reference Guide

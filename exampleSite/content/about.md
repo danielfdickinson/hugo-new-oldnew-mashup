@@ -9,7 +9,6 @@ categories:
   - documentation
 tags:
   - about
-  - docs
   - documentation
   - introduction
 ---
