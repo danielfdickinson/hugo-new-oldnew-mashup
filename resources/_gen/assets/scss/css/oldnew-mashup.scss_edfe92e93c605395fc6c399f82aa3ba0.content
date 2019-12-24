@@ -490,6 +490,40 @@ tr th {
   display: inline-block;
   float: left; }
 
+.four-image-toc-row ~ figure {
+  display: inline-block;
+  line-height: 1;
+  margin: .2em;
+  max-width: 30%;
+  min-width: 150px;
+  padding: 0; }
+  .four-image-toc-row ~ figure a {
+    border: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%; }
+    .four-image-toc-row ~ figure a img {
+      border: 0 none;
+      display: block;
+      height: auto;
+      margin: 0;
+      max-width: 100%;
+      min-width: 150px;
+      padding: 0;
+      width: 800px; }
+    .four-image-toc-row ~ figure a figcaption {
+      display: none; }
+
+.four-image-toc-row ~ figure + a {
+  display: none; }
+
+.four-image-toc-row ~ figure + a + p {
+  display: none; }
+
+.four-image-toc-row ~ figure + a + p + p {
+  display: none; }
+
 @media print {
   .rollup-element {
     display: block;
@@ -1624,7 +1658,7 @@ tr th {
           opacity: 1;
           padding: 0;
           position: absolute;
-          right: -25%;
+          right: -75%;
           text-align: left;
           top: 100%;
           width: 100%; }
@@ -1680,7 +1714,7 @@ tr th {
               opacity: 1;
               padding: 0;
               position: absolute;
-              right: -25%;
+              right: -75%;
               width: 100%; }
               .menubar-site-menu > .menubar-site-menu-list > .menu-item > .menu-parent > .menu-item > .menu-parent:active, .menubar-site-menu > .menubar-site-menu-list > .menu-item > .menu-parent > .menu-item > .menu-parent:hover {
                 border-radius: 12px;
@@ -1798,7 +1832,7 @@ tr th {
           opacity: 1;
           padding: 0;
           position: absolute;
-          right: -25%;
+          right: -75%;
           text-align: left;
           top: 100%;
           width: 100%; }
@@ -1854,7 +1888,7 @@ tr th {
               opacity: 1;
               padding: 0;
               position: absolute;
-              right: -25%;
+              right: -75%;
               width: 100%; }
               .menubar-site-menu > .menubar-site-menu-list > .menu-item > .menu-parent > .menu-item > .menu-parent:active, .menubar-site-menu > .menubar-site-menu-list > .menu-item > .menu-parent > .menu-item > .menu-parent:hover {
                 border-radius: 12px;
