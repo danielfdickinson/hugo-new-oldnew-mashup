@@ -2,15 +2,15 @@ language: go
 before_install:
   - sudo apt update
 install:
-  - sudo apt -y install tidy python-pygments
+  - sudo apt -y install tidy
 script: "FROM_YAML=yes ./ci/travis-cmd.sh"
 dist: bionic
 branches:
   only:
   - master
   - testing
-  - /^stable-[0-9.]+$/
+  - /^devel-[0-9.]+$/
   - /^\d+\.\d+\.\d+$/
   - /^\d+\.\d+\-[a-zA-Z0-9_-]+$/
-go:
+  go:
   - 1.13
