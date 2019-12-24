@@ -9,7 +9,7 @@
 {{ $nodes := .Scratch.Get "aNil" }}
 {{ $menuType := (printf "%s-%s" "sidebar" $pageType) }}
 {{ if eq $pageType "recent" }}
-  {{ $startNodes = (where .Site.RegularPages ".Params.date" "!=" nil ) }}
+  {{ $startNodes = (where (where .Site.RegularPages ".Params.date" "!=" nil ) "Type" "!=" "news" ) }}
 {{ else }}
   {{ $startNodes = (where (where .Site.RegularPages "Type" $pageType) ".Params.date" "!=" nil) }}
 {{ end }}
@@ -24,9 +24,10 @@
       <h3><a href='{{ .Permalink }}'>{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}</a></h3>
       <div class="page-metadata">{{ if .Date }}{{ .Date.Format "Jan 2, 2006 15:04 MST" }}{{ else }}{{ .Lastmod.Format "Jan 2, 2006 15:04 MST" }}{{ end }}</div>
     </header>
-    <div>{{ .Summary }}</div>
+
+    <div>{{ if .Page.Params.description }}{{ .Page.Params.description }}{{ else }}{{ .Summary }}{{ end }}</div>
     <footer class="recent-changes-footer">
-      {{ if .Truncated }}
+      {{ if (or .Truncated .Page.Params.description) }}
       <a href='{{ .RelPermalink }}'>Read full article for "{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}"</a>
       {{ end }}
     </footer>
