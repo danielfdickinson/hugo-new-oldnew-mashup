@@ -354,7 +354,7 @@
   & > .menu-item {
     @include menu-item-contents(inline-block, block, 20) {
       @include large-screen-menubar-menu-entry-wrapper;
-      @include flyout-menu-parent-parent(none, block, inline-block, 22, top, absolute, -25%);
+      @include flyout-menu-parent-parent(none, block, inline-block, 22, top, absolute, -75%);
 
       flex: 0 2 7em;
       margin: .2em;
@@ -421,7 +421,7 @@
       & > .menu-item {
         @include menu-item-contents(block, block, 20) {
           @include large-screen-menubar-menu-entry-wrapper;
-          @include large-screen-flyout-menu-parent-parent(none, block, inline-block, 20, top, absolute, -25%);
+          @include large-screen-flyout-menu-parent-parent(none, block, inline-block, 20, top, absolute, -75%);
 
           & > .menu-parent {
             overflow: visible;
