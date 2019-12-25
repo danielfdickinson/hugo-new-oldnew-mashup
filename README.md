@@ -1,6 +1,6 @@
 # OldNew Mashup
 
-Version 1.1.5
+Version 1.2.0
 
 [![Travis CI results](https://travis-ci.org/cshoredaniel/new-oldnew-mashup.svg?branch=master)](https://travis-ci.org/cshoredaniel/new-oldnew-mashup?branch=master)
 
@@ -11,7 +11,8 @@ inspired by old-school themes.
 
 It attempts to be accessible, private, and responsive.
 
-The theme is currently a work in progress.
+The theme is currently a work in progress, but is still working well
+at <https://thecshore.com>.
 
 You can view the [documentation for New OldNew Mashup Theme](https://new-oldnew-mashup.thecshore.com/docs)
 
@@ -138,6 +139,6 @@ request.
 
 © 2009-2019 Daniel F. Dickinson
 Licensed under the [Creative Commons Attribution License 4.0](https://creativecommons.org/licenses/by/4.0/)
-[![Creative Commons License](by.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Creative Commons License](https://github.com/cshoredaniel/new-oldnew-mashup/raw/master/by.svg?sanitize=true)](https://creativecommons.org/licenses/by/4.0/)
 
-The License Image (above) is Copyright Creative Commons and Licensed under the [Creative Commons Share-Alike 4.0 Internation License](https://creativecommons.org/licenses/by-sa/4.0/)
+The License Image (above) is Copyright Creative Commons and Licensed under the [Creative Commons Share-Alike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)

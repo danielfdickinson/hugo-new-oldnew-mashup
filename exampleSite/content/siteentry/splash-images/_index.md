@@ -1,13 +1,13 @@
 ---
 title: Splash Images Resources
 categories:
-  - images
-  - descriptions
+  - image
+  - description
   - listing
   - back-end
 tags:
-  - images
-  - descriptions
+  - image
+  - description
   - listing
   - back-end
 licenses:

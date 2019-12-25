@@ -6,9 +6,6 @@ categories:
   - form
 tags:
   - contact
-  - form
-  - communication
-  - sysadmin
 licenses:
   - CC-BY-4.0
 ---

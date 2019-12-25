@@ -83,7 +83,7 @@
   justify-content: flex-start;
   left: 0;
   margin-bottom: .6em;
-  order: 0;
+  order: 4;
   overflow: visible;
   padding: .3em;
   position: relative;
@@ -132,28 +132,40 @@
 //}
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .top-bar {
-    display: inline-block;
+    align-content: stretch;
+    align-items: stretch;
+    display: flex;
+    flex: 1 1 100%;
+    flex-flow: row wrap;
+    grid-column: initial;
+    grid-row: initial;
+    justify-content: flex-start;
+    left: 0;
     order: 1;
-    position: static;
-    width: 75%;
+    position: relative;
+    top: 0;
+    width: 100%;
   }
 
   .site-badge {
-    display: inline-block;
-    width: 16em;
+    display: flex;
+    flex: 1 1 10em;
+    max-width: 12em;
+    order: 1;
 
     & .graphics-row {
-      display: inline-block;
+      display: inline-flex;
       width: 48px;
     }
 
     & .site-id {
-      display: inline-block;
+      display: inline-flex;
+      vertical-align: 75%;
       width: 80%;
     }
   }
 
   .site-badge-graphic {
-    display: inline-block;
+    display: block;
   }
 }

@@ -3,11 +3,11 @@ title: "Search Setup"
 date: 2019-09-25T13:47:56-04:00
 copyright: © 2019 Daniel F. Dickinson
 author: Various contributors
-description: Information on configuration search
+description: Information on configuration of search
 licenses:
   - CC-BY-4.0
 categories: [theme, documentation, search]
-tags: [theme, website, docs, search, documentation]
+tags: [theme, website, documentation, search, documentation]
 weight: 30
 ---
 

@@ -147,7 +147,7 @@
     padding: 0;
 
     & > .menu-item {
-      @include menu-item-contents(block, block, 20) {
+      @include menu-item-contents(block, none, 20) {
         @include menubar-menu-entry-wrapper;
         @include flyout-menu-parent-parent(none, block, inline-block, 20, top, relative, 0);
 
@@ -249,10 +249,9 @@
 
 .menubar-site-menu-list {
   & > .menu-item {
-
     &:active,
     &:hover {
-      @include menubar-active-menu-parent(block);
+      @include menubar-active-menu-parent(none);
     }
   }
 }
@@ -354,7 +353,7 @@
   & > .menu-item {
     @include menu-item-contents(inline-block, block, 20) {
       @include large-screen-menubar-menu-entry-wrapper;
-      @include flyout-menu-parent-parent(none, block, inline-block, 22, top, absolute, -25%);
+      @include flyout-menu-parent-parent(none, block, inline-block, 22, top, absolute, -75%);
 
       flex: 0 2 7em;
       margin: .2em;
@@ -421,7 +420,7 @@
       & > .menu-item {
         @include menu-item-contents(block, block, 20) {
           @include large-screen-menubar-menu-entry-wrapper;
-          @include large-screen-flyout-menu-parent-parent(none, block, inline-block, 20, top, absolute, -25%);
+          @include large-screen-flyout-menu-parent-parent(none, block, inline-block, 20, top, absolute, -75%);
 
           & > .menu-parent {
             overflow: visible;
@@ -440,15 +439,17 @@
   }
 
   .menubar-site-menu {
-    display: inline-block;
+    display: flex;
+    flex: 1 1 75%;
     margin: 0;
+    order: 2;
     padding: 0;
 
     & > .menubar-site-menu-list {
-      display: inline-block;
+      display: flex;
 
       & > .menu-item {
-        display: inline-block;
+        display: block;
         width: 17%;
       }
 

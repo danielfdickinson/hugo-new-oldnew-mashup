@@ -241,11 +241,18 @@
 // sass-lint:disable no-vendor-prefixes
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .homepage {
+    align-content: stretch;
+    align-items: stretch;
     display: flex;
+    flex-flow: row wrap;
+    grid-auto-flow: initial;
+    grid-template-columns: initial;
+    width: 100%;
 
     & .main-content {
       display: block;
       text-align: center;
+      width: 100%;
 
       & .title {
         margin-left: 20%;
