@@ -5,7 +5,7 @@
   color: $sidebar-box-text-color;
   display: block;
   margin-bottom: .4em;
-  overflow-y: hidden;
+  overflow: hidden;
   padding: .6em;
   text-align: left;
 
@@ -67,8 +67,8 @@
   display: block;
   font-size: .9em;
   margin: 0;
-  order: 50;
-  overflow-y: hidden;
+  order: 5;
+  overflow: hidden;
   padding: 0;
 }
 
@@ -86,6 +86,7 @@
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .sidebar {
     display: inline-block;
-    max-width: 18%;
+    max-width: 22%;
+    order: 4;
   }
 }
