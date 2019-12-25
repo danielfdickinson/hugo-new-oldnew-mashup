@@ -1,7 +1,7 @@
 .section-nav-sitemap {
   display: block;
   flex: 1 1 100%;
-  order: 6;
+  order: 3;
   text-align: left;
   width: 100%;
 
@@ -72,7 +72,7 @@
   color: $local-nav-text-color;
   display: block;
   flex: 1 1 100%;
-  order: 4;
+  order: 1;
   text-align: center;
   width: 100%;
 
@@ -176,12 +176,17 @@
 // sass-lint:disable no-vendor-prefixes
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .local-nav-bar {
-    display: inline-block;
-    width: 18%;
+    display: block;
+    flex: 1 1 100%;
+    margin-bottom: .4em;
+    order: 2;
+    text-align: center;
   }
 
   .section-nav-sitemap {
-    display: inline-block;
-    width: 18%;
+    display: block;
+    flex: 1 1 100%;
+    order: 5;
+    text-align: left;
   }
 }
