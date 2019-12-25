@@ -42,8 +42,8 @@
   margin-right: .4em;
   margin-top: 0;
   max-width: 100%;
-  order: 10;
-  overflow-x: auto;
+  order: 2;
+  overflow: hidden;
   padding: 0;
   text-align: left;
 }
@@ -196,7 +196,7 @@
   .main-article,
   .regular-content {
 
-    overflow-y: hidden;
+    overflow: hidden;
 
     & .sitemap-main {
       & .menu-item {
@@ -371,14 +371,35 @@
 // sass-lint:disable no-vendor-prefixes
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .default-body-wrapper {
-    display: block;
-  }
-
-  .section-page-main {
-    display: block;
-    float: left;
-    max-width: 76%;
+    align-content: stretch;
+    align-items: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    grid-auto-flow: initial;
+    grid-template-columns: initial;
+    justify-content: flex-start;
+    left: 0;
     position: relative;
     top: 0;
+    width: 100%;
+    z-index: 0;
+  }
+
+  .main,
+  .section-page-main,
+  .taxonomy-term-page-main,
+  .taxonomy-page-main {
+    display: block;
+    flex: 1 1 100%;
+    line-height: 1.5;
+    margin-bottom: 0;
+    margin-left: .4em;
+    margin-right: .4em;
+    margin-top: 0;
+    max-width: 75%;
+    order: 3;
+    overflow: hidden;
+    padding: 0;
+    text-align: left;
   }
 }

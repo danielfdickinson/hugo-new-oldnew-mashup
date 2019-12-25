@@ -117,3 +117,13 @@
     grid-row-start: 7;
   }
 }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .page-footer {
+    grid-column-end: initial;
+    grid-column-start: initial;
+    grid-row-start: initial;
+    order: 999;
+    width: 100%;
+  }
+}
