@@ -1,5 +1,5 @@
 {{ define "title" }}
-  {{ if .Title }}{{ .Title }}{{ end }}
+  {{ if .Title }}{{ .Title }}{{ else if .Name }}{{ .Name }}{{ else }}{{ .Site.Title }}{{ end }}
 {{ end }}
 {{ define "bodytag" }}
   <body>
