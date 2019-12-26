@@ -11,6 +11,8 @@ tags: [theme, website, docs, manual, quick-start]
 weight: -1
 ---
 
+# Quick Start
+
 1.  Obtain the code in **one** of the following ways:
     *   Grab a release tarball from <https://github.com/cshoredaniel/new-oldnew-mashup/releases>
         and place it in your site's ``themes`` directory.  **NB** the
@@ -34,3 +36,9 @@ weight: -1
 a site by copying the ``config.toml`` from ``exampleSite`` into the
 theme, the build will fail complaining that it's not a git repository.
 In that case remove ``enableGitInfo = true`` from your ``config.toml``.
+
+## Some features require Hugo Extended
+
+*   Changing the styling via Params (e.g. colour selection) requires
+Hugo Extended as the CSS must be regenerated from the base SCSS, which
+requires Hugo Extended not just Basic.

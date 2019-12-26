@@ -133,6 +133,12 @@ a site by copying the ``config.toml`` from ``exampleSite`` into the
 theme, the build will fail complaining that it's not a git repository.
 In that case remove ``enableGitInfo = true`` from your ``config.toml``.
 
+## Some features require Hugo Extended
+
+*   Changing the styling via Params (e.g. colour selection) requires
+Hugo Extended as the CSS must be regenerated from the base SCSS, which
+requires Hugo Extended not just Basic.
+
 ## Issues / Bugs / Enhancements
 
 Go to the [OldNew Mashup issue tracker on GitHub](https://github.com/cshoredaniel/new-oldnew-mashup/issues).
