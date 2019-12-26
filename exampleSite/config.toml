@@ -9,7 +9,7 @@ theme = 'new-oldnew-mashup'
 summaryLength = 30
 description = "Sample site for OldNew Mashup Theme (the new version)"
 themesDir = "../.."
-min_version = "0.61.0"
+min_version = "0.61.1"
 
 [params]
   siteid = 'OldNew Mashup'
@@ -57,7 +57,7 @@ min_version = "0.61.0"
 [module]
 
 [module.hugoVersion]
-  min = "0.59.1"
+  min = "0.60.1"
 
   [[module.mounts]]
     source = "content"
