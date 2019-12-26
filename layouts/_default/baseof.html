@@ -4,7 +4,7 @@
      Released under the Create Commons BY (Attribution) 4.0 License -->
   <head>
     <title>{{ block "title" . }}
-      {{ .Site.Title }}
+      {{ if .Title }}{{ .Title }}{{ else if .Name }}{{ .Name }}{{ else }}{{ .Site.Title }}{{ end }}
     {{ end }}</title>
     {{ block "head" . }}
        {{ partial "head/theme" . }}
