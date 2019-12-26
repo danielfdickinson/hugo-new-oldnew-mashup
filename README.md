@@ -109,11 +109,13 @@ Hugo Taxonomies are implemented.
 
 ## Quick Start
 
-1.  Obtain the code in one of the following ways:
+1.  Obtain the code in **one** of the following ways:
     *   Grab a release tarball from <https://github.com/cshoredaniel/new-oldnew-mashup/releases>
-        and place it in your site's ``themes`` directory
+        and place it in your site's ``themes`` directory.  **NB** the
+        theme directory must be named ``new-oldnew-mashup``.  If you
+        extract from a ZIP or tarball you'll probably have ``new-oldnew-mashup-<version>`` and will need to rename it.
     *   ``hugo mod get github.com/cshoredaniel/new-oldnew-mashup``
-        to define the use of a [Hugo Module](https://gohugo.io/hugo-modules/)
+        to define the use of a [Hugo Module](https://gohugo.io/hugo-modules/).  (Don't do this if you're using the ZIP above).
         correctly.
 2.  Add ``theme = "new-oldnew-mashup"`` to your ``config.toml`` (or the
     equivalent for YAML or JSON if you use one of those).
@@ -125,6 +127,11 @@ Hugo Taxonomies are implemented.
         and browse to <http://localhost:1313>.
 4.  For configuration and options see
     [OldNew Mashup](https://new-oldnew-mashup.thecshore.com/docs).
+
+**NB** If you are deploying from ZIP or tarball and attempt to create
+a site by copying the ``config.toml`` from ``exampleSite`` into the
+theme, the build will fail complaining that it's not a git repository.
+In that case remove ``enableGitInfo = true`` from your ``config.toml``.
 
 ## Issues / Bugs / Enhancements
 
