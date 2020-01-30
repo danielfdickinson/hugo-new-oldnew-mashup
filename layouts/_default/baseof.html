@@ -33,7 +33,7 @@
     {{ if (not (or .Data.Terms .Data.Singular ) ) }}
     {{ partial "generic-helpers/article-toc" . }}
     {{ end }}
-    {{ .Content }}
+    {{ replaceRE "<h1.*</h1>" "" .Content | safeHTML }}
     {{ partial "generic-helpers/aside" . }}
     {{ block "tags-list" . }}
       {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "tag" ) }}

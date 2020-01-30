@@ -10,10 +10,13 @@
 <main class="section-page-main">
 <article aria-label="Main Article" id="main-article" class="main-article">
   {{ partial "generic-helpers/article-header" . }}
-  <section class="regular-content">
-  {{ .Content }}
-  {{ partial "generic-helpers/aside" . }}
-  </section>
+  {{ if (trim ( replaceRE "<h1.*</h1>" "" .Content | safeHTML ) " \t\n") }}
+    <section class="regular-content" aria-labelledby="regular-content-heading">
+      <h2 id="regular-content-heading" class="regular-content-heading">Preface</h2>
+    {{ replaceRE "<h1.*</h1>" "" .Content | safeHTML }}
+    {{ partial "generic-helpers/aside" . }}
+    </section>
+  {{ end }}
   {{ if .Data.Pages }}
   <section aria-labelledby="section-contents-heading" class="section-toc">
     <h2 id="section-contents-heading" class="section-contents-heading">Section Contents</h2>
