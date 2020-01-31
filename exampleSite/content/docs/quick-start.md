@@ -9,6 +9,7 @@ licenses:
 categories: [theme, documentation, quick-start]
 tags: [theme, website, docs, manual, quick-start]
 weight: -1
+noptoc: true
 ---
 
 # Quick Start
