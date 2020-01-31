@@ -104,7 +104,6 @@
             }
             & .article-toc {
               border: none;
-              display: inline;
               position: static;
               width: auto;
             }
@@ -113,6 +112,45 @@
             display: inline;
             position: static;
             width: auto;
+          }
+          .article-toc {
+            background-color: inherit;
+            display: block;
+
+            & .article-toc-title {
+              display: block;
+            }
+
+            .ctoc {
+              display: block;
+              position: static;
+              visibility: visible;
+            }
+            input {
+              &.ctoc-trigger {
+                display: none;
+                position: static;
+              }
+            }
+            div {
+              &.ctoc-start {
+                display: none;
+                position: static;
+              }
+            }
+            &.ctoc-overlay {
+              display: none;
+            }
+            ul {
+              &.ctoc-list {
+                display: block;
+                position: static;
+
+                & li {
+                  display: list-item;
+                }
+              }
+            }
           }
         }
         & .sidebar {
