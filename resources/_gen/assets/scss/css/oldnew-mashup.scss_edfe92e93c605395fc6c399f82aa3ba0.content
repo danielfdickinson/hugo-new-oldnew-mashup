@@ -626,6 +626,9 @@ tr th {
   margin-top: .4em;
   padding-right: .8em;
   padding-top: 0; }
+  .article-toc h2:first-of-type {
+    display: inline-block;
+    vertical-align: top; }
   .article-toc h2 {
     margin: 0;
     padding: 0; }
@@ -662,6 +665,10 @@ tr th {
     margin-top: .4em;
     padding-right: .8em;
     padding-top: 0; }
+    .main-article .article-toc h2:first-of-type,
+    .regular-content .article-toc h2:first-of-type {
+      display: inline-block;
+      vertical-align: top; }
     .main-article .article-toc h2,
     .regular-content .article-toc h2 {
       margin: 0;
@@ -750,7 +757,7 @@ tr th {
     display: inline-block;
     position: relative;
     right: 0;
-    width: 63%; }
+    width: 60%; }
     .article-toc ~ ul:first-of-type ul {
       display: block; }
   .article-toc ~ h2:first-of-type {
@@ -2448,6 +2455,389 @@ pre {
   font-size: .8em;
   font-style: italic; }
 
+/* sass-lint:disable-line no-css-comments
+ Based on work with the following copyright and license
+
+Copyright (c) 2017 David Neustadt
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+input.ctoc-trigger {
+  cursor: pointer;
+  display: inline-block;
+  height: 2em;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: relative;
+  width: 2em;
+  z-index: 12; }
+  input.ctoc-trigger:checked {
+    left: 0;
+    position: fixed;
+    top: 0; }
+    input.ctoc-trigger:checked ~ .ctoc {
+      background-color: inherit;
+      height: 100%;
+      left: 0;
+      opacity: 1;
+      overflow-y: scroll;
+      position: fixed;
+      top: 2em;
+      visibility: visible;
+      width: 80%; }
+      input.ctoc-trigger:checked ~ .ctoc li {
+        display: list-item;
+        position: relative; }
+    input.ctoc-trigger:checked ~ .ctoc-overlay {
+      background: #000;
+      height: 100%;
+      left: 0;
+      opacity: 0.5;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 9; }
+    input.ctoc-trigger:checked + .ctoc-start {
+      background: #777;
+      left: 0;
+      position: fixed;
+      top: 0; }
+  input.ctoc-trigger:hover {
+    left: 0;
+    position: fixed;
+    top: 0; }
+    input.ctoc-trigger:hover ~ .ctoc {
+      background-color: inherit;
+      height: 100%;
+      left: 0;
+      opacity: 1;
+      overflow-y: scroll;
+      position: fixed;
+      top: 2em;
+      visibility: visible;
+      width: 80%; }
+      input.ctoc-trigger:hover ~ .ctoc li {
+        display: list-item;
+        position: relative; }
+    input.ctoc-trigger:hover ~ .ctoc-overlay {
+      background: #000;
+      height: 100%;
+      left: 0;
+      opacity: 0.5;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 9; }
+    input.ctoc-trigger:hover + .ctoc-start {
+      background: #777;
+      left: 0;
+      position: fixed;
+      top: 0; }
+
+.ctoc {
+  position: fixed;
+  transition: all 0.2s ease;
+  visibility: hidden;
+  z-index: 10; }
+
+div.ctoc-overlay {
+  opacity: 0;
+  transition: all 0.2s ease; }
+
+.ctoc-start {
+  cursor: pointer;
+  display: inline-block;
+  height: 2em;
+  left: -2em;
+  margin: 0;
+  opacity: 1;
+  padding: 0;
+  position: relative;
+  width: 2em;
+  z-index: 11; }
+  .ctoc-start > a {
+    display: block;
+    height: 100%;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 10; }
+  .ctoc-start:hover {
+    left: 0;
+    position: fixed;
+    top: 0; }
+    .ctoc-start:hover ~ .ctoc {
+      background-color: inherit;
+      height: 100%;
+      left: 0;
+      opacity: 1;
+      overflow-y: scroll;
+      position: fixed;
+      top: 2em;
+      visibility: visible;
+      width: 80%; }
+      .ctoc-start:hover ~ .ctoc li {
+        display: list-item;
+        position: relative; }
+    .ctoc-start:hover ~ .ctoc-overlay {
+      background: #000;
+      height: 100%;
+      left: 0;
+      opacity: 0.5;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 9; }
+    .ctoc-start:hover + .ctoc-start {
+      background: #777;
+      left: 0;
+      position: fixed;
+      top: 0; }
+
+@media screen and (min-height: 28em) and (min-width: 32em) {
+  .ctoc {
+    display: none;
+    position: static; }
+    .ctoc:hover, .ctoc:active {
+      position: relative;
+      z-index: 0; }
+      .ctoc:hover ~ .ctoc-overlay, .ctoc:active ~ .ctoc-overlay {
+        opacity: 0;
+        position: relative; }
+      .ctoc:hover ~ input.ctoc-trigger, .ctoc:active ~ input.ctoc-trigger {
+        position: relative;
+        z-index: 1; }
+        .ctoc:hover ~ input.ctoc-trigger:hover, .ctoc:hover ~ input.ctoc-trigger:active, .ctoc:active ~ input.ctoc-trigger:hover, .ctoc:active ~ input.ctoc-trigger:active {
+          position: relative;
+          z-index: 1; }
+      .ctoc:hover ~ nav.ctoc, .ctoc:active ~ nav.ctoc {
+        display: block;
+        opacity: 1;
+        overflow: hidden;
+        position: relative;
+        top: 0;
+        visibility: visible;
+        width: 100%;
+        z-index: 0; }
+        .ctoc:hover ~ nav.ctoc li, .ctoc:active ~ nav.ctoc li {
+          display: list-item; }
+        .ctoc:hover ~ nav.ctoc:hover, .ctoc:hover ~ nav.ctoc:active, .ctoc:active ~ nav.ctoc:hover, .ctoc:active ~ nav.ctoc:active {
+          position: relative;
+          z-index: 0; }
+      .ctoc:hover ~ div.ctoc-start, .ctoc:active ~ div.ctoc-start {
+        background: #777;
+        left: -2em;
+        position: relative;
+        z-index: 0; }
+        .ctoc:hover ~ div.ctoc-start:hover, .ctoc:hover ~ div.ctoc-start:active, .ctoc:active ~ div.ctoc-start:hover, .ctoc:active ~ div.ctoc-start:active {
+          position: relative;
+          z-index: 0; }
+  input.ctoc-trigger:checked {
+    position: relative;
+    z-index: 0;
+    z-index: 1; }
+    input.ctoc-trigger:checked ~ .ctoc-overlay {
+      opacity: 0;
+      position: relative; }
+    input.ctoc-trigger:checked ~ input.ctoc-trigger {
+      position: relative;
+      z-index: 1; }
+      input.ctoc-trigger:checked ~ input.ctoc-trigger:hover, input.ctoc-trigger:checked ~ input.ctoc-trigger:active {
+        position: relative;
+        z-index: 1; }
+    input.ctoc-trigger:checked ~ nav.ctoc {
+      display: block;
+      opacity: 1;
+      overflow: hidden;
+      position: relative;
+      top: 0;
+      visibility: visible;
+      width: 100%;
+      z-index: 0; }
+      input.ctoc-trigger:checked ~ nav.ctoc li {
+        display: list-item; }
+      input.ctoc-trigger:checked ~ nav.ctoc:hover, input.ctoc-trigger:checked ~ nav.ctoc:active {
+        position: relative;
+        z-index: 0; }
+    input.ctoc-trigger:checked ~ div.ctoc-start {
+      background: #777;
+      left: -2em;
+      position: relative;
+      z-index: 0; }
+      input.ctoc-trigger:checked ~ div.ctoc-start:hover, input.ctoc-trigger:checked ~ div.ctoc-start:active {
+        position: relative;
+        z-index: 0; }
+  input.ctoc-trigger:hover, input.ctoc-trigger:active {
+    position: relative;
+    z-index: 0;
+    z-index: 1; }
+    input.ctoc-trigger:hover ~ .ctoc-overlay, input.ctoc-trigger:active ~ .ctoc-overlay {
+      opacity: 0;
+      position: relative; }
+    input.ctoc-trigger:hover ~ input.ctoc-trigger, input.ctoc-trigger:active ~ input.ctoc-trigger {
+      position: relative;
+      z-index: 1; }
+      input.ctoc-trigger:hover ~ input.ctoc-trigger:hover, input.ctoc-trigger:hover ~ input.ctoc-trigger:active, input.ctoc-trigger:active ~ input.ctoc-trigger:hover, input.ctoc-trigger:active ~ input.ctoc-trigger:active {
+        position: relative;
+        z-index: 1; }
+    input.ctoc-trigger:hover ~ nav.ctoc, input.ctoc-trigger:active ~ nav.ctoc {
+      display: block;
+      opacity: 1;
+      overflow: hidden;
+      position: relative;
+      top: 0;
+      visibility: visible;
+      width: 100%;
+      z-index: 0; }
+      input.ctoc-trigger:hover ~ nav.ctoc li, input.ctoc-trigger:active ~ nav.ctoc li {
+        display: list-item; }
+      input.ctoc-trigger:hover ~ nav.ctoc:hover, input.ctoc-trigger:hover ~ nav.ctoc:active, input.ctoc-trigger:active ~ nav.ctoc:hover, input.ctoc-trigger:active ~ nav.ctoc:active {
+        position: relative;
+        z-index: 0; }
+    input.ctoc-trigger:hover ~ div.ctoc-start, input.ctoc-trigger:active ~ div.ctoc-start {
+      background: #777;
+      left: -2em;
+      position: relative;
+      z-index: 0; }
+      input.ctoc-trigger:hover ~ div.ctoc-start:hover, input.ctoc-trigger:hover ~ div.ctoc-start:active, input.ctoc-trigger:active ~ div.ctoc-start:hover, input.ctoc-trigger:active ~ div.ctoc-start:active {
+        position: relative;
+        z-index: 0; }
+  div.ctoc-start:hover, div.ctoc-start:active {
+    position: relative;
+    z-index: 0;
+    background: #777;
+    left: -2em;
+    position: relative;
+    z-index: 0; }
+    div.ctoc-start:hover ~ .ctoc-overlay, div.ctoc-start:active ~ .ctoc-overlay {
+      opacity: 0;
+      position: relative; }
+    div.ctoc-start:hover ~ input.ctoc-trigger, div.ctoc-start:active ~ input.ctoc-trigger {
+      position: relative;
+      z-index: 1; }
+      div.ctoc-start:hover ~ input.ctoc-trigger:hover, div.ctoc-start:hover ~ input.ctoc-trigger:active, div.ctoc-start:active ~ input.ctoc-trigger:hover, div.ctoc-start:active ~ input.ctoc-trigger:active {
+        position: relative;
+        z-index: 1; }
+    div.ctoc-start:hover ~ nav.ctoc, div.ctoc-start:active ~ nav.ctoc {
+      display: block;
+      opacity: 1;
+      overflow: hidden;
+      position: relative;
+      top: 0;
+      visibility: visible;
+      width: 100%;
+      z-index: 0; }
+      div.ctoc-start:hover ~ nav.ctoc li, div.ctoc-start:active ~ nav.ctoc li {
+        display: list-item; }
+      div.ctoc-start:hover ~ nav.ctoc:hover, div.ctoc-start:hover ~ nav.ctoc:active, div.ctoc-start:active ~ nav.ctoc:hover, div.ctoc-start:active ~ nav.ctoc:active {
+        position: relative;
+        z-index: 0; }
+    div.ctoc-start:hover ~ div.ctoc-start, div.ctoc-start:active ~ div.ctoc-start {
+      background: #777;
+      left: -2em;
+      position: relative;
+      z-index: 0; }
+      div.ctoc-start:hover ~ div.ctoc-start:hover, div.ctoc-start:hover ~ div.ctoc-start:active, div.ctoc-start:active ~ div.ctoc-start:hover, div.ctoc-start:active ~ div.ctoc-start:active {
+        position: relative;
+        z-index: 0; }
+  div.ctoc-overlay {
+    display: none; }
+  ul.ctoc-list {
+    transition-delay: 1s; }
+    ul.ctoc-list:hover, ul.ctoc-list:active {
+      position: relative;
+      z-index: 0; }
+      ul.ctoc-list:hover ~ .ctoc-overlay, ul.ctoc-list:active ~ .ctoc-overlay {
+        opacity: 0;
+        position: relative; }
+      ul.ctoc-list:hover ~ input.ctoc-trigger, ul.ctoc-list:active ~ input.ctoc-trigger {
+        position: relative;
+        z-index: 1; }
+        ul.ctoc-list:hover ~ input.ctoc-trigger:hover, ul.ctoc-list:hover ~ input.ctoc-trigger:active, ul.ctoc-list:active ~ input.ctoc-trigger:hover, ul.ctoc-list:active ~ input.ctoc-trigger:active {
+          position: relative;
+          z-index: 1; }
+      ul.ctoc-list:hover ~ nav.ctoc, ul.ctoc-list:active ~ nav.ctoc {
+        display: block;
+        opacity: 1;
+        overflow: hidden;
+        position: relative;
+        top: 0;
+        visibility: visible;
+        width: 100%;
+        z-index: 0; }
+        ul.ctoc-list:hover ~ nav.ctoc li, ul.ctoc-list:active ~ nav.ctoc li {
+          display: list-item; }
+        ul.ctoc-list:hover ~ nav.ctoc:hover, ul.ctoc-list:hover ~ nav.ctoc:active, ul.ctoc-list:active ~ nav.ctoc:hover, ul.ctoc-list:active ~ nav.ctoc:active {
+          position: relative;
+          z-index: 0; }
+      ul.ctoc-list:hover ~ div.ctoc-start, ul.ctoc-list:active ~ div.ctoc-start {
+        background: #777;
+        left: -2em;
+        position: relative;
+        z-index: 0; }
+        ul.ctoc-list:hover ~ div.ctoc-start:hover, ul.ctoc-list:hover ~ div.ctoc-start:active, ul.ctoc-list:active ~ div.ctoc-start:hover, ul.ctoc-list:active ~ div.ctoc-start:active {
+          position: relative;
+          z-index: 0; }
+  .article-toc:hover .ctoc-trigger, .article-toc:active .ctoc-trigger {
+    position: relative;
+    z-index: 0;
+    z-index: 1; }
+    .article-toc:hover .ctoc-trigger ~ .ctoc-overlay, .article-toc:active .ctoc-trigger ~ .ctoc-overlay {
+      opacity: 0;
+      position: relative; }
+    .article-toc:hover .ctoc-trigger ~ input.ctoc-trigger, .article-toc:active .ctoc-trigger ~ input.ctoc-trigger {
+      position: relative;
+      z-index: 1; }
+      .article-toc:hover .ctoc-trigger ~ input.ctoc-trigger:hover, .article-toc:hover .ctoc-trigger ~ input.ctoc-trigger:active, .article-toc:active .ctoc-trigger ~ input.ctoc-trigger:hover, .article-toc:active .ctoc-trigger ~ input.ctoc-trigger:active {
+        position: relative;
+        z-index: 1; }
+    .article-toc:hover .ctoc-trigger ~ nav.ctoc, .article-toc:active .ctoc-trigger ~ nav.ctoc {
+      display: block;
+      opacity: 1;
+      overflow: hidden;
+      position: relative;
+      top: 0;
+      visibility: visible;
+      width: 100%;
+      z-index: 0; }
+      .article-toc:hover .ctoc-trigger ~ nav.ctoc li, .article-toc:active .ctoc-trigger ~ nav.ctoc li {
+        display: list-item; }
+      .article-toc:hover .ctoc-trigger ~ nav.ctoc:hover, .article-toc:hover .ctoc-trigger ~ nav.ctoc:active, .article-toc:active .ctoc-trigger ~ nav.ctoc:hover, .article-toc:active .ctoc-trigger ~ nav.ctoc:active {
+        position: relative;
+        z-index: 0; }
+    .article-toc:hover .ctoc-trigger ~ div.ctoc-start, .article-toc:active .ctoc-trigger ~ div.ctoc-start {
+      background: #777;
+      left: -2em;
+      position: relative;
+      z-index: 0; }
+      .article-toc:hover .ctoc-trigger ~ div.ctoc-start:hover, .article-toc:hover .ctoc-trigger ~ div.ctoc-start:active, .article-toc:active .ctoc-trigger ~ div.ctoc-start:hover, .article-toc:active .ctoc-trigger ~ div.ctoc-start:active {
+        position: relative;
+        z-index: 0; } }
+
+@media speech {
+  .ctoc {
+    display: none;
+    position: static; }
+  input.ctoc-trigger {
+    display: none;
+    position: static; }
+  div.ctoc-start {
+    display: none;
+    position: static; }
+  .ctoc-overlay {
+    display: none; }
+  ul.ctoc-list {
+    display: none;
+    position: static; }
+  .article-toc {
+    display: none;
+    position: static; } }
+
 @media print {
   html body .default-body-wrapper,
   html body .homepage {
@@ -2561,7 +2951,6 @@ pre {
         html body .homepage .main .main-article .article-toc,
         html body .homepage .section-page-main .main-article .article-toc {
           border: none;
-          display: inline;
           position: static;
           width: auto; }
       html body .default-body-wrapper .main .section-toc,
@@ -2571,6 +2960,52 @@ pre {
         display: inline;
         position: static;
         width: auto; }
+      html body .default-body-wrapper .main .article-toc,
+      html body .default-body-wrapper .section-page-main .article-toc,
+      html body .homepage .main .article-toc,
+      html body .homepage .section-page-main .article-toc {
+        background-color: inherit;
+        display: block; }
+        html body .default-body-wrapper .main .article-toc .article-toc-title,
+        html body .default-body-wrapper .section-page-main .article-toc .article-toc-title,
+        html body .homepage .main .article-toc .article-toc-title,
+        html body .homepage .section-page-main .article-toc .article-toc-title {
+          display: block; }
+        html body .default-body-wrapper .main .article-toc .ctoc,
+        html body .default-body-wrapper .section-page-main .article-toc .ctoc,
+        html body .homepage .main .article-toc .ctoc,
+        html body .homepage .section-page-main .article-toc .ctoc {
+          display: block;
+          position: static;
+          visibility: visible; }
+        html body .default-body-wrapper .main .article-toc input.ctoc-trigger,
+        html body .default-body-wrapper .section-page-main .article-toc input.ctoc-trigger,
+        html body .homepage .main .article-toc input.ctoc-trigger,
+        html body .homepage .section-page-main .article-toc input.ctoc-trigger {
+          display: none;
+          position: static; }
+        html body .default-body-wrapper .main .article-toc div.ctoc-start,
+        html body .default-body-wrapper .section-page-main .article-toc div.ctoc-start,
+        html body .homepage .main .article-toc div.ctoc-start,
+        html body .homepage .section-page-main .article-toc div.ctoc-start {
+          display: none;
+          position: static; }
+        html body .default-body-wrapper .main .article-toc.ctoc-overlay,
+        html body .default-body-wrapper .section-page-main .article-toc.ctoc-overlay,
+        html body .homepage .main .article-toc.ctoc-overlay,
+        html body .homepage .section-page-main .article-toc.ctoc-overlay {
+          display: none; }
+        html body .default-body-wrapper .main .article-toc ul.ctoc-list,
+        html body .default-body-wrapper .section-page-main .article-toc ul.ctoc-list,
+        html body .homepage .main .article-toc ul.ctoc-list,
+        html body .homepage .section-page-main .article-toc ul.ctoc-list {
+          display: block;
+          position: static; }
+          html body .default-body-wrapper .main .article-toc ul.ctoc-list li,
+          html body .default-body-wrapper .section-page-main .article-toc ul.ctoc-list li,
+          html body .homepage .main .article-toc ul.ctoc-list li,
+          html body .homepage .section-page-main .article-toc ul.ctoc-list li {
+            display: list-item; }
     html body .default-body-wrapper .sidebar,
     html body .homepage .sidebar {
       display: none;
