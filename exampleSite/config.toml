@@ -9,7 +9,7 @@ theme = 'new-oldnew-mashup'
 summaryLength = 30
 description = "Sample site for OldNew Mashup Theme (the new version)"
 themesDir = "../.."
-min_version = "0.61.1"
+min_version = "0.62.2"
 
 [params]
   siteid = 'OldNew Mashup'

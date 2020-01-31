@@ -157,6 +157,13 @@
   padding-right: .8em;
   padding-top: 0;
 
+  h2 {
+    &:first-of-type {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
   & h2 {
     margin: 0;
     padding: 0;
@@ -301,7 +308,7 @@
       display: inline-block;
       position: relative;
       right: 0;
-      width: 63%;
+      width: 60%;
 
       & ul {
         display: block;

@@ -88,3 +88,41 @@ $default-table-background-color: {{ default "#333" ( .Param "default_table_backg
 $default-table-text-color: {{ default "$default-container-text-color" ( .Param "default_table_text_color" ) }};
 $default-table-even-row-background-color: {{ default "#111" ( .Param "default_table_even_row_background_color" ) }};
 $default-table-heading-background-colour: {{ default "$default-pre-background-color" ( .Param "default_table_heading_background_color" ) }};
+
+// mobile viewport settings
+
+$ctoc-bg-color: $default-container-background-color;
+$ctoc-default-transition: all .2s ease;
+
+$ctoc-off-canvas-height: 100%;
+$ctoc-off-canvas-width: 80%;
+$ctoc-off-canvas-overlay-opacity: .5;
+$ctoc-off-canvas-overlay-color: $default-pre-background-color;
+$ctoc-off-canvas-overlay-z-index: 9;
+
+$hamburger-ctoc-width: 2em;
+$hamburger-ctoc-height: 2em;
+$hamburger-ctoc-z-index: 10;
+
+$ctoc-link-font-size: 1em;
+$ctoc-link-padding: .4em;
+$ctoc-link-font-color: $default-link-color;
+
+$ctoc-link-hover-bg-color: $default-hover-background-color;
+$ctoc-link-hover-font-color: $default-hover-color;
+
+$subctoc-left-margin: .2em;
+$subctoc-default-transition: all .3s ease;
+$subctoc-first-child-transition: all .5s ease;
+
+// desktop viewport settings
+
+$hamburger-ctoc-position-left: 20%;
+$hamburger-ctoc-transition-delay: 1s;
+$hamburger-ctoc-hover-transition-delay: .15s;
+$hamburger-ctoc-first-child-transition-delay: .5s;
+
+$ctoc-link-desktop-font-size: 1em;
+$ctoc-link-min-width: 8em;
+
+$subctoc-transition: visibility 0s linear .5s, opacity .5s cubic-bezier(1, 0, 58, 1);

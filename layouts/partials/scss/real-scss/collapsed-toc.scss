@@ -1,0 +1,299 @@
+/* sass-lint:disable-line no-css-comments
+ Based on work with the following copyright and license
+
+Copyright (c) 2017 David Neustadt
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+@mixin mobile-ctoc-active {
+  & ~ .ctoc {
+    background-color: inherit;
+    height: $ctoc-off-canvas-height;
+    left: 0;
+    opacity: 1;
+    overflow-y: scroll;
+    position: fixed;
+    top: $hamburger-ctoc-height;
+    visibility: visible;
+    width: $ctoc-off-canvas-width;
+
+    & li {
+      display: list-item;
+      position: relative;
+    }
+  }
+
+  & ~ .ctoc-overlay {
+    background: $ctoc-off-canvas-overlay-color;
+    height: 100%;
+    left: 0;
+    opacity: $ctoc-off-canvas-overlay-opacity;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $ctoc-off-canvas-overlay-z-index;
+  }
+
+  & + .ctoc-start {
+    background: $ctoc-link-hover-bg-color;
+    left: 0;
+    position: fixed;
+    top: 0;
+  }
+}
+
+@mixin ctoc-trigger-checked-mobile {
+  @include mobile-ctoc-active;
+
+  left: 0;
+  position: fixed;
+  top: 0;
+}
+
+input {
+  &.ctoc-trigger {
+    cursor: pointer;
+    display: inline-block;
+    height: $hamburger-ctoc-height;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: relative;
+    width: $hamburger-ctoc-width;
+    z-index: $hamburger-ctoc-z-index + 2;
+
+    &:checked {
+      @include ctoc-trigger-checked-mobile;
+    }
+
+    &:hover {
+      @include mobile-ctoc-active;
+
+      left: 0;
+      position: fixed;
+      top: 0;
+    }
+  }
+}
+
+.ctoc {
+  position: fixed;
+  transition: $ctoc-default-transition;
+  visibility: hidden;
+  z-index: $hamburger-ctoc-z-index;
+
+}
+
+div {
+  &.ctoc-overlay {
+    opacity: 0;
+    transition: $ctoc-default-transition;
+  }
+}
+
+.ctoc-start {
+  cursor: pointer;
+  display: inline-block;
+  height: $hamburger-ctoc-height;
+  left: -$hamburger-ctoc-width;
+  margin: 0;
+  opacity: 1;
+  padding: 0;
+  position: relative;
+  width: $hamburger-ctoc-width;
+  z-index: $hamburger-ctoc-z-index + 1;
+
+  & > a {
+    display: block;
+    height: 100%;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: $hamburger-ctoc-z-index;
+  }
+
+  &:hover {
+    @include mobile-ctoc-active;
+
+    left: 0;
+    position: fixed;
+    top: 0;
+  }
+}
+
+@mixin desktop-active-list {
+  & li {
+    display: list-item;
+  }
+}
+
+@mixin desktop-active {
+  position: relative;
+  z-index: 0;
+
+  & ~ .ctoc-overlay {
+    opacity: 0;
+    position: relative;
+  }
+
+  & ~ input {
+    &.ctoc-trigger {
+      position: relative;
+      z-index: 1;
+
+      &:hover,
+      &:active {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+
+  & ~ nav {
+    &.ctoc {
+      @include desktop-active-list;
+
+      display: block;
+      opacity: 1;
+      overflow: hidden;
+      position: relative;
+      top: 0;
+      visibility: visible;
+      width: 100%;
+      z-index: 0;
+
+      &:hover,
+      &:active {
+        position: relative;
+        z-index: 0;
+      }
+    }
+  }
+
+  & ~ div {
+    &.ctoc-start {
+      background: $ctoc-link-hover-bg-color;
+      left: -$hamburger-ctoc-width;
+      position: relative;
+      z-index: 0;
+
+      &:hover,
+      &:active {
+        position: relative;
+        z-index: 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-height: 28em) and (min-width: 32em) {
+  .ctoc {
+    display: none;
+    position: static;
+
+    &:hover,
+    &:active {
+      @include desktop-active;
+    }
+  }
+
+  input {
+    &.ctoc-trigger {
+
+      &:checked {
+        @include desktop-active;
+
+        z-index: 1;
+      }
+
+      &:hover,
+      &:active {
+        @include desktop-active;
+
+        z-index: 1;
+      }
+    }
+  }
+
+  div {
+    &.ctoc-start {
+      &:hover,
+      &:active {
+        @include desktop-active;
+
+        background: $ctoc-link-hover-bg-color;
+        left: -$hamburger-ctoc-width;
+        position: relative;
+        z-index: 0;
+      }
+    }
+
+    &.ctoc-overlay {
+      display: none;
+    }
+  }
+
+  ul {
+    &.ctoc-list {
+      transition-delay: $hamburger-ctoc-transition-delay;
+
+      &:hover,
+      &:active {
+        @include desktop-active;
+      }
+    }
+  }
+
+  .article-toc {
+    &:hover,
+    &:active {
+      & .ctoc-trigger {
+        @include desktop-active;
+
+        z-index: 1;
+      }
+    }
+  }
+}
+
+@media speech {
+  .ctoc {
+    display: none;
+    position: static;
+  }
+
+  input {
+    &.ctoc-trigger {
+      display: none;
+      position: static;
+    }
+  }
+
+  div {
+    &.ctoc-start {
+      display: none;
+      position: static;
+    }
+  }
+
+  &.ctoc-overlay {
+    display: none;
+  }
+
+  ul {
+    &.ctoc-list {
+      display: none;
+      position: static;
+    }
+  }
+
+  .article-toc {
+    display: none;
+    position: static;
+  }
+}
