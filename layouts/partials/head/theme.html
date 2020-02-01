@@ -14,6 +14,9 @@
     {{ $options := (dict "enableSourceMap" true "compress" true "targetPath" "css/oldnew-mashup.css" ) }}
     {{ $nb := resources.Get "css/new-base.scss" }}
     {{ $nm := resources.Get "css/normalize.scss" }}
+    {{ if not (and $nb $nm) }}
+      {{ errorf "Missing SCSS files" }}
+    {{ end }}
     {{ $nbnmcat := slice $nm $nb | resources.Concat "css/oldnew-mashup.scss" }}
     {{ $nbtpl := resources.ExecuteAsTemplate "css/oldnew-mashup.scss" . $nbnmcat }}
     {{ $nbstyle := $nbtpl | resources.ToCSS $options }}
