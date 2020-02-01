@@ -1,5 +1,9 @@
 /* sass-lint:disable-line no-css-comments
- Based on work with the following copyright and license
+
+Copyright (C) 2020 Daniel Dickinson
+Copyright (c) 2017 David Neustadt
+
+Based on work with the following copyright and license
 
 Copyright (c) 2017 David Neustadt
 
@@ -14,11 +18,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   & ~ .ctoc {
     background-color: inherit;
     height: $ctoc-off-canvas-height;
-    left: 0;
+    left: $hamburger-ctoc-width;
     opacity: 1;
     overflow-y: scroll;
     position: fixed;
-    top: $hamburger-ctoc-height;
+    top: 0;
     visibility: visible;
     width: $ctoc-off-canvas-width;
 
@@ -39,20 +43,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     z-index: $ctoc-off-canvas-overlay-z-index;
   }
 
-  & + .ctoc-start {
+  & ~ .ctoc-start {
     background: $ctoc-link-hover-bg-color;
     left: 0;
     position: fixed;
     top: 0;
+    z-index: $hamburger-ctoc-z-index + 1;
   }
-}
-
-@mixin ctoc-trigger-checked-mobile {
-  @include mobile-ctoc-active;
-
-  left: 0;
-  position: fixed;
-  top: 0;
 }
 
 input {
@@ -60,15 +57,22 @@ input {
     cursor: pointer;
     display: inline-block;
     height: $hamburger-ctoc-height;
+    left: 0;
     margin: 0;
     opacity: 0;
     padding: 0;
-    position: relative;
+    position: absolute;
+    top: 0;
     width: $hamburger-ctoc-width;
     z-index: $hamburger-ctoc-z-index + 2;
 
     &:checked {
-      @include ctoc-trigger-checked-mobile;
+      @include mobile-ctoc-active;
+
+      left: 0;
+      position: fixed;
+      top: 0;
+      z-index: $hamburger-ctoc-z-index + 2;
     }
 
     &:hover {
@@ -77,52 +81,57 @@ input {
       left: 0;
       position: fixed;
       top: 0;
+      z-index: $hamburger-ctoc-z-index + 2;
     }
   }
 }
 
 .ctoc {
   position: fixed;
-  transition: $ctoc-default-transition;
   visibility: hidden;
   z-index: $hamburger-ctoc-z-index;
-
 }
 
 div {
   &.ctoc-overlay {
     opacity: 0;
-    transition: $ctoc-default-transition;
   }
 }
 
 .ctoc-start {
-  cursor: pointer;
   display: inline-block;
   height: $hamburger-ctoc-height;
-  left: -$hamburger-ctoc-width;
   margin: 0;
   opacity: 1;
   padding: 0;
   position: relative;
   width: $hamburger-ctoc-width;
-  z-index: $hamburger-ctoc-z-index + 1;
 
   & > a {
     display: block;
     height: 100%;
-    position: relative;
-    top: 0;
     width: 100%;
-    z-index: $hamburger-ctoc-z-index;
   }
 
   &:hover {
     @include mobile-ctoc-active;
 
+    background: $ctoc-link-hover-bg-color;
     left: 0;
     position: fixed;
     top: 0;
+    z-index: $hamburger-ctoc-z-index + 1;
+  }
+}
+
+.article-toc {
+  position: relative;
+
+  h2 {
+    &:first-of-type {
+      display: inline-block;
+      vertical-align: top;
+    }
   }
 }
 
@@ -133,9 +142,6 @@ div {
 }
 
 @mixin desktop-active {
-  position: relative;
-  z-index: 0;
-
   & ~ .ctoc-overlay {
     opacity: 0;
     position: relative;
@@ -143,13 +149,12 @@ div {
 
   & ~ input {
     &.ctoc-trigger {
-      position: relative;
-      z-index: 1;
-
       &:hover,
       &:active {
-        position: relative;
-        z-index: 1;
+        left: .8em;
+        margin-right: 0;
+        position: absolute;
+        top: 0;
       }
     }
   }
@@ -159,18 +164,17 @@ div {
       @include desktop-active-list;
 
       display: block;
+      left: 0;
       opacity: 1;
       overflow: hidden;
       position: relative;
-      top: 0;
+      top: inherit;
       visibility: visible;
       width: 100%;
-      z-index: 0;
 
       &:hover,
       &:active {
         position: relative;
-        z-index: 0;
       }
     }
   }
@@ -178,15 +182,18 @@ div {
   & ~ div {
     &.ctoc-start {
       background: $ctoc-link-hover-bg-color;
-      left: -$hamburger-ctoc-width;
-      position: relative;
-      z-index: 0;
+      left: .8em;
+      margin-right: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
 
-      &:hover,
-      &:active {
-        position: relative;
-        z-index: 0;
-      }
+  & ~ h2 {
+    &:first-of-type {
+      left: $hamburger-ctoc-width + .2;
+      padding-left: 0;
+      position: relative;
     }
   }
 }
@@ -199,37 +206,43 @@ div {
     &:hover,
     &:active {
       @include desktop-active;
+
+      left: 0;
     }
   }
 
   input {
     &.ctoc-trigger {
+      left: .8em;
+      margin-right: .2em;
+      position: absolute;
 
-      &:checked {
-        @include desktop-active;
-
-        z-index: 1;
-      }
-
+      &:checked,
       &:hover,
       &:active {
         @include desktop-active;
 
-        z-index: 1;
+        left: .8em;
+        margin-right: 0;
+        position: absolute;
       }
     }
   }
 
   div {
     &.ctoc-start {
+      left: .8em;
+      margin-right: .2em;
+      position: absolute;
+
       &:hover,
       &:active {
         @include desktop-active;
 
         background: $ctoc-link-hover-bg-color;
-        left: -$hamburger-ctoc-width;
-        position: relative;
-        z-index: 0;
+        left: .8em;
+        margin-right: 0;
+        position: absolute;
       }
     }
 
@@ -240,8 +253,6 @@ div {
 
   ul {
     &.ctoc-list {
-      transition-delay: $hamburger-ctoc-transition-delay;
-
       &:hover,
       &:active {
         @include desktop-active;
@@ -250,12 +261,23 @@ div {
   }
 
   .article-toc {
+    & h2 {
+      &:first-of-type {
+        left: $hamburger-ctoc-width;
+        padding-left: 0;
+        position: relative;
+      }
+    }
+
     &:hover,
     &:active {
       & .ctoc-trigger {
         @include desktop-active;
 
-        z-index: 1;
+        left: .8em;
+        margin-right: 0;
+        position: absolute;
+        top: 0;
       }
     }
   }

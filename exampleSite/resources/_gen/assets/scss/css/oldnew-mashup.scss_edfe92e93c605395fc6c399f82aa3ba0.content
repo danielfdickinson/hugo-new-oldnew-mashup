@@ -618,6 +618,8 @@ tr th {
   font-style: italic;
   font-weight: bold;
   margin-bottom: .4em; }
+  .summary::before {
+    content: 'Summary: '; }
 
 .article-toc {
   display: block;
@@ -628,6 +630,7 @@ tr th {
   padding-top: 0; }
   .article-toc h2:first-of-type {
     display: inline-block;
+    padding-left: .2em;
     vertical-align: top; }
   .article-toc h2 {
     margin: 0;
@@ -668,6 +671,7 @@ tr th {
     .main-article .article-toc h2:first-of-type,
     .regular-content .article-toc h2:first-of-type {
       display: inline-block;
+      padding-left: .2em;
       vertical-align: top; }
     .main-article .article-toc h2,
     .regular-content .article-toc h2 {
@@ -2456,7 +2460,11 @@ pre {
   font-style: italic; }
 
 /* sass-lint:disable-line no-css-comments
- Based on work with the following copyright and license
+
+Copyright (C) 2020 Daniel Dickinson
+Copyright (c) 2017 David Neustadt
+
+Based on work with the following copyright and license
 
 Copyright (c) 2017 David Neustadt
 
@@ -2470,24 +2478,27 @@ input.ctoc-trigger {
   cursor: pointer;
   display: inline-block;
   height: 2em;
+  left: 0;
   margin: 0;
   opacity: 0;
   padding: 0;
-  position: relative;
+  position: absolute;
+  top: 0;
   width: 2em;
   z-index: 12; }
   input.ctoc-trigger:checked {
     left: 0;
     position: fixed;
-    top: 0; }
+    top: 0;
+    z-index: 12; }
     input.ctoc-trigger:checked ~ .ctoc {
       background-color: inherit;
       height: 100%;
-      left: 0;
+      left: 2em;
       opacity: 1;
       overflow-y: scroll;
       position: fixed;
-      top: 2em;
+      top: 0;
       visibility: visible;
       width: 80%; }
       input.ctoc-trigger:checked ~ .ctoc li {
@@ -2502,23 +2513,25 @@ input.ctoc-trigger {
       top: 0;
       width: 100%;
       z-index: 9; }
-    input.ctoc-trigger:checked + .ctoc-start {
+    input.ctoc-trigger:checked ~ .ctoc-start {
       background: #777;
       left: 0;
       position: fixed;
-      top: 0; }
+      top: 0;
+      z-index: 11; }
   input.ctoc-trigger:hover {
     left: 0;
     position: fixed;
-    top: 0; }
+    top: 0;
+    z-index: 12; }
     input.ctoc-trigger:hover ~ .ctoc {
       background-color: inherit;
       height: 100%;
-      left: 0;
+      left: 2em;
       opacity: 1;
       overflow-y: scroll;
       position: fixed;
-      top: 2em;
+      top: 0;
       visibility: visible;
       width: 80%; }
       input.ctoc-trigger:hover ~ .ctoc li {
@@ -2533,52 +2546,47 @@ input.ctoc-trigger {
       top: 0;
       width: 100%;
       z-index: 9; }
-    input.ctoc-trigger:hover + .ctoc-start {
+    input.ctoc-trigger:hover ~ .ctoc-start {
       background: #777;
       left: 0;
       position: fixed;
-      top: 0; }
+      top: 0;
+      z-index: 11; }
 
 .ctoc {
   position: fixed;
-  transition: all 0.2s ease;
   visibility: hidden;
   z-index: 10; }
 
 div.ctoc-overlay {
-  opacity: 0;
-  transition: all 0.2s ease; }
+  opacity: 0; }
 
 .ctoc-start {
-  cursor: pointer;
   display: inline-block;
   height: 2em;
-  left: -2em;
   margin: 0;
   opacity: 1;
   padding: 0;
   position: relative;
-  width: 2em;
-  z-index: 11; }
+  width: 2em; }
   .ctoc-start > a {
     display: block;
     height: 100%;
-    position: relative;
-    top: 0;
-    width: 100%;
-    z-index: 10; }
+    width: 100%; }
   .ctoc-start:hover {
+    background: #777;
     left: 0;
     position: fixed;
-    top: 0; }
+    top: 0;
+    z-index: 11; }
     .ctoc-start:hover ~ .ctoc {
       background-color: inherit;
       height: 100%;
-      left: 0;
+      left: 2em;
       opacity: 1;
       overflow-y: scroll;
       position: fixed;
-      top: 2em;
+      top: 0;
       visibility: visible;
       width: 80%; }
       .ctoc-start:hover ~ .ctoc li {
@@ -2593,231 +2601,208 @@ div.ctoc-overlay {
       top: 0;
       width: 100%;
       z-index: 9; }
-    .ctoc-start:hover + .ctoc-start {
+    .ctoc-start:hover ~ .ctoc-start {
       background: #777;
       left: 0;
       position: fixed;
-      top: 0; }
+      top: 0;
+      z-index: 11; }
+
+.article-toc {
+  position: relative; }
+  .article-toc h2:first-of-type {
+    display: inline-block;
+    vertical-align: top; }
 
 @media screen and (min-height: 28em) and (min-width: 32em) {
   .ctoc {
     display: none;
     position: static; }
     .ctoc:hover, .ctoc:active {
-      position: relative;
-      z-index: 0; }
+      left: 0; }
       .ctoc:hover ~ .ctoc-overlay, .ctoc:active ~ .ctoc-overlay {
         opacity: 0;
         position: relative; }
-      .ctoc:hover ~ input.ctoc-trigger, .ctoc:active ~ input.ctoc-trigger {
-        position: relative;
-        z-index: 1; }
-        .ctoc:hover ~ input.ctoc-trigger:hover, .ctoc:hover ~ input.ctoc-trigger:active, .ctoc:active ~ input.ctoc-trigger:hover, .ctoc:active ~ input.ctoc-trigger:active {
-          position: relative;
-          z-index: 1; }
+      .ctoc:hover ~ input.ctoc-trigger:hover, .ctoc:hover ~ input.ctoc-trigger:active, .ctoc:active ~ input.ctoc-trigger:hover, .ctoc:active ~ input.ctoc-trigger:active {
+        left: .8em;
+        margin-right: 0;
+        position: absolute;
+        top: 0; }
       .ctoc:hover ~ nav.ctoc, .ctoc:active ~ nav.ctoc {
         display: block;
+        left: 0;
         opacity: 1;
         overflow: hidden;
         position: relative;
-        top: 0;
+        top: inherit;
         visibility: visible;
-        width: 100%;
-        z-index: 0; }
+        width: 100%; }
         .ctoc:hover ~ nav.ctoc li, .ctoc:active ~ nav.ctoc li {
           display: list-item; }
         .ctoc:hover ~ nav.ctoc:hover, .ctoc:hover ~ nav.ctoc:active, .ctoc:active ~ nav.ctoc:hover, .ctoc:active ~ nav.ctoc:active {
-          position: relative;
-          z-index: 0; }
+          position: relative; }
       .ctoc:hover ~ div.ctoc-start, .ctoc:active ~ div.ctoc-start {
         background: #777;
-        left: -2em;
-        position: relative;
-        z-index: 0; }
-        .ctoc:hover ~ div.ctoc-start:hover, .ctoc:hover ~ div.ctoc-start:active, .ctoc:active ~ div.ctoc-start:hover, .ctoc:active ~ div.ctoc-start:active {
-          position: relative;
-          z-index: 0; }
-  input.ctoc-trigger:checked {
-    position: relative;
-    z-index: 0;
-    z-index: 1; }
-    input.ctoc-trigger:checked ~ .ctoc-overlay {
-      opacity: 0;
-      position: relative; }
-    input.ctoc-trigger:checked ~ input.ctoc-trigger {
-      position: relative;
-      z-index: 1; }
-      input.ctoc-trigger:checked ~ input.ctoc-trigger:hover, input.ctoc-trigger:checked ~ input.ctoc-trigger:active {
-        position: relative;
-        z-index: 1; }
-    input.ctoc-trigger:checked ~ nav.ctoc {
-      display: block;
-      opacity: 1;
-      overflow: hidden;
-      position: relative;
-      top: 0;
-      visibility: visible;
-      width: 100%;
-      z-index: 0; }
-      input.ctoc-trigger:checked ~ nav.ctoc li {
-        display: list-item; }
-      input.ctoc-trigger:checked ~ nav.ctoc:hover, input.ctoc-trigger:checked ~ nav.ctoc:active {
-        position: relative;
-        z-index: 0; }
-    input.ctoc-trigger:checked ~ div.ctoc-start {
-      background: #777;
-      left: -2em;
-      position: relative;
-      z-index: 0; }
-      input.ctoc-trigger:checked ~ div.ctoc-start:hover, input.ctoc-trigger:checked ~ div.ctoc-start:active {
-        position: relative;
-        z-index: 0; }
-  input.ctoc-trigger:hover, input.ctoc-trigger:active {
-    position: relative;
-    z-index: 0;
-    z-index: 1; }
-    input.ctoc-trigger:hover ~ .ctoc-overlay, input.ctoc-trigger:active ~ .ctoc-overlay {
-      opacity: 0;
-      position: relative; }
-    input.ctoc-trigger:hover ~ input.ctoc-trigger, input.ctoc-trigger:active ~ input.ctoc-trigger {
-      position: relative;
-      z-index: 1; }
-      input.ctoc-trigger:hover ~ input.ctoc-trigger:hover, input.ctoc-trigger:hover ~ input.ctoc-trigger:active, input.ctoc-trigger:active ~ input.ctoc-trigger:hover, input.ctoc-trigger:active ~ input.ctoc-trigger:active {
-        position: relative;
-        z-index: 1; }
-    input.ctoc-trigger:hover ~ nav.ctoc, input.ctoc-trigger:active ~ nav.ctoc {
-      display: block;
-      opacity: 1;
-      overflow: hidden;
-      position: relative;
-      top: 0;
-      visibility: visible;
-      width: 100%;
-      z-index: 0; }
-      input.ctoc-trigger:hover ~ nav.ctoc li, input.ctoc-trigger:active ~ nav.ctoc li {
-        display: list-item; }
-      input.ctoc-trigger:hover ~ nav.ctoc:hover, input.ctoc-trigger:hover ~ nav.ctoc:active, input.ctoc-trigger:active ~ nav.ctoc:hover, input.ctoc-trigger:active ~ nav.ctoc:active {
-        position: relative;
-        z-index: 0; }
-    input.ctoc-trigger:hover ~ div.ctoc-start, input.ctoc-trigger:active ~ div.ctoc-start {
-      background: #777;
-      left: -2em;
-      position: relative;
-      z-index: 0; }
-      input.ctoc-trigger:hover ~ div.ctoc-start:hover, input.ctoc-trigger:hover ~ div.ctoc-start:active, input.ctoc-trigger:active ~ div.ctoc-start:hover, input.ctoc-trigger:active ~ div.ctoc-start:active {
-        position: relative;
-        z-index: 0; }
-  div.ctoc-start:hover, div.ctoc-start:active {
-    position: relative;
-    z-index: 0;
-    background: #777;
-    left: -2em;
-    position: relative;
-    z-index: 0; }
-    div.ctoc-start:hover ~ .ctoc-overlay, div.ctoc-start:active ~ .ctoc-overlay {
-      opacity: 0;
-      position: relative; }
-    div.ctoc-start:hover ~ input.ctoc-trigger, div.ctoc-start:active ~ input.ctoc-trigger {
-      position: relative;
-      z-index: 1; }
-      div.ctoc-start:hover ~ input.ctoc-trigger:hover, div.ctoc-start:hover ~ input.ctoc-trigger:active, div.ctoc-start:active ~ input.ctoc-trigger:hover, div.ctoc-start:active ~ input.ctoc-trigger:active {
-        position: relative;
-        z-index: 1; }
-    div.ctoc-start:hover ~ nav.ctoc, div.ctoc-start:active ~ nav.ctoc {
-      display: block;
-      opacity: 1;
-      overflow: hidden;
-      position: relative;
-      top: 0;
-      visibility: visible;
-      width: 100%;
-      z-index: 0; }
-      div.ctoc-start:hover ~ nav.ctoc li, div.ctoc-start:active ~ nav.ctoc li {
-        display: list-item; }
-      div.ctoc-start:hover ~ nav.ctoc:hover, div.ctoc-start:hover ~ nav.ctoc:active, div.ctoc-start:active ~ nav.ctoc:hover, div.ctoc-start:active ~ nav.ctoc:active {
-        position: relative;
-        z-index: 0; }
-    div.ctoc-start:hover ~ div.ctoc-start, div.ctoc-start:active ~ div.ctoc-start {
-      background: #777;
-      left: -2em;
-      position: relative;
-      z-index: 0; }
-      div.ctoc-start:hover ~ div.ctoc-start:hover, div.ctoc-start:hover ~ div.ctoc-start:active, div.ctoc-start:active ~ div.ctoc-start:hover, div.ctoc-start:active ~ div.ctoc-start:active {
-        position: relative;
-        z-index: 0; }
-  div.ctoc-overlay {
-    display: none; }
-  ul.ctoc-list {
-    transition-delay: 1s; }
-    ul.ctoc-list:hover, ul.ctoc-list:active {
-      position: relative;
-      z-index: 0; }
-      ul.ctoc-list:hover ~ .ctoc-overlay, ul.ctoc-list:active ~ .ctoc-overlay {
+        left: .8em;
+        margin-right: 0;
+        position: absolute;
+        top: 0; }
+      .ctoc:hover ~ h2:first-of-type, .ctoc:active ~ h2:first-of-type {
+        left: 2.2em;
+        padding-left: 0;
+        position: relative; }
+  input.ctoc-trigger {
+    left: .8em;
+    margin-right: .2em;
+    position: absolute; }
+    input.ctoc-trigger:checked, input.ctoc-trigger:hover, input.ctoc-trigger:active {
+      left: .8em;
+      margin-right: 0;
+      position: absolute; }
+      input.ctoc-trigger:checked ~ .ctoc-overlay, input.ctoc-trigger:hover ~ .ctoc-overlay, input.ctoc-trigger:active ~ .ctoc-overlay {
         opacity: 0;
         position: relative; }
-      ul.ctoc-list:hover ~ input.ctoc-trigger, ul.ctoc-list:active ~ input.ctoc-trigger {
-        position: relative;
-        z-index: 1; }
-        ul.ctoc-list:hover ~ input.ctoc-trigger:hover, ul.ctoc-list:hover ~ input.ctoc-trigger:active, ul.ctoc-list:active ~ input.ctoc-trigger:hover, ul.ctoc-list:active ~ input.ctoc-trigger:active {
-          position: relative;
-          z-index: 1; }
-      ul.ctoc-list:hover ~ nav.ctoc, ul.ctoc-list:active ~ nav.ctoc {
+      input.ctoc-trigger:checked ~ input.ctoc-trigger:hover, input.ctoc-trigger:checked ~ input.ctoc-trigger:active, input.ctoc-trigger:hover ~ input.ctoc-trigger:hover, input.ctoc-trigger:hover ~ input.ctoc-trigger:active, input.ctoc-trigger:active ~ input.ctoc-trigger:hover, input.ctoc-trigger:active ~ input.ctoc-trigger:active {
+        left: .8em;
+        margin-right: 0;
+        position: absolute;
+        top: 0; }
+      input.ctoc-trigger:checked ~ nav.ctoc, input.ctoc-trigger:hover ~ nav.ctoc, input.ctoc-trigger:active ~ nav.ctoc {
         display: block;
+        left: 0;
         opacity: 1;
         overflow: hidden;
         position: relative;
-        top: 0;
+        top: inherit;
         visibility: visible;
-        width: 100%;
-        z-index: 0; }
-        ul.ctoc-list:hover ~ nav.ctoc li, ul.ctoc-list:active ~ nav.ctoc li {
+        width: 100%; }
+        input.ctoc-trigger:checked ~ nav.ctoc li, input.ctoc-trigger:hover ~ nav.ctoc li, input.ctoc-trigger:active ~ nav.ctoc li {
           display: list-item; }
-        ul.ctoc-list:hover ~ nav.ctoc:hover, ul.ctoc-list:hover ~ nav.ctoc:active, ul.ctoc-list:active ~ nav.ctoc:hover, ul.ctoc-list:active ~ nav.ctoc:active {
-          position: relative;
-          z-index: 0; }
-      ul.ctoc-list:hover ~ div.ctoc-start, ul.ctoc-list:active ~ div.ctoc-start {
+        input.ctoc-trigger:checked ~ nav.ctoc:hover, input.ctoc-trigger:checked ~ nav.ctoc:active, input.ctoc-trigger:hover ~ nav.ctoc:hover, input.ctoc-trigger:hover ~ nav.ctoc:active, input.ctoc-trigger:active ~ nav.ctoc:hover, input.ctoc-trigger:active ~ nav.ctoc:active {
+          position: relative; }
+      input.ctoc-trigger:checked ~ div.ctoc-start, input.ctoc-trigger:hover ~ div.ctoc-start, input.ctoc-trigger:active ~ div.ctoc-start {
         background: #777;
-        left: -2em;
+        left: .8em;
+        margin-right: 0;
+        position: absolute;
+        top: 0; }
+      input.ctoc-trigger:checked ~ h2:first-of-type, input.ctoc-trigger:hover ~ h2:first-of-type, input.ctoc-trigger:active ~ h2:first-of-type {
+        left: 2.2em;
+        padding-left: 0;
+        position: relative; }
+  div.ctoc-start {
+    left: .8em;
+    margin-right: .2em;
+    position: absolute; }
+    div.ctoc-start:hover, div.ctoc-start:active {
+      background: #777;
+      left: .8em;
+      margin-right: 0;
+      position: absolute; }
+      div.ctoc-start:hover ~ .ctoc-overlay, div.ctoc-start:active ~ .ctoc-overlay {
+        opacity: 0;
+        position: relative; }
+      div.ctoc-start:hover ~ input.ctoc-trigger:hover, div.ctoc-start:hover ~ input.ctoc-trigger:active, div.ctoc-start:active ~ input.ctoc-trigger:hover, div.ctoc-start:active ~ input.ctoc-trigger:active {
+        left: .8em;
+        margin-right: 0;
+        position: absolute;
+        top: 0; }
+      div.ctoc-start:hover ~ nav.ctoc, div.ctoc-start:active ~ nav.ctoc {
+        display: block;
+        left: 0;
+        opacity: 1;
+        overflow: hidden;
         position: relative;
-        z-index: 0; }
-        ul.ctoc-list:hover ~ div.ctoc-start:hover, ul.ctoc-list:hover ~ div.ctoc-start:active, ul.ctoc-list:active ~ div.ctoc-start:hover, ul.ctoc-list:active ~ div.ctoc-start:active {
-          position: relative;
-          z-index: 0; }
-  .article-toc:hover .ctoc-trigger, .article-toc:active .ctoc-trigger {
+        top: inherit;
+        visibility: visible;
+        width: 100%; }
+        div.ctoc-start:hover ~ nav.ctoc li, div.ctoc-start:active ~ nav.ctoc li {
+          display: list-item; }
+        div.ctoc-start:hover ~ nav.ctoc:hover, div.ctoc-start:hover ~ nav.ctoc:active, div.ctoc-start:active ~ nav.ctoc:hover, div.ctoc-start:active ~ nav.ctoc:active {
+          position: relative; }
+      div.ctoc-start:hover ~ div.ctoc-start, div.ctoc-start:active ~ div.ctoc-start {
+        background: #777;
+        left: .8em;
+        margin-right: 0;
+        position: absolute;
+        top: 0; }
+      div.ctoc-start:hover ~ h2:first-of-type, div.ctoc-start:active ~ h2:first-of-type {
+        left: 2.2em;
+        padding-left: 0;
+        position: relative; }
+  div.ctoc-overlay {
+    display: none; }
+  ul.ctoc-list:hover ~ .ctoc-overlay, ul.ctoc-list:active ~ .ctoc-overlay {
+    opacity: 0;
+    position: relative; }
+  ul.ctoc-list:hover ~ input.ctoc-trigger:hover, ul.ctoc-list:hover ~ input.ctoc-trigger:active, ul.ctoc-list:active ~ input.ctoc-trigger:hover, ul.ctoc-list:active ~ input.ctoc-trigger:active {
+    left: .8em;
+    margin-right: 0;
+    position: absolute;
+    top: 0; }
+  ul.ctoc-list:hover ~ nav.ctoc, ul.ctoc-list:active ~ nav.ctoc {
+    display: block;
+    left: 0;
+    opacity: 1;
+    overflow: hidden;
     position: relative;
-    z-index: 0;
-    z-index: 1; }
+    top: inherit;
+    visibility: visible;
+    width: 100%; }
+    ul.ctoc-list:hover ~ nav.ctoc li, ul.ctoc-list:active ~ nav.ctoc li {
+      display: list-item; }
+    ul.ctoc-list:hover ~ nav.ctoc:hover, ul.ctoc-list:hover ~ nav.ctoc:active, ul.ctoc-list:active ~ nav.ctoc:hover, ul.ctoc-list:active ~ nav.ctoc:active {
+      position: relative; }
+  ul.ctoc-list:hover ~ div.ctoc-start, ul.ctoc-list:active ~ div.ctoc-start {
+    background: #777;
+    left: .8em;
+    margin-right: 0;
+    position: absolute;
+    top: 0; }
+  ul.ctoc-list:hover ~ h2:first-of-type, ul.ctoc-list:active ~ h2:first-of-type {
+    left: 2.2em;
+    padding-left: 0;
+    position: relative; }
+  .article-toc h2:first-of-type {
+    left: 2em;
+    padding-left: 0;
+    position: relative; }
+  .article-toc:hover .ctoc-trigger, .article-toc:active .ctoc-trigger {
+    left: .8em;
+    margin-right: 0;
+    position: absolute;
+    top: 0; }
     .article-toc:hover .ctoc-trigger ~ .ctoc-overlay, .article-toc:active .ctoc-trigger ~ .ctoc-overlay {
       opacity: 0;
       position: relative; }
-    .article-toc:hover .ctoc-trigger ~ input.ctoc-trigger, .article-toc:active .ctoc-trigger ~ input.ctoc-trigger {
-      position: relative;
-      z-index: 1; }
-      .article-toc:hover .ctoc-trigger ~ input.ctoc-trigger:hover, .article-toc:hover .ctoc-trigger ~ input.ctoc-trigger:active, .article-toc:active .ctoc-trigger ~ input.ctoc-trigger:hover, .article-toc:active .ctoc-trigger ~ input.ctoc-trigger:active {
-        position: relative;
-        z-index: 1; }
+    .article-toc:hover .ctoc-trigger ~ input.ctoc-trigger:hover, .article-toc:hover .ctoc-trigger ~ input.ctoc-trigger:active, .article-toc:active .ctoc-trigger ~ input.ctoc-trigger:hover, .article-toc:active .ctoc-trigger ~ input.ctoc-trigger:active {
+      left: .8em;
+      margin-right: 0;
+      position: absolute;
+      top: 0; }
     .article-toc:hover .ctoc-trigger ~ nav.ctoc, .article-toc:active .ctoc-trigger ~ nav.ctoc {
       display: block;
+      left: 0;
       opacity: 1;
       overflow: hidden;
       position: relative;
-      top: 0;
+      top: inherit;
       visibility: visible;
-      width: 100%;
-      z-index: 0; }
+      width: 100%; }
       .article-toc:hover .ctoc-trigger ~ nav.ctoc li, .article-toc:active .ctoc-trigger ~ nav.ctoc li {
         display: list-item; }
       .article-toc:hover .ctoc-trigger ~ nav.ctoc:hover, .article-toc:hover .ctoc-trigger ~ nav.ctoc:active, .article-toc:active .ctoc-trigger ~ nav.ctoc:hover, .article-toc:active .ctoc-trigger ~ nav.ctoc:active {
-        position: relative;
-        z-index: 0; }
+        position: relative; }
     .article-toc:hover .ctoc-trigger ~ div.ctoc-start, .article-toc:active .ctoc-trigger ~ div.ctoc-start {
       background: #777;
-      left: -2em;
-      position: relative;
-      z-index: 0; }
-      .article-toc:hover .ctoc-trigger ~ div.ctoc-start:hover, .article-toc:hover .ctoc-trigger ~ div.ctoc-start:active, .article-toc:active .ctoc-trigger ~ div.ctoc-start:hover, .article-toc:active .ctoc-trigger ~ div.ctoc-start:active {
-        position: relative;
-        z-index: 0; } }
+      left: .8em;
+      margin-right: 0;
+      position: absolute;
+      top: 0; }
+    .article-toc:hover .ctoc-trigger ~ h2:first-of-type, .article-toc:active .ctoc-trigger ~ h2:first-of-type {
+      left: 2.2em;
+      padding-left: 0;
+      position: relative; } }
 
 @media speech {
   .ctoc {
