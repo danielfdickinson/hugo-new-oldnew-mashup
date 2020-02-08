@@ -1,6 +1,6 @@
 # OldNew Mashup
 
-Version 1.2.0
+Version 1.3.0
 
 [![Travis CI results](https://travis-ci.org/cshoredaniel/new-oldnew-mashup.svg?branch=master)](https://travis-ci.org/cshoredaniel/new-oldnew-mashup?branch=master)
 
