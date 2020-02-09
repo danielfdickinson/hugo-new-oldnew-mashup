@@ -149,3 +149,9 @@
   font-size: .8em;
   font-style: italic;
 }
+
+@media speech {
+  .page-taxonomy-list {
+    display: none;
+  }
+}

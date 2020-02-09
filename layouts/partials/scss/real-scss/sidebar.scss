@@ -64,7 +64,7 @@
 }
 
 .sidebar {
-  display: block;
+  display: none;
   font-size: .9em;
   margin: 0;
   order: 5;
@@ -72,13 +72,20 @@
   padding: 0;
 }
 
-@media screen and (min-height: 28em) and (min-width: 32em) {
+@media screen and (min-height: 36em) and (min-width: 50em) {
   .sidebar {
+    display: block;
     grid-column-end: 2;
     grid-column-start: 2;
     grid-row-start: 4;
     margin-right: .4em;
     width: 100%;
+  }
+}
+
+@media speech {
+  .sidebar {
+    display: none;
   }
 }
 

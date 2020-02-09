@@ -1,5 +1,5 @@
 .section-nav-sitemap {
-  display: block;
+  display: none;
   flex: 1 1 100%;
   order: 3;
   text-align: left;
@@ -68,20 +68,32 @@
 }
 
 .local-nav-bar {
-  background-color: $local-nav-background-color;
-  color: $local-nav-text-color;
-  display: block;
   flex: 1 1 100%;
-  order: 1;
+  height: auto;
+  order: 4;
+  width: 100%;
+}
+
+.local-nav-bar-wrapper {
+  display: block;
+  height: auto;
+  left: 0;
+  padding-bottom: .4em;
+  padding-top: .4em;
+  position: relative;
   text-align: center;
+  top: 0;
   width: 100%;
 
   & a,
   & span {
+    background-color: $local-nav-background-color;
     color: $local-nav-text-color;
     display: inline-block;
     margin: 0;
     padding: 0;
+    padding-bottom: .2em;
+    padding-top: .2em;
     text-align: center;
     text-decoration: none;
     width: 30%;
@@ -93,6 +105,8 @@
       display: inline-block;
       margin: 0;
       padding: 0;
+      padding-bottom: .2em;
+      padding-top: .2em;
       text-align: center;
       text-decoration: none;
       width: 30%;
@@ -111,13 +125,12 @@
   }
 }
 
-@media screen and (min-height: 28em) and (min-width: 32em) {
+@media screen and (min-height: 36em) and (min-width: 50em) {
   .section-nav-sitemap {
     background-color: $sidebar-box-background-color;
     border-bottom: $sidebar-box-border $sidebar-box-border-color;
     border-top: $sidebar-box-border $sidebar-box-border-color;
     color: $sidebar-box-text-color;
-    display: block;
     font-size: .9em;
     grid-column-end: 2;
     grid-column-start: 2;
@@ -166,10 +179,21 @@
     margin-left: 0;
     margin-right: .4em;
     margin-top: 0;
+    order: 3;
     padding-bottom: 0;
     padding-left: .5em;
     padding-right: .4em;
     padding-top: 0;
+  }
+}
+
+@media screen and (min-height: 36em) and (min-width: 50em) {
+  .section-nav-sitemap {
+    display: block;
+  }
+
+  .local-nav-bar {
+    display: block;
   }
 }
 
@@ -188,5 +212,11 @@
     flex: 1 1 100%;
     order: 5;
     text-align: left;
+  }
+}
+
+@media speech {
+  .local-nav-bar {
+    display: none;
   }
 }

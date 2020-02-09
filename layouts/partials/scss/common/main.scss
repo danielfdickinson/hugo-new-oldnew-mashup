@@ -1,3 +1,7 @@
+/*! Copyright 2019-2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+// OldNew Mashup theme SCSS variables -- try to keep them all in one place
 
 $serif-font-stack: {{ default "(Georgia, serif)" ( .Param "serif_stack" ) }};
 $sans-font-stack: {{ default "(quote(Lucida Sans Unicode), quote(Lucida Granda), sans-serif)" ( .Param "sans_font_stack" ) }};
@@ -52,11 +56,14 @@ $doc-date-text-color: {{ default "$default-container-text-color" ( .Param "doc_d
 
 $default-top-bar-background-color: {{ default "$default-background-color" ( .Param "default_top_bar_background_color" ) }};
 $default-top-bar-box-shadow-color: {{ default "#000" ( .Param "default_top_bar_box_shadow_color") }};
-$default-top-bar-border-color: {{ default "#222" ( .Param "default_top_bar_border_color") }};
+$default-top-bar-border-color: {{ default "#444" ( .Param "default_top_bar_border_color") }};
 $default-top-bar-hover-border-color: {{ default "#000"  ( .Param "default_top_bar_hover_border_color") }};
-$default-top-bar-hover-box-shadow-color: {{ default "#555"  ( .Param "default_top_bar_hover_box_shadow_color") }};
+$default-top-bar-hover-box-shadow-color: {{ default "#666"  ( .Param "default_top_bar_hover_box_shadow_color") }};
 
 $site-badge-graphic-background-color: {{ default "$default-inline-pre-background-color" ( .Param "$site_badge_graphic_background_color") }};
+$site-badge-graphic-width: {{ default "37px" ( .Param "$site_badge_graphic_width") }};
+$site-badge-width: {{ default "10em" ( .Param "$site_badge_width") }};
+$site-id-width: {{ default "8em" ( .Param "$site_id_width") }};
 
 $menubar-box-shadow-color: {{ default "$default-top-bar-box-shadow-color" ( .Param "menubar_box_shadow_color") }};
 $menubar-top-level-border-color: {{ default "$default-top-bar-border-color" ( .Param "menubar_top_level_border_color") }};
@@ -107,3 +114,44 @@ $ctoc-link-font-color: $default-link-color;
 
 $ctoc-link-hover-bg-color: $default-hover-background-color;
 $ctoc-link-hover-font-color: $default-hover-color;
+
+$hamburger-start-background-color: $default-hover-background-color;
+$hamburger-start-hover-background-color: $default-inline-pre-hover-color;
+$hamburger-top-bar-background-color: $default-table-background-color;
+$hamburger-top-bar-menu-text-color: $default-table-text-color;
+$hamburger-top-bar-menu-link-color: $default-link-color;
+$hamburger-top-bar-menu-border-color: #666;
+
+// mobile viewport settings
+
+$top-bar-off-canvas-height: 100%;
+$top-bar-off-canvas-width: 80%;
+$top-bar-off-canvas-overlay-opacity: .5;
+$top-bar-off-canvas-overlay-color: $default-pre-background-color;
+$top-bar-off-canvas-overlay-z-index: 39;
+
+$hamburger-top-bar-width: 2em;
+$hamburger-top-bar-height: 2em;
+$hamburger-top-bar-z-index: 40;
+
+$top-bar-link-padding: .4em;
+$top-bar-link-font-color: $default-link-color;
+
+$top-bar-link-hover-bg-color:  $default-hover-background-color;
+$top-bar-link-hover-font-color: $default-hover-color;
+
+$top-bar-submenu-left-margin: .2em;
+
+// desktop viewport settings
+
+$top-bar-link-min-width: 8em;
+$flyout-z-index: 40;
+$flyout-menu-item-height: $hamburger-top-bar-height;
+$flyout-menu-item-width: 10em;
+$flyout-max-menu-level: 6;
+$flyout-menu-column-height: 16em;
+$flyout-menu-column-width: 34em;
+
+$flyout-submenu-colors-0: #444;
+$flyout-submenu-colors-1: #222;
+$flyout-submenu-colors-2: #000;
