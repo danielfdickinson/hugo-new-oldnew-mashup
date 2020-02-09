@@ -6,7 +6,7 @@
             <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="white"></path>
           </g>
         </svg></div><h2 id="article-toc-title">Contents</h2>
-        {{ replaceRE "(?msU:<nav id=\"TableOfContents\">.*<ul>)" "<nav id=\"TableOfContents\" class=\"ctoc\" onclick=\"document.getElementById('ctoc-trigger-checkbox').checked=false;\"><ul class=\"ctoc-list\" role=\"menu\">" (replace .TableOfContents `href="#` (printf `href="%s#` .RelPermalink)) | safeHTML }}
+        {{ replaceRE "(?msU:<nav id=\"TableOfContents\">.*<ul>)" "<nav id=\"TableOfContents\" class=\"ctoc\"><ul class=\"ctoc-list\" role=\"menu\">" (replace .TableOfContents `href="#` (printf ` target="_blank" href="%s#` .RelPermalink)) | safeHTML }}
     <div class="ctoc-overlay"></div>
   </section>
   {{ end }}
