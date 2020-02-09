@@ -7,7 +7,7 @@
      Released under the Create Commons BY (Attribution) 4.0 License -->
 {{ end }}
 {{ define "main" }}
-<main class="section-page-main">
+<main class="section-page-main {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
 <article aria-label="Main Article" id="main-article" class="main-article">
   {{ partial "generic-helpers/article-header" . }}
   {{ if (trim ( replaceRE "<h1.*</h1>" "" .Content | safeHTML ) " \t\n") }}

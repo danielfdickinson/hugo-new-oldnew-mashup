@@ -27,7 +27,7 @@
     {{ end }}
   {{ end }}
   {{ block "main" . }}
-      <main class="main">
+      <main class="main {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
       <article aria-label="Main Article" id="main-article" class="main-article">
     {{ partial "generic-helpers/article-header" . }}
     {{ if (not (or .Data.Terms .Data.Singular ) ) }}

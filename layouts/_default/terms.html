@@ -7,7 +7,7 @@
      Released under the Create Commons BY (Attribution) 4.0 License -->
 {{ end }}
 {{ define "main" }}
-<main class="taxonomy-term-page-main">
+<main class="taxonomy-term-page-main {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
 <article aria-label="Main Article" id="main-article" class="main-article">
   {{ if .Title }}<h1 class="article-title">{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title }}{{ else }}{{ .Title }}{{ end }}{{ end }}</h1>{{ end }}
   <section class="taxonomy-term-content">

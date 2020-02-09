@@ -59,8 +59,8 @@
   }
 }
 
-@mixin splash-section {
-  .splash {
+@mixin homepage-splash-section {
+  & .splash {
     align-content: stretch;
     align-items: stretch;
     display: flex;
@@ -207,12 +207,12 @@
   flex-flow: row wrap;
   justify-content: flex-start;
 
-  .main-content {
+  & .main-content {
     @include homepage-aside;
     @include homepage-enter-button;
     @include homepage-taglines;
     @include homepage-title;
-    @include splash-section;
+    @include homepage-splash-section;
     @include homepage-footer;
 
     align-items: center;

@@ -11,7 +11,7 @@
      Released under the Create Commons BY (Attribution) 4.0 License -->
 {{ end }}
 {{ define "main" }}
-<main class="taxonomy-page-main">
+<main class="taxonomy-page-main {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
 {{ $license := "" }}
 <article aria-label="Main Article" id="main-article" class="main-article">
   {{ if eq .Data.Singular "license" }}

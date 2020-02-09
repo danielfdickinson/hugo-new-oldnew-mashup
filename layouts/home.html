@@ -9,12 +9,18 @@
   <body>
 {{ end }}
 {{ define "header" }}
+  {{ if not (eq (.Param "new_landing_page") true) }}
   <div class="homepage">
-    <!-- Copyright 2018-2019 Daniel F. Dickinson
-         Release under the Creative Commons BY (Attribution) 4.0 License -->
+    {{ else }}
+  <div class="default-body-wrapper">
+    {{ end }}
+    <!-- Copyright 2018-2020 Daniel F. Dickinson
+         Released under the Creative Commons BY (Attribution) 4.0 License -->
     {{ partial "page-header" . }}
+
 {{ end }}
 {{ define "main" }}
+  {{ if not (eq (.Param "new_landing_page") true) }}
     <main id="main-content" class="main-content">
       <h1 class="title">{{if not .Page.Title}}{{.Site.Title}}{{else}}{{.Page.Title}}{{end}}</h1>
       <div class="taglines">
@@ -34,11 +40,18 @@
         {{ markdownify .Page.Params.asidefooter }}
       </aside>
     </main>
+  {{ else }}
+    <main class="main landing-content {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
+      <article aria-label="Main Article" id="main-article" class="main-article">
+        <header class="article-header">
+        <h1 class="article-title">{{ if .Title }}{{ .Title }}{{ else if .Site.Title }}{{ .Site.Title }}{{ else if .File.TranslationBaseName }}{{ .File.TranslationBaseName | title }}{{ end }}</h1>
+        </header>
+    {{ .Content }}
+      </article>
+    </main>
+  {{ end }}
 {{ end }}
 {{ define "footer" }}
   {{ partial "footer.html" . }}
 </div>
-{{ end }}
-{{ define "sidebar" }}
-<!--no sidebar-->
 {{ end }}

@@ -1,16 +1,24 @@
 ---
-title: "CShore OldNew Mashup Theme Test Site"
+title: "CShore OldNew Mashup Theme Demo Site"
 date: 2018-01-06T14:23:41-05:00
-copyright: © 2018 Daniel Dickinson
+copyright: © 2018-2020 Daniel Dickinson
 licenses:
   - CC-BY-4.0
 author: Daniel F. Dickinson
-description: A test homepage for "cshore-oldnew-mashup" Hugo theme
+description: A demonstration homepage for the "new-oldnew-mashup" Hugo theme
 categories: [hugo, theme, html, css, test]
-aside: >
-  An aside. Having an aside is optional. Handy for a  quirky comment on a personal site.
-asidefooter: >
-  Footer to the main body of the this page (above the footer that appears on every page).
-oneliner: A short oneliner for the site
-subliner: And a longer sub-oneliner for the site.
+new_landing_page: true
+norbar: true
 ---
+
+## A short one-liner for the site
+
+An aside. Having an aside is optional. Handy for a quirky comment on a personal site.[^1]
+
+{{< splash-screenshots >}}
+
+{{< site-entry-button >}}
+
+### A longer sub-oneliner for the site
+
+[^1]: Footnote to the aside. Optional.
