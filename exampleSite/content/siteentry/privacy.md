@@ -27,6 +27,10 @@ The following statements apply to this site when hosted at
 
 This site does not use cookies for any purpose.
 
+**NB** <https://oldwww.thecshore.com> does use a cookie in order to enable the
+high contrast and/or large print features.  Once oldwww has been migrated into
+www.thecshore.com this will no longer be an issue.
+
 ## Server IP Logging
 
 This site logs the IP address and associated User-Agent Strings and URLS
