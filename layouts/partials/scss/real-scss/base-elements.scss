@@ -168,23 +168,30 @@ input {
 table {
   border: $default-table-border $default-table-border-color;
   border-collapse: collapse;
-  max-width: 100%;
+  table-layout: fixed;
+  width: 100%;
 
-  & th,
   & thead {
     background-color: $default-table-heading-background-colour;
+    width: 100%;
 
     & th {
-      border-bottom: $default-table-border $default-table-border-color;
+      background-color: $default-table-heading-background-colour;
+      overflow-wrap: break-word;
+      padding: .2em;
+      width: 100%;
     }
   }
 
   & tbody {
+    width: 100%;
+
     & tr {
+      width: 100%;
+
       &:nth-child(even) {
         background-color: $default-table-even-row-background-color;
       }
-
     }
   }
 }
@@ -193,6 +200,9 @@ tr {
   & td {
     border-bottom: $default-table-border $default-table-border-color;
     border-left: $default-table-border $default-table-border-color;
+    overflow-wrap: break-word;
+    padding: .2em;
+    width: 100%;
 
     &:first-of-type {
       border-left: 0 none;
@@ -200,8 +210,12 @@ tr {
   }
 
   & th {
+    background-color: $default-table-heading-background-colour;
     border-bottom: $default-table-border $default-table-border-color;
     border-left: $default-table-border $default-table-border-color;
+    overflow-wrap: break-word;
+    padding: .2em;
+    width: 100%;
 
     &:first-of-type {
       border-left: 0 none;
