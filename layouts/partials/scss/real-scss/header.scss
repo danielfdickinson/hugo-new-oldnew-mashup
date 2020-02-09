@@ -447,8 +447,6 @@
 
     @include menubar-needs-columns-submenu($is-desktop, $is-older-browser, $is-ie9-plus, $is-ie11, $is-edge12-plus, $has-screen-mq, $has-speech-mq, $has-print-mq, $has-no-hover-mq, -$flyout-menu-item-width, -$flyout-menu-item-width, $start-menu-level, true);
 
-    column-width: initial;
-    columns: initial;
     height: $flyout-menu-column-height;
     left: auto;
     margin-left: $left-margin;
@@ -472,9 +470,6 @@
 
     @include menubar-needs-overflow($is-desktop, $is-older-browser, $is-ie9-plus, $is-ie11, $is-edge12-plus, $has-screen-mq, $has-speech-mq, $has-print-mq, $has-no-hover-mq, $left-margin, $start-menu-level);
 
-    column-fill: auto;
-    column-gap: 0;
-    column-width: $flyout-menu-item-width;
     height: $flyout-menu-column-height;
     left: $left-margin;
     margin: 0;
@@ -482,6 +477,12 @@
     overflow: visible;
     top: auto;
     width: auto;
+
+    &:not(.needs-overflow) {
+      column-fill: auto;
+      column-gap: 0;
+      column-width: $flyout-menu-item-width;
+    }
   }
 
   @if $is-ie11 {
@@ -489,9 +490,6 @@
 
     @include menubar-needs-overflow($is-desktop, $is-older-browser, $is-ie9-plus, $is-ie11, $is-edge12-plus, $has-screen-mq, $has-speech-mq, $has-print-mq, $has-no-hover-mq, $left-margin, $start-menu-level);
 
-    column-fill: auto;
-    column-gap: 0;
-    column-width: $flyout-menu-item-width;
     height: $flyout-menu-column-height;
     left: $left-margin;
     margin: 0;
@@ -499,6 +497,12 @@
     overflow: visible;
     top: auto;
     width: auto;
+
+    &:not(.needs-overflow) {
+      column-fill: auto;
+      column-gap: 0;
+      column-width: $flyout-menu-item-width;
+    }
   }
 }
 
