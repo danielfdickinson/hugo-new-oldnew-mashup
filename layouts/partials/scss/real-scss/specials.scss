@@ -128,7 +128,6 @@
 
     & a {
       &:link,
-      &:visited,
       &:active,
       &:hover {
         border-radius: 16px;
@@ -246,10 +245,13 @@
     width: 8em;
     z-index: 10;
 
-    &:link,
-    &:visited {
+    &:link {
       background-color: $default-container-background-color;
       border-color: $default-container-border-color;
+    }
+
+    &:link,
+    &:visited {
       color: $default-container-text-color;
     }
 

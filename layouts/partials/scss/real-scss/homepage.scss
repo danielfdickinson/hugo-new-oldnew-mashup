@@ -159,10 +159,13 @@
     text-align: center;
     width: 8em;
 
-    &:link,
-    &:visited {
+    &:link {
       background-color: $default-container-background-color;
       border-color: $default-container-border-color;
+    }
+
+    &:link,
+    &:visited {
       color: $default-container-text-color;
     }
 

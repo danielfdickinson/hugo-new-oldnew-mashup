@@ -516,7 +516,7 @@ tr th {
     justify-content: space-between;
     padding: .3em;
     text-align: center; }
-    .page-footer .footer-links a:link, .page-footer .footer-links a:visited, .page-footer .footer-links a:active, .page-footer .footer-links a:hover {
+    .page-footer .footer-links a:link, .page-footer .footer-links a:active, .page-footer .footer-links a:hover {
       text-decoration: none; }
     .page-footer .footer-links span {
       border: 3px ridge #909090;
@@ -1133,9 +1133,8 @@ tr th {
     text-align: center;
     text-decoration: none;
     width: 30%; }
-    .local-nav-bar-wrapper a:link, .local-nav-bar-wrapper a:visited, .local-nav-bar-wrapper a:active, .local-nav-bar-wrapper a:hover,
+    .local-nav-bar-wrapper a:link, .local-nav-bar-wrapper a:active, .local-nav-bar-wrapper a:hover,
     .local-nav-bar-wrapper span:link,
-    .local-nav-bar-wrapper span:visited,
     .local-nav-bar-wrapper span:active,
     .local-nav-bar-wrapper span:hover {
       display: inline-block;
@@ -1460,9 +1459,10 @@ pre {
       padding: .6em;
       text-align: center;
       width: 8em; }
-      .homepage .main-content .enter-button:link, .homepage .main-content .enter-button:visited {
+      .homepage .main-content .enter-button:link {
         background-color: #222;
-        border-color: #ccc;
+        border-color: #ccc; }
+      .homepage .main-content .enter-button:link, .homepage .main-content .enter-button:visited {
         color: #ccc; }
       .homepage .main-content .enter-button:active, .homepage .main-content .enter-button:hover {
         background-color: #777;
@@ -1685,7 +1685,7 @@ pre {
       padding: .2em; }
     .page-taxonomy-list.tags-list .tags-label {
       display: none; }
-    .page-taxonomy-list.tags-list a:link, .page-taxonomy-list.tags-list a:visited, .page-taxonomy-list.tags-list a:active, .page-taxonomy-list.tags-list a:hover {
+    .page-taxonomy-list.tags-list a:link, .page-taxonomy-list.tags-list a:active, .page-taxonomy-list.tags-list a:hover {
       border-radius: 16px;
       text-decoration: none; }
 
@@ -1760,9 +1760,10 @@ pre {
   top: 48%;
   width: 8em;
   z-index: 10; }
-  .site-enter-button:link, .site-enter-button:visited {
+  .site-enter-button:link {
     background-color: #222;
-    border-color: #ccc;
+    border-color: #ccc; }
+  .site-enter-button:link, .site-enter-button:visited {
     color: #ccc; }
   .site-enter-button:active, .site-enter-button:hover {
     background-color: #777;
@@ -3710,7 +3711,7 @@ ul.menubar-site-menu-list {
         padding: .4em;
         text-overflow: ellipsis;
         width: 100%; }
-        ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:link, ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:visited, ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:hover, ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:active {
+        ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:link, ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:hover, ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:active {
           display: block;
           text-decoration: none; }
         ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link .menu-entry {
@@ -3778,7 +3779,7 @@ ul.menubar-site-menu-list {
     .site-badge .site-id span {
       display: block;
       vertical-align: middle; }
-  .site-badge:link, .site-badge:visited, .site-badge:hover, .site-badge:active {
+  .site-badge:link, .site-badge:hover, .site-badge:active {
     text-decoration: none; }
   .site-badge:hover, .site-badge:active {
     border: 2px inset #000;
@@ -3904,13 +3905,13 @@ ul.menubar-site-menu-list {
         color: #ccf; }
       header.top-bar .site-menu a:link {
         color: #ccf; }
-      header.top-bar .site-menu li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li .menu-entry-wrapper a:visited, header.top-bar .site-menu li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li .menu-entry-wrapper a:active {
+      header.top-bar .site-menu li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li .menu-entry-wrapper a:active {
         padding-left: 1em; }
-      header.top-bar .site-menu li li li .menu-entry-wrapper a a:link, header.top-bar .site-menu li li li .menu-entry-wrapper a a:visited, header.top-bar .site-menu li li li .menu-entry-wrapper a a:hover, header.top-bar .site-menu li li li .menu-entry-wrapper a a:active {
+      header.top-bar .site-menu li li li .menu-entry-wrapper a a:link, header.top-bar .site-menu li li li .menu-entry-wrapper a a:hover, header.top-bar .site-menu li li li .menu-entry-wrapper a a:active {
         padding-left: 2em; }
-      header.top-bar .site-menu li li li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li li li .menu-entry-wrapper a:visited, header.top-bar .site-menu li li li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li li li .menu-entry-wrapper a:active {
+      header.top-bar .site-menu li li li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li li li .menu-entry-wrapper a:active {
         padding-left: 3em; }
-      header.top-bar .site-menu li li li li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li li li li .menu-entry-wrapper a:visited, header.top-bar .site-menu li li li li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li li li li .menu-entry-wrapper a:active {
+      header.top-bar .site-menu li li li li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li li li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li li li li .menu-entry-wrapper a:active {
         padding-left: 4em; }
       header.top-bar .site-menu ul li:first-of-type {
         margin-top: .2em; }
@@ -5682,7 +5683,7 @@ ul.menubar-site-menu-list {
       border-radius: 12px; }
       .site-badge .graphics-row {
         border-bottom-left-radius: 12px; }
-      .site-badge:hover, .site-badge:active, .site-badge:link, .site-badge:visited {
+      .site-badge:hover, .site-badge:active, .site-badge:link {
         border-radius: 12px; }
     .top-bar-start {
       border-radius: 12px; } }
@@ -7377,7 +7378,7 @@ ul.menubar-site-menu-list {
       border-radius: 12px; }
       .site-badge .graphics-row {
         border-bottom-left-radius: 12px; }
-      .site-badge:hover, .site-badge:active, .site-badge:link, .site-badge:visited {
+      .site-badge:hover, .site-badge:active, .site-badge:link {
         border-radius: 12px; }
     .top-bar-start {
       border-radius: 12px; } }
@@ -9953,7 +9954,7 @@ ul.menubar-site-menu-list {
       border-radius: 12px; }
       .site-badge .graphics-row {
         border-bottom-left-radius: 12px; }
-      .site-badge:hover, .site-badge:active, .site-badge:link, .site-badge:visited {
+      .site-badge:hover, .site-badge:active, .site-badge:link {
         border-radius: 12px; }
     .top-bar-start {
       border-radius: 12px; } }
@@ -9970,7 +9971,7 @@ ul.menubar-site-menu-list {
     .site-badge .graphics-row {
       border-bottom-left-radius: 12px;
       border-top-left-radius: 12px; }
-    .site-badge:hover, .site-badge:active, .site-badge:link, .site-badge:visited {
+    .site-badge:hover, .site-badge:active, .site-badge:link {
       border-radius: 12px; }
     .site-badge:hover, .site-badge:active {
       box-shadow: 4px 4px 4px #666 inset; }
@@ -11750,7 +11751,7 @@ ul.menubar-site-menu-list {
       border-radius: 12px; }
       .site-badge .graphics-row {
         border-bottom-left-radius: 12px; }
-      .site-badge:hover, .site-badge:active, .site-badge:link, .site-badge:visited {
+      .site-badge:hover, .site-badge:active, .site-badge:link {
         border-radius: 12px; }
     .top-bar-start {
       border-radius: 12px; } }
@@ -11860,13 +11861,13 @@ ul.menubar-site-menu-list {
         color: #ccf; }
       header.top-bar .site-menu a:link {
         color: #ccf; }
-      header.top-bar .site-menu li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li .menu-entry-wrapper a:visited, header.top-bar .site-menu li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li .menu-entry-wrapper a:active {
+      header.top-bar .site-menu li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li .menu-entry-wrapper a:active {
         padding-left: 1em; }
-      header.top-bar .site-menu li li li .menu-entry-wrapper a a:link, header.top-bar .site-menu li li li .menu-entry-wrapper a a:visited, header.top-bar .site-menu li li li .menu-entry-wrapper a a:hover, header.top-bar .site-menu li li li .menu-entry-wrapper a a:active {
+      header.top-bar .site-menu li li li .menu-entry-wrapper a a:link, header.top-bar .site-menu li li li .menu-entry-wrapper a a:hover, header.top-bar .site-menu li li li .menu-entry-wrapper a a:active {
         padding-left: 2em; }
-      header.top-bar .site-menu li li li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li li li .menu-entry-wrapper a:visited, header.top-bar .site-menu li li li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li li li .menu-entry-wrapper a:active {
+      header.top-bar .site-menu li li li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li li li .menu-entry-wrapper a:active {
         padding-left: 3em; }
-      header.top-bar .site-menu li li li li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li li li li .menu-entry-wrapper a:visited, header.top-bar .site-menu li li li li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li li li li .menu-entry-wrapper a:active {
+      header.top-bar .site-menu li li li li li .menu-entry-wrapper a:link, header.top-bar .site-menu li li li li li .menu-entry-wrapper a:hover, header.top-bar .site-menu li li li li li .menu-entry-wrapper a:active {
         padding-left: 4em; }
       header.top-bar .site-menu ul li:first-of-type {
         margin-top: .2em; }
@@ -13483,7 +13484,7 @@ ul.menubar-site-menu-list {
           padding: .4em;
           text-overflow: ellipsis;
           width: 100%; }
-          ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:link, ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:visited, ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:hover, ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:active {
+          ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:link, ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:hover, ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link:active {
             display: block;
             text-decoration: none; }
           ul.menubar-site-menu-list .menu-item .menu-entry-wrapper .menu-link .menu-entry {
@@ -13548,7 +13549,7 @@ ul.menubar-site-menu-list {
       .site-badge .site-id span {
         display: block;
         vertical-align: middle; }
-    .site-badge:link, .site-badge:visited, .site-badge:hover, .site-badge:active {
+    .site-badge:link, .site-badge:hover, .site-badge:active {
       text-decoration: none; }
     .site-badge:hover, .site-badge:active {
       border: 2px inset #000;

@@ -11,7 +11,6 @@
 @mixin top-bar-menu-entry-anchor($padding) {
   & a {
     &:link,
-    &:visited,
     &:hover,
     &:active {
       padding-left: $padding;
@@ -576,7 +575,6 @@
         width: 100%;
 
         &:link,
-        &:visited,
         &:hover,
         &:active {
           display: block;
@@ -906,7 +904,6 @@
         }
 
         &:link,
-        &:visited,
         &:hover,
         &:active {
           text-decoration: none;
@@ -1162,8 +1159,7 @@
 
           &:hover,
           &:active,
-          &:link,
-          &:visited {
+          &:link {
             border-radius: 12px;
           }
         }
@@ -1200,8 +1196,7 @@
 
           &:hover,
           &:active,
-          &:link,
-          &:visited {
+          &:link {
             border-radius: 12px;
           }
 
