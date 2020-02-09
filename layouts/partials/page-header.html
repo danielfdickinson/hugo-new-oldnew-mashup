@@ -1,4 +1,18 @@
-    <header aria-label="Top Bar" class="header top-bar">
-      {{ partial "page-header/site-badge" . }}
+<div class="header-wrapper"><input type="checkbox" class="top-bar-trigger" id="top-bar-trigger-checkbox" aria-label="Enable Menu" /><header aria-label="Top Bar" class="header top-bar"><div class="top-bar-start"><a href="{{ printf "%s#" .RelPermalink }}"><svg preserveAspectRatio="xMidYMid meet" viewBox="-5 -5 34 34">
+      <g>
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="black"></path>
+      </g>
+    </svg></a></div>{{ partial "page-header/site-badge" . }}
       {{ partial "page-header/menubar" . }}
-    </header>
+      {{ if (eq (.Param "enable_search" ) true ) }}
+    <div aria-labelledby="search-query" class="top-search"><form name="search_form" onSubmit="return doSearch()">
+      <input id="search-query" aria-label="Search box" type="search" name="s" size="4" /><input id="search-button" type="submit" value="Search" size="3" />
+    </form></div>
+    <div id="search-results" class="search-results" onclick="doCloseSearch()" onkeypress="doCloseSearch">
+    <h2>Search Results</h2>
+    </div>
+      {{ end }}
+
+    </header><div class="top-bar-overlay"></div>
+</div>
+<div class="back-to-top-button"><a href="{{ printf "%s#main-article" .RelPermalink }}" class="back-to-top-ref"><span>Top</span></a></div>
