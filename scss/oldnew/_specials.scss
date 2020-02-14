@@ -1,0 +1,291 @@
+/*! Copyright 2007-2009,2017-2018 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+
+.not-found-block {
+  margin-bottom: 1em;
+}
+
+.sitemap-main-list {
+  list-style-position: outside;
+
+  & ul {
+    list-style-position: outside;
+  }
+}
+
+@mixin four-oh-four-main {
+  margin-top: 0;
+
+  & .title {
+    display: block;
+    flex: 1 1 100%;
+    font-size: 1.3em;
+    margin-top: 0;
+    padding: 1em;
+  }
+
+  & .not-found-box {
+    align-content: stretch;
+    align-items: flex-start;
+    display: flex;
+    flex: 0 1 60%;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    text-align: left;
+
+    & div {
+      display: block;
+      flex: 1 2 100%;
+      padding-bottom: .5em;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: .5em;
+      text-align: left;
+    }
+
+    &.sidebar {
+      margin-top: 1em;
+    }
+  }
+}
+
+.four-oh-four {
+  display: block;
+  margin-top: 0;
+  text-align: center;
+
+  &.main {
+    @include four-oh-four-main;
+
+    align-content: stretch;
+    align-items: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 0;
+    padding-bottom: 4em;
+  }
+}
+
+@mixin contact-question {
+  .question-comment-wrapper {
+    height: 100%;
+    width: 100%;
+
+    & .question-comment {
+      height: 8em;
+      width: 100%;
+    }
+  }
+}
+
+@mixin contact-info {
+  & .contact-information-wrapper {
+    height: 100%;
+    width: 100%;
+
+    & .contact-information {
+      height: 6em;
+      width: 100%;
+    }
+  }
+}
+
+.contact-form {
+  @include contact-info;
+  @include contact-question;
+
+  height: 100%;
+  width: 100%;
+}
+
+@mixin taxonomy-list-row {
+  background-color: $default-container-background-color;
+  color: $default-container-text-color;
+  font-size: .8em;
+  font-style: italic;
+}
+
+@mixin tags-list {
+  &.tags-list {
+    background-color: $default-background-color;
+    color: $default-text-color;
+    font-size: .8em;
+    margin-top: .8em;
+    text-align: center;
+
+    .page-tag {
+      background-color: $default-container-background-color;
+      border-radius: 16px;
+      color: $default-container-text-color;
+      padding: .2em;
+    }
+
+    .tags-label {
+      display: none;
+    }
+
+    & a {
+      &:link,
+      &:active,
+      &:hover {
+        border-radius: 16px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.page-taxonomy-list {
+  @include taxonomy-list-row;
+  @include tags-list;
+}
+
+.article-date {
+  background-color: $default-container-background-color;
+  color: $default-container-text-color;
+  font-size: .8em;
+  font-style: italic;
+}
+
+@mixin screenshot-links {
+  & a {
+    border: $splash-screenshot-frame-border;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    & .screenshot {
+      border: $splash-screenshot-image-border;
+      display: block;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+  }
+}
+
+@mixin screenshot-list-item {
+  & li {
+    @include screenshot-links;
+
+    border: $splash-screenshot-outside-border;
+    box-shadow: $splash-screenshot-box-shadow;
+    display: block;
+    flex: 1 0 40%;
+    list-style: none outside;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    &:nth-child(odd) {
+      transform: translate(0, 10%) rotate(-3deg);
+    }
+
+    &:nth-child(even) {
+      transform: translate(0, 10%) rotate(5deg);
+    }
+
+    &:nth-child(2) {
+      z-index: 8;
+    }
+
+    &:nth-child(3) {
+      transform: translate(0, -20%) rotate(3deg);
+    }
+
+    &:nth-child(4) {
+      transform: translate(0, -15%) rotate(0deg);
+    }
+  }
+}
+
+@mixin splash-section {
+  .splash {
+    align-content: stretch;
+    align-items: stretch;
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: center;
+    order: 5;
+
+    & .screenshot-list {
+      @include screenshot-list-item;
+
+      align-content: stretch;
+      align-items: stretch;
+      display: flex;
+      flex: 0 0 80%;
+      flex-flow: row wrap;
+      justify-content: center;
+      list-style: none outside;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+  }
+}
+
+@mixin site-enter-button {
+  .site-enter-button {
+    background-color: $default-container-background-color;
+    border: 2px solid $default-container-border-color;
+    border-radius: 8px;
+    color: $default-container-text-color;
+    display: block;
+    left: 40%;
+    margin: 0;
+    order: 3;
+    padding: .6em;
+    position: fixed;
+    text-align: center;
+    top: 48%;
+    width: 8em;
+    z-index: 10;
+
+    &:link {
+      background-color: $default-container-background-color;
+      border-color: $default-container-border-color;
+    }
+
+    &:link,
+    &:visited {
+      color: $default-container-text-color;
+    }
+
+    &:active,
+    &:hover {
+      background-color: $default-hover-background-color;
+      color: $default-inline-pre-hover-color;
+    }
+  }
+}
+
+@include splash-section;
+@include site-enter-button;
+
+.landing-content {
+  text-align: center;
+
+  & h2 {
+    font-family: serif;
+
+    &:first-of-type {
+      background-color: $default-container-background-color;
+      border: 2px solid $default-container-border-color;
+      color: $default-container-text-color;
+    }
+  }
+}
+
+.footnotes {
+  text-align: left;
+}
+
+@media speech {
+  .page-taxonomy-list {
+    display: none;
+  }
+}

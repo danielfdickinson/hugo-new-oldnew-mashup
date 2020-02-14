@@ -5,10 +5,10 @@
     </svg></a></div>{{ partial "page-header/site-badge" . }}
       {{ partial "page-header/menubar" . }}
       {{ if (eq (.Param "enable_search" ) true ) }}
-    <div aria-labelledby="search-query" class="top-search"><form name="search_form" onSubmit="return doSearch()">
+    <div aria-labelledby="search-query" class="top-search"><form name="search_form" onSubmit="return doSearch();">
       <input id="search-query" aria-label="Search box" type="search" name="s" size="4" /><input id="search-button" type="submit" value="Search" size="3" />
     </form></div>
-    <div id="search-results" class="search-results" onclick="doCloseSearch()" onkeypress="doCloseSearch">
+    <div id="search-results" class="search-results" onclick="doCloseSearch();" onkeypress="doCloseSearch();">
     <h2>Search Results</h2>
     </div>
       {{ end }}

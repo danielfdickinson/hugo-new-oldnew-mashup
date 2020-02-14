@@ -1,5 +1,18 @@
 
-{{ partial "scss/base/main.scss" . }}
+@import 'base-mixins.scss';
+@import 'base-elements.scss';
+@import 'base-generic-styling.scss';
+@import 'header.scss';
+@import 'footer.scss';
+@import 'default-body.scss';
+@import 'menu-sub-menu.scss';
+@import 'sidebar.scss';
+@import 'section-nav-site-menu.scss';
+@import 'hugo-code-blocks.scss';
+@import 'homepage.scss';
+@import 'specials.scss';
+@import 'collapsed-toc.scss';
+@import 'device-capabilities-selection.scss';
 
 @media print {
   html {
