@@ -1,0 +1,146 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+
+// OldNew Mashup Theme CSS3 Device Capability Selection
+
+// Print only
+@media print {
+  html {
+    font-size: 16px;
+
+    & body {
+      & .default-body-wrapper,
+      & .homepage {
+        display: inline;
+        position: static;
+        width: auto;
+        & code {
+          max-width: none;
+          width: 100%;
+          & pre {
+            max-width: none;
+            width: 100%;
+          }
+        }
+        & pre {
+          max-width: none;
+          width: 100%;
+          & code {
+            max-width: none;
+            width: 100%;
+          }
+        }
+        & .highlight {
+          max-width: none;
+          width: 100%;
+          & pre {
+            max-width: none;
+            width: 100%;
+            & code {
+              max-width: none;
+              width: 100%;
+            }
+          }
+        }
+        & .main,
+        & .section-page-main {
+          display: inline;
+          position: static;
+          width: auto;
+          & .main-article {
+            display: inline;
+            position: static;
+            width: auto;
+            & .regular-content {
+              display: inline;
+              position: static;
+              width: auto;
+            }
+            & .article-header {
+              display: inline;
+              position: static;
+              width: auto;
+            }
+            & .article-toc {
+              border: none;
+              position: static;
+              width: auto;
+            }
+          }
+          & .section-toc {
+            display: inline;
+            position: static;
+            width: auto;
+          }
+          .article-toc {
+            background-color: inherit;
+            display: block;
+
+            & .article-toc-title {
+              display: block;
+            }
+
+            .ctoc {
+              display: block;
+              position: static;
+              visibility: visible;
+            }
+            input {
+              &.ctoc-trigger {
+                display: none;
+                position: static;
+              }
+            }
+            div {
+              &.ctoc-start {
+                display: none;
+                position: static;
+              }
+            }
+            &.ctoc-overlay {
+              display: none;
+            }
+            ul {
+              &.ctoc-list {
+                display: block;
+                position: static;
+
+                & li {
+                  display: list-item;
+                }
+              }
+            }
+          }
+        }
+        & .sidebar {
+          display: none;
+          position: static;
+          width: auto;
+        }
+        & .page-footer {
+          display: inline;
+          position: static;
+          width: auto;
+          & .footer-links {
+            display: none;
+          }
+          & .colophon {
+            & .doc-date-block {
+              border: 0px none;
+              background-color: initial;
+              margin-top: .3em;
+              padding: 0;
+              & .label {
+                font-weight: normal;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include top-level-css('print');
+
+}

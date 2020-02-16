@@ -1,0 +1,45 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+
+// OldNew Mashup Theme CSS3 Device Capability Selection
+
+// This is were the CSS actually exists from the point of view of the
+// browser
+
+// sass-lint:disable no-vendor-prefixes
+
+// ########################################################################
+
+// Top-level mixin - everything else is called as a mixin from this mixin
+// WIP: Not yet true except for header
+
+// ########################################################################
+
+@mixin top-level-css($device-capabilities) {
+
+  @include page-header($device-capabilities);
+
+  @include back-to-top-button($device-capabilities);
+}
+
+// ########################################################################
+
+// Where the CSS actually lives from the browser's point of view
+// This is where the SCSS compiler puts the compiled CSS
+
+// ########################################################################
+
+// NOTE: Each later top-level-css must override settinsg from previous
+// top-level-css because the top-level-css is created at compile time but
+// but the media queries are applied at runtime.
+
+@import 'device-capabilities/all-browsers';
+@import 'device-capabilities/small-screen';
+@import 'device-capabilities/normal-plus-screen';
+@import 'device-capabilities/ie9-plus';
+@import 'device-capabilities/ie11-plus';
+@import 'device-capabilities/ms-edge12-plus';
+@import 'device-capabilities/no-hover-mq';
+@import 'device-capabilities/speech-mq';
+@import 'device-capabilities/print-mq';

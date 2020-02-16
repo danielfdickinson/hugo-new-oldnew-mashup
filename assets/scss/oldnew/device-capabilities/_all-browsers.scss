@@ -1,0 +1,24 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+
+// OldNew Mashup Theme CSS3 Device Capability Selection
+
+// ########################################################################
+
+// Where the CSS actually lives from the browser's point of view
+// This is where the SCSS compiler puts the compiled CSS
+
+// ########################################################################
+
+// NOTE: Each later top-level-css must override settinsg from this
+// top-level-css because the top-level-css is created at compile time but
+// but the media queries are applied at runtime.
+
+// Base CSS - Applied to all browsers (including printing and screen readers)
+// desktop, old-browser
+@include top-level-css('all-browsers');
+
+* {
+  box-sizing: content-box;
+}

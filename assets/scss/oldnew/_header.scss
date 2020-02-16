@@ -1,0 +1,1348 @@
+/*! Copyright 2007-2020 Daniel F. Dickinson
+    <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+// OldNewMashup Theme Page Header Styling
+
+// ########################################################################
+
+// Mixins - sub-'functions'
+
+// ########################################################################
+
+@mixin page-top-search-form($device-capabilities: 'small-screen') {
+
+  & form {
+    display: inline-block;
+    height: 100%;
+    text-align: right;
+
+    @supports (display: flex) {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      text-align: left;
+    }
+
+    width: 100%;
+
+    @supports (border-radius: 12px) {
+      & input {
+        border-radius: 12px;
+      }
+    }
+
+    & input {
+      border: 2px solid $default-top-bar-border-color;
+      height: 100%;
+
+      &[type='search'] {
+        display: inline-block;
+        width: 66%;
+
+        @supports (flex: 1 2 5em) {
+          flex: 1 2 5em;
+          width: auto;
+        }
+      }
+
+      &[type='submit'] {
+        display: inline-block;
+        max-width: 3em;
+        width: 33%;
+
+        @supports (flex: 0 1 3em) {
+          flex: 0 1 3em;
+          max-width: none;
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+@mixin menubar-needs-overflow-submenu($device-capabilities: 'all-browsers', $menu-level: 2) {
+  $submenu-pos-number: $menu-level;
+
+  @if $menu-level <= $flyout-max-menu-level {
+    $submenu-mod: ($menu-level % 2);
+
+    @if $submenu-mod == 1 {
+      $submenu-pos-number: $menu-level + 1;
+    }
+  }
+
+  & > .menu-item {
+    @include menubar-menu-list-position-submenus($device-capabilities, $submenu-pos-number);
+
+    @if ($device-capabilities != 'small-screen') and ($device-capabilities != 'no-hover') {
+      height: $flyout-menu-item-height;
+      width: $flyout-menu-item-width;
+
+      & .menu-parent {
+        height: auto;
+        width: $flyout-menu-item-width;
+      }
+    } @else {
+      height: auto;
+      width: 100%;
+
+      & .menu-parent {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@mixin menubar-needs-columns-submenu($device-capabilities: 'all-browsers', $menu-level: 2) {
+
+  & > .menu-item {
+    height: auto;
+
+    & > .menu-parent {
+      height: auto;
+      left: 0;
+      @if ($device-capabilities != 'small-screen') and ($device-capabilities != 'no-hover') {
+        position: relative;
+        width: $flyout-menu-item-width;
+      } @else {
+        position: static;
+        width: 100%;
+      }
+
+      & > .menu-item {
+        @include menubar-menu-list-position-submenus($device-capabilities, $menu-level);
+      }
+    }
+  }
+}
+
+@mixin menubar-needs-columns($device-capabilities: 'all-browsers', $menu-level: 1) {
+  @if $menu-level <= $flyout-max-menu-level {
+
+    $submenu-pos-number: ($menu-level % 2);
+    $left-pos: 100%;
+
+    @if $submenu-pos-number == 1 {
+      $left-pos: -100%;
+    }
+
+    &.needs-columns {
+      &.needs-overflow {
+        @include menubar-needs-overflow-submenu($device-capabilities, $menu-level);
+      }
+    }
+
+    @if ($device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen') {
+      left: $left-pos;
+
+      &.needs-columns {
+        top: auto;
+
+        &:not(.needs-overflow) {
+          height: $flyout-menu-column-height;
+          overflow: auto;
+          width: $flyout-menu-column-width + .1em;
+        }
+
+        &.needs-overflow {
+          height: $flyout-menu-column-height;
+          overflow: auto;
+          overflow-y: scroll;
+          width: $flyout-menu-column-width + .1em;
+        }
+      }
+    } @elseif ($device-capabilities == 'small-screen' or $device-capabilities == 'no-hover') {
+      left: 0;
+      top: auto;
+
+      &.needs-columns {
+        &:not(.needs-overflow) {
+          height: auto;
+          overflow: visible;
+          width: 100%;
+
+          @supports (column-width: inherit) {
+            column-width: inherit;
+          }
+        }
+
+        &.needs-overflow {
+          height: auto;
+          overflow: visible;
+          width: 100%;
+        }
+      }
+    }
+
+    @supports (column-width: $flyout-menu-item-width) {
+      @if ($device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen') {
+        &.needs-columns {
+          &:not(.needs-overflow) {
+            @include menubar-needs-columns-submenu($device-capabilities, $menu-level);
+            column-fill: auto;
+            column-gap: 0;
+            column-width: $flyout-menu-item-width;
+          }
+        }
+      } @elseif ($device-capabilities == 'small-screen' or $device-capabilities == 'no-hover') {
+        &.needs-columns {
+          &:not(.needs-overflow) {
+            @include menubar-needs-columns-submenu($device-capabilities, $menu-level);
+            column-width: inherit;
+          }
+        }
+      }
+    }
+
+    @supports not (column-width: $flyout-menu-item-width) {
+      &.needs-columns {
+        @include menubar-needs-overflow-submenu($device-capabilities, $menu-level);
+      }
+    }
+
+    @if $device-capabilities == 'ie11+' {
+      overflow: visible;
+
+      &.needs-columns {
+        &:not(.needs-overflow) {
+          @include menubar-needs-columns-submenu($device-capabilities, $menu-level);
+
+          column-fill: auto;
+          column-gap: 0;
+          column-width: $flyout-menu-item-width;
+        }
+      }
+    }
+
+    @if $device-capabilities == 'ms-edge12+' {
+      overflow: visible;
+
+      &.needs-columns {
+        &:not(.needs-overflow) {
+          @include menubar-needs-columns-submenu($device-capabilities, $menu-level);
+
+          column-fill: auto;
+          column-gap: 0;
+          column-width: $flyout-menu-item-width;
+        }
+      }
+    }
+  }
+}
+
+@mixin menubar-menu-link($device-capabilities: 'all-browsers') {
+
+  & > .menu-link {
+    @if $device-capabilities == 'all-browsers' {
+      background-color: inherit;
+      display: block;
+      height: 100%;
+      overflow: hidden;
+      padding: .4em;
+      text-overflow: ellipsis;
+      width: 100%;
+
+      &:link,
+      &:hover,
+      &:active {
+        display: block;
+        text-decoration: none;
+      }
+
+      &:hover,
+      &:active {
+        background-color: $default-hover-background-color;
+      }
+
+      & .menu-entry {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+@mixin menubar-menu-entry-wrapper($device-capabilities: 'all-browsers') {
+
+  & > .menu-entry-wrapper {
+
+    @include menubar-menu-link($device-capabilities);
+
+    @if $device-capabilities == 'all-browsers' {
+      background-color: inherit;
+      height: 100%;
+      width: 100%;
+    } @elseif $device-capabilities == 'small-screen' {
+      border: 0 none;
+      border-bottom: 2px solid $hamburger-top-bar-menu-border-color;
+      height: $flyout-menu-item-height;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      border: 0 none;
+    } @elseif $device-capabilities == 'no-hover' {
+      border-bottom: 2px solid $hamburger-top-bar-menu-border-color;
+    }
+  }
+}
+
+@mixin menubar-sub-submenu-inactive($device-capabilities: 'all-browsers', $menu-level: 1) {
+  @if $menu-level <= $flyout-max-menu-level {
+    visibility: hidden;
+
+    & > .menu-item {
+      visibility: hidden;
+
+      & > .menu-parent {
+        @include menubar-sub-submenu-inactive($device-capabilities, $menu-level + 1)
+
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+@mixin menubar-site-menu-list-active($device-capabilities: 'all-browsers', $menu-level: 0, $is-visible: false) {
+
+  @if $menu-level <= $flyout-max-menu-level {
+
+    $maybe-hidden: hidden;
+
+    @if $is-visible == true {
+      $maybe-hidden: visible;
+    }
+
+    @if $is-visible {
+      visibility: $maybe-hidden;
+
+      & > .menu-item {
+        visibility: $maybe-hidden;
+      }
+    }
+
+    @if $is-visible == false {
+      @include menubar-sub-submenu-inactive($device-capabilities, $menu-level);
+    } @elseif $is-visible == true {
+      & > .menu-item {
+        & > .menu-parent {
+          @if ($device-capabilities == 'small-screen') or ($device-capabilities == 'no-hover') {
+            @include menubar-site-menu-list-active($device-capabilities, $menu-level + 1, true);
+          } @else {
+            @include menubar-sub-submenu-inactive($device-capabilities, $menu-level);
+          }
+        }
+      }
+    }
+
+    & > .menu-item {
+      &:hover {
+        & > .menu-parent {
+          @include menubar-site-menu-list-active($device-capabilities, $menu-level + 1, true);
+        }
+      }
+    }
+  }
+}
+
+@mixin menubar-menu-list-position($device-capabilities: 'all-browsers', $menu-level: 0) {
+  $left-pos: -100%;
+
+  @if $device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen' {
+    $submenu-pos-number: ($menu-level % 2);
+    @if $submenu-pos-number == 1 {
+      $left-pos: 100%;
+    }
+
+    left: $left-pos;
+
+    & > .menu-item {
+      & > .menu-entry-wrapper {
+        padding-left: inherit;
+      }
+    }
+  } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+    & > .menu-item {
+      & > .menu-entry-wrapper {
+        padding-left: #{$menu-level}em;
+      }
+    }
+  }
+}
+
+@mixin menubar-menu-list-position-submenus($device-capabilities: 'all-browsers', $menu-level: 0) {
+  @if $menu-level <= $flyout-max-menu-level {
+    & > .menu-parent {
+      @include menubar-menu-list-position($device-capabilities, $menu-level + 1)
+
+      & > .menu-item {
+        @include menubar-menu-list-position-submenus($device-capabilities, $menu-level + 1);
+      }
+    }
+  }
+}
+
+@mixin menubar-menu-list-color($device-capabilities: 'all-browsers', $menu-level: 0) {
+  $submenu-background-color: $flyout-submenu-colors-0;
+
+  @if $device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen' {
+    $submenu-color-number: ($menu-level % 3);
+    @if $submenu-color-number == 0 {
+      $submenu-background-color: $flyout-submenu-colors-0;
+    } @elseif $submenu-color-number == 1 {
+      $submenu-background-color: $flyout-submenu-colors-1;
+    } @else {
+      $submenu-background-color: $flyout-submenu-colors-2;
+    }
+
+    background-color: $submenu-background-color;
+  } @else {
+    background-color: $submenu-background-color;
+  }
+}
+
+@mixin menubar-menu-list-color-submenus($device-capabilities: 'all-browsers', $menu-level: 0) {
+  @if $menu-level <= $flyout-max-menu-level {
+    & > .menu-parent {
+      @include menubar-menu-list-color($device-capabilities, $menu-level + 1)
+
+      & > .menu-item {
+        @include menubar-menu-list-color-submenus($device-capabilities, $menu-level + 1);
+      }
+    }
+  }
+}
+
+@mixin menubar-site-menu-list($device-capabilities: 'all-browsers') {
+
+  @include menubar-menu-list-color($device-capabilities, 0);
+
+  border: 2px solid $hamburger-top-bar-menu-border-color;
+  border-top: 0 none;
+  left: 0;
+  list-style-position: outside;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+
+  & .menu-item {
+    @include menubar-menu-entry-wrapper($device-capabilities);
+
+    background-color: inherit;
+    margin: 0;
+    padding: 0;
+
+    & .menu-parent {
+      @include menubar-needs-columns($device-capabilities, 1);
+
+      display: block;
+      list-style-position: outside;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      @if (($device-capabilities == 'small-screen') or ($device-capabilities == 'no-hover')) {
+        border: 0 none;
+        margin-top: 0;
+        position: static;
+      } @elseif $device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen' {
+        border: 2px solid $hamburger-top-bar-menu-border-color;
+        margin-top: -4ex;
+        position: relative;
+      }
+    }
+  }
+
+  & > .menu-item {
+    @include menubar-menu-list-color-submenus($device-capabilities, 0);
+    @include menubar-menu-list-position-submenus($device-capabilities, 0);
+  }
+
+  @if $device-capabilities == 'all-browsers' {
+    left: 0;
+    width: $flyout-menu-item-width;
+
+    & .menu-item {
+      display: block;
+      height: $flyout-menu-item-height - .1em;
+      margin: 0;
+      overflow: visible;
+      padding: 0;
+      width: $flyout-menu-item-width - .3em;
+
+      & .menu-parent {
+        margin: 0;
+        margin-top: -4ex;
+      }
+
+      & a {
+        &:link {
+          color: $hamburger-top-bar-menu-link-color;
+        }
+      }
+    }
+
+  } @elseif ($device-capabilities == 'small-screen' or $device-capabilities == 'no-hover') {
+    height: 100%;
+    margin: 0;
+    position: relative;
+    width: 100%;
+
+    & .menu-item {
+      height: auto;
+      width: 100%;
+
+      & .menu-parent {
+        width: 100%;
+      }
+    }
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    height: auto;
+    left: $hamburger-top-bar-width;
+    margin: 0;
+    position: fixed;
+    top: $hamburger-top-bar-height;
+    width: $flyout-menu-item-width;
+
+    & .menu-item {
+      height: $flyout-menu-item-height;
+      width: 100%;
+
+      & .menu-parent {
+        width: $flyout-menu-item-width;
+      }
+    }
+  }
+}
+
+@mixin menubar-activate-site-menu-list($device-capabilities, $activate-menu, $is-first: true) {
+
+  $maybe-visible: hidden;
+
+  @if $activate-menu == true {
+    $maybe-visible: visible;
+  }
+
+  @if $activate-menu == true {
+    @include menubar-site-menu-list-active($device-capabilities, 0, true);
+  } @else {
+    @include menubar-site-menu-list-active($device-capabilities, 0, false);
+  }
+
+  @if ($device-capabilities == 'small-screen') or ($device-capabilities == 'no-hover') {
+    & .menu-item {
+      visibility: $maybe-visible;
+
+      & .menu-parent {
+        visibility: $maybe-visible;
+      }
+    }
+  } @elseif ($device-capabilities == 'all-browsers') or ($device-capabilities == 'normal-plus-screen') {
+    & > .menu-item {
+      visibility: $maybe-visible;
+
+      & .menu-parent {
+        visibility: hidden;
+
+        & .menu-item {
+          visibility: hidden;
+        }
+      }
+    }
+  } @elseif ($device-capabilities == 'speech') {
+    & .menu-item {
+      visibility: visible;
+
+      & .menu-parent {
+        visibility: visible;
+      }
+    }
+  }
+
+  @if $is-first {
+    &:hover {
+      @include menubar-activate-site-menu-list($device-capabilities, true, false);
+    }
+  }
+}
+
+@mixin menubar-site-menu-active($device-capabilities, $maybe-activate-menu) {
+
+  $standalone-specificity: '.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list';
+
+  @if $device-capabilities == 'small-screen' {
+    position: relative;
+  }
+
+  @at-root ul {
+    &#{$standalone-specificity} {
+      @include menubar-activate-site-menu-list($device-capabilities, false, true);
+    }
+  }
+
+  & > ul {
+    &.menubar-site-menu-list {
+      @include menubar-activate-site-menu-list($device-capabilities, $maybe-activate-menu, true);
+    }
+  }
+}
+
+@mixin menubar-site-menu($device-capabilities: 'small-screen') {
+
+  & .menubar-site-menu {
+    & .menubar-site-menu-list {
+      @include menubar-site-menu-list($device-capabilities);
+    }
+  }
+
+  & .menubar-site-menu {
+    @if $device-capabilities == 'small-screen' {
+      background-color: $flyout-submenu-colors-0;
+      color: $hamburger-top-bar-menu-text-color;
+      display: block;
+      height: $hamburger-top-bar-height;
+      left: 0;
+      padding: 0;
+      position: absolute;
+      text-decoration: none;
+      top: 0;
+      width: 100%;
+      z-index: $flyout-z-index;
+
+      & a {
+        &:link {
+          color: $hamburger-top-bar-menu-link-color;
+        }
+      }
+
+      & .menubar-site-menu-list {
+        border: 2px solid $hamburger-top-bar-menu-border-color;
+        border-top: 0;
+      }
+
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      left: $hamburger-top-bar-width;
+      top: $hamburger-top-bar-height;
+      width: $flyout-menu-item-width;
+
+      & .menubar-site-menu-list {
+        @include menubar-site-menu-list($device-capabilities);
+      }
+
+    } @elseif $device-capabilities == 'no-hover' {
+      left: 0;
+      top: 0;
+      width: 100%;
+
+      & .menubar-site-menu-list {
+        border: 2px solid $hamburger-top-bar-menu-border-color;
+        border-top: 0;
+      }
+    }
+  }
+}
+
+@mixin top-bar-trigger-checked-header($device-capabilities: 'small-screen') {
+
+  & ~ .top-bar {
+    position: fixed;
+    visibility: visible;
+
+    & .top-bar-start {
+      background-color: $hamburger-start-hover-background-color;
+    }
+
+    & .site-badge {
+      visibility: visible;
+    }
+
+
+    & .menubar-site-menu {
+      @if ($device-capabilities == 'small-screen') or ($device-capabilities == 'no-hover') {
+        @include menubar-site-menu-active($device-capabilities, true);
+      } @else {
+        @include menubar-site-menu-active($device-capabilities, false);
+      }
+    }
+
+    & .top-search {
+      @if ($device-capabilities != 'ie9+') and ($device-capabilities != 'speech') {
+        visibility: visible;
+      }
+      @if $device-capabilities == 'ms-edge12+' {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+@mixin top-bar-trigger-checked($device-capabilities: 'small-screen') {
+
+  @include top-bar-trigger-checked-header($device-capabilities);
+
+  & ~ .top-bar-overlay {
+    @if $device-capabilities == 'small-screen' {
+      visibility: visible;
+    } @elseif $device-capabilities == 'no-hover' {
+      visibility: visible;
+    }
+  }
+}
+
+@mixin site-badge-hover($device-capabilities: 'all-browsers') {
+
+  $standalone-specificity: '.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list';
+
+  &:hover {
+    border: 2px inset $default-top-bar-hover-border-color;
+    visibility: visible;
+
+    @if $device-capabilities == 'all-browsers' {
+      & ~ ul {
+        &.menubar-site-menu-list {
+          @include menubar-activate-site-menu-list($device-capabilities, true, true);
+        }
+      }
+
+      @at-root ul {
+        &#{$standalone-specificity} {
+          @include menubar-activate-site-menu-list($device-capabilities, false, true);
+        }
+      }
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      $specificity: '.menubar-site-menu.menubar-site-menu.menubar-site-menu';
+
+      & + nav {
+        &#{$specificity} {
+          @include menubar-site-menu-active($device-capabilities, true);
+        }
+      }
+    }
+  }
+}
+
+@mixin curved-site-badge {
+  @supports (border-radius: 12px) {
+    border-radius: 12px;
+
+    &:hover,
+    &:active,
+    &:link {
+      border-radius: 12px;
+    }
+
+    & > .graphics-row {
+      border-radius: 0; // sass-lint:disable-line property-sort-order
+      border-bottom-left-radius: 12px; // sass-lint:disable-line property-sort-order
+      border-top-left-radius: 12px;
+    }
+  }
+}
+
+@mixin mobile-site-badge {
+  & .site-badge {
+
+    @include curved-site-badge;
+
+    margin: 0;
+    position: absolute;
+    text-align: left;
+    visibility: hidden;
+
+    & > .graphics-row {
+      float: none;
+    }
+
+    @supports (display: flex) {
+      align-items: center;
+      display: inline-flex;
+      justify-content: stretch;
+      position: relative;
+
+      & .graphics-row {
+        align-content: center;
+        align-items: stretch;
+        display: inline-flex;
+        flex: 0 1 $hamburger-top-bar-width;
+        justify-content: stretch;
+        text-align: left;
+      }
+
+      & .site-badge-graphic {
+        align-self: center;
+        flex: 0 1 $site-badge-graphic-width;
+      }
+
+      & .site-id {
+        align-self: center;
+        flex: 0 1 $site-id-width;
+        height: auto;
+        text-align: left;
+
+        & span {
+          display: inline;
+          vertical-align: baseline;
+        }
+      }
+    }
+  }
+}
+
+@mixin site-badge($device-capabilities: 'all-browsers') {
+  @if $device-capabilities == 'all-browsers' {
+    & .site-badge {
+      @include site-badge-hover($device-capabilities);
+
+      background-color: $default-top-bar-background-color;
+      border: 2px solid $default-top-bar-border-color;
+      color: $default-link-color;
+      display: block;
+      height: $hamburger-top-bar-height;
+      left: 0;
+      margin: 0;
+      margin-left: .2em;
+      margin-top: .2em;
+      max-width: $site-badge-width;
+      overflow: hidden;
+      padding: 0;
+      position: fixed;
+      text-align: center;
+      top: 0;
+      visibility: visible;
+      z-index: $hamburger-top-bar-z-index;
+
+      & .graphics-row {
+        background-color: $site-badge-graphic-background-color;
+
+        display: block;
+        float: left;
+        height: 100%;
+        max-width: $site-badge-graphic-width;
+      }
+
+      & .site-id {
+        display: block;
+        font-family: $serif-font-stack;
+        height: 100%;
+        margin-left: .2em;
+        max-width: $site-id-width;
+        overflow: hidden;
+        text-align: left;
+        @supports (text-overflow: ellipsis) {
+          text-overflow: ellipsis;
+        }
+
+        & span {
+          display: block;
+          vertical-align: middle;
+
+          @supports (white-space: nowrap) {
+            white-space: nowrap;
+          }
+        }
+      }
+
+      &:link,
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+
+      &:hover {
+        .graphics-row {
+          background-color: $default-background-color;
+
+          @supports (background-color: transparent) {
+            background-color: transparent;
+          }
+        }
+      }
+
+      & .site-badge-graphic {
+        height: 100%;
+        overflow: hidden;
+        padding: 0;
+        text-align: center;
+        width: auto;
+      }
+    }
+  } @elseif $device-capabilities == 'small-screen' {
+    @include mobile-site-badge;
+
+    & a {
+      &.site-badge {
+        @include site-badge-hover($device-capabilities);
+      }
+    }
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    & .site-badge {
+      left: $hamburger-top-bar-width;
+      visibility: visible;
+
+      @supports (display: flex) {
+        align-items: center;
+        display: flex;
+        justify-content: stretch;
+        text-align: left;
+      }
+    }
+
+    & a {
+      &.site-badge {
+        @include site-badge-hover($device-capabilities);
+      }
+    }
+  } @elseif $device-capabilities == 'no-hover' {
+    & .site-badge {
+      left: 0;
+      visibility: hidden;
+
+      @supports (display: flex) {
+        display: flex;
+      }
+    }
+  } @elseif $device-capabilities == 'ie11+' {
+    & .site-badge {
+      border-radius: 12px;
+      visibility: visible;
+
+      & .graphics-row {
+        border-bottom-left-radius: 12px;
+        border-top-left-radius: 12px;
+      }
+
+      &:hover,
+      &:active,
+      &:link {
+        border-radius: 12px;
+      }
+    }
+  } @elseif $device-capabilities == 'speech' {
+    & .site-badge {
+      visibility: visible;
+
+      & .graphics-row {
+        display: none;
+        visibility: hidden;
+      }
+
+      & .site-id {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+@mixin desktop-overlay {
+  background-color: $default-background-color;
+  height: $hamburger-top-bar-height + 1;
+  position: relative;
+  visibility: visible;
+  z-index: 0;
+
+  @supports (background-color: transparent) {
+    background-color: transparent;
+  }
+
+  @supports (opacity: 0) {
+    opacity: 0;
+  }
+}
+
+@mixin mobile-overlay {
+  background-color: $top-bar-off-canvas-overlay-color;
+  height: 100%;
+  position: fixed;
+  visibility: hidden;
+  z-index: $top-bar-off-canvas-overlay-z-index;
+
+  @supports (opacity: $top-bar-off-canvas-overlay-opacity) {
+    opacity: $top-bar-off-canvas-overlay-opacity;
+  }
+}
+
+@mixin top-bar-overlay($device-capabilities: 'all-browsers') {
+
+  & .top-bar-overlay {
+    @if $device-capabilities == 'all-browsers' {
+      @include desktop-overlay;
+
+      left: 0;
+      top: 0;
+      visibility: visible;
+      width: 100%;
+    } @elseif $device-capabilities == 'small-screen' {
+      @include mobile-overlay;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      display: none;
+      visibility: hidden;
+    } @elseif $device-capabilities == 'no-hover' {
+      @include mobile-overlay;
+      display: block;
+    } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin top-bar-trigger($device-capabilities) {
+  & .top-bar-trigger {
+    &:checked,
+    &:hover {
+      @include top-bar-trigger-checked($device-capabilities);
+    }
+
+    @if $device-capabilities == 'all-browsers' {
+      display: none;
+      height: 0;
+      visibility: hidden;
+      width: 0;
+      z-index: 0;
+    } @elseif $device-capabilities == 'small-screen' {
+      @supports (background-color: transparent) {
+        background-color: transparent;
+      }
+      cursor: pointer;
+      display: block;
+      height: $hamburger-top-bar-height;
+      left: auto;
+      @supports (opacity: 0) {
+        opacity: 0;
+      }
+      position: fixed;
+      right: 0;
+      top: 0;
+      visibility: visible;
+      width: $hamburger-top-bar-width;
+      z-index: $hamburger-top-bar-z-index + 2;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      left: 0;
+      right: auto;
+    } @elseif $device-capabilities == 'no-hover' {
+      left: auto;
+      right: 0;
+    } @elseif $device-capabilities == 'speech' {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin top-bar-start($device-capabilities: 'small-screen') {
+  & .top-bar-start {
+    @if $device-capabilities == 'small-screen' {
+
+      background-color: $hamburger-start-background-color;
+      display: block;
+      height: $hamburger-top-bar-height;
+      left: auto;
+      @supports (opacity: .5) {
+        opacity: .5;
+      }
+      padding: 0;
+      position: fixed;
+      right: 0;
+      text-align: center;
+      visibility: visible;
+      width: $hamburger-top-bar-width;
+      z-index: $hamburger-top-bar-z-index + 1;
+
+      @supports (border-radius: 12px) {
+        border-radius: 12px;
+      }
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      left: 0;
+      right: auto;
+    } @elseif $device-capabilities == 'no-hover' {
+      left: auto;
+      right: 0;
+    } @elseif $device-capabilities == 'ie11+' {
+      border-radius: 12px;
+      left: 0;
+      opacity: .5;
+      right: auto;
+    } @elseif $device-capabilities == 'speech' {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin top-bar-search-results($device-capabilities: 'small-screen') {
+  & .search-results {
+    @if $device-capabilities == 'small-screen' {
+      background-color: $search-results-background-color;
+      bottom: 0;
+      color: $search-results-text-color;
+      display: block;
+      max-height: 80%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      position: fixed;
+      right: 0;
+      width: 100%;
+      z-index: $flyout-z-index + 1;
+
+      & a {
+        background-color: $search-results-background-color;
+        color: $search-results-link-color;
+
+        &:link {
+          color: $search-results-link-color;
+        }
+
+        &:visited {
+          color: $search-results-visited-color;
+        }
+
+        &:active,
+        &:hover {
+          color: $search-results-hover-color;
+        }
+      }
+    } @elseif $device-capabilities == 'ie9+' {
+      display: none;
+    } @elseif $device-capabilities == 'ms-edge12+' {
+      display: block;
+    } @elseif $device-capabilities == 'speech' {
+      display: none;
+    }
+  }
+}
+
+@mixin top-bar-search($device-capabilities: 'small-screen') {
+  & .top-search {
+    @if $device-capabilities == 'small-screen' {
+      @include page-top-search-form($device-capabilities);
+
+      display: block;
+      height: $hamburger-top-bar-height;
+      left: 0;
+      margin: 0;
+      position: absolute;
+      right: auto;
+      top: $hamburger-top-bar-height;
+      width: 100%;
+      z-index: $hamburger-top-bar-z-index;
+
+      @supports (display: flex) {
+        display: flex;
+        justify-content: stretch;
+      }
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      @include page-top-search-form($device-capabilities);
+
+      left: auto;
+      right: 0;
+      top: 0;
+      visibility: visible;
+      width: 60%;
+    } @elseif $device-capabilities == 'no-hover' {
+      left: 0;
+      right: auto;
+      top: $hamburger-top-bar-height;
+      visibility: hidden;
+      width: 100%;
+    } @elseif $device-capabilities == 'ie9+' {
+      display: none;
+    } @elseif $device-capabilities == 'ms-edge12+' {
+      @include page-top-search-form($device-capabilities);
+
+      display: block;
+      @supports (display: flex) {
+        display: flex;
+      }
+      left: auto;
+      right: 0;
+      top: 0;
+      visibility: visible;
+      width: 60%;
+    } @elseif $device-capabilities == 'speech' {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+// For the case where header tag is not understood
+@mixin top-bar-contents-no-header {
+
+  & .top-bar-start {
+    display: none;
+    visibility: hidden;
+  }
+
+  @include site-badge('all-browsers');
+
+  // For the case where nav tag is not understood
+  & .menubar-site-menu {
+    display: block;  // So children can be visible
+    height: 0;
+    overflow: visible;  // So children can be visible
+    visibility: hidden;
+    width: 0;
+    z-index: 0;
+  }
+
+  // For the case where nav tag is not understood
+  & .menubar-site-menu-list {
+    @include menubar-site-menu-list('all-browsers')
+
+    background-color: $flyout-submenu-colors-0;
+    border: 2px solid $menubar-top-level-border-color;
+    display: block;
+    left: .3em;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: fixed;
+    top: $hamburger-top-bar-height + .4em;
+    width: $flyout-menu-item-width - .1em;
+    z-index: $flyout-z-index;
+  }
+}
+
+@mixin top-bar-contents-header($device-capabilities: 'small-screen') {
+
+  @include site-badge($device-capabilities);
+  @include top-bar-start($device-capabilities);
+  @include menubar-site-menu($device-capabilities);
+  @include top-bar-search($device-capabilities);
+  @include top-bar-search-results($device-capabilities);
+
+  @if $device-capabilities == 'speech' {
+    @include menubar-site-menu-active($device-capabilities, true);
+  }
+}
+
+@mixin desktop-top-bar-header {
+  height: $hamburger-top-bar-height;
+  overflow: visible;
+  position: fixed;
+  visibility: visible;
+  width: 100%;
+  z-index: $flyout-z-index;
+}
+
+@mixin mobile-top-bar-header {
+  background-color: $default-top-bar-background-color;
+
+  @supports (background-color: transparent) {
+    background-color: transparent;
+  }
+
+  color: $hamburger-top-bar-menu-text-color;
+  height: $top-bar-off-canvas-height;
+  left: 0;
+  margin: 0;
+  overflow: auto;
+  overflow-y: scroll;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  width: $top-bar-off-canvas-width;
+  z-index: $hamburger-top-bar-z-index;
+}
+
+@mixin top-bar($device-capabilities: 'all-browsers') {
+  @if $device-capabilities == 'all-browsers' {
+
+    // For the case where header and nav tags are not understood
+    @include top-bar-contents-no-header;
+
+    & .top-bar {
+      display: block; // So children can be visible
+      height: 0;
+      overflow: visible; // So children can be visible
+      visibility: hidden;
+      width: 0;
+      z-index: 0;
+    }
+
+    & .top-search {
+      display: none;
+      visibility: hidden;
+    }
+
+    & .search-results {
+      display: none;
+      visibility: hidden;
+    }
+  } @elseif $device-capabilities == 'small-screen' {
+    & .top-bar {
+      @include mobile-top-bar-header;
+    }
+    @include top-bar-contents-header($device-capabilities);
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    & .top-bar {
+      @include desktop-top-bar-header;
+    }
+    @include top-bar-contents-header($device-capabilities);
+
+  } @elseif $device-capabilities == 'no-hover' {
+    & .top-bar {
+      @include mobile-top-bar-header;
+    }
+    @include top-bar-contents-header($device-capabilities);
+  } @elseif $device-capabilities == 'speech' {
+    @include top-bar-contents-header($device-capabilities);
+
+    & .top-bar {
+      visibility: visible;
+    }
+
+    & .top-search {
+      display: none;
+      visibility: hidden;
+    }
+
+    & .search-results {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin page-header($device-capabilities: 'all-browsers') {
+
+  .header-wrapper {
+    @include top-bar-trigger($device-capabilities);
+    @include top-bar($device-capabilities);
+    @include top-bar-overlay($device-capabilities);
+
+    @if $device-capabilities == 'all-browsers' {
+      height: $hamburger-top-bar-height;
+      left: 0;
+      overflow: visible;
+      position: absolute;
+      top: 0;
+      visibility: hidden;
+      width: 100%;
+      z-index: $hamburger-top-bar-z-index;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      @supports (not (display: grid)) and (display: flex) {
+        display: flex;
+        flex: 1 1 100%;
+        order: 1;
+      }
+
+      @supports (display: grid) {
+        grid-column-end: 3;
+        grid-column-start: 1;
+        grid-row-end: 2;
+        grid-row-start: 1;
+        position: relative;
+      }
+    } @elseif $device-capabilities == 'speech' {
+      @supports (order: 4) {
+        flex: 1 1 100%;
+        order: 4;
+      }
+    } @elseif $device-capabilities == 'print' {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}

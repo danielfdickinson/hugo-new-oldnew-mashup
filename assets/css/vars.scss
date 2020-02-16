@@ -8,7 +8,7 @@ $sans-font-stack: {{ default "(quote(Lucida Sans Unicode), quote(Lucida Granda),
 $mono-font-stack: {{ default "(quote(Lucida Console), Monaco, monospace)" ( .Param "mono_font_stack" ) }};
 
 $default-background-color: {{ default "#333" ( .Param "default_background_color" ) }};
-{{ if .Param "default_background_image" }}$default-background-image: {{ .Param "default_background_image" }};{{ else  }}$default-background-image: '';{{ end }}
+{{ if .Param "default_background_image" }}$default-background-image: {{ .Param "default_background_image" }};{{ else }}$default-background-image: '';{{ end }}
 $default-text-color: {{ default "#eee" ( .Param "default_text_color" ) }};
 $default-link-color: {{ default "#ccf" ( .Param "default_link_color" ) }};
 $default-visited-link-color: {{ default "#cde" ( .Param "default_visited_link_color" ) }};
@@ -120,7 +120,7 @@ $hamburger-start-hover-background-color: $default-inline-pre-hover-color;
 $hamburger-top-bar-background-color: $default-table-background-color;
 $hamburger-top-bar-menu-text-color: $default-table-text-color;
 $hamburger-top-bar-menu-link-color: $default-link-color;
-$hamburger-top-bar-menu-border-color: #666;
+$hamburger-top-bar-menu-border-color: #111;
 
 // mobile viewport settings
 
@@ -137,7 +137,7 @@ $hamburger-top-bar-z-index: 40;
 $top-bar-link-padding: .4em;
 $top-bar-link-font-color: $default-link-color;
 
-$top-bar-link-hover-bg-color:  $default-hover-background-color;
+$top-bar-link-hover-bg-color: s$default-hover-background-color;
 $top-bar-link-hover-font-color: $default-hover-color;
 
 $top-bar-submenu-left-margin: .2em;

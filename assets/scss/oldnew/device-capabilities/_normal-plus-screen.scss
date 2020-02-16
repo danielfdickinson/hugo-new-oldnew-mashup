@@ -1,0 +1,16 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+
+// OldNew Mashup Theme CSS3 Device Capability Selection
+
+// ########################################################################
+
+// Where the CSS actually lives from the browser's point of view
+// This is where the SCSS compiler puts the compiled CSS
+
+// ########################################################################
+
+@media screen and (min-height: 36em) and (min-width: 50em) {
+  @include top-level-css('normal-plus-screen');
+}

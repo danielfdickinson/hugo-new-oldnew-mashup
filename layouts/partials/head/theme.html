@@ -11,7 +11,7 @@
 {{ end }}
 {{ block "links" . }}
     {{ if ne (.Param "nobaseurl") true }}{{ if $.Site.BaseURL }}<base href="{{ $.Site.BaseURL }}">{{ end }}{{ end }}
-    {{ $options := (dict "enableSourceMap" true "compress" true "targetPath" "css/oldnew-mashup.css" "includePaths" (slice "scss/oldnew")) }}
+    {{ $options := (dict "enableSourceMap" true "compress" true "targetPath" "css/oldnew-mashup.css" "includePaths" (slice "assets/scss/oldnew")) }}
     {{ $nb := resources.Get "css/new-base.scss" }}
     {{ $sv := resources.Get "css/vars.scss" }}
     {{ $nm := resources.Get "css/normalize.scss" }}

@@ -1,0 +1,21 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+
+// OldNew Mashup Theme CSS3 Device Capability Selection
+
+// sass-lint:disable no-vendor-prefixes
+
+// ########################################################################
+
+// Where the CSS actually lives from the browser's point of view
+// This is where the SCSS compiler puts the compiled CSS
+
+// ########################################################################
+
+// IE11+ specific media block hack
+// Screen only
+@media screen and (-ms-high-contrast: none) {
+  @include top-level-css('ie11+');
+  // desktop, newer-browser, not ie9+, is ie11
+}

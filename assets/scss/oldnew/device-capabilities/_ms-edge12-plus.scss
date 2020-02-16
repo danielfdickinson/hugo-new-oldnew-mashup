@@ -1,0 +1,19 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+
+// OldNew Mashup Theme CSS3 Device Capability Selection
+
+// sass-lint:disable no-vendor-prefixes
+
+// ########################################################################
+
+// Where the CSS actually lives from the browser's point of view
+// This is where the SCSS compiler puts the compiled CSS
+
+// ########################################################################
+
+// MS Edge 12+ @supports hack
+@supports (-ms-ime-align: auto) {
+  @include top-level-css('ms-edge12+');
+}

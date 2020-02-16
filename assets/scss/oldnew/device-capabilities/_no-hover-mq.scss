@@ -1,0 +1,22 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+
+// OldNew Mashup Theme CSS3 Device Capability Selection
+
+// sass-lint:disable no-vendor-prefixes
+
+// ########################################################################
+
+// Where the CSS actually lives from the browser's point of view
+// This is where the SCSS compiler puts the compiled CSS
+
+// ########################################################################
+
+// Mobile: requires Media Query 4 or earlier adoption
+// No hover and can answer really new media query is assumed to be newer
+// mobile device
+// Screen only
+@media screen and (hover: none) {
+  @include top-level-css('no-hover');
+}

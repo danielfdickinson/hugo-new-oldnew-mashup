@@ -1,0 +1,23 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+
+// OldNew Mashup Theme CSS3 Device Capability Selection
+
+// ########################################################################
+
+// Where the CSS actually lives from the browser's point of view
+// This is where the SCSS compiler puts the compiled CSS
+
+// IE9+ media block hack from https://keithclark.co.uk/articles/moving-ie-specific-css-into-media-blocks/media-tests/
+// Screen only
+@media screen and (min-width:0\0) { // sass-lint:disable-line space-after-colon
+  // supports border-box but does not support @supports
+  // (so not from 'small-screen' media query)
+  * {
+    box-sizing: border-box;
+  }
+
+  @include top-level-css('ie9+');
+  // desktop,newer-browser, ie9+, not ie11
+}

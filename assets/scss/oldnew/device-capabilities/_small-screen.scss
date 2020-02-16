@@ -1,0 +1,60 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+
+// OldNew Mashup Theme CSS3 Device Capability Selection
+
+// Hide from really old browsers (depends on old browser CSS being
+// applied first)
+// We assume the browsers that can answer MQ but aren't big 'enough' are
+// older mobile devices
+// We only apply screen styles here
+// Any browser capable of understanding media queries must override these
+// styles if they are not appropriate
+
+@media screen {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 28em) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (min-width: 36em) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 48em) {
+  html {
+    font-size: 19px;
+  }
+}
+
+@media only screen and (min-width: 56em) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 64em) {
+  html {
+    font-size: 21px;
+  }
+}
+
+@media screen {
+  @supports (box-sizing: border-box) {
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  // mobile, newer-browser
+  @include top-level-css('small-screen');
+}
