@@ -13,7 +13,7 @@ norbar: true
 
 ## A short one-liner for the site
 
-An aside. Having an aside is optional. Handy for a quirky comment on a personal site.[^1]
+_An aside. Having an aside is optional. Handy for a quirky comment on a personal site._[^1]
 
 {{< splash-screenshots >}}
 
@@ -21,4 +21,4 @@ An aside. Having an aside is optional. Handy for a quirky comment on a personal 
 
 ### A longer sub-oneliner for the site
 
-[^1]: Footnote to the aside. Optional.
+[^1]: _Footnote to the aside. Optional._

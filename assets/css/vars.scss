@@ -62,8 +62,8 @@ $default-top-bar-hover-box-shadow-color: {{ default "#666"  ( .Param "default_to
 
 $site-badge-graphic-background-color: {{ default "$default-inline-pre-background-color" ( .Param "$site_badge_graphic_background_color") }};
 $site-badge-graphic-width: {{ default "37px" ( .Param "$site_badge_graphic_width") }};
-$site-badge-width: {{ default "10em" ( .Param "$site_badge_width") }};
-$site-id-width: {{ default "8em" ( .Param "$site_id_width") }};
+$site-badge-width: {{ default "12em" ( .Param "$site_badge_width") }};
+$site-id-width: {{ default "10em" ( .Param "$site_id_width") }};
 
 $menubar-box-shadow-color: {{ default "$default-top-bar-box-shadow-color" ( .Param "menubar_box_shadow_color") }};
 $menubar-top-level-border-color: {{ default "$default-top-bar-border-color" ( .Param "menubar_top_level_border_color") }};

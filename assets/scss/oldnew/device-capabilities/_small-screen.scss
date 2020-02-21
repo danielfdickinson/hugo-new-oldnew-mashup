@@ -48,13 +48,13 @@
   }
 }
 
-@media screen {
+@media only screen and (max-width: 50em), (max-height: 36em) {
   @supports (box-sizing: border-box) {
     * {
       box-sizing: border-box;
     }
   }
 
-  // mobile, newer-browser
-  @include top-level-css('small-screen');
+  // mobile
+  @include top-level-css('small-screen', 'all-browsers');
 }

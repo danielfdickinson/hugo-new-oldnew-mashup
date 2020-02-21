@@ -13,5 +13,11 @@
 
 // Speech only
 @media speech {
+  @supports (box-sizing: border-box) {
+    * {
+      box-sizing: border-box;
+    }
+  }
+
   @include top-level-css('speech');
 }

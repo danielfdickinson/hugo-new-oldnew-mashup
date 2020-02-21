@@ -15,7 +15,22 @@
 
 // IE11+ specific media block hack
 // Screen only
-@media screen and (-ms-high-contrast: none) {
-  @include top-level-css('ie11+');
-  // desktop, newer-browser, not ie9+, is ie11
+@media screen and (-ms-high-contrast: none) and (min-width: 50em) and (min-height: 36em) {
+  // supports border-box but does not support @supports
+  // (so not from 'small-screen' media query)
+  * {
+    box-sizing: border-box;
+  }
+
+  @include top-level-css('normal-plus-screen', 'ie11+');
+}
+
+@media screen and (-ms-high-contrast: none) and (max-width: 50em), (-ms-high-contrast: none) and (max-height: 36em) {
+  // supports border-box but does not support @supports
+  // (so not from 'small-screen' media query)
+  * {
+    box-sizing: border-box;
+  }
+
+  @include top-level-css('small-screen', 'ie11+');
 }

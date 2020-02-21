@@ -10,7 +10,7 @@
 
 // ########################################################################
 
-@mixin page-top-search-form($device-capabilities: 'small-screen') {
+@mixin page-top-search-form($device-capabilities: 'normal-plus-screen') {
 
   & form {
     display: inline-block;
@@ -58,10 +58,15 @@
         }
       }
     }
+  } @if $device-capabilities == 'speech' {
+    & form {
+      display: none;
+      visibility: hidden;
+    }
   }
 }
 
-@mixin menubar-needs-overflow-submenu($device-capabilities: 'all-browsers', $menu-level: 2) {
+@mixin menubar-needs-overflow-submenu($device-capabilities: 'all-browsers', $menu-level: 2, $sub-devcap: null) {
   $submenu-pos-number: $menu-level;
 
   @if $menu-level <= $flyout-max-menu-level {
@@ -75,7 +80,7 @@
   & > .menu-item {
     @include menubar-menu-list-position-submenus($device-capabilities, $submenu-pos-number);
 
-    @if ($device-capabilities != 'small-screen') and ($device-capabilities != 'no-hover') {
+    @if $device-capabilities == 'all-browsers' {
       height: $flyout-menu-item-height;
       width: $flyout-menu-item-width;
 
@@ -83,148 +88,135 @@
         height: auto;
         width: $flyout-menu-item-width;
       }
-    } @else {
+    } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
       height: auto;
       width: 100%;
 
       & .menu-parent {
         width: 100%;
       }
-    }
-  }
-}
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      height: $flyout-menu-item-height;
+      overflow: visible;
+      width: $flyout-menu-item-width;
 
-@mixin menubar-needs-columns-submenu($device-capabilities: 'all-browsers', $menu-level: 2) {
-
-  & > .menu-item {
-    height: auto;
-
-    & > .menu-parent {
-      height: auto;
-      left: 0;
-      @if ($device-capabilities != 'small-screen') and ($device-capabilities != 'no-hover') {
-        position: relative;
+      & .menu-parent {
+        height: auto;
+        overflow: visible;
         width: $flyout-menu-item-width;
-      } @else {
-        position: static;
-        width: 100%;
-      }
-
-      & > .menu-item {
-        @include menubar-menu-list-position-submenus($device-capabilities, $menu-level);
       }
     }
   }
 }
 
-@mixin menubar-needs-columns($device-capabilities: 'all-browsers', $menu-level: 1) {
-  @if $menu-level <= $flyout-max-menu-level {
+@mixin menubar-needs-columns-submenu($device-capabilities: 'all-browsers', $menu-level: 2, $sub-devcap: null) {
 
+  height: auto;
+
+  @if $device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen' {
+    left: 0;
+    position: relative;
+    width: $flyout-menu-item-width;
+
+    & > .menu-item {
+      @if $sub-devcap != 'ms-edge12+' and $sub-devcap != 'ie11+' {
+        @include menubar-menu-list-position-submenus($device-capabilities, $menu-level + 1);
+      } @else {
+        & > ul {
+          &.menu-parent {
+            left: 0;
+          }
+        }
+      }
+    }
+  } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+    left: 0;
+    position: static;
+    width: 100%;
+
+    & > .menu-item {
+      @include menubar-menu-list-position-submenus($device-capabilities, $menu-level);
+    }
+  }
+}
+
+@mixin menubar-needs-columns($device-capabilities: 'all-browsers', $sub-devcap: null, $menu-level: 1) {
+  @if $menu-level <= $flyout-max-menu-level {
     $submenu-pos-number: ($menu-level % 2);
-    $left-pos: 100%;
+    $left-pos: -100%;
 
     @if $submenu-pos-number == 1 {
-      $left-pos: -100%;
+      $left-pos: 100%;
     }
+
+    top: auto;
 
     &.needs-columns {
-      &.needs-overflow {
-        @include menubar-needs-overflow-submenu($device-capabilities, $menu-level);
+      @if $device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen' {
+        height: $flyout-menu-column-height;
+        left: $left-pos;
+        overflow: auto;
+        width: $flyout-menu-column-width + .1em;
       }
-    }
 
-    @if ($device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen') {
-      left: $left-pos;
+      @if $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+        height: auto;
+        left: 0;
+        overflow: hidden;
+        width: 100%;
 
-      &.needs-columns {
-        top: auto;
-
-        &:not(.needs-overflow) {
-          height: $flyout-menu-column-height;
-          overflow: auto;
-          width: $flyout-menu-column-width + .1em;
-        }
-
-        &.needs-overflow {
-          height: $flyout-menu-column-height;
-          overflow: auto;
-          overflow-y: scroll;
-          width: $flyout-menu-column-width + .1em;
-        }
-      }
-    } @elseif ($device-capabilities == 'small-screen' or $device-capabilities == 'no-hover') {
-      left: 0;
-      top: auto;
-
-      &.needs-columns {
-        &:not(.needs-overflow) {
+        & > .menu-item {
           height: auto;
-          overflow: visible;
+          left: 0;
+          overflow: hidden;
           width: 100%;
+        }
+      }
 
-          @supports (column-width: inherit) {
+      &.needs-overflow {
+        @include menubar-needs-overflow-submenu($device-capabilities, $menu-level, $sub-devcap);
+
+        @if $device-capabilities == 'normal-plus-screen' {
+          overflow-y: scroll;
+
+          @if $sub-devcap == 'ie11+' {
             column-width: inherit;
           }
         }
-
-        &.needs-overflow {
-          height: auto;
-          overflow: visible;
-          width: 100%;
-        }
       }
-    }
 
-    @supports (column-width: $flyout-menu-item-width) {
-      @if ($device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen') {
-        &.needs-columns {
-          &:not(.needs-overflow) {
-            @include menubar-needs-columns-submenu($device-capabilities, $menu-level);
+      &:not(.needs-overflow) {
+        @include menubar-needs-overflow-submenu($device-capabilities, $menu-level, $sub-devcap);
+        @include menubar-needs-columns-submenu($device-capabilities, $menu-level, $sub-devcap);
+
+        @if $device-capabilities == 'normal-plus-screen' {
+          height: $flyout-menu-column-height;
+          left: $left-pos;
+          overflow: auto;
+          width: $flyout-menu-column-width + .1em;
+
+          @supports (column-width: $flyout-menu-item-width) {
             column-fill: auto;
             column-gap: 0;
             column-width: $flyout-menu-item-width;
+            overflow: visible;
           }
-        }
-      } @elseif ($device-capabilities == 'small-screen' or $device-capabilities == 'no-hover') {
-        &.needs-columns {
-          &:not(.needs-overflow) {
-            @include menubar-needs-columns-submenu($device-capabilities, $menu-level);
-            column-width: inherit;
+
+          @if $sub-devcap == 'ie11+' {
+            &.menu-parent {
+              column-fill: auto;
+              column-gap: 0;
+              column-width: $flyout-menu-item-width;
+              height: $flyout-menu-column-height + .4em;
+              overflow: visible;
+            }
           }
-        }
-      }
-    }
-
-    @supports not (column-width: $flyout-menu-item-width) {
-      &.needs-columns {
-        @include menubar-needs-overflow-submenu($device-capabilities, $menu-level);
-      }
-    }
-
-    @if $device-capabilities == 'ie11+' {
-      overflow: visible;
-
-      &.needs-columns {
-        &:not(.needs-overflow) {
-          @include menubar-needs-columns-submenu($device-capabilities, $menu-level);
-
-          column-fill: auto;
-          column-gap: 0;
-          column-width: $flyout-menu-item-width;
-        }
-      }
-    }
-
-    @if $device-capabilities == 'ms-edge12+' {
-      overflow: visible;
-
-      &.needs-columns {
-        &:not(.needs-overflow) {
-          @include menubar-needs-columns-submenu($device-capabilities, $menu-level);
-
-          column-fill: auto;
-          column-gap: 0;
-          column-width: $flyout-menu-item-width;
+        } @elseif $device-capabilities == 'no-hover' {
+          column-width: inherit;
+          height: auto;
+          left: 0;
+          overflow: hidden;
+          width: 100%;
         }
       }
     }
@@ -239,7 +231,6 @@
       display: block;
       height: 100%;
       overflow: hidden;
-      padding: .4em;
       text-overflow: ellipsis;
       width: 100%;
 
@@ -256,10 +247,17 @@
       }
 
       & .menu-entry {
+        display: block;
         overflow: hidden;
+        position: relative;
         text-overflow: ellipsis;
+        top: 20%;
         white-space: nowrap;
       }
+    } @elseif $device-capabilities == 'small-screen' {
+      padding: .4em;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      padding: .4em;
     }
   }
 }
@@ -354,6 +352,7 @@
     }
 
     left: $left-pos;
+    z-index: $flyout-z-index + $menu-level;
 
     & > .menu-item {
       & > .menu-entry-wrapper {
@@ -412,18 +411,9 @@
   }
 }
 
-@mixin menubar-site-menu-list($device-capabilities: 'all-browsers') {
+@mixin menubar-site-menu-list($device-capabilities: 'all-browsers', $sub-devcap: null) {
 
   @include menubar-menu-list-color($device-capabilities, 0);
-
-  border: 2px solid $hamburger-top-bar-menu-border-color;
-  border-top: 0 none;
-  left: 0;
-  list-style-position: outside;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
 
   & .menu-item {
     @include menubar-menu-entry-wrapper($device-capabilities);
@@ -433,7 +423,8 @@
     padding: 0;
 
     & .menu-parent {
-      @include menubar-needs-columns($device-capabilities, 1);
+
+      @include menubar-needs-columns($device-capabilities, $sub-devcap, 1);
 
       display: block;
       list-style-position: outside;
@@ -459,7 +450,16 @@
   }
 
   @if $device-capabilities == 'all-browsers' {
-    left: 0;
+    border: 2px solid $hamburger-top-bar-menu-border-color;
+    border-top: 0 none;
+    display: block;
+    left: .5%;
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 5.5%;
     width: $flyout-menu-item-width;
 
     & .menu-item {
@@ -469,6 +469,7 @@
       overflow: visible;
       padding: 0;
       width: $flyout-menu-item-width - .3em;
+      z-index: $flyout-z-index;
 
       & .menu-parent {
         margin: 0;
@@ -482,10 +483,12 @@
       }
     }
 
-  } @elseif ($device-capabilities == 'small-screen' or $device-capabilities == 'no-hover') {
+  } @elseif $device-capabilities == 'small-screen' {
     height: 100%;
+    left: 0;
     margin: 0;
-    position: relative;
+    position: absolute;
+    top: $hamburger-top-bar-width;
     width: 100%;
 
     & .menu-item {
@@ -512,6 +515,22 @@
         width: $flyout-menu-item-width;
       }
     }
+  } @elseif $device-capabilities == 'no-hover' {
+    height: 100%;
+    left: 0;
+    margin: 0;
+    position: relative;
+    top: $hamburger-top-bar-width;
+    width: 100%;
+
+    & .menu-item {
+      height: auto;
+      width: 100%;
+
+      & .menu-parent {
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -530,6 +549,8 @@
   }
 
   @if ($device-capabilities == 'small-screen') or ($device-capabilities == 'no-hover') {
+    visibility: $maybe-visible;
+
     & .menu-item {
       visibility: $maybe-visible;
 
@@ -538,6 +559,8 @@
       }
     }
   } @elseif ($device-capabilities == 'all-browsers') or ($device-capabilities == 'normal-plus-screen') {
+    visibility: $maybe-visible;
+
     & > .menu-item {
       visibility: $maybe-visible;
 
@@ -570,13 +593,12 @@
 
   $standalone-specificity: '.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list';
 
-  @if $device-capabilities == 'small-screen' {
-    position: relative;
-  }
-
-  @at-root ul {
-    &#{$standalone-specificity} {
-      @include menubar-activate-site-menu-list($device-capabilities, false, true);
+  @if $device-capabilities != 'small-screen' and $device-capabilities != 'no-hover' {
+    // Making standalone hover ul makes no sense when there is no hover
+    @at-root ul {
+      &#{$standalone-specificity} {
+        @include menubar-activate-site-menu-list($device-capabilities, false, true);
+      }
     }
   }
 
@@ -587,39 +609,38 @@
   }
 }
 
-@mixin menubar-site-menu($device-capabilities: 'small-screen') {
+@mixin menubar-site-menu($device-capabilities: 'small-screen', $sub-devcap: null) {
 
-  & .menubar-site-menu {
+  @if $device-capabilities == 'all-browsers' {
     & .menubar-site-menu-list {
-      @include menubar-site-menu-list($device-capabilities);
+      @include menubar-site-menu-list($device-capabilities, $sub-devcap);
+    }
+  } @else {
+    & .menubar-site-menu {
+      & .menubar-site-menu-list {
+        @include menubar-site-menu-list($device-capabilities, $sub-devcap);
+      }
     }
   }
 
   & .menubar-site-menu {
-    @if $device-capabilities == 'small-screen' {
-      background-color: $flyout-submenu-colors-0;
-      color: $hamburger-top-bar-menu-text-color;
-      display: block;
-      height: $hamburger-top-bar-height;
+    @if $device-capabilities == 'all-browsers' {
+      // For the case where nav tag is not understood
+      display: block;  // So children can be visible
+      height: 0;
+      overflow: visible;  // So children can be visible
+      visibility: hidden;
+      width: 0;
+      z-index: 0;
+    } @elseif $device-capabilities == 'small-screen' {
       left: 0;
-      padding: 0;
-      position: absolute;
-      text-decoration: none;
       top: 0;
       width: 100%;
-      z-index: $flyout-z-index;
-
-      & a {
-        &:link {
-          color: $hamburger-top-bar-menu-link-color;
-        }
-      }
 
       & .menubar-site-menu-list {
         border: 2px solid $hamburger-top-bar-menu-border-color;
         border-top: 0;
       }
-
     } @elseif $device-capabilities == 'normal-plus-screen' {
       left: $hamburger-top-bar-width;
       top: $hamburger-top-bar-height;
@@ -658,7 +679,7 @@
 
 
     & .menubar-site-menu {
-      @if ($device-capabilities == 'small-screen') or ($device-capabilities == 'no-hover') {
+      @if $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
         @include menubar-site-menu-active($device-capabilities, true);
       } @else {
         @include menubar-site-menu-active($device-capabilities, false);
@@ -699,7 +720,7 @@
 
     @if $device-capabilities == 'all-browsers' {
       & ~ ul {
-        &.menubar-site-menu-list {
+        &#{$standalone-specificity} {
           @include menubar-activate-site-menu-list($device-capabilities, true, true);
         }
       }
@@ -721,8 +742,24 @@
   }
 }
 
-@mixin curved-site-badge {
+@mixin curved-site-badge($device-capabilities: 'all-browsers', $sub-devcap: null) {
   @supports (border-radius: 12px) {
+    border-radius: 12px;
+
+    &:hover,
+    &:active,
+    &:link {
+      border-radius: 12px;
+    }
+
+    & > .graphics-row {
+      border-radius: 0; // sass-lint:disable-line property-sort-order
+      border-bottom-left-radius: 12px; // sass-lint:disable-line property-sort-order
+      border-top-left-radius: 12px;
+    }
+  }
+
+  @if $sub-devcap == 'ie11+' {
     border-radius: 12px;
 
     &:hover,
@@ -739,23 +776,26 @@
   }
 }
 
-@mixin mobile-site-badge {
+@mixin mobile-site-badge($device-capabilities: 'small-screen', $sub-devcap: null) {
   & .site-badge {
 
-    @include curved-site-badge;
+    @include curved-site-badge($device-capabilities, $sub-devcap);
 
+    left: 0;
     margin: 0;
     position: absolute;
     text-align: left;
     visibility: hidden;
 
-    & > .graphics-row {
-      float: none;
+    @if $device-capabilities == 'no-hover' {
+      & > .graphics-row {
+        float: none;
+      }
     }
 
     @supports (display: flex) {
       align-items: center;
-      display: inline-flex;
+      display: flex;
       justify-content: stretch;
       position: relative;
 
@@ -788,7 +828,7 @@
   }
 }
 
-@mixin site-badge($device-capabilities: 'all-browsers') {
+@mixin site-badge($device-capabilities: 'all-browsers', $sub-devcap: null) {
   @if $device-capabilities == 'all-browsers' {
     & .site-badge {
       @include site-badge-hover($device-capabilities);
@@ -800,8 +840,8 @@
       height: $hamburger-top-bar-height;
       left: 0;
       margin: 0;
-      margin-left: .2em;
-      margin-top: .2em;
+      margin-left: .5%;
+      margin-top: .5%;
       max-width: $site-badge-width;
       overflow: hidden;
       padding: 0;
@@ -825,16 +865,18 @@
         font-family: $serif-font-stack;
         height: 100%;
         margin-left: .2em;
-        max-width: $site-id-width;
         overflow: hidden;
         text-align: left;
+        width: $site-id-width;
         @supports (text-overflow: ellipsis) {
           text-overflow: ellipsis;
         }
 
         & span {
           display: block;
-          vertical-align: middle;
+          left: .2em;
+          position: relative;
+          top: 20%;
 
           @supports (white-space: nowrap) {
             white-space: nowrap;
@@ -851,10 +893,6 @@
       &:hover {
         .graphics-row {
           background-color: $default-background-color;
-
-          @supports (background-color: transparent) {
-            background-color: transparent;
-          }
         }
       }
 
@@ -867,17 +905,21 @@
       }
     }
   } @elseif $device-capabilities == 'small-screen' {
-    @include mobile-site-badge;
-
-    & a {
-      &.site-badge {
-        @include site-badge-hover($device-capabilities);
-      }
-    }
+    @include mobile-site-badge($device-capabilities, $sub-devcap);
   } @elseif $device-capabilities == 'normal-plus-screen' {
     & .site-badge {
+      @include curved-site-badge($device-capabilities, $sub-devcap);
+
       left: $hamburger-top-bar-width;
+      margin: 0;
+      top: 0;
       visibility: visible;
+
+      & .site-id {
+        & span {
+          display: inline;
+        }
+      }
 
       @supports (display: flex) {
         align-items: center;
@@ -893,35 +935,17 @@
       }
     }
   } @elseif $device-capabilities == 'no-hover' {
-    & .site-badge {
-      left: 0;
-      visibility: hidden;
-
-      @supports (display: flex) {
-        display: flex;
-      }
-    }
-  } @elseif $device-capabilities == 'ie11+' {
-    & .site-badge {
-      border-radius: 12px;
-      visibility: visible;
-
-      & .graphics-row {
-        border-bottom-left-radius: 12px;
-        border-top-left-radius: 12px;
-      }
-
-      &:hover,
-      &:active,
-      &:link {
-        border-radius: 12px;
-      }
-    }
+    @include mobile-site-badge($device-capabilities, $sub-devcap);
   } @elseif $device-capabilities == 'speech' {
     & .site-badge {
       visibility: visible;
 
       & .graphics-row {
+        display: none;
+        visibility: hidden;
+      }
+
+      & .site-badge-graphic {
         display: none;
         visibility: hidden;
       }
@@ -933,10 +957,9 @@
   }
 }
 
-@mixin desktop-overlay {
+@mixin desktop-overlay($device-capabilities: 'all-browsers', $sub-devcap: null) {
   background-color: $default-background-color;
-  height: $hamburger-top-bar-height + 1;
-  position: relative;
+  height: $hamburger-top-bar-height + 1em;
   visibility: visible;
   z-index: 0;
 
@@ -947,9 +970,14 @@
   @supports (opacity: 0) {
     opacity: 0;
   }
+
+  @if $sub-devcap == 'ie11+' {
+    background-color: transparent;
+    opacity: 0;
+  }
 }
 
-@mixin mobile-overlay {
+@mixin mobile-overlay($device-capabilities: 'small-screen', $sub-devcap: null) {
   background-color: $top-bar-off-canvas-overlay-color;
   height: 100%;
   position: fixed;
@@ -959,25 +987,33 @@
   @supports (opacity: $top-bar-off-canvas-overlay-opacity) {
     opacity: $top-bar-off-canvas-overlay-opacity;
   }
+
+  @if $sub-devcap == 'ie11+' {
+    opacity: $top-bar-off-canvas-overlay-opacity;
+  }
 }
 
-@mixin top-bar-overlay($device-capabilities: 'all-browsers') {
+@mixin top-bar-overlay($device-capabilities: 'all-browsers', $sub-devcap: null) {
 
   & .top-bar-overlay {
     @if $device-capabilities == 'all-browsers' {
-      @include desktop-overlay;
+      @include desktop-overlay($device-capabilities, $sub-devcap);
 
-      left: 0;
-      top: 0;
       visibility: visible;
       width: 100%;
     } @elseif $device-capabilities == 'small-screen' {
-      @include mobile-overlay;
+      @include mobile-overlay($device-capabilities, $sub-devcap);
+
+      left: 0;
+      top: 0;
     } @elseif $device-capabilities == 'normal-plus-screen' {
       display: none;
+      left: 0;
+      position: relative;
+      top: 0;
       visibility: hidden;
     } @elseif $device-capabilities == 'no-hover' {
-      @include mobile-overlay;
+      @include mobile-overlay($device-capabilities, $sub-devcap);
       display: block;
     } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
       display: none;
@@ -986,7 +1022,32 @@
   }
 }
 
-@mixin top-bar-trigger($device-capabilities) {
+@mixin mobile-top-bar-trigger($device-capabilities: 'small-screen', $sub-devcap: null) {
+  @supports (background-color: transparent) {
+    background-color: transparent;
+  }
+  @if $sub-devcap == 'ie11+' {
+    background-color: transparent;
+  }
+  cursor: pointer;
+  display: block;
+  height: $hamburger-top-bar-height;
+  left: auto;
+  @supports (opacity: 0) {
+    opacity: 0;
+  }
+  @if $sub-devcap == 'ie11+' {
+    opacity: 0;
+  }
+  position: fixed;
+  right: 0;
+  top: 0;
+  visibility: visible;
+  width: $hamburger-top-bar-width;
+  z-index: $hamburger-top-bar-z-index + 2;
+}
+
+@mixin top-bar-trigger($device-capabilities: 'all-browsers', $sub-devcap: null) {
   & .top-bar-trigger {
     &:checked,
     &:hover {
@@ -1000,28 +1061,12 @@
       width: 0;
       z-index: 0;
     } @elseif $device-capabilities == 'small-screen' {
-      @supports (background-color: transparent) {
-        background-color: transparent;
-      }
-      cursor: pointer;
-      display: block;
-      height: $hamburger-top-bar-height;
-      left: auto;
-      @supports (opacity: 0) {
-        opacity: 0;
-      }
-      position: fixed;
-      right: 0;
-      top: 0;
-      visibility: visible;
-      width: $hamburger-top-bar-width;
-      z-index: $hamburger-top-bar-z-index + 2;
+      @include mobile-top-bar-trigger($device-capabilities, $sub-devcap);
     } @elseif $device-capabilities == 'normal-plus-screen' {
       left: 0;
       right: auto;
     } @elseif $device-capabilities == 'no-hover' {
-      left: auto;
-      right: 0;
+      @include mobile-top-bar-trigger($device-capabilities, $sub-devcap);
     } @elseif $device-capabilities == 'speech' {
       display: none;
       visibility: hidden;
@@ -1029,39 +1074,43 @@
   }
 }
 
-@mixin top-bar-start($device-capabilities: 'small-screen') {
+@mixin default-top-bar-start($device-capabilities: 'small-screen', $sub-devcap: null, $left: auto, $right: 0) {
+  background-color: $hamburger-start-background-color;
+  display: block;
+  height: $hamburger-top-bar-height;
+  left: $left;
+  @supports (opacity: .5) {
+    opacity: .5;
+  }
+  padding: 0;
+  position: fixed;
+  right: $right;
+  text-align: center;
+  visibility: visible;
+  width: $hamburger-top-bar-width;
+  z-index: $hamburger-top-bar-z-index + 1;
+
+  @supports (border-radius: 12px) {
+    border-radius: 12px;
+  }
+
+  @if $sub-devcap == 'ie11+' {
+    border-radius: 12px;
+    opacity: .5;
+  }
+}
+
+@mixin top-bar-start($device-capabilities: 'all-browsers', $sub-devcap: null) {
   & .top-bar-start {
-    @if $device-capabilities == 'small-screen' {
-
-      background-color: $hamburger-start-background-color;
-      display: block;
-      height: $hamburger-top-bar-height;
-      left: auto;
-      @supports (opacity: .5) {
-        opacity: .5;
-      }
-      padding: 0;
-      position: fixed;
-      right: 0;
-      text-align: center;
-      visibility: visible;
-      width: $hamburger-top-bar-width;
-      z-index: $hamburger-top-bar-z-index + 1;
-
-      @supports (border-radius: 12px) {
-        border-radius: 12px;
-      }
+    @if $device-capabilities == 'all-browsers' {
+      display: none;
+      visibility: hidden;
+    } @elseif $device-capabilities == 'small-screen' {
+      @include default-top-bar-start($device-capabilities, $sub-devcap);
     } @elseif $device-capabilities == 'normal-plus-screen' {
-      left: 0;
-      right: auto;
+      @include default-top-bar-start($device-capabilities, $sub-devcap, 0, auto);
     } @elseif $device-capabilities == 'no-hover' {
-      left: auto;
-      right: 0;
-    } @elseif $device-capabilities == 'ie11+' {
-      border-radius: 12px;
-      left: 0;
-      opacity: .5;
-      right: auto;
+      @include default-top-bar-start($device-capabilities, $sub-devcap);
     } @elseif $device-capabilities == 'speech' {
       display: none;
       visibility: hidden;
@@ -1069,9 +1118,48 @@
   }
 }
 
-@mixin top-bar-search-results($device-capabilities: 'small-screen') {
+@mixin top-bar-search-results($device-capabilities: 'all-browsers', $sub-devcap: null) {
   & .search-results {
-    @if $device-capabilities == 'small-screen' {
+    @if $device-capabilities == 'all-browsers' {
+      display: none;
+      visibility: hidden;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      background-color: $search-results-background-color;
+      bottom: 0;
+      color: $search-results-text-color;
+      display: block;
+      @if $sub-devcap == 'ie9+' {
+        display: none;
+      } @elseif $sub-devcap == 'ms-edge12+' {
+        display: block;
+      }
+
+      max-height: 80%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      position: fixed;
+      right: 0;
+      width: 100%;
+      z-index: $flyout-z-index + 1;
+
+      & a {
+        background-color: $search-results-background-color;
+        color: $search-results-link-color;
+
+        &:link {
+          color: $search-results-link-color;
+        }
+
+        &:visited {
+          color: $search-results-visited-color;
+        }
+
+        &:active,
+        &:hover {
+          color: $search-results-hover-color;
+        }
+      }
+    } @elseif $device-capabilities == 'no-hover' {
       background-color: $search-results-background-color;
       bottom: 0;
       color: $search-results-text-color;
@@ -1101,19 +1189,31 @@
           color: $search-results-hover-color;
         }
       }
-    } @elseif $device-capabilities == 'ie9+' {
-      display: none;
-    } @elseif $device-capabilities == 'ms-edge12+' {
-      display: block;
     } @elseif $device-capabilities == 'speech' {
       display: none;
     }
   }
 }
 
-@mixin top-bar-search($device-capabilities: 'small-screen') {
+@mixin top-bar-search($device-capabilities: 'all-browsers', $sub-devcap: null) {
   & .top-search {
-    @if $device-capabilities == 'small-screen' {
+    @if $device-capabilities == 'all-browsers' {
+      display: none;
+      visibility: hidden;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      @include page-top-search-form($device-capabilities);
+
+      display: block;
+      @if $sub-devcap == 'ie9+' {
+        display: none;
+      } @elseif $sub-devcap == 'ms-edge12+' {
+        display: block;
+      }
+      float: right;
+      height: 100%;
+      visibility: visible;
+      width: 60%;
+   } @elseif $device-capabilities == 'no-hover' {
       @include page-top-search-form($device-capabilities);
 
       display: block;
@@ -1123,109 +1223,31 @@
       position: absolute;
       right: auto;
       top: $hamburger-top-bar-height;
+      visibility: hidden;
       width: 100%;
       z-index: $hamburger-top-bar-z-index;
-
       @supports (display: flex) {
         display: flex;
         justify-content: stretch;
       }
-    } @elseif $device-capabilities == 'normal-plus-screen' {
-      @include page-top-search-form($device-capabilities);
-
-      left: auto;
-      right: 0;
-      top: 0;
-      visibility: visible;
-      width: 60%;
-    } @elseif $device-capabilities == 'no-hover' {
-      left: 0;
-      right: auto;
-      top: $hamburger-top-bar-height;
-      visibility: hidden;
-      width: 100%;
-    } @elseif $device-capabilities == 'ie9+' {
-      display: none;
-    } @elseif $device-capabilities == 'ms-edge12+' {
-      @include page-top-search-form($device-capabilities);
-
-      display: block;
-      @supports (display: flex) {
-        display: flex;
-      }
-      left: auto;
-      right: 0;
-      top: 0;
-      visibility: visible;
-      width: 60%;
     } @elseif $device-capabilities == 'speech' {
+      @include page-top-search-form($device-capabilities);
+
       display: none;
       visibility: hidden;
     }
   }
 }
 
-// For the case where header tag is not understood
-@mixin top-bar-contents-no-header {
-
-  & .top-bar-start {
-    display: none;
-    visibility: hidden;
-  }
-
-  @include site-badge('all-browsers');
-
-  // For the case where nav tag is not understood
-  & .menubar-site-menu {
-    display: block;  // So children can be visible
-    height: 0;
-    overflow: visible;  // So children can be visible
-    visibility: hidden;
-    width: 0;
-    z-index: 0;
-  }
-
-  // For the case where nav tag is not understood
-  & .menubar-site-menu-list {
-    @include menubar-site-menu-list('all-browsers')
-
-    background-color: $flyout-submenu-colors-0;
-    border: 2px solid $menubar-top-level-border-color;
-    display: block;
-    left: .3em;
-    margin: 0;
-    overflow: visible;
-    padding: 0;
-    position: fixed;
-    top: $hamburger-top-bar-height + .4em;
-    width: $flyout-menu-item-width - .1em;
-    z-index: $flyout-z-index;
-  }
+@mixin top-bar-contents($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @include site-badge($device-capabilities, $sub-devcap);
+  @include top-bar-start($device-capabilities, $sub-devcap);
+  @include menubar-site-menu($device-capabilities, $sub-devcap);
+  @include top-bar-search($device-capabilities, $sub-devcap);
+  @include top-bar-search-results($device-capabilities, $sub-devcap);
 }
 
-@mixin top-bar-contents-header($device-capabilities: 'small-screen') {
-
-  @include site-badge($device-capabilities);
-  @include top-bar-start($device-capabilities);
-  @include menubar-site-menu($device-capabilities);
-  @include top-bar-search($device-capabilities);
-  @include top-bar-search-results($device-capabilities);
-
-  @if $device-capabilities == 'speech' {
-    @include menubar-site-menu-active($device-capabilities, true);
-  }
-}
-
-@mixin desktop-top-bar-header {
-  height: $hamburger-top-bar-height;
-  overflow: visible;
-  position: fixed;
-  visibility: visible;
-  width: 100%;
-  z-index: $flyout-z-index;
-}
-
-@mixin mobile-top-bar-header {
+@mixin top-bar-off-canvas($device-capabilities: 'small-screen') {
   background-color: $default-top-bar-background-color;
 
   @supports (background-color: transparent) {
@@ -1246,11 +1268,10 @@
   z-index: $hamburger-top-bar-z-index;
 }
 
-@mixin top-bar($device-capabilities: 'all-browsers') {
+@mixin top-bar($device-capabilities: 'all-browsers', $sub-devcap: null) {
   @if $device-capabilities == 'all-browsers' {
 
-    // For the case where header and nav tags are not understood
-    @include top-bar-contents-no-header;
+    @include top-bar-contents($device-capabilities, $sub-devcap);
 
     & .top-bar {
       display: block; // So children can be visible
@@ -1260,85 +1281,123 @@
       width: 0;
       z-index: 0;
     }
-
-    & .top-search {
-      display: none;
-      visibility: hidden;
-    }
-
-    & .search-results {
-      display: none;
-      visibility: hidden;
-    }
-  } @elseif $device-capabilities == 'small-screen' {
+  } @else {
     & .top-bar {
-      @include mobile-top-bar-header;
-    }
-    @include top-bar-contents-header($device-capabilities);
-  } @elseif $device-capabilities == 'normal-plus-screen' {
-    & .top-bar {
-      @include desktop-top-bar-header;
-    }
-    @include top-bar-contents-header($device-capabilities);
+      @if $device-capabilities == 'small-screen' {
+        @include top-bar-off-canvas($device-capabilities);
+        @include top-bar-contents($device-capabilities, $sub-devcap);
+      } @elseif $device-capabilities == 'normal-plus-screen' {
+        @include top-bar-contents($device-capabilities, $sub-devcap);
 
-  } @elseif $device-capabilities == 'no-hover' {
-    & .top-bar {
-      @include mobile-top-bar-header;
-    }
-    @include top-bar-contents-header($device-capabilities);
-  } @elseif $device-capabilities == 'speech' {
-    @include top-bar-contents-header($device-capabilities);
+        height: $hamburger-top-bar-height;
+        overflow: visible;
+        position: relative;
+        visibility: visible;
+        width: 100%;
+        z-index: $flyout-z-index;
+      } @elseif $device-capabilities == 'no-hover' {
+        @include top-bar-off-canvas($device-capabilities);
+        @include top-bar-contents($device-capabilities, $sub-devcap);
+      } @elseif $device-capabilities == 'speech' {
+        @include site-badge($device-capabilities);
+        @include menubar-site-menu($device-capabilities, $sub-devcap);
+        @include menubar-site-menu-active($device-capabilities, true);
 
-    & .top-bar {
-      visibility: visible;
-    }
+        visibility: visible;
 
-    & .top-search {
-      display: none;
-      visibility: hidden;
-    }
+        & .top-search {
+          display: none;
+          visibility: hidden;
+        }
 
-    & .search-results {
-      display: none;
-      visibility: hidden;
+        & .search-results {
+          display: none;
+          visibility: hidden;
+        }
+      } @elseif $device-capabilities == 'print' {
+        @include site-badge($device-capabilities);
+
+        visibility: visible;
+
+        & .menubar-site-menu {
+          display: none;
+          visibility: hidden;
+        }
+
+        & .top-search {
+          display: none;
+          visibility: hidden;
+        }
+
+        & .search-results {
+          display: none;
+          visibility: hidden;
+        }
+      }
     }
   }
 }
 
-@mixin page-header($device-capabilities: 'all-browsers') {
+@mixin header-wrapper-mq($device-capabilities: 'small-screen', $sub-devcap: null) {
+  display: block;
+  height: auto;
+  visibility: visible;
+  width: 100%;
+
+  @if $sub-devcap == 'ie11+' {
+    display: flex;
+    flex: 1 1 100%;
+    grid-column: initial;
+    grid-row: initial;
+    order: 1;
+    width: auto;
+  }
+
+  @supports (not (display: grid)) and (display: flex) {
+    display: flex;
+    flex: 1 1 100%;
+    order: 1;
+    width: auto;
+  }
+
+  @supports (display: grid) {
+    grid-column-end: 3;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-row-start: 1;
+    position: relative;
+    width: auto;
+  }
+}
+
+@mixin page-header($device-capabilities: 'all-browsers', $sub-devcap: null) {
 
   .header-wrapper {
-    @include top-bar-trigger($device-capabilities);
-    @include top-bar($device-capabilities);
-    @include top-bar-overlay($device-capabilities);
+    @include top-bar-trigger($device-capabilities, $sub-devcap);
+    @include top-bar($device-capabilities, $sub-devcap);
+    @include top-bar-overlay($device-capabilities, $sub-devcap);
 
     @if $device-capabilities == 'all-browsers' {
-      height: $hamburger-top-bar-height;
       left: 0;
       overflow: visible;
-      position: absolute;
+      position: relative;
       top: 0;
       visibility: hidden;
       width: 100%;
       z-index: $hamburger-top-bar-z-index;
+    } @elseif $device-capabilities == 'small-screen' {
+      @include header-wrapper-mq($device-capabilities, $sub-devcap);
     } @elseif $device-capabilities == 'normal-plus-screen' {
-      @supports (not (display: grid)) and (display: flex) {
-        display: flex;
-        flex: 1 1 100%;
-        order: 1;
-      }
-
-      @supports (display: grid) {
-        grid-column-end: 3;
-        grid-column-start: 1;
-        grid-row-end: 2;
-        grid-row-start: 1;
-        position: relative;
-      }
+      @include header-wrapper-mq($device-capabilities, $sub-devcap);
+    } @elseif $device-capabilities == 'no-hover' {
+      @include header-wrapper-mq($device-capabilities, $sub-devcap);
     } @elseif $device-capabilities == 'speech' {
       @supports (order: 4) {
         flex: 1 1 100%;
+        height: auto;
         order: 4;
+        visibility: visible;
+        width: auto;
       }
     } @elseif $device-capabilities == 'print' {
       display: none;

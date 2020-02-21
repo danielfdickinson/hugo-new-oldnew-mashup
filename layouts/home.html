@@ -6,7 +6,7 @@
   {{ end }}
 {{ end }}
 {{ define "bodytag" }}
-  <body>
+<body>
 {{ end }}
 {{ define "header" }}
   {{ if not (eq (.Param "new_landing_page") true) }}
@@ -21,13 +21,13 @@
 {{ end }}
 {{ define "main" }}
   {{ if not (eq (.Param "new_landing_page") true) }}
-    <main id="main-content" class="main-content">
+    <main id="main-content" class="main landing-page-content">
       <h1 class="title">{{if not .Page.Title}}{{.Site.Title}}{{else}}{{.Page.Title}}{{end}}</h1>
       <div class="taglines">
         {{ if .Param "oneliner" }}
-          <h2 class="one-liner">{{ .Param "oneliner" }}</h2>
+        <h2 class="one-liner">{{ .Param "oneliner" }}</h2>
           {{ if .Param "subliner" }}
-            <h3 class="sub-liner">{{ .Param "subliner" }}</h3>
+          <h3 class="sub-liner">{{ .Param "subliner" }}</h3>
           {{ end }}
         {{ end }}
         {{ partial "generic-helpers/find-real-home/findnextpage" . }}
@@ -41,17 +41,22 @@
       </aside>
     </main>
   {{ else }}
-    <main class="main landing-content {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
-      <article aria-label="Main Article" id="main-article" class="main-article">
-        <header class="article-header">
-        <h1 class="article-title">{{ if .Title }}{{ .Title }}{{ else if .Site.Title }}{{ .Site.Title }}{{ else if .File.TranslationBaseName }}{{ .File.TranslationBaseName | title }}{{ end }}</h1>
-        </header>
+    <div class="main-wrapper landing-content-wrapper {{ if (eq (.Param "norbar") true) }}full-page-content-wrapper{{ end }}">
+      <main class="main landing-content {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
+        <div class="main-article-wrapper">
+          <article aria-label="Main Article" id="main-article" class="main-article">
+            <div class="article-header-wrapper">
+              <header class="article-header">
+                <h1 class="article-title">{{ if .Title }}{{ .Title }}{{ else if .Site.Title }}{{ .Site.Title }}{{ else if .File.TranslationBaseName }}{{ .File.TranslationBaseName | title }}{{ end }}</h1>
+              </header>
+            </div>
     {{ .Content }}
-      </article>
-    </main>
+          </article>
+        </div>
+      </main>
+    </div>
   {{ end }}
 {{ end }}
 {{ define "footer" }}
   {{ partial "footer.html" . }}
-</div>
 {{ end }}

@@ -11,35 +11,45 @@
      Released under the Create Commons BY (Attribution) 4.0 License -->
 {{ end }}
 {{ define "main" }}
-<main class="taxonomy-page-main {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
+  <div class="main-wrapper taxonomy-content-wrapper {{ if (eq (.Param "norbar") true) }}full-page-content-wrapper{{ end }}">
+    <main class="main taxonomy-content {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
 {{ $license := "" }}
-<article aria-label="Main Article" id="main-article" class="main-article">
+      <div class="main-article-wrapper">
+        <article aria-label="Main Article" id="main-article" class="main-article">
   {{ if eq .Data.Singular "license" }}
-  <section class="license-section">
+          <div class="license-section-wrapper">
+            <section class="license-section">
     {{ if .Title }}<h1 class="article-title">License: {{ .Title }}</h1>{{ end }}
   {{ else }}
-  <section class="taxonomy-content">
+          <div class="taxonomy-contact-wrapper">
+              <section class="taxonomy-content">
     {{ if .Title }}<h1 class="article-title">{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title | singularize | title }}{{ else }}{{ .Title }}{{ end }}{{ end }}</h1>{{ end }}
   {{ end }}
   {{ if eq .Data.Singular "license" }}
-    <h2>License Text</h2>
-      <pre class="license-block chroma">{{ $license = .Data.Term }}{{ if $license }}{{ $licenseFile := resources.Get (print "licenses/" $license) }}{{ with $licenseFile }}{{ .Content }}{{ else }}Missing{{ end }}{{ else }}Missing Term{{ end }}</pre>
+                <h2>License Text</h2>
+                  <pre class="license-block chroma">{{ $license = .Data.Term }}{{ if $license }}{{ $licenseFile := resources.Get (print "licenses/" $license) }}{{ with $licenseFile }}{{ .Content }}{{ else }}Missing{{ end }}{{ else }}Missing Term{{ end }}</pre>
   {{ else }}
     {{ .Content }}
   {{ end }}
   {{ partial "generic-helpers/aside" . }}
-  </section>
+            </section>
+          </div>
   {{ if eq .Data.Singular "license" }}
-  <section class="license-pages-section">
-    <h2>Pages with {{ $license }} license</h2>
+          <div class="license-pages-section-wrapper">
+            <section class="license-pages-section">
+              <h2>Pages with {{ $license }} license</h2>
   {{ else }}
-  <section aria-labelledby="taxonomy-contents-heading" class="taxonomy-list">
-    <h2 id="taxonomy-contents-heading" class="taxonomy-contents-heading">{{ if .Data.Terms }}{{ .Data.Singular | singularize | title }} List{{ else}}{{ .Title | singularize | title }} Pages{{ end }}</h2>
+          <div class="taxonomy-contents-heading-wrapper">
+            <section aria-labelledby="taxonomy-contents-heading" class="taxonomy-list">
+              <h2 id="taxonomy-contents-heading" class="taxonomy-contents-heading">{{ if .Data.Terms }}{{ .Data.Singular | singularize | title }} List{{ else}}{{ .Title | singularize | title }} Pages{{ end }}</h2>
   {{ end }}
-      <ol class="taxonomy-contents">
+              <ol class="taxonomy-contents">
   {{ partial "generic-helpers/section/nesting" . }}
-      </ol>
-  </section>
-</article>
-</main>
+              </ol>
+            </section>
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
 {{ end }}

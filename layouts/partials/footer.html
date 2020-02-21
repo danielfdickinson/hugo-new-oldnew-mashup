@@ -1,5 +1,6 @@
 {{/*Default Footer for OldNew Mashup Theme*/}}
-<footer aria-label="Page Footer" id="page-footer" class="page-footer">
+<div class="page-footer-wrapper">
+  <footer aria-label="Page Footer" id="page-footer" class="page-footer">
 <!-- Copyright 2019 Daniel F. Dickinson,
      Released under the Creative Commons 4.0 BY (Attribution) License -->
   {{ block "footerlinks" . }}
@@ -12,4 +13,5 @@
       {{ partial "footer/colophon" . }}
     {{ end }}
   {{ end }}
-</footer>
+  </footer>
+</div>

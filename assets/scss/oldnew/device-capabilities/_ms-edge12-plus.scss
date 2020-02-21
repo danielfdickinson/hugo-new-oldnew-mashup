@@ -13,7 +13,16 @@
 
 // ########################################################################
 
-// MS Edge 12+ @supports hack
-@supports (-ms-ime-align: auto) {
-  @include top-level-css('ms-edge12+');
+
+@media screen and (min-height: 36em) and (min-width: 50em) {
+  @supports (box-sizing: border-box) {
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  // MS Edge 12+ @supports hack
+  @supports (-ms-ime-align: auto) {  //sass-lint:disable-line no-vendor-prefixes
+    @include top-level-css('normal-plus-screen', 'ms-edge12+');
+  }
 }

@@ -1,7 +1,5 @@
 @mixin footer-links {
   & .footer-links {
-    @include normaltextlinks;
-
     border-top: 4px ridge $default-separator-color;
     display: flex;
     flex: 1 1 100%;
@@ -9,6 +7,14 @@
     justify-content: space-between;
     padding: .3em;
     text-align: center;
+
+    a {
+      &:link,
+      &:active,
+      &:hover {
+        text-decoration: none;
+      }
+    }
 
     span {
       border: 3px ridge $default-separator-color;
@@ -72,58 +78,71 @@
   }
 }
 
-.page-footer {
-  @include footer-links;
+@mixin footer-wrapper-mq($device-capabilities: 'small-screen', $sub-devcap: null) {
+  .page-footer-wrapper {
 
-  font-size: smaller;
-  margin-top: .4em;
-  order: 999;
+    @if $sub-devcap == 'ie11+' {
+      grid-column-end: initial;
+      grid-column-start: initial;
+      grid-row-start: initial;
+      order: 999;
+      width: 100%;
+    }
 
-  .colophon {
-    @include license-block;
-    @include rollup-section-named(doc-date) {
-      @include utility-box($doc-date-border, $doc-date-border-color, $doc-date-text-color);
+    @supports (order: 999) and (not (display: grid)) {
+      order: 999;
+    }
 
-      background-color: $doc-date-background-color;
-      color: $doc-date-text-color;
-    };
-
-    border-top: 2px solid $default-separator-color;
-    padding: .3em;
-    text-align: left;
+    @supports (display: grid) {
+      grid-column-end: 3;
+      grid-column-start: 1;
+      grid-row-start: 8;
+      width: auto;
+    }
   }
 }
 
-.colophon {
-  & .doc-date-hoversite {
-    font-style: italic;
-  }
+@mixin footer($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @if $device-capabilities == 'all-browsers' {
+    .page-footer-wrapper {
+      @include footer-links;
 
-  & .doc-date-block {
-    font-style: italic;
-  }
+      bottom: 0;
+      font-size: smaller;
+      left: 0;
+      margin-top: .4em;
+      position: relative;
+      width: 100%;
+      z-index: 4;
 
-  & ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-}
 
-@media screen and (min-height: 36em) and (min-width: 50em) {
-  .page-footer {
-    grid-column-end: 3;
-    grid-column-start: 1;
-    grid-row-start: 7;
-  }
-}
+      & .colophon {
+        @include license-block;
 
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .page-footer {
-    grid-column-end: initial;
-    grid-column-start: initial;
-    grid-row-start: initial;
-    order: 999;
-    width: 100%;
+        border-top: 2px solid $default-separator-color;
+        padding: .3em;
+        text-align: left;
+      }
+
+      .doc-date-block {
+        font-size: smaller;
+        font-style: italic;
+        margin: .4em;
+        padding-top: .4em;
+        text-align: left;
+      };
+
+      & ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  } @elseif $device-capabilities == 'small-screen' {
+    @include footer-wrapper-mq($device-capabilities, $sub-devcap);
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    @include footer-wrapper-mq($device-capabilities, $sub-devcap);
+  } @elseif $device-capabilities == 'no-hover' {
+    @include footer-wrapper-mq($device-capabilities, $sub-devcap);
   }
 }

@@ -18,5 +18,11 @@
 // mobile device
 // Screen only
 @media screen and (hover: none) {
+  @supports (box-sizing: border-box) {
+    * {
+      box-sizing: border-box;
+    }
+  }
+
   @include top-level-css('no-hover');
 }

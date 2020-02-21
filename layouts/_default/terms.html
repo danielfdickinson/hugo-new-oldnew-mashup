@@ -7,21 +7,30 @@
      Released under the Create Commons BY (Attribution) 4.0 License -->
 {{ end }}
 {{ define "main" }}
-<main class="taxonomy-term-page-main {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
-<article aria-label="Main Article" id="main-article" class="main-article">
+  <div class="main-wrapper taxonomy-term-content-wrapper {{ if (eq (.Param "norbar") true) }}full-page-content-wrapper{{ end }}">
+
+    <main class="main taxonomy-term-content {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
+      <div class="main-article-wrapper">
+        <article aria-label="Main Article" id="main-article" class="main-article">
   {{ if .Title }}<h1 class="article-title">{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title }}{{ else }}{{ .Title }}{{ end }}{{ end }}</h1>{{ end }}
-  <section class="taxonomy-term-content">
+          <div class="taxonomy-term-content-wrapper">
+            <section class="taxonomy-term-content">
   {{ .Content }}
   {{ partial "generic-helpers/aside" . }}
-  </section>
+            </section>
+          </div>
   {{ if .Data.Pages }}
-  <section aria-labelledby="taxonomy-term-heading" class="taxonomy-term-list">
-    <h2 id="section-contents-heading" class="taxonomy-term-heading">{{ if .Data.Terms }}{{ .Data.Singular | singularize | humanize }} List{{ else}}{{ .Title | singularize | humanize }} Pages{{ end }}</h2>
-    <ol class="taxonomy-term-contents">
+          <div class="taxonomy-term-list-wrapper">
+            <section aria-labelledby="taxonomy-term-heading" class="taxonomy-term-list">
+              <h2 id="section-contents-heading" class="taxonomy-term-heading">{{ if .Data.Terms }}{{ .Data.Singular | singularize | humanize }} List{{ else}}{{ .Title | singularize | humanize }} Pages{{ end }}</h2>
+              <ol class="taxonomy-term-contents">
     {{ partial "generic-helpers/section/nesting" . }}
-    </ol>
-  </section>
+              </ol>
+            </section>
+          </div>
   {{ end }}
-</article>
-</main>
+        </article>
+      </div>
+    </main>
+  </div>
 {{ end }}

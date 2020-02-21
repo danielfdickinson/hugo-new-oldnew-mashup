@@ -67,63 +67,6 @@
   display: none;
 }
 
-.local-nav-bar {
-  flex: 1 1 100%;
-  height: auto;
-  order: 4;
-  width: 100%;
-}
-
-.local-nav-bar-wrapper {
-  display: block;
-  height: auto;
-  left: 0;
-  padding-bottom: .4em;
-  padding-top: .4em;
-  position: relative;
-  text-align: center;
-  top: 0;
-  width: 100%;
-
-  & a,
-  & span {
-    background-color: $local-nav-background-color;
-    color: $local-nav-text-color;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    padding-bottom: .2em;
-    padding-top: .2em;
-    text-align: center;
-    text-decoration: none;
-    width: 30%;
-
-    &:link,
-    &:active,
-    &:hover {
-      display: inline-block;
-      margin: 0;
-      padding: 0;
-      padding-bottom: .2em;
-      padding-top: .2em;
-      text-align: center;
-      text-decoration: none;
-      width: 30%;
-    }
-
-    &:link,
-    &:visited {
-      color: $local-nav-link-color;
-    }
-
-    &:active,
-    &:hover {
-      background-color: $local-nav-hover-background-color;
-      color: $local-nav-hover-color;
-    }
-  }
-}
-
 @media screen and (min-height: 36em) and (min-width: 50em) {
   .section-nav-sitemap {
     background-color: $sidebar-box-background-color;
@@ -169,42 +112,13 @@
     width: 80%;
   }
 
-  .local-nav-bar {
-    font-size: .9em;
-    grid-column-end: 2;
-    grid-column-start: 2;
-    grid-row-start: 2;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: .4em;
-    margin-top: 0;
-    order: 3;
-    padding-bottom: 0;
-    padding-left: .5em;
-    padding-right: .4em;
-    padding-top: 0;
-  }
-}
-
-@media screen and (min-height: 36em) and (min-width: 50em) {
   .section-nav-sitemap {
-    display: block;
-  }
-
-  .local-nav-bar {
     display: block;
   }
 }
 
 // sass-lint:disable no-vendor-prefixes
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .local-nav-bar {
-    display: block;
-    flex: 1 1 100%;
-    margin-bottom: .4em;
-    order: 2;
-    text-align: center;
-  }
 
   .section-nav-sitemap {
     display: block;
@@ -217,5 +131,113 @@
 @media speech {
   .local-nav-bar {
     display: none;
+  }
+}
+
+@mixin linear-nav($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @if $device-capabilities == 'all-browsers' {
+    .local-nav-bar {
+      display: inline-block;
+      font-size: .9rem;
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: .4em;
+      margin-top: 0;
+      padding-bottom: 0;
+      padding-left: .5em;
+      padding-right: .4em;
+      padding-top: 0;
+      width: 23%;
+
+      & .local-nav-bar-wrapper {
+        display: block;
+        height: auto;
+        left: 0;
+        padding-bottom: .4em;
+        padding-top: .4em;
+        position: relative;
+        text-align: center;
+        top: 0;
+        width: 100%;
+
+        & a,
+        & span {
+          background-color: $local-nav-background-color;
+          color: $local-nav-text-color;
+          display: inline-block;
+          margin: 0;
+          padding: 0;
+          padding-bottom: .2em;
+          padding-top: .2em;
+          text-align: center;
+          text-decoration: none;
+          width: 30%;
+
+          &:link,
+          &:active,
+          &:hover {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            padding-bottom: .2em;
+            padding-top: .2em;
+            text-align: center;
+            text-decoration: none;
+            width: 30%;
+          }
+
+          &:link,
+          &:visited {
+            color: $local-nav-link-color;
+          }
+
+          &:active,
+          &:hover {
+            background-color: $local-nav-hover-background-color;
+            color: $local-nav-hover-color;
+          }
+        }
+      }
+    }
+  } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+    .local-nav-bar {
+      display: block;
+
+      @supports (flex: 1 1 100%) and (not (display: grid)) {
+        flex: 1 1 100%;
+        order: 4;
+        width: auto;
+      }
+
+      @supports (display: grid) {
+        grid-column-end: 3;
+        grid-column-start: 1;
+        grid-row-start: 7;
+        width: auto;
+      }
+    }
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    .local-nav-bar {
+      @supports (flex: 1 1 25%) and (not (display: grid)) {
+        flex: 1 1 25%;
+        order: 3;
+      }
+
+      @supports (display: grid) {
+        grid-column-end: 3;
+        grid-column-start: 2;
+        grid-row-start: 2;
+      }
+    }
+
+    @if $sub-devcap == 'ie11+' {
+      .local-nav-bar {
+        display: block;
+        flex: 1 1 25%;
+        margin-bottom: .4em;
+        order: 3;
+        text-align: center;
+      }
+    }
   }
 }

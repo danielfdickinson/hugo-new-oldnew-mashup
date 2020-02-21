@@ -1,22 +1,8 @@
-/*! Copyright 2007-2009,2017-2018 Daniel F. Dickinson <cshored@thecshore.com>
+/*! Copyright 2007-2020 Daniel F. Dickinson <cshored@thecshore.com>
  *  Released under the Creative Commons BY (Attribution) 4.0 License
  */
 
 // OldNew Mashup Theme Main Elements Stylesheet
-// Remember, for the level of specifity last rule wins
-
-.default-body-wrapper {
-  align-content: stretch;
-  align-items: flex-start;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  left: 0;
-  position: relative;
-  top: 0;
-  width: 100%;
-  z-index: 0;
-}
 
 .article-title {
   border-bottom: 6px ridge;
@@ -28,24 +14,6 @@
   margin-top: 0;
   padding: .2em;
   width: 100%;
-}
-
-.main,
-.section-page-main,
-.taxonomy-term-page-main,
-.taxonomy-page-main {
-  display: block;
-  flex: 1 1 100%;
-  line-height: 1.5;
-  margin-bottom: 0;
-  margin-left: .4em;
-  margin-right: .4em;
-  margin-top: 0;
-  max-width: 100%;
-  order: 2;
-  overflow: hidden;
-  padding: 0;
-  text-align: left;
 }
 
 .toc-box {
@@ -71,12 +39,6 @@
       color: $toc-box-text-color;
     }
   }
-}
-
-.main-content {
-  display: block;
-  max-width: 100%;
-  order: 2;
 }
 
 .main-body {
@@ -278,28 +240,6 @@
 @include regular-main;
 
 @media screen and (min-height: 36em) and (min-width: 50em) {
-  .default-body-wrapper {
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: 75% 25%;
-  }
-
-  .main,
-  .section-page-main,
-  .taxonomy-term-page-main,
-  .taxonomy-page-main {
-    grid-column-end: 1;
-    grid-column-start: 2;
-    grid-row-end: 6;
-    grid-row-start: 2;
-  }
-
-  .full-page-content {
-    grid-column-end: 3;
-    grid-column-start: 1;
-    grid-row-end: 6;
-    grid-row-start: 2;
-  }
 
   .article-toc {
     display: inline-block;
@@ -310,38 +250,255 @@
   }
 }
 
-// sass-lint:disable no-vendor-prefixes
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .default-body-wrapper {
-    align-content: stretch;
-    align-items: flex-start;
-    display: flex;
-    flex-flow: row wrap;
-    grid-auto-flow: initial;
-    grid-template-columns: initial;
-    justify-content: flex-start;
-    left: 0;
-    position: relative;
-    top: 0;
-    width: 100%;
-    z-index: 0;
-  }
+@mixin main-article-wrapper($device-capabilities: 'all-browsers', $sub-devcap: null) {
 
-  .main,
-  .section-page-main,
-  .taxonomy-term-page-main,
-  .taxonomy-page-main {
-    display: block;
-    flex: 1 1 100%;
-    line-height: 1.5;
-    margin-bottom: 0;
-    margin-left: .4em;
-    margin-right: .4em;
-    margin-top: 0;
-    max-width: 75%;
-    order: 3;
-    overflow: hidden;
-    padding: 0;
-    text-align: left;
+  @if $device-capabilities == 'all-browsers' {
+    @at-root .landing-content-wrapper {
+      & .main-article-wrapper {
+        & h2 {
+          text-align: center;
+        }
+
+        & > p {
+          text-align: center;
+        }
+
+        & h3 {
+          text-align: center;
+        }
+      }
+    }
+
+    .main-article-wrapper {
+      margin: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .main-article {
+      display: none;
+      height: 0;
+      visibility: hidden;
+      width: 0;
+    }
+  } @elseif $device-capabilities == 'small-screen' {
+    .main-article {
+      display: block;
+      height: auto;
+      max-height: 100%;
+      visibility: visible;
+      width: 100%;
+    }
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    .main-article {
+      display: block;
+      height: auto;
+      max-height: 100%;
+      visibility: visible;
+      width: 100%;
+    }
+  } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
+    .main-article {
+      display: block;
+      height: auto;
+      max-height: 100%;
+      visibility: visible;
+      width: 100%;
+    }
   }
+}
+
+@mixin main-wrapper-mq($device-capabilities, $sub-devcap: null) {
+  .main-wrapper {
+    display: block;
+    height: auto;
+    visibility: visible;
+    width: auto;
+
+    @supports (flex: 1 1 100%) and (not (display: grid)) {
+      flex: 1 1 100%;
+      order: 2;
+      width: auto;
+    }
+    @supports (display: grid) {
+      grid-column-end: 3;
+      grid-column-start: 1;
+      grid-row-end: 6;
+      grid-row-start: 2;
+      width: auto;
+    }
+
+    & .main {
+      display: block;
+      height: auto;
+      visibility: visible;
+      width: 100%;
+    }
+
+    @if $sub-devcap == 'ie11+' {
+      grid-column-end: initial;
+      grid-column-start: initial;
+      grid-row-end: initial;
+      grid-row-start: initial;
+      order: 2;
+
+    } @elseif $sub-devcap == 'ms-edge12-plus' {
+      grid-column-end: 2;
+      grid-column-start: 1;
+      grid-row-end: 6;
+      grid-row-start: 2;
+    }
+
+    &.full-page-content-wrapper {
+      @supports (display: flex) and (not (display: grid)) {
+        flex: 1 1 100%;
+        order: 2;
+        width: auto;
+      }
+
+      @supports (display: grid) {
+        grid-column-end: 3;
+        grid-column-start: 1;
+        grid-row-end: 6;
+        grid-row-start: 2;
+        width: auto;
+      }
+
+      @if $sub-devcap == 'ie11+' {
+        flex: 1 1 100%;
+        grid-column-end: initial;
+        grid-column-start: initial;
+        grid-row-end: initial;
+        grid-row-start: initial;
+      } @elseif $sub-devcap == 'ms-edge12-plus' {
+        grid-column-end: 3;
+        grid-column-start: 1;
+        grid-row-end: 6;
+        grid-row-start: 2;
+        width: auto;
+      }
+
+      & .full-page-content {
+        display: block;
+        height: auto;
+        visibility: visible;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@mixin content-wrapper($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @include main-article-wrapper($device-capabilities);
+
+  @if $device-capabilities == 'all-browsers' {
+    .main-wrapper {
+      display: block;
+      line-height: 1.5;
+      margin: 0;
+      margin-top: 0;
+      overflow: hidden;
+      padding: 0;
+      padding-left: .5%;
+      padding-right: .5%;
+      text-align: left;
+      width: 75%;
+
+      &.full-page-content-wrapper {
+        width: 99%;
+      }
+    }
+
+    .main {
+      display: none;
+      height: 0;
+      visibility: hidden;
+      width: 0;
+    }
+
+  } @elseif $device-capabilities == 'small-screen' {
+    @include main-wrapper-mq($device-capabilities, $sub-devcap);
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    @include main-wrapper-mq($device-capabilities, $sub-devcap);
+  } @elseif $device-capabilities == 'no-hover' {
+    @include main-wrapper-mq($device-capabilities, $sub-devcap);
+  } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
+    .main-wrapper {
+      display: block;
+      height: auto;
+      visibility: visible;
+      width: auto;
+    }
+  }
+}
+
+@mixin body-wrapper($device-capabilities: 'all-browsers', $sub-devcap:  null) {
+  .default-body-wrapper {
+    @if $device-capabilities == 'all-browsers' {
+      left: 0;
+      position: relative;
+      top: 0;
+      width: 100%;
+      z-index: 0;
+    } @elseif $device-capabilities == 'small-screen' {
+      @supports (display: flex) and (not (display: grid)) {
+        align-content: stretch;
+        align-items: flex-start;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+      }
+
+      @supports (display: grid) {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: 75% 25%;
+      }
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      @supports (display: flex) and (not (display: grid)) {
+        align-content: stretch;
+        align-items: flex-start;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+      }
+
+      @supports (display: grid) {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: 75% 25%;
+      }
+
+      @if $sub-devcap == 'ie11+' {
+        align-content: stretch;
+        align-items: flex-start;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+      } @elseif $sub-devcap == 'ms-edge12-plus' {
+
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: 75% 25%;
+      }
+    } @elseif $device-capabilities == 'no-hover' {
+      @supports (display: flex) and (not (display: grid)) {
+        align-content: stretch;
+        align-items: flex-start;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+      }
+
+      @supports (display: grid) {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: 75% 25%;
+      }
+    }
+  }
+}
+@mixin default-body($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @include body-wrapper($device-capabilities, $sub-devcap);
+  @include content-wrapper($device-capabilities, $sub-devcap);
 }

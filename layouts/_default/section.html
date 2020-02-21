@@ -7,28 +7,34 @@
      Released under the Create Commons BY (Attribution) 4.0 License -->
 {{ end }}
 {{ define "main" }}
-<main class="section-page-main {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
-<article aria-label="Main Article" id="main-article" class="main-article">
+  <div class="main-wrapper{{ if (eq (.Param "norbar") true) }} full-page-content-wrapper{{ end }} section-page-content-wrapper">
+
+    <main class="main{{ if (eq (.Param "norbar") true) }} full-page-content{{ end }} section-page-content">
+      <div class="main-article-wrapper">
+        <article aria-label="Main Article" id="main-article" class="main-article">
   {{ partial "generic-helpers/article-header" . }}
   {{ if (trim ( replaceRE "<h1.*</h1>" "" .Content | safeHTML ) " \t\n") }}
-    <section class="regular-content" aria-labelledby="regular-content-heading">
-      <h2 id="regular-content-heading" class="regular-content-heading">Preface</h2>
+          <div class="regular-content-wrapper">
+            <section class="regular-content" aria-labelledby="regular-content-heading">
+              <h2 id="regular-content-heading" class="regular-content-heading">Preface</h2>
     {{ replaceRE "<h1.*</h1>" "" .Content | safeHTML }}
     {{ partial "generic-helpers/aside" . }}
-    </section>
+            </section>
+          </div>
   {{ end }}
   {{ if .Data.Pages }}
-  <section aria-labelledby="section-contents-heading" class="section-toc">
-    <h2 id="section-contents-heading" class="section-contents-heading">Section Contents</h2>
+          <div class="section-toc-wrapper">
+            <section aria-labelledby="section-contents-heading" class="section-toc">
+              <h2 id="section-contents-heading" class="section-contents-heading">Section Contents</h2>
     {{ $timeTypes := .Param "time_types" }}
     {{ if (in $timeTypes .Type ) }}
       {{ $sections := ( partial "generic-site-menu/nodes-included" (dict "nodes" .Sections "menu_node" . "menu_type" "section" ) )}}
       {{ if $sections }}
-        <ol class="section-contents">
+              <ol class="section-contents">
           {{ range $sections }}
-            <li><a href="{{ .RelPermalink }}">{{ if .Title }}{{ .Title }}{{ else if .Name }}{{ .Name }}{{ else }}Untitled{{ end }}</a></li>
+                <li><a href="{{ .RelPermalink }}">{{ if .Title }}{{ .Title }}{{ else if .Name }}{{ .Name }}{{ else }}Untitled{{ end }}</a></li>
           {{ end }}
-        </ol>
+              </ol>
       {{ end }}
       {{ $baseNodes :=  .Data.Pages}}
       {{ $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $baseNodes "menu_node" . "menu_type" "section" ) ) }}
@@ -53,25 +59,28 @@
         {{ end }}
         {{ if $section_nodes }}
           {{ range $section_nodes.GroupByDate "2006-01" "desc" }}
-      <h3>{{ .Key }}</h3>
-      <ul>
+              <h3>{{ .Key }}</h3>
+                <ul>
             {{ range .Pages.ByDate.Reverse }}
-        <li>
-          <span class="list-item-date">{{ .Date.Format "Mon, 2006/01/02 15:04 MST" }}</span>
-          <span class="date-list-item"><a href="{{ .Permalink }}">{{ if .Title }}{{ .Title }}{{ else if .File.TranslationBaseName }}{{ .File.TranslationBaseName | title }}{{ end }}</a></span>
-        </li>
+                  <li>
+                    <span class="list-item-date">{{ .Date.Format "Mon, 2006/01/02 15:04 MST" }}</span>
+                    <span class="date-list-item"><a href="{{ .Permalink }}">{{ if .Title }}{{ .Title }}{{ else if .File.TranslationBaseName }}{{ .File.TranslationBaseName | title }}{{ end }}</a></span>
+                  </li>
             {{ end }}
-      </ul>
+                </ul>
          {{ end }}
         {{ end }}
       {{ end }}
     {{ else }}
-    <ol class="section-contents">
+              <ol class="section-contents">
       {{ partial "generic-helpers/section/nesting" . }}
-    </ol>
+              </ol>
     {{ end }}
-  </section>
+            </section>
+          </div>
   {{ end }}
-</article>
-</main>
+        </article>
+      </div>
+    </main>
+  </div>
 {{ end }}

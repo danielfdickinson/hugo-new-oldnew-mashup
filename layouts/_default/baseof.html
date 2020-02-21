@@ -2,20 +2,20 @@
 <html lang="{{ $.Site.Language.Lang }}">
 <!-- Copyright 2018 Daniel F. Dickinson <cshored@thecshore.com
      Released under the Create Commons BY (Attribution) 4.0 License -->
-  <head>
-    <title>{{ block "title" . }}
-      {{ if .Title }}{{ .Title }}{{ else if .Name }}{{ .Name }}{{ else }}{{ .Site.Title }}{{ end }}
-    {{ end }}</title>
-    {{ block "head" . }}
-       {{ partial "head/theme" . }}
-       {{ partial "head/site" . }}
-    {{ end }}
-  </head>
+<head>
+  <title>{{ block "title" . }}
+    {{ if .Title }}{{ .Title }}{{ else if .Name }}{{ .Name }}{{ else }}{{ .Site.Title }}{{ end }}
+  {{ end }}</title>
+  {{ block "head" . }}
+     {{ partial "head/theme" . }}
+     {{ partial "head/site" . }}
+  {{ end }}
+</head>
   {{ block "bodytag" .}}
-  <body>
+<body>
   {{ end }}
   {{ block "header" . }}
-    <div class="default-body-wrapper">
+  <div class="default-body-wrapper">
       {{ partial "page-header" . }}
   {{ end }}
   {{ block "navigation" . }}
@@ -27,8 +27,10 @@
     {{ end }}
   {{ end }}
   {{ block "main" . }}
-      <main class="main {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
-      <article aria-label="Main Article" id="main-article" class="main-article">
+    <div class="main-wrapper{{ if (eq (.Param "norbar") true) }} full-page-content-wrapper{{ end }}">
+      <main class="main{{ if (eq (.Param "norbar") true) }} full-page-content{{ end }}">
+        <div class="main-article-wrapper">
+          <article aria-label="Main Article" id="main-article" class="main-article">
     {{ partial "generic-helpers/article-header" . }}
     {{ if (not (or .Data.Terms .Data.Singular ) ) }}
     {{ partial "generic-helpers/article-toc" . }}
@@ -38,17 +40,19 @@
     {{ block "tags-list" . }}
       {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "tag" ) }}
     {{ end }}
-      </article>
+          </article>
+        </div>
     {{ block "main-footer" . }}
     {{ end }}
       </main>
+    </div>
   {{ end }}
   {{ block "sidebar" . }}
     {{ partial "sidebar" . }}
   {{ end }}
   {{ block "footer" . }}
     {{ partial "footer" . }}
-    </div>
   {{ end }}
-  </body>
+  </div>
+</body>
 </html>

@@ -14,13 +14,15 @@
 {{ define "main-footer" }}
   {{ $related := .Site.RegularPages.Related . | first 5 }}
   {{ with $related }}
-  <section class="see-also">
-    <h3>See Also</h3>
-    <ul>
+  <div class="see-also-wrapper">
+    <section class="see-also">
+      <h3>See Also</h3>
+      <ul>
 	{{ range . }}
-	 <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+	     <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
 	{{ end }}
-    </ul>
-  </section>
+      </ul>
+    </section>
+  </div>
   {{ end }}
 {{ end }}
