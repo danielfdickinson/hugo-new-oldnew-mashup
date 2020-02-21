@@ -431,7 +431,7 @@
       border-radius: 8px;
     }
 
-    @if $sub-devcap == 'ie11+' {
+    @if $sub-devcap == 'ie9+' {
       border-radius: 8px;
     }
 
@@ -498,6 +498,10 @@
         opacity: .5;
       }
 
+      @if $sub-devcap == 'ie9+' {
+        opacity: .5;
+      }
+
       & a {
         &:link {
           display: block;
@@ -525,7 +529,7 @@
       }
     }
   } @else {
-    @if $sub-devcap == 'ie11+' {
+    @if $sub-devcap == 'ie9+' {
       .back-to-top-button {
         border-radius: 12px;
 
