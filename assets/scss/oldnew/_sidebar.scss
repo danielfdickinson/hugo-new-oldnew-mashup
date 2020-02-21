@@ -63,37 +63,85 @@
   }
 }
 
-.sidebar {
-  display: none;
-  font-size: .9em;
-  margin: 0;
-  order: 5;
-  overflow: hidden;
-  padding: 0;
-}
+@mixin sidebar($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @if $device-capabilities == 'all-browsers' {
+    .sidebar {
+      display: block;
+      font-size: .9em;
+      margin: 0;
+      order: 5;
+      overflow: hidden;
+      padding: 0;
+      visibility: visible;
+    }
+  } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+    @supports (order: 6) and (not (display: grid)) {
+      .sidebar {
+        display: inline-block;
+        flex: 1 1 100%;
+        max-width: none;
+        order: 6;
+        visibility: visible;
+        width: auto;
+      }
+    }
 
-@media screen and (min-height: 36em) and (min-width: 50em) {
-  .sidebar {
-    display: block;
-    grid-column-end: 2;
-    grid-column-start: 2;
-    grid-row-start: 4;
-    margin-right: .4em;
-    width: 100%;
-  }
-}
+    @if $sub-devcap == 'ie11+' {
+      .sidebar {
+        display: inline-block;
+        flex: 1 1 100%;
+        max-width: none;
+        order: 6;
+        visibility: visible;
+        width: auto;
+      }
+    }
 
-@media speech {
-  .sidebar {
-    display: none;
-  }
-}
+    @supports (display: grid) {
+      .sidebar {
+        display: block;
+        grid-column-end: 3;
+        grid-column-start: 1;
+        grid-row-start: 8;
+        visibility: visible;
+        width: auto;
+      }
+    }
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    @supports (order: 4) and (not (display: grid)) {
+      .sidebar {
+        display: inline-block;
+        flex: 1 1 22%;
+        max-width: 22%;
+        order: 4;
+        visibility: visible;
+      }
+    }
 
-// sass-lint:disable no-vendor-prefixes
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .sidebar {
-    display: inline-block;
-    max-width: 22%;
-    order: 4;
+    @if $sub-devcap == 'ie11+' {
+      .sidebar {
+        display: inline-block;
+        flex: 1 1 22%;
+        max-width: 22%;
+        order: 4;
+        visibility: visible;
+      }
+    }
+
+    @supports (display: grid) {
+      .sidebar {
+        display: block;
+        grid-column-end: 3;
+        grid-column-start: 2;
+        grid-row-start: 4;
+        visibility: visible;
+        width: auto;
+      }
+    }
+  } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
+    .sidebar {
+      display: none;
+      visibility: hidden;
+    }
   }
 }
