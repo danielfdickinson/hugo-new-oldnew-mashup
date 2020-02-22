@@ -1,23 +1,27 @@
 {{ $curCtx := . }}
 {{ $foundPrev := false }}
 {{ $foundPage := false }}
-{{ $curPage := .Scratch.Get "aNil" }}
-{{ $prevPage := .Scratch.Get "aNil" }}
-{{ $prevNodes := .Scratch.Get "aNil" }}
-{{ $curNode := .Scratch.Get "aNil" }}
+{{ $curPage := false }}
+{{ $prevPage := false }}
+{{ $curNode := false }}
 {{ with .menu_node }}
+
   {{ if .Parent }}
     {{/*Find the previous page*/}}
-     {{ $prevNodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Parent.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
+    {{ $prevNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Parent.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
     {{ $curNode = . }}
-    {{ range $prevNodes }}
-      {{ $curPage = . }}
-      {{ if eq $curPage $curNode }}
-        {{ $foundPage = true }}
-      {{ else if not $foundPage }}
-        {{ $prevPage = $curPage }}
+
+    {{ if $prevNodes }}
+      {{ range $prevNodes }}
+        {{ $curPage = . }}
+        {{ if eq $curPage $curNode }}
+          {{ $foundPage = true }}
+        {{ else if not $foundPage }}
+          {{ $prevPage = $curPage }}
+        {{ end }}
       {{ end }}
     {{ end }}
+
     {{ if and ( and $foundPage ( $curNode.IsAncestor $curCtx.cur_node ) ) ( ne $curNode $curCtx.cur_node ) }}
       {{/*For the ancestors of the current node, just stop at the current page*/}}
       {{ if $curNode.RelPermalink }}<a href="{{ $curNode.RelPermalink }}">Prev</a>{{ end }}
@@ -35,35 +39,18 @@
     {{ else if $foundPage }}
       {{/*No previous node, but found ourselves*/}}
       {{ if not .Parent.Parent }}
-        {{/*Just go to home's last child's bottom leaf*/}}
-        {{ $childNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Home.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
-        {{/*If there are sections below us*/}}
-        {{ if $childNodes }}
-          {{ if (last 1 $childNodes ) }}
-            {{/*Find child*/}}
-            {{ range (last 1 $childNodes ) }}
-              {{/*repeat*/}}
-              {{ partial "navigation/local-nav/generate/findlastinsection" (dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
-            {{ end }}
-          {{ end }}
-        {{ end }}
+        <span>Prev</span>
       {{ else }}
         {{/*Go up one level and go to last previous leaf*/}}
         {{ partial "navigation/local-nav/generate/prevrecurse" ( dict "cur_node" $curCtx.cur_node "menu_node" .Parent ) }}
       {{ end }}
     {{ else }}
-      {{/*Just go to home's last child's bottom leaf*/}}
-      {{ $childNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Home.Pages "menu_node" . "menu_type" "local-nav" ) ) }}
-      {{/*If there are sections below us*/}}
-      {{ if $childNodes }}
-        {{ if (last 1 $childNodes ) }}
-          {{/*Find child*/}}
-          {{ range (last 1 $childNodes ) }}
-            {{/*repeat*/}}
-            {{ partial "navigation/local-nav/generate/findlastinsection" (dict "cur_node" $curCtx.cur_node "menu_node" . ) }}
-          {{ end }}
-        {{ end }}
-      {{ end }}
+      <span>Prev</span>
     {{ end }}
+  {{ else }}
+    {{/* No parent */}}
+    <span>Prev</span>
   {{ end }}
+{{ else }}
+<span>Prev</span>
 {{ end }}

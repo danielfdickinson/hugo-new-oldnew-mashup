@@ -2,8 +2,7 @@
        Released under the Creative Commons 4.0 BY (Attribution) License -->
 {{ $curCtx := . }}
 {{ with .menu_node }}
-  {{ $nodes := .Scratch.Get "aNil" }}
-  {{ $nodes = ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Pages "menu_node" . "menu_type" $curCtx.menu_type ) ) }}
+  {{ $nodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Pages "menu_node" . "menu_type" $curCtx.menu_type ) ) }}
   {{ range $nodes }}
     {{ $max_rows_per_column := .Param "max_rows_per_column" | default 8 }}
     {{ $max_columns := .Param "max_columns" | default 3 }}

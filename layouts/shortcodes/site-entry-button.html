@@ -1,6 +1,5 @@
 {{ $curCtx := . }}
 {{ with .Page }}
-  {{ $scratch := newScratch }}
   <!-- find whether we're a leaf section -->
   {{ $nextNodes := ( partial "generic-site-menu/nodes-included" ( dict "nodes" .Site.Home.Pages "menu_node" .Site.Home "menu_type" "local-nav" ) ) }}
   <div class="site-enter-wrapper">

@@ -1,41 +1,47 @@
 {{ $scratch := newScratch }}
 {{ $ctx := . }}
 {{ $allListTypes := ( slice "site" "section" "local-nav" "section-nav" "sidebar-news" "sidebar-recent" "sidebar-recent-changes" "sidebar-events" "sitemap" "taxonomy-term") }}
+{{ $haveNode := false }}
 {{ $includeNode := false }}
-
 {{ with .menu_node }}
-  {{ range $ctx.nodes }}
-    {{ $includeNode = true }}
-    {{ $not_in_lists := .Param "not_in_lists" }}
-    {{ if $not_in_lists }}
-      {{ if (in $not_in_lists $ctx.menu_type ) }}
-        {{/*If the current menu_type is excluded for this node*/}}
+  {{ if $ctx.nodes }}
+    {{ range $ctx.nodes }}
+      {{ $includeNode = true }}
+      {{ $not_in_lists := .Param "not_in_lists" }}
+      {{ if $not_in_lists }}
+        {{ if (in $not_in_lists $ctx.menu_type ) }}
+          {{/*If the current menu_type is excluded for this node*/}}
+          {{ $includeNode = false }}
+        {{ end }}
+      {{ end }}
+      {{ if ( in ( slice "home" "taxonomy" "taxonomyTerm" ) .Kind ) }}
         {{ $includeNode = false }}
       {{ end }}
-    {{ end }}
-    {{ if ( in ( slice "home" "taxonomy" "taxonomyTerm" ) .Kind ) }}
-      {{ $includeNode = false }}
-    {{ end }}
-    {{ if eq $ctx.exclude_self true }}
-       {{ if (eq $ctx.menu_node.Page .Page ) }}
-         {{ $includeNode = false }}
-       {{ end }}
-    {{ end }}
-    {{ if and .Parent $includeNode }}
-      {{/*Check ancestors*/}}
-      {{ $parentInc := ( partial "generic-site-menu/nodes-included" (dict "nodes" (slice .Parent ) "menu_node" . "menu_type" $ctx.menu_type ) ) }}
-      {{ if not (or $parentInc (not ( eq .Kind "home" ) ) ) }}
-        {{/*If the ancestors are not included at their levels*/}}
-        {{ $includeNode = false }}
+      {{ if eq $ctx.exclude_self true }}
+         {{ if (eq $ctx.menu_node.Page .Page ) }}
+           {{ $includeNode = false }}
+         {{ end }}
       {{ end }}
-    {{ end }}
-    {{ if $includeNode }}
-      {{ if not ( $scratch.Get "nodes_included" ) }}
-        {{ $scratch.Set "nodes_included" ( slice . ) }}
-      {{ else }}
-        {{ $scratch.Add "nodes_included" . }}
+      {{/* if and .Parent $includeNode }}
+        {{/*Check ancestors*/}}
+        {{/* $parentInc := ( partial "generic-site-menu/nodes-included" (dict "nodes" (slice .Parent ) "menu_node" . "menu_type" $ctx.menu_type ) ) }}
+        {{ if not (or $parentInc (not ( eq .Kind "home" ) ) ) }}
+          {{/*If the ancestors are not included at their levels*/}}
+          {{/* $includeNode = false }}
+        {{ end }}
+      {{ end */}}
+      {{ if $includeNode }}
+        {{ if not $haveNode }}
+          {{ $scratch.Set "nodes_included" ( slice . ) }}
+          {{ $haveNode = true }}
+        {{ else }}
+          {{ $scratch.Add "nodes_included" . }}
+        {{ end }}
       {{ end }}
     {{ end }}
   {{ end }}
+{{ end }}
+{{ if not $haveNode }}
+  {{ $scratch.Set "nodes_included" nil }}
 {{ end }}
 {{ return $scratch.Get "nodes_included" }}
