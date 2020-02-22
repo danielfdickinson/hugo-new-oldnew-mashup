@@ -70,10 +70,15 @@ $menubar-top-level-border-color: {{ default "$default-top-bar-border-color" ( .P
 $menubar-submenu-background-color: {{ default "$default-container-background-color" ( .Param "menubar_submenu_background_color" ) }};
 
 $local-nav-background-color: {{ default "#bbb" ( .Param "local_nav_background_color" ) }};
+$local-nav-none-background-color: {{ default "#666" ( .Param "local_nav_none_background_color" ) }};
 $local-nav-text-color: {{ default "#000" (.Param "local_nav_text_color" ) }};
 $local-nav-link-color: {{ default "#222" ( .Param "local_nav_link_color" ) }};
 $local-nav-hover-background-color: {{ default "#ddd" ( .Param "local_nav_hover_background_color" ) }};
 $local-nav-hover-color: {{ default "#222" ( .Param "local_nav_hover_color" ) }};
+
+
+$section-nav-max-menu-level: 3;
+$section-nav-entry-background-color: {{ default "#555" ( .Param "section_nav_entry_background_color" ) }};
 
 $homepage-title-background-color: {{ default "#777" ( .Param "homepage_title_background_color" ) }};
 $homepage-title-text-color: {{ default "#fff" ( .Param "homepage_title_text_color" ) }};

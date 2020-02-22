@@ -669,9 +669,6 @@ tr th {
     padding-top: 0;
     width: 33%; } }
 
-/*! Copyright 2007-2009,2017-2018 Daniel F. Dickinson <cshored@thecshore.com>
- * Released under the Creative Commons BY (Attribution) 4.0 License
- */
 .sidebar-box {
   background-color: #222;
   border-bottom: 2px solid #ccc;
@@ -726,130 +723,6 @@ tr th {
   .recent-change:last-child {
     border-bottom: 0 none;
     padding-bottom: 0; }
-
-.section-nav-sitemap-wrapper .sitemap-list .menu-link {
-  padding-bottom: .2em;
-  padding-top: .2em; }
-
-.section-nav-sitemap-wrapper .sitemap-list > .menu-item {
-  text-align: left;
-  display: inline-block;
-  list-style: none outside;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  margin-bottom: .2em; }
-  .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-entry-wrapper {
-    display: block;
-    width: 100%; }
-    .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-entry-wrapper .menu-link {
-      display: block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%; }
-      .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-entry-wrapper .menu-link .menu-entry {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap; }
-  .section-nav-sitemap-wrapper .sitemap-list > .menu-item:active > .menu-entry-wrapper, .section-nav-sitemap-wrapper .sitemap-list > .menu-item:hover > .menu-entry-wrapper {
-    background-color: #777;
-    color: #f00; }
-  .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-entry-wrapper {
-    display: inline-block; }
-  .section-nav-sitemap-wrapper .sitemap-list > .menu-item:active, .section-nav-sitemap-wrapper .sitemap-list > .menu-item:hover {
-    position: relative;
-    top: 0;
-    z-index: inherit; }
-    .section-nav-sitemap-wrapper .sitemap-list > .menu-item:active > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item:hover > UL {
-      display: inline-block; }
-      .section-nav-sitemap-wrapper .sitemap-list > .menu-item:active > UL > LI:active > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item:active > UL > LI:hover > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item:hover > UL > LI:active > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item:hover > UL > LI:hover > UL {
-        display: inline-block; }
-  .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent {
-    display: inline-block;
-    left: auto;
-    list-style: none outside;
-    margin: 0;
-    opacity: 1;
-    padding: 0;
-    position: static;
-    width: 100%; }
-    .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item {
-      display: inline-block;
-      list-style: none outside;
-      margin: 0;
-      padding: 0;
-      width: 100%; }
-      .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-entry-wrapper {
-        display: block;
-        width: 100%; }
-        .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-entry-wrapper .menu-link {
-          display: block;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          width: 100%; }
-          .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-entry-wrapper .menu-link .menu-entry {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap; }
-      .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item:active > .menu-entry-wrapper, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item:hover > .menu-entry-wrapper {
-        background-color: #777;
-        color: #f00; }
-      .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent {
-        display: inline-block;
-        left: auto;
-        list-style: none outside;
-        margin: 0;
-        opacity: 1;
-        padding: 0;
-        position: static;
-        width: 100%; }
-        .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item {
-          display: inline-block;
-          list-style: none outside;
-          margin: 0;
-          padding: 0;
-          width: 100%; }
-          .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item .menu-entry-wrapper {
-            display: block;
-            width: 100%; }
-            .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item .menu-entry-wrapper .menu-link {
-              display: block;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              width: 100%; }
-              .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item .menu-entry-wrapper .menu-link .menu-entry {
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap; }
-          .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item:active > .menu-entry-wrapper, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item:hover > .menu-entry-wrapper {
-            background-color: #777;
-            color: #f00; }
-          .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item:active, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item:hover {
-            position: relative;
-            top: 0;
-            z-index: inherit; }
-            .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item:active > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item:hover > UL {
-              display: inline-block; }
-              .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item:active > UL > LI:active > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item:active > UL > LI:hover > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item:hover > UL > LI:active > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item .menu-parent .menu-item:hover > UL > LI:hover > UL {
-                display: inline-block; }
-      .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item:active, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item:hover {
-        position: relative;
-        top: 0;
-        z-index: inherit; }
-        .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item:active > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item:hover > UL {
-          display: none; }
-          .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item:active > UL > LI:active > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item:active > UL > LI:hover > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item:hover > UL > LI:active > UL, .section-nav-sitemap-wrapper .sitemap-list > .menu-item .menu-parent .menu-item:hover > UL > LI:hover > UL {
-            display: none; }
-
-.section-nav-sitemap-wrapper .sitemap-list .menu-item {
-  padding-bottom: 0; }
-  .section-nav-sitemap-wrapper .sitemap-list .menu-item .menu-entry-wrapper.current-page {
-    border-left-color: #eee; }
-  .section-nav-sitemap-wrapper .sitemap-list .menu-item .menu-entry-wrapper {
-    background-color: #000; }
-  .section-nav-sitemap-wrapper .sitemap-list .menu-item:active > .menu-entry-wrapper, .section-nav-sitemap-wrapper .sitemap-list .menu-item:hover > .menu-entry-wrapper {
-    background-color: #777;
-    color: #f00; }
 
 .chroma {
   background-color: #272822;
@@ -2881,7 +2754,6 @@ div.ctoc-overlay {
     width: 0; }
   .local-nav-bar-wrapper a,
   .local-nav-bar-wrapper span {
-    background-color: #bbb;
     color: #000;
     display: inline-block;
     margin: 0;
@@ -2912,6 +2784,10 @@ div.ctoc-overlay {
     .local-nav-bar-wrapper span:hover {
       background-color: #ddd;
       color: #222; }
+  .local-nav-bar-wrapper a {
+    background-color: #bbb; }
+  .local-nav-bar-wrapper span {
+    background-color: #666; }
 
 .splash {
   display: block;
@@ -3024,6 +2900,131 @@ div.ctoc-overlay {
   padding: .6em;
   text-align: left;
   visibility: hidden; }
+  .section-nav-sitemap-wrapper > .menu-parent {
+    display: block;
+    list-style: none outside;
+    margin: 0;
+    padding: 0;
+    visibility: visible; }
+    .section-nav-sitemap-wrapper > .menu-parent > .menu-item {
+      display: block;
+      list-style: none outside;
+      margin: 0;
+      padding: 0;
+      width: 100%; }
+      .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-entry-wrapper {
+        background-color: #555;
+        display: block;
+        margin-bottom: .2em;
+        margin-left: .2em;
+        padding-left: .6em;
+        width: 100%; }
+        .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+          display: block;
+          overflow: hidden;
+          padding-bottom: .2em;
+          padding-top: .2em;
+          text-overflow: ellipsis;
+          width: 100%; }
+          .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; }
+          .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+            text-decoration: none; }
+        .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+          border-left: 0.2em dotted #eee;
+          margin-left: .2em;
+          padding-left: .4em; }
+        .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+          background-color: #777;
+          color: #f00; }
+      .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent {
+        display: block;
+        list-style: none outside;
+        margin: 0;
+        padding: 0;
+        visibility: visible; }
+        .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item {
+          display: block;
+          list-style: none outside;
+          margin: 0;
+          padding: 0;
+          width: 80%; }
+          .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper {
+            background-color: #555;
+            display: block;
+            margin-bottom: .2em;
+            margin-left: .2em;
+            padding-left: .6em;
+            width: 100%; }
+            .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+              display: block;
+              overflow: hidden;
+              padding-bottom: .2em;
+              padding-top: .2em;
+              text-overflow: ellipsis;
+              width: 100%; }
+              .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap; }
+              .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                text-decoration: none; }
+            .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+              border-left: 0.2em dotted #eee;
+              margin-left: .2em;
+              padding-left: .4em; }
+            .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+              background-color: #777;
+              color: #f00; }
+          .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent {
+            display: block;
+            list-style: none outside;
+            margin: 0;
+            padding: 0;
+            visibility: visible; }
+            .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item {
+              display: block;
+              list-style: none outside;
+              margin: 0;
+              padding: 0;
+              width: 80%; }
+              .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper {
+                background-color: #555;
+                display: block;
+                margin-bottom: .2em;
+                margin-left: .2em;
+                padding-left: .6em;
+                width: 100%; }
+                .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+                  display: block;
+                  overflow: hidden;
+                  padding-bottom: .2em;
+                  padding-top: .2em;
+                  text-overflow: ellipsis;
+                  width: 100%; }
+                  .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap; }
+                  .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                    text-decoration: none; }
+                .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+                  border-left: 0.2em dotted #eee;
+                  margin-left: .2em;
+                  padding-left: .4em; }
+                .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+                  background-color: #777;
+                  color: #f00; }
+              .section-nav-sitemap-wrapper > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent {
+                display: block;
+                list-style: none outside;
+                margin: 0;
+                padding: 0;
+                visibility: visible;
+                display: none;
+                visibility: hidden; }
   .section-nav-sitemap-wrapper .section-nav-sitemap {
     display: none;
     float: none;
@@ -3043,30 +3044,6 @@ div.ctoc-overlay {
     padding-right: 0;
     padding-top: .4em;
     width: 100%; }
-  .section-nav-sitemap-wrapper .sitemap-list {
-    display: block;
-    list-style: none outside;
-    margin: 0;
-    padding: 0; }
-    .section-nav-sitemap-wrapper .sitemap-list > .menu-item {
-      display: block;
-      list-style: none outside;
-      margin: 0;
-      padding: 0; }
-      .section-nav-sitemap-wrapper .sitemap-list > .menu-item > .menu-parent {
-        display: block;
-        list-style: none outside;
-        margin: 0;
-        padding: 0;
-        width: 100%; }
-      .section-nav-sitemap-wrapper .sitemap-list > .menu-item > .menu-parent > .menu-item {
-        display: block;
-        margin: 0;
-        padding: 0;
-        width: 80%; }
-      .section-nav-sitemap-wrapper .sitemap-list > .menu-item > .menu-parent > .menu-item > .menu-parent {
-        display: none;
-        visibility: hidden; }
 
 .sidebar {
   display: block;
@@ -5420,6 +5397,131 @@ div.ctoc-overlay {
       float: none;
       height: auto;
       width: 100%; }
+      .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent {
+        display: block;
+        list-style: none outside;
+        margin: 0;
+        padding: 0;
+        visibility: visible; }
+        .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item {
+          display: block;
+          list-style: none outside;
+          margin: 0;
+          padding: 0;
+          width: 100%; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper {
+            background-color: #555;
+            display: block;
+            margin-bottom: .2em;
+            margin-left: .2em;
+            padding-left: .6em;
+            width: 100%; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+              display: block;
+              overflow: hidden;
+              padding-bottom: .2em;
+              padding-top: .2em;
+              text-overflow: ellipsis;
+              width: 100%; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                text-decoration: none; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+              border-left: 0.2em dotted #eee;
+              margin-left: .2em;
+              padding-left: .4em; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+              background-color: #777;
+              color: #f00; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent {
+            display: block;
+            list-style: none outside;
+            margin: 0;
+            padding: 0;
+            visibility: visible; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item {
+              display: block;
+              list-style: none outside;
+              margin: 0;
+              padding: 0;
+              width: 80%; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper {
+                background-color: #555;
+                display: block;
+                margin-bottom: .2em;
+                margin-left: .2em;
+                padding-left: .6em;
+                width: 100%; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+                  display: block;
+                  overflow: hidden;
+                  padding-bottom: .2em;
+                  padding-top: .2em;
+                  text-overflow: ellipsis;
+                  width: 100%; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                    text-decoration: none; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+                  border-left: 0.2em dotted #eee;
+                  margin-left: .2em;
+                  padding-left: .4em; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+                  background-color: #777;
+                  color: #f00; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent {
+                display: block;
+                list-style: none outside;
+                margin: 0;
+                padding: 0;
+                visibility: visible; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item {
+                  display: block;
+                  list-style: none outside;
+                  margin: 0;
+                  padding: 0;
+                  width: 80%; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper {
+                    background-color: #555;
+                    display: block;
+                    margin-bottom: .2em;
+                    margin-left: .2em;
+                    padding-left: .6em;
+                    width: 100%; }
+                    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+                      display: block;
+                      overflow: hidden;
+                      padding-bottom: .2em;
+                      padding-top: .2em;
+                      text-overflow: ellipsis;
+                      width: 100%; }
+                      .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap; }
+                      .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                        text-decoration: none; }
+                    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+                      border-left: 0.2em dotted #eee;
+                      margin-left: .2em;
+                      padding-left: .4em; }
+                    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+                      background-color: #777;
+                      color: #f00; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent {
+                    display: block;
+                    list-style: none outside;
+                    margin: 0;
+                    padding: 0;
+                    visibility: visible;
+                    display: none;
+                    visibility: hidden; }
     @supports (display: grid) {
       .section-nav-sitemap-wrapper {
         display: block;
@@ -6995,6 +7097,131 @@ div.ctoc-overlay {
     float: none;
     height: auto;
     width: 100%; }
+    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent {
+      display: block;
+      list-style: none outside;
+      margin: 0;
+      padding: 0;
+      visibility: visible; }
+      .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item {
+        display: block;
+        list-style: none outside;
+        margin: 0;
+        padding: 0;
+        width: 100%; }
+        .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper {
+          background-color: #555;
+          display: block;
+          margin-bottom: .2em;
+          margin-left: .2em;
+          padding-left: .6em;
+          width: 100%; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+            display: block;
+            overflow: hidden;
+            padding-bottom: .2em;
+            padding-top: .2em;
+            text-overflow: ellipsis;
+            width: 100%; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+              text-decoration: none; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+            border-left: 0.2em dotted #eee;
+            margin-left: .2em;
+            padding-left: .4em; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+            background-color: #777;
+            color: #f00; }
+        .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent {
+          display: block;
+          list-style: none outside;
+          margin: 0;
+          padding: 0;
+          visibility: visible; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item {
+            display: block;
+            list-style: none outside;
+            margin: 0;
+            padding: 0;
+            width: 80%; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper {
+              background-color: #555;
+              display: block;
+              margin-bottom: .2em;
+              margin-left: .2em;
+              padding-left: .6em;
+              width: 100%; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+                display: block;
+                overflow: hidden;
+                padding-bottom: .2em;
+                padding-top: .2em;
+                text-overflow: ellipsis;
+                width: 100%; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                  text-decoration: none; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+                border-left: 0.2em dotted #eee;
+                margin-left: .2em;
+                padding-left: .4em; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+                background-color: #777;
+                color: #f00; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent {
+              display: block;
+              list-style: none outside;
+              margin: 0;
+              padding: 0;
+              visibility: visible; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item {
+                display: block;
+                list-style: none outside;
+                margin: 0;
+                padding: 0;
+                width: 80%; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper {
+                  background-color: #555;
+                  display: block;
+                  margin-bottom: .2em;
+                  margin-left: .2em;
+                  padding-left: .6em;
+                  width: 100%; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+                    display: block;
+                    overflow: hidden;
+                    padding-bottom: .2em;
+                    padding-top: .2em;
+                    text-overflow: ellipsis;
+                    width: 100%; }
+                    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      white-space: nowrap; }
+                    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                      text-decoration: none; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+                    border-left: 0.2em dotted #eee;
+                    margin-left: .2em;
+                    padding-left: .4em; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+                    background-color: #777;
+                    color: #f00; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent {
+                  display: block;
+                  list-style: none outside;
+                  margin: 0;
+                  padding: 0;
+                  visibility: visible;
+                  display: none;
+                  visibility: hidden; }
   @supports (display: grid) {
     .section-nav-sitemap-wrapper {
       display: block;
@@ -9401,6 +9628,131 @@ div.ctoc-overlay {
     float: none;
     height: auto;
     width: 100%; }
+    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent {
+      display: block;
+      list-style: none outside;
+      margin: 0;
+      padding: 0;
+      visibility: visible; }
+      .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item {
+        display: block;
+        list-style: none outside;
+        margin: 0;
+        padding: 0;
+        width: 100%; }
+        .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper {
+          background-color: #555;
+          display: block;
+          margin-bottom: .2em;
+          margin-left: .2em;
+          padding-left: .6em;
+          width: 100%; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+            display: block;
+            overflow: hidden;
+            padding-bottom: .2em;
+            padding-top: .2em;
+            text-overflow: ellipsis;
+            width: 100%; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+              text-decoration: none; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+            border-left: 0.2em dotted #eee;
+            margin-left: .2em;
+            padding-left: .4em; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+            background-color: #777;
+            color: #f00; }
+        .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent {
+          display: block;
+          list-style: none outside;
+          margin: 0;
+          padding: 0;
+          visibility: visible; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item {
+            display: block;
+            list-style: none outside;
+            margin: 0;
+            padding: 0;
+            width: 80%; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper {
+              background-color: #555;
+              display: block;
+              margin-bottom: .2em;
+              margin-left: .2em;
+              padding-left: .6em;
+              width: 100%; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+                display: block;
+                overflow: hidden;
+                padding-bottom: .2em;
+                padding-top: .2em;
+                text-overflow: ellipsis;
+                width: 100%; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                  text-decoration: none; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+                border-left: 0.2em dotted #eee;
+                margin-left: .2em;
+                padding-left: .4em; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+                background-color: #777;
+                color: #f00; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent {
+              display: block;
+              list-style: none outside;
+              margin: 0;
+              padding: 0;
+              visibility: visible; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item {
+                display: block;
+                list-style: none outside;
+                margin: 0;
+                padding: 0;
+                width: 80%; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper {
+                  background-color: #555;
+                  display: block;
+                  margin-bottom: .2em;
+                  margin-left: .2em;
+                  padding-left: .6em;
+                  width: 100%; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+                    display: block;
+                    overflow: hidden;
+                    padding-bottom: .2em;
+                    padding-top: .2em;
+                    text-overflow: ellipsis;
+                    width: 100%; }
+                    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      white-space: nowrap; }
+                    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                      text-decoration: none; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+                    border-left: 0.2em dotted #eee;
+                    margin-left: .2em;
+                    padding-left: .4em; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+                    background-color: #777;
+                    color: #f00; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent {
+                  display: block;
+                  list-style: none outside;
+                  margin: 0;
+                  padding: 0;
+                  visibility: visible;
+                  display: none;
+                  visibility: hidden; }
   @supports (display: grid) {
     .section-nav-sitemap-wrapper {
       display: block;
@@ -11771,6 +12123,131 @@ div.ctoc-overlay {
       float: none;
       height: auto;
       width: 100%; }
+      .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent {
+        display: block;
+        list-style: none outside;
+        margin: 0;
+        padding: 0;
+        visibility: visible; }
+        .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item {
+          display: block;
+          list-style: none outside;
+          margin: 0;
+          padding: 0;
+          width: 100%; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper {
+            background-color: #555;
+            display: block;
+            margin-bottom: .2em;
+            margin-left: .2em;
+            padding-left: .6em;
+            width: 100%; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+              display: block;
+              overflow: hidden;
+              padding-bottom: .2em;
+              padding-top: .2em;
+              text-overflow: ellipsis;
+              width: 100%; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                text-decoration: none; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+              border-left: 0.2em dotted #eee;
+              margin-left: .2em;
+              padding-left: .4em; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+              background-color: #777;
+              color: #f00; }
+          .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent {
+            display: block;
+            list-style: none outside;
+            margin: 0;
+            padding: 0;
+            visibility: visible; }
+            .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item {
+              display: block;
+              list-style: none outside;
+              margin: 0;
+              padding: 0;
+              width: 80%; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper {
+                background-color: #555;
+                display: block;
+                margin-bottom: .2em;
+                margin-left: .2em;
+                padding-left: .6em;
+                width: 100%; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+                  display: block;
+                  overflow: hidden;
+                  padding-bottom: .2em;
+                  padding-top: .2em;
+                  text-overflow: ellipsis;
+                  width: 100%; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                    text-decoration: none; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+                  border-left: 0.2em dotted #eee;
+                  margin-left: .2em;
+                  padding-left: .4em; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+                  background-color: #777;
+                  color: #f00; }
+              .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent {
+                display: block;
+                list-style: none outside;
+                margin: 0;
+                padding: 0;
+                visibility: visible; }
+                .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item {
+                  display: block;
+                  list-style: none outside;
+                  margin: 0;
+                  padding: 0;
+                  width: 80%; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper {
+                    background-color: #555;
+                    display: block;
+                    margin-bottom: .2em;
+                    margin-left: .2em;
+                    padding-left: .6em;
+                    width: 100%; }
+                    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link {
+                      display: block;
+                      overflow: hidden;
+                      padding-bottom: .2em;
+                      padding-top: .2em;
+                      text-overflow: ellipsis;
+                      width: 100%; }
+                      .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link .menu-entry {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap; }
+                      .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:link, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:hover, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper > .menu-link:active {
+                        text-decoration: none; }
+                    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper.current-page {
+                      border-left: 0.2em dotted #eee;
+                      margin-left: .2em;
+                      padding-left: .4em; }
+                    .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:active, .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-entry-wrapper:hover {
+                      background-color: #777;
+                      color: #f00; }
+                  .section-nav-sitemap-wrapper .section-nav-sitemap > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent > .menu-item > .menu-parent {
+                    display: block;
+                    list-style: none outside;
+                    margin: 0;
+                    padding: 0;
+                    visibility: visible;
+                    display: none;
+                    visibility: hidden; }
     @supports (display: grid) {
       .section-nav-sitemap-wrapper {
         display: block;

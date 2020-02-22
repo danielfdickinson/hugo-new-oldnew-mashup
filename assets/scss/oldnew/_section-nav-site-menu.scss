@@ -1,42 +1,90 @@
-.section-nav-sitemap-wrapper {
-  & .sitemap-list {
-    & .menu-link {
-      padding-bottom: .2em;
-      padding-top: .2em;
+
+@mixin section-nav-menu-entry($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & .menu-entry {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@mixin section-nav-menu-link($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & > .menu-link {
+    @include section-nav-menu-entry($device-capabilities, $sub-devcap);
+
+    display: block;
+    overflow: hidden;
+    padding-bottom: .2em;
+    padding-top: .2em;
+    text-overflow: ellipsis;
+    width: 100%;
+
+    &:link,
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+  }
+}
+
+@mixin section-nav-menu-entry-wrapper($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & > .menu-entry-wrapper {
+    @include section-nav-menu-link($device-capabilities, $sub-devcap);
+
+    background-color: $section-nav-entry-background-color;
+    display: block;
+    margin-bottom: .2em;
+    margin-left: .2em;
+    padding-left: .6em;
+    width: 100%;
+
+    &.current-page {
+      border-left: .2em dotted $default-text-color;
+      margin-left: .2em;
+      padding-left: .4em;
     }
 
-    & > .menu-item {
-      @include menu-item-contents(inline-block, inline-block, inherit) {
-        text-align: left;
+    &:active,
+    &:hover {
+      background-color: $default-hover-background-color;
+      color: $default-hover-color;
+    }
+  }
+}
 
-        & .menu-entry-wrapper {
-          display: inline-block;
-        }
-      }
+@mixin section-nav-menu-item($menu-level, $device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & > .menu-item {
+    @include section-nav-menu-entry-wrapper($device-capabilities, $sub-devcap);
 
-      @include list-menu-parent-parent(inline-block, none, inline-block);
-
-      margin-bottom: .2em;
+    display: block;
+    list-style: none outside;
+    margin: 0;
+    padding: 0;
+    @if $menu-level > 0 {
+      width: 80%;
+    } @else {
+      width: 100%;
     }
 
-    & .menu-item {
-      padding-bottom: 0;
+    @if $menu-level < $section-nav-max-menu-level {
+      @include section-nav-menu-list($menu-level + 1, $device-capabilities, $sub-devcap);
+    }
+  }
+}
 
-      & .menu-entry-wrapper.current-page { // sass-lint:disable-line force-element-nesting
-        border-left-color: $default-text-color;
-      }
+@mixin section-nav-menu-list($menu-level, $device-capabilities: 'all-browsers', $sub-devcap: null) {
 
-      & .menu-entry-wrapper {
-        background-color: $sidebar-menu-entry-row-background-color;
-      }
+  & > .menu-parent {
+    display: block;
+    list-style: none outside;
+    margin: 0;
+    padding: 0;
+    visibility: visible;
 
-      &:active,
-      &:hover {
-        & > .menu-entry-wrapper {
-          background-color: $default-hover-background-color;
-          color: $default-hover-color;
-        }
-      }
+    @if $menu-level < $section-nav-max-menu-level {
+      @include section-nav-menu-item($menu-level, $device-capabilities, $sub-devcap);
+    } @else {
+      display: none;
+      visibility: hidden;
     }
   }
 }
@@ -45,6 +93,8 @@
 
   .section-nav-sitemap-wrapper {
     @if $device-capabilities == 'all-browsers' {
+      @include section-nav-menu-list(0, $device-capabilities, $sub-devcap);
+
       background-color: $sidebar-box-background-color;
       border-bottom: $sidebar-box-border $sidebar-box-border-color;
       border-top: $sidebar-box-border $sidebar-box-border-color;
@@ -81,40 +131,6 @@
         padding-top: .4em;
         width: 100%;
       }
-
-      & .sitemap-list {
-        display: block;
-        list-style: none outside;
-        margin: 0;
-        padding: 0;
-
-        & > .menu-item {
-          display: block;
-          list-style: none outside;
-          margin: 0;
-          padding: 0;
-
-          & > .menu-parent { // sass-lint:disable-line force-element-nesting
-            display: block;
-            list-style: none outside;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-          }
-
-          & > .menu-parent > .menu-item { // sass-lint:disable-line force-element-nesting
-            display: block;
-            margin: 0;
-            padding: 0;
-            width: 80%;
-          }
-
-          & > .menu-parent > .menu-item > .menu-parent { // sass-lint:disable-line force-element-nesting
-            display: none;
-            visibility: hidden;
-          }
-        }
-      }
     } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
       display: none;
       top: 0;
@@ -122,6 +138,8 @@
     } @elseif $device-capabilities == 'normal-plus-screen' {
 
       & .section-nav-sitemap {
+        @include section-nav-menu-list(0, $device-capabilities, $sub-devcap);
+
         float: none;
         height: auto;
         width: 100%;
@@ -141,133 +159,6 @@
           visibility: visible;
         }
       }
-    }
-  }
-}
-
-@mixin linear-nav($device-capabilities: 'all-browsers', $sub-devcap: null) {
-  @if $device-capabilities == 'all-browsers' {
-    .local-nav-bar-wrapper {
-      display: block;
-      margin: 0;
-      padding: .2em;
-      position: absolute;
-      right: 0;
-      text-align: center;
-      top: 0;
-      width: 22%;
-      z-index: 50;
-
-      & .local-nav-bar {
-        display: none;
-        height: 0;
-        visibility: hidden;
-        width: 0;
-      }
-
-      & a,
-      & span {
-        background-color: $local-nav-background-color;
-        color: $local-nav-text-color;
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-        padding-bottom: .2em;
-        padding-top: .2em;
-        text-align: center;
-        text-decoration: none;
-        width: 30%;
-
-        &:link,
-        &:active,
-        &:hover {
-          display: inline-block;
-          margin: 0;
-          padding: 0;
-          padding-bottom: .2em;
-          padding-top: .2em;
-          text-align: center;
-          text-decoration: none;
-          width: 30%;
-        }
-
-        &:link,
-        &:visited {
-          color: $local-nav-link-color;
-        }
-
-        &:active,
-        &:hover {
-          background-color: $local-nav-hover-background-color;
-          color: $local-nav-hover-color;
-        }
-      }
-    }
-  } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
-    .local-nav-bar-wrapper {
-      display: block;
-      position: static;
-
-      & .local-nav-bar {
-        display: block;
-        float: none;
-        height: auto;
-        visibility: visible;
-        width: 100%;
-      }
-
-      @supports (flex: 1 1 100%) and (not (display: grid)) {
-        flex: 1 1 100%;
-        order: 4;
-        width: auto;
-      }
-
-      @supports (display: grid) {
-        grid-column-end: 3;
-        grid-column-start: 1;
-        grid-row-start: 7;
-        width: auto;
-      }
-    }
-  } @elseif $device-capabilities == 'normal-plus-screen' {
-    .local-nav-bar-wrapper {
-      & .local-nav-bar {
-        display: block;
-        height: auto;
-        visibility: visible;
-        width: 100%;
-      }
-
-      @supports (flex: 1 1 100%) and (not (display: grid)) {
-        flex: 1 1 100%;
-        max-width: none;
-        order: 2;
-        position: static;
-      }
-
-      @if $sub-devcap == 'ie11+' {
-        display: block;
-        flex: 1 1 100%;
-        margin-bottom: .4em;
-        max-width: none;
-        order: 2;
-        position: static;
-        text-align: center;
-      }
-
-      @supports (display: grid) {
-        grid-column-end: 3;
-        grid-column-start: 2;
-        grid-row-start: 2;
-        max-width: none;
-        position: static;
-        width: auto;
-      }
-    }
-  } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
-    .local-nav-bar-wrapper {
-      display: none;
-      visibility: hidden;
     }
   }
 }

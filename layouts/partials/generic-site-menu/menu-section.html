@@ -10,7 +10,7 @@
 
     <li class="menu-item">
     {{ partial "generic-site-menu/menu-item" (dict "menu_node" . "cur_node" $curCtx.cur_node ) }}
-    {{ if (eq .Kind "page" ) }}
+    {{ if (or (eq .Kind "page" ) (eq $curCtx.nosub "true") ) }}
     </li>
     {{ else if (and (eq .Kind "section" ) .Data.Pages) }}
       <ul class="menu-parent{{ if gt (len .Data.Pages) 0 }} has-submenu{{ end }}{{ if gt (len .Data.Pages) $max_rows_per_column }} needs-columns{{ end }}{{ if gt (len .Data.Pages) $max_items }} needs-overflow{{ end }}">

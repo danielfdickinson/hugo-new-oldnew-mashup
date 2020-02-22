@@ -549,3 +549,138 @@
     }
   }
 }
+
+
+@mixin linear-nav($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @if $device-capabilities == 'all-browsers' {
+    .local-nav-bar-wrapper {
+      display: block;
+      margin: 0;
+      padding: .2em;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: 22%;
+      z-index: 50;
+
+      & .local-nav-bar {
+        display: none;
+        height: 0;
+        visibility: hidden;
+        width: 0;
+      }
+
+      & a,
+      & span {
+        color: $local-nav-text-color;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        padding-bottom: .2em;
+        padding-top: .2em;
+        text-align: center;
+        text-decoration: none;
+        width: 30%;
+
+        &:link,
+        &:active,
+        &:hover {
+          display: inline-block;
+          margin: 0;
+          padding: 0;
+          padding-bottom: .2em;
+          padding-top: .2em;
+          text-align: center;
+          text-decoration: none;
+          width: 30%;
+        }
+
+        &:link,
+        &:visited {
+          color: $local-nav-link-color;
+        }
+
+        &:active,
+        &:hover {
+          background-color: $local-nav-hover-background-color;
+          color: $local-nav-hover-color;
+        }
+      }
+
+      & a {
+        background-color: $local-nav-background-color;
+      }
+
+      & span {
+        background-color: $local-nav-none-background-color;
+      }
+    }
+  } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+    .local-nav-bar-wrapper {
+      display: block;
+      position: static;
+
+      & .local-nav-bar {
+        display: block;
+        float: none;
+        height: auto;
+        visibility: visible;
+        width: 100%;
+      }
+
+      @supports (flex: 1 1 100%) and (not (display: grid)) {
+        flex: 1 1 100%;
+        order: 4;
+        width: auto;
+      }
+
+      @supports (display: grid) {
+        grid-column-end: 3;
+        grid-column-start: 1;
+        grid-row-start: 7;
+        width: auto;
+      }
+    }
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    .local-nav-bar-wrapper {
+      & .local-nav-bar {
+        display: block;
+        height: auto;
+        visibility: visible;
+        width: 100%;
+      }
+
+      @supports (flex: 1 1 100%) and (not (display: grid)) {
+        flex: 1 1 100%;
+        max-width: none;
+        order: 2;
+        position: static;
+      }
+
+      @if $sub-devcap == 'ie11+' {
+        display: block;
+        flex: 1 1 100%;
+        margin-bottom: .4em;
+        max-width: none;
+        order: 2;
+        position: static;
+        text-align: center;
+      }
+
+      @supports (display: grid) {
+        grid-column-end: 3;
+        grid-column-start: 2;
+        grid-row-start: 2;
+        max-width: none;
+        position: static;
+        width: auto;
+      }
+    }
+  } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
+    .local-nav-bar-wrapper {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}

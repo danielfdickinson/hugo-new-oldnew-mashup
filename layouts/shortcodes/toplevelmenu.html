@@ -1,0 +1,23 @@
+<!-- Copyright 2018-2020 Daniel F. Dickinson,
+     Released under the Creative Commons 4.0 BY (Attribution) License -->
+{{ $curNode := $.Site.Home }}
+{{ $nodes := $.Site.Home.Pages }}
+{{ if $nodes }}
+  {{ $nodesIncluded := (partial "generic-site-menu/nodes-included" ( dict "nodes" $nodes "menu_node" $.Site.Home "menu_type" "top-level-menu" ) ) }}
+  {{ if $nodesIncluded }}
+    <div class="top-level-menu-wrapper">
+      <nav id="top-level-menu" class="top-level-menu">
+      <h2>Sections</h2>
+      <ul class="sitemap-list">
+      <!-- Copyright 2018-2020 Daniel F. Dickinson,
+           Released under the Creative Commons 4.0 BY (Attribution) License -->
+    {{ range $nodesIncluded }}
+        <li class="menu-item">
+      {{ partial "generic-site-menu/menu-item" (dict "menu_node" . "cur_node" $curNode) }}
+        </li>
+      </li>
+    {{ end }}
+      </ul></nav>
+    </div>
+  {{ end }}
+{{ end }}
