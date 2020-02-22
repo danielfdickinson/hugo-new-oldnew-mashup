@@ -2854,6 +2854,53 @@ div.ctoc-overlay {
     background-color: #777;
     color: #fff; }
 
+.top-level-menu-wrapper {
+  font-size: 1.4rem;
+  margin-left: 30%;
+  overflow: hidden;
+  text-align: center;
+  width: 40%; }
+
+.top-level-menu-wrapper ul.sitemap-list {
+  list-style: none outside;
+  overflow: hidden;
+  text-align: left; }
+  .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper {
+    background-color: #555;
+    border: 4px groove #ccc;
+    margin-bottom: .6rem;
+    overflow: hidden;
+    padding-bottom: .1em;
+    padding-left: .4em;
+    padding-right: .4em;
+    padding-top: .1em; }
+    .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a {
+      background-color: #fff;
+      color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:visited, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:visited {
+        background-color: #fff;
+        color: #f00; }
+    .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link {
+      display: block;
+      height: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link > .menu-entry {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+        height: 100%;
+        text-decoration: none;
+        width: 100%; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+        background-color: #fff;
+        color: #f00; }
+    .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover {
+      background-color: #fff;
+      color: #f00; }
+
 .back-to-top-button {
   background-color: #777;
   bottom: 0;
@@ -3831,6 +3878,45 @@ div.ctoc-overlay {
     .site-enter-button:active, .site-enter-button:hover {
       background-color: #777;
       color: #fff; }
+  .top-level-menu-wrapper ul.sitemap-list {
+    list-style: none outside;
+    overflow: hidden;
+    text-align: left; }
+    .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper {
+      background-color: #555;
+      border: 4px groove #ccc;
+      margin-bottom: .6rem;
+      overflow: hidden;
+      padding-bottom: .1em;
+      padding-left: .4em;
+      padding-right: .4em;
+      padding-top: .1em; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a {
+        background-color: #fff;
+        color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:visited, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:visited {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link {
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link > .menu-entry {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          height: 100%;
+          text-decoration: none;
+          width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover {
+        background-color: #fff;
+        color: #f00; }
   @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
     .back-to-top-button {
       display: none;
@@ -5389,6 +5475,45 @@ div.ctoc-overlay {
       .site-enter-button:active, .site-enter-button:hover {
         background-color: #777;
         color: #fff; }
+    .top-level-menu-wrapper ul.sitemap-list {
+      list-style: none outside;
+      overflow: hidden;
+      text-align: left; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper {
+        background-color: #555;
+        border: 4px groove #ccc;
+        margin-bottom: .6rem;
+        overflow: hidden;
+        padding-bottom: .1em;
+        padding-left: .4em;
+        padding-right: .4em;
+        padding-top: .1em; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a {
+          background-color: #fff;
+          color: #f00; }
+          .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:visited, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:visited {
+            background-color: #fff;
+            color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link {
+          display: block;
+          height: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100%; }
+          .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link > .menu-entry {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; }
+          .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+            height: 100%;
+            text-decoration: none;
+            width: 100%; }
+          .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+            background-color: #fff;
+            color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover {
+          background-color: #fff;
+          color: #f00; }
     @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
       .back-to-top-button {
         display: none;
@@ -7085,6 +7210,45 @@ div.ctoc-overlay {
     .site-enter-button:active, .site-enter-button:hover {
       background-color: #777;
       color: #fff; }
+  .top-level-menu-wrapper ul.sitemap-list {
+    list-style: none outside;
+    overflow: hidden;
+    text-align: left; }
+    .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper {
+      background-color: #555;
+      border: 4px groove #ccc;
+      margin-bottom: .6rem;
+      overflow: hidden;
+      padding-bottom: .1em;
+      padding-left: .4em;
+      padding-right: .4em;
+      padding-top: .1em; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a {
+        background-color: #fff;
+        color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:visited, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:visited {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link {
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link > .menu-entry {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          height: 100%;
+          text-decoration: none;
+          width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover {
+        background-color: #fff;
+        color: #f00; }
   .back-to-top-button {
     border-radius: 12px; }
     .back-to-top-button a:link, .back-to-top-button a:hover, .back-to-top-button a:active {
@@ -8012,6 +8176,45 @@ div.ctoc-overlay {
     .site-enter-button:active, .site-enter-button:hover {
       background-color: #777;
       color: #fff; }
+  .top-level-menu-wrapper ul.sitemap-list {
+    list-style: none outside;
+    overflow: hidden;
+    text-align: left; }
+    .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper {
+      background-color: #555;
+      border: 4px groove #ccc;
+      margin-bottom: .6rem;
+      overflow: hidden;
+      padding-bottom: .1em;
+      padding-left: .4em;
+      padding-right: .4em;
+      padding-top: .1em; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a {
+        background-color: #fff;
+        color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:visited, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:visited {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link {
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link > .menu-entry {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          height: 100%;
+          text-decoration: none;
+          width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover {
+        background-color: #fff;
+        color: #f00; }
   .back-to-top-button {
     border-radius: 12px; }
     .back-to-top-button a:link, .back-to-top-button a:hover, .back-to-top-button a:active {
@@ -9620,6 +9823,45 @@ div.ctoc-overlay {
     .site-enter-button:active, .site-enter-button:hover {
       background-color: #777;
       color: #fff; }
+  .top-level-menu-wrapper ul.sitemap-list {
+    list-style: none outside;
+    overflow: hidden;
+    text-align: left; }
+    .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper {
+      background-color: #555;
+      border: 4px groove #ccc;
+      margin-bottom: .6rem;
+      overflow: hidden;
+      padding-bottom: .1em;
+      padding-left: .4em;
+      padding-right: .4em;
+      padding-top: .1em; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a {
+        background-color: #fff;
+        color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:visited, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:visited {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link {
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link > .menu-entry {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          height: 100%;
+          text-decoration: none;
+          width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover {
+        background-color: #fff;
+        color: #f00; }
   @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
     .back-to-top-button {
       display: none;
@@ -10548,6 +10790,45 @@ div.ctoc-overlay {
     .site-enter-button:active, .site-enter-button:hover {
       background-color: #777;
       color: #fff; }
+  .top-level-menu-wrapper ul.sitemap-list {
+    list-style: none outside;
+    overflow: hidden;
+    text-align: left; }
+    .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper {
+      background-color: #555;
+      border: 4px groove #ccc;
+      margin-bottom: .6rem;
+      overflow: hidden;
+      padding-bottom: .1em;
+      padding-left: .4em;
+      padding-right: .4em;
+      padding-top: .1em; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a {
+        background-color: #fff;
+        color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:visited, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:visited {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link {
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link > .menu-entry {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          height: 100%;
+          text-decoration: none;
+          width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover {
+        background-color: #fff;
+        color: #f00; }
   @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
     .back-to-top-button {
       display: none;
@@ -12115,6 +12396,45 @@ div.ctoc-overlay {
       .site-enter-button:active, .site-enter-button:hover {
         background-color: #777;
         color: #fff; }
+    .top-level-menu-wrapper ul.sitemap-list {
+      list-style: none outside;
+      overflow: hidden;
+      text-align: left; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper {
+        background-color: #555;
+        border: 4px groove #ccc;
+        margin-bottom: .6rem;
+        overflow: hidden;
+        padding-bottom: .1em;
+        padding-left: .4em;
+        padding-right: .4em;
+        padding-top: .1em; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a {
+          background-color: #fff;
+          color: #f00; }
+          .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:visited, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:visited {
+            background-color: #fff;
+            color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link {
+          display: block;
+          height: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100%; }
+          .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link > .menu-entry {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; }
+          .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+            height: 100%;
+            text-decoration: none;
+            width: 100%; }
+          .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+            background-color: #fff;
+            color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover {
+          background-color: #fff;
+          color: #f00; }
     @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
       .back-to-top-button {
         display: none;
@@ -13063,6 +13383,45 @@ div.ctoc-overlay {
     .site-enter-button:active, .site-enter-button:hover {
       background-color: #777;
       color: #fff; }
+  .top-level-menu-wrapper ul.sitemap-list {
+    list-style: none outside;
+    overflow: hidden;
+    text-align: left; }
+    .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper {
+      background-color: #555;
+      border: 4px groove #ccc;
+      margin-bottom: .6rem;
+      overflow: hidden;
+      padding-bottom: .1em;
+      padding-left: .4em;
+      padding-right: .4em;
+      padding-top: .1em; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a {
+        background-color: #fff;
+        color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:visited, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:visited {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link {
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link > .menu-entry {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          height: 100%;
+          text-decoration: none;
+          width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover {
+        background-color: #fff;
+        color: #f00; }
   @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
     .back-to-top-button {
       display: none;
@@ -14033,6 +14392,45 @@ div.ctoc-overlay {
     .site-enter-button:active, .site-enter-button:hover {
       background-color: #777;
       color: #fff; }
+  .top-level-menu-wrapper ul.sitemap-list {
+    list-style: none outside;
+    overflow: hidden;
+    text-align: left; }
+    .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper {
+      background-color: #555;
+      border: 4px groove #ccc;
+      margin-bottom: .6rem;
+      overflow: hidden;
+      padding-bottom: .1em;
+      padding-left: .4em;
+      padding-right: .4em;
+      padding-top: .1em; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a {
+        background-color: #fff;
+        color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:visited, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:visited {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link {
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link > .menu-entry {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          height: 100%;
+          text-decoration: none;
+          width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover {
+        background-color: #fff;
+        color: #f00; }
   @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
     .back-to-top-button {
       display: none;
@@ -14500,6 +14898,45 @@ div.ctoc-overlay {
     .site-enter-button:active, .site-enter-button:hover {
       background-color: #777;
       color: #fff; }
+  .top-level-menu-wrapper ul.sitemap-list {
+    list-style: none outside;
+    overflow: hidden;
+    text-align: left; }
+    .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper {
+      background-color: #555;
+      border: 4px groove #ccc;
+      margin-bottom: .6rem;
+      overflow: hidden;
+      padding-bottom: .1em;
+      padding-left: .4em;
+      padding-right: .4em;
+      padding-top: .1em; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a {
+        background-color: #fff;
+        color: #f00; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active a:visited, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover a:visited {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link {
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link > .menu-entry {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:link, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          height: 100%;
+          text-decoration: none;
+          width: 100%; }
+        .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:hover, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper > .menu-link:active {
+          background-color: #fff;
+          color: #f00; }
+      .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:active, .top-level-menu-wrapper ul.sitemap-list > .menu-item > .menu-entry-wrapper:hover {
+        background-color: #fff;
+        color: #f00; }
   @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
     .back-to-top-button {
       display: none;

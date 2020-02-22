@@ -684,3 +684,97 @@
     }
   }
 }
+
+@mixin top-level-menu-entry($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & > .menu-entry {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@mixin top-level-menu-link($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  &:active,
+  &:hover {
+    & a {
+      background-color: $default-inline-pre-hover-color;
+      color: $default-hover-color;
+
+      &:link,
+      &:visited {
+        background-color: $default-inline-pre-hover-color;
+        color: $default-hover-color;
+      }
+    }
+  }
+
+  & > .menu-link {
+    @include top-level-menu-entry($device-capabilities, $sub-devcap);
+
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+
+    &:link,
+    &:hover,
+    &:active {
+      height: 100%;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    &:hover,
+    &:active {
+      background-color: $default-inline-pre-hover-color;
+      color: $default-hover-color;
+    }
+  }
+}
+
+@mixin top-level-menu-item($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & > .menu-item {
+    & > .menu-entry-wrapper {
+      @include top-level-menu-link($device-capabilities, $sub-devcap);
+
+      background-color: $section-nav-entry-background-color;
+      border: 4px groove $default-container-border-color;
+      margin-bottom: .6rem;
+      overflow: hidden;
+      padding-bottom: .1em;
+      padding-left: .4em;
+      padding-right: .4em;
+      padding-top: .1em;
+
+      &:active,
+      &:hover {
+        background-color: $default-inline-pre-hover-color;
+        color: $default-hover-color;
+      }
+    }
+  }
+}
+
+@mixin top-level-menu-wrapper($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @if $device-capabilities == 'all-browsers' {
+    .top-level-menu-wrapper {
+      font-size: 1.4rem;
+      margin-left: 30%;
+      overflow:  hidden;
+      text-align: center;
+      width: 40%;
+    }
+  }
+
+  .top-level-menu-wrapper {
+    & ul {
+      &.sitemap-list {
+        @include top-level-menu-item($device-capabilities, $sub-devcap);
+        list-style: none outside;
+        overflow: hidden;
+        text-align: left;
+      }
+    }
+  }
+}

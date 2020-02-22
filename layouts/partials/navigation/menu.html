@@ -5,7 +5,7 @@
 {{ if and .IsPage .Parent }}
   {{ $nodes = union (slice .Parent) .Parent.Pages }}
 {{ else if and .IsSection .Parent }}
-  {{ $nodes = (slice .Parent .) }}
+  {{ $nodes = union (slice .Parent .) .Parent.Pages }}
 {{ end }}
 {{ $parentNode := true }}
 {{ if $nodes }}
