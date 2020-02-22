@@ -4,6 +4,105 @@
 
 // OldNew Mashup Theme Main Elements Stylesheet
 
+@mixin section-toc-menu-entry($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & > .page-list-entry {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@mixin section-toc-menu-link($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  &:active,
+  &:hover {
+    & a {
+      background-color: $default-inline-pre-hover-color;
+      color: $default-hover-color;
+
+      &:link,
+      &:visited {
+        background-color: $default-inline-pre-hover-color;
+        color: $default-hover-color;
+      }
+    }
+  }
+
+  & > .page-list-link {
+    @include section-toc-menu-entry($device-capabilities, $sub-devcap);
+
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+
+    &:link,
+    &:hover,
+    &:active {
+      height: 100%;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    &:hover,
+    &:active {
+      background-color: $default-inline-pre-hover-color;
+      color: $default-hover-color;
+    }
+  }
+}
+
+@mixin section-toc-menu-item($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & > .page-list-item {
+    & > .page-list-item-wrapper {
+      @include section-toc-menu-link($device-capabilities, $sub-devcap);
+
+      background-color: $section-nav-entry-background-color;
+      border: 4px groove $default-container-border-color;
+      margin-bottom: .6rem;
+      overflow: hidden;
+      padding-bottom: .1em;
+      padding-left: .4em;
+      padding-right: .4em;
+      padding-top: .1em;
+
+      &:active,
+      &:hover {
+        background-color: $default-inline-pre-hover-color;
+        color: $default-hover-color;
+      }
+    }
+
+    & .page-list-parent {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin section-toc-wrapper($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @if $device-capabilities == 'all-browsers' {
+    .section-toc-wrapper {
+      font-size: 1.4rem;
+      margin-left: 30%;
+      overflow:  hidden;
+      text-align: center;
+      width: 40%;
+    }
+  }
+
+  .section-toc-wrapper {
+    & .page-list-parent {
+      @include section-toc-menu-item($device-capabilities, $sub-devcap);
+      list-style: none outside;
+      margin: 0;
+      overflow: hidden;
+      padding: 0;
+      text-align: left;
+    }
+  }
+}
+
 .article-title {
   border-bottom: 6px ridge;
   border-top: 6px ridge;
@@ -549,6 +648,7 @@
     }
   }
 }
+
 @mixin default-body($device-capabilities: 'all-browsers', $sub-devcap: null) {
   @include body-wrapper($device-capabilities, $sub-devcap);
   @include content-wrapper($device-capabilities, $sub-devcap);

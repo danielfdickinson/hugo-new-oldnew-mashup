@@ -23,6 +23,7 @@
   @include splash-section($device-capabilities, $sub-devcap);
   @include site-enter-button($device-capabilities, $sub-devcap);
   @include top-level-menu-wrapper($device-capabilities, $sub-devcap);
+  @include section-toc-wrapper($device-capabilities, $sub-devcap);
   @include back-to-top-button($device-capabilities, $sub-devcap);
   @include section-nav-sitemap($device-capabilities, $sub-devcap);
   @include sidebar($device-capabilities, $sub-devcap);

@@ -23,14 +23,14 @@
           </div>
   {{ end }}
   {{ if .Data.Pages }}
-          <div class="section-toc-wrapper">
-            <section aria-labelledby="section-contents-heading" class="section-toc">
-              <h2 id="section-contents-heading" class="section-contents-heading">Section Contents</h2>
     {{ $timeTypes := .Param "time_types" }}
     {{ if (in $timeTypes .Type ) }}
+          <div class="section-time-wrapper">
+            <section aria-labelledby="section-contents-heading" class="section-time-toc">
+              <h2 id="section-contents-heading" class="section-time-contents-heading">Section Contents</h2>
       {{ $sections := ( partial "generic-site-menu/nodes-included" (dict "nodes" .Sections "menu_node" . "menu_type" "section" ) )}}
       {{ if $sections }}
-              <ol class="section-contents">
+              <ol class="section-time-contents">
           {{ range $sections }}
                 <li><a href="{{ .RelPermalink }}">{{ if .Title }}{{ .Title }}{{ else if .Name }}{{ .Name }}{{ else }}Untitled{{ end }}</a></li>
           {{ end }}
@@ -72,7 +72,10 @@
         {{ end }}
       {{ end }}
     {{ else }}
-              <ol class="section-contents">
+          <div class="section-toc-wrapper">
+            <section aria-labelledby="section-contents-heading" class="section-toc">
+              <h2 id="section-contents-heading" class="section-contents-heading">Section Contents</h2>
+              <ol class="section-contents page-list-parent">
       {{ partial "generic-helpers/section/nesting" . }}
               </ol>
     {{ end }}
