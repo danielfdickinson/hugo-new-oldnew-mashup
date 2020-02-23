@@ -6,7 +6,7 @@ languageLang = 'en'
 title = 'Oldnew Mashup'
 enableGitInfo = true
 theme = 'new-oldnew-mashup'
-summaryLength = 30
+summaryLength = 60
 description = "Sample site for OldNew Mashup Theme (the new version)"
 themesDir = "../.."
 min_version = "0.64.0"
@@ -14,7 +14,8 @@ min_version = "0.64.0"
 [params]
   siteid = 'OldNew Mashup'
   licenses = ['CC-BY-4.0']
-  copyright = '© 2018-2019 Daniel F. Dickinson'
+  default_page_licenses = ['CC-BY-4.0']
+  copyright = '© 2018-2020 Daniel F. Dickinson'
   GitHubRepo = 'cshoredaniel/new-oldnew-mashup'
   rssfeedlink = true
   validatorlink = true
@@ -28,6 +29,7 @@ min_version = "0.64.0"
   recent_events = "/siteentry/recent-events"
   recent_news = "/siteentry/recent-news"
   nobaseurl = false
+  default_unordered_list_position = "outside"
 
 [outputs]
   home = ["HTML", "JSON", "RSS"]

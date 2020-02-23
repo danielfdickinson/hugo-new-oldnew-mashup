@@ -16,6 +16,7 @@
 {{ if and (eq $pageType "recent-changes") $nodes }}
   {{ range first $itemCount $nodes.ByLastmod.Reverse }}
     {{ if and (ne .Page $curPage) (not (in .RawContent "summary-list-expansion") ) }}
+      {{ if or (ge (len .Summary) 10) .Page.Params.description }}
   <section class="recent-changes">
     <header class="recent-changes-header">
       <h3><a href='{{ .Permalink }}'>{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}</a></h3>
@@ -29,11 +30,13 @@
       {{ end }}
     </footer>
   </section>
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ else if $nodes }}
   {{ range first $itemCount $nodes.ByDate.Reverse }}
     {{ if and (ne .Page $curPage) (not (in .RawContent "summary-list-expansion") ) }}
+      {{ if or (ge (len .Summary) 10) .Page.Params.description }}
   <section class="recent-changes">
     <header class="recent-changes-header">
       <h3><a href='{{ .Permalink }}'>{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}</a></h3>
@@ -46,7 +49,8 @@
       <a href='{{ .RelPermalink }}'>Read full article for "{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}"</a>
       {{ end }}
     </footer>
-  </section>
+   </section>
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}

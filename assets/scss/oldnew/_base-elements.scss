@@ -90,7 +90,7 @@ kbd {
 }
 
 ul {
-  list-style-position: inside;
+  list-style-position: $default-unordered-list-position;
 
   & li {
     padding-bottom: 3px;

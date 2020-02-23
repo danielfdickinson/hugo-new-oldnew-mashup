@@ -14,10 +14,10 @@ weight: 2
 Modern high-contrast CSS3 & HTML5 [Hugo](https://gohugo.io) theme
 inspired by old-school themes.
 
-It attempts to be accessible, private, and responsive (in progress).
+It attempts to be accessible, private, and responsive.
 
 The theme is currently a work in progress, although useful releases have been
-and continue to be made from time to time.
+made from time to time.
 
 ## Example Site
 
