@@ -576,6 +576,7 @@
       right: 0;
       text-align: center;
       width: $hamburger-top-bar-width;
+      z-index: $back-to-top-z-index;
 
       @supports (opacity: .5) {
         opacity: .5;
@@ -611,6 +612,11 @@
         }
       }
     }
+  } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
+    .back-to-top-button {
+      display: none;
+      visibility: hidden;
+    }
   } @else {
     @if $sub-devcap == 'ie9+' {
       .back-to-top-button {
@@ -624,11 +630,6 @@
           }
         }
       }
-    }
-  } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
-    .back-to-top-button {
-      display: none;
-      visibility: hidden;
     }
   }
 }

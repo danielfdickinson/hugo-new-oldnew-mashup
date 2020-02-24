@@ -4,8 +4,8 @@
 // OldNew Mashup theme SCSS variables -- try to keep them all in one place
 
 $serif-font-stack: {{ default "(Georgia, serif)" ( .Param "serif_stack" ) }};
-$sans-font-stack: {{ default "(quote(Lucida Sans Unicode), quote(Lucida Granda), sans-serif)" ( .Param "sans_font_stack" ) }};
-$mono-font-stack: {{ default "(quote(Lucida Console), Monaco, monospace)" ( .Param "mono_font_stack" ) }};
+$sans-font-stack: {{ default "('Lucida Sans Unicode', 'Lucida Granda', sans-serif)" ( .Param "sans_font_stack" ) }};
+$mono-font-stack: {{ default "('Lucida Console', Monaco, monospace)" ( .Param "mono_font_stack" ) }};
 
 $default-unordered-list-position: {{ default "inside" (.Param "default_unordered_list_position" )}};
 $default-ordered-list-position: {{ default "outside" (.Param "default_ordered_list_position" )}};
@@ -163,3 +163,5 @@ $flyout-menu-column-width: 34em;
 $flyout-submenu-colors-0: #444;
 $flyout-submenu-colors-1: #222;
 $flyout-submenu-colors-2: #000;
+
+$back-to-top-z-index: 888;
