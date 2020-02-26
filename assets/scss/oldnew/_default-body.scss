@@ -545,7 +545,7 @@
       float: left;
       line-height: 1.5;
       margin: 0;
-      margin-top: 0;
+      margin-top: .2em;
       overflow: hidden;
       padding: 0;
       padding-left: .5%;
@@ -603,6 +603,8 @@
         display: grid;
         grid-auto-flow: row;
         grid-template-columns: 75% 25%;
+        grid-template-rows: auto auto auto auto auto auto auto auto auto;
+
       }
     } @elseif $device-capabilities == 'normal-plus-screen' {
       @supports (display: flex) and (not (display: grid)) {
@@ -617,6 +619,7 @@
         display: grid;
         grid-auto-flow: row;
         grid-template-columns: 75% 25%;
+        grid-template-rows: auto 2fr auto auto auto auto auto auto auto;
       }
 
       @if $sub-devcap == 'ie11+' {
@@ -630,6 +633,7 @@
         display: grid;
         grid-auto-flow: row;
         grid-template-columns: 75% 25%;
+        grid-template-rows: auto 1fr auto auto auto auto auto auto auto;
       }
     } @elseif $device-capabilities == 'no-hover' {
       @supports (display: flex) and (not (display: grid)) {
@@ -644,6 +648,7 @@
         display: grid;
         grid-auto-flow: row;
         grid-template-columns: 75% 25%;
+        grid-template-rows: auto auto auto auto auto auto auto auto auto;
       }
     }
   }

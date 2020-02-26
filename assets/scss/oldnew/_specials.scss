@@ -640,6 +640,8 @@
     .local-nav-bar-wrapper {
       display: block;
       margin: 0;
+      margin-bottom: .2em;
+      margin-top: .2em;
       padding: .2em;
       position: absolute;
       right: 0;
@@ -659,10 +661,9 @@
       & span {
         color: $local-nav-text-color;
         display: inline-block;
+        height: 100%;
         margin: 0;
         padding: 0;
-        padding-bottom: .2em;
-        padding-top: .2em;
         text-align: center;
         text-decoration: none;
         width: 30%;
@@ -708,7 +709,6 @@
       & .local-nav-bar {
         display: block;
         float: none;
-        height: auto;
         visibility: visible;
         width: 100%;
       }
@@ -730,7 +730,6 @@
     .local-nav-bar-wrapper {
       & .local-nav-bar {
         display: block;
-        height: auto;
         visibility: visible;
         width: 100%;
       }
