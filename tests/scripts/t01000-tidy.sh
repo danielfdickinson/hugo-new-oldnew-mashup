@@ -26,9 +26,9 @@ for htfile in $htfiles; do
 	if ! tidy -o /dev/null -q --drop-empty-elements no --indent auto $htfile; then
 		echo "FAIL: Linting (tidy) fails for $htfile"
 		exit 3
-	else
-		echo "PASS: Linting (tidy) succeeds for $htfile"
 	fi
 done
+
+echo "PASS: Linting (tidy) succeeds"
 
 exit 0

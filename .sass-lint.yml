@@ -5,6 +5,5 @@ options:
 files:
   include: '**/*.s+(a|c)ss'
   ignore:
-    - 'assets/css/new-base.scss'
     - 'assets/css/vars.scss'
 rules:

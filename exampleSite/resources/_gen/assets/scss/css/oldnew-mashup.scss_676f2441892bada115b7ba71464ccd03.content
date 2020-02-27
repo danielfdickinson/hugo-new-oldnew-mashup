@@ -457,17 +457,13 @@ tr th {
   order: 1;
   text-align: center; }
 
-.license-pages-section .section-contents,
-.license-pages-section .taxonomy-term-contents,
-.license-pages-section .taxonomy-contents {
+.license-pages-section .section-contents, .license-pages-section .taxonomy-term-contents, .license-pages-section .taxonomy-contents {
   align-content: center;
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
   width: 100%; }
-  .license-pages-section .section-contents ol,
-  .license-pages-section .taxonomy-term-contents ol,
-  .license-pages-section .taxonomy-contents ol {
+  .license-pages-section .section-contents ol, .license-pages-section .taxonomy-term-contents ol, .license-pages-section .taxonomy-contents ol {
     flex: 0 1 60%;
     order: 2;
     text-align: left; }
@@ -2751,8 +2747,7 @@ div.ctoc-overlay {
     height: 0;
     visibility: hidden;
     width: 0; }
-  .local-nav-bar-wrapper a,
-  .local-nav-bar-wrapper span {
+  .local-nav-bar-wrapper a, .local-nav-bar-wrapper span {
     color: #000;
     display: inline-block;
     height: 100%;
@@ -2761,10 +2756,7 @@ div.ctoc-overlay {
     text-align: center;
     text-decoration: none;
     width: 30%; }
-    .local-nav-bar-wrapper a:link, .local-nav-bar-wrapper a:active, .local-nav-bar-wrapper a:hover,
-    .local-nav-bar-wrapper span:link,
-    .local-nav-bar-wrapper span:active,
-    .local-nav-bar-wrapper span:hover {
+    .local-nav-bar-wrapper a:link, .local-nav-bar-wrapper a:active, .local-nav-bar-wrapper a:hover, .local-nav-bar-wrapper span:link, .local-nav-bar-wrapper span:active, .local-nav-bar-wrapper span:hover {
       display: inline-block;
       margin: 0;
       padding: 0;
@@ -2773,13 +2765,9 @@ div.ctoc-overlay {
       text-align: center;
       text-decoration: none;
       width: 30%; }
-    .local-nav-bar-wrapper a:link, .local-nav-bar-wrapper a:visited,
-    .local-nav-bar-wrapper span:link,
-    .local-nav-bar-wrapper span:visited {
+    .local-nav-bar-wrapper a:link, .local-nav-bar-wrapper a:visited, .local-nav-bar-wrapper span:link, .local-nav-bar-wrapper span:visited {
       color: #222; }
-    .local-nav-bar-wrapper a:active, .local-nav-bar-wrapper a:hover,
-    .local-nav-bar-wrapper span:active,
-    .local-nav-bar-wrapper span:hover {
+    .local-nav-bar-wrapper a:active, .local-nav-bar-wrapper a:hover, .local-nav-bar-wrapper span:active, .local-nav-bar-wrapper span:hover {
       background-color: #ddd;
       color: #222; }
   .local-nav-bar-wrapper a {

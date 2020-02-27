@@ -21,38 +21,11 @@
 OTS=SUCCESS
 
 
-for thscript in "$(pwd)"/tests/scripts/th[0-9][0-9]*.sh; do
-	if ! $thscript; then
-		OTS=FAIL
-		cd ..
-		break
-	fi
-done
-
-if [ "$OTS" != "FAIL" ]; then
-	for tscript in "$(pwd)"/tests/scripts/t[0-9][0-9]*.sh; do
-		if [ -d ./exampleSite ]; then
-			cd ./exampleSite	
-			if ! $tscript; then
-				OTS=FAIL
-				cd ..
-				break
-			fi
-			cd ..
-		else
-			if ! $tscript; then
-				OTS=FAIL
-				break
-			fi
-		fi
-	done
-fi
-
-if [ "$OTS" = "FAIL" ]; then
-	echo "FAIL: Build failed"
+if ! eslint . ; then
+	echo "FAIL: Linting (ESLint) fails"
 	exit 3
 else
-	echo "PASS: Build succeeded"
+	echo "PASS: Linting (ESLint) succeeds"
 fi
 
 exit 0
