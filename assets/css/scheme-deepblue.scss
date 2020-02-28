@@ -1,0 +1,101 @@
+/*! Copyright 2019-2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+// OldNew Mashup theme SCSS variables -- try to keep them all in one place
+
+$default-background-color: #003;
+$default-visited-link-color: #def;
+
+$default-pre-background-color: #114;
+$default-pre-text-color: #bbe;
+$default-pre-visited-color: #def;
+
+$default-inline-pre-background-color: #bbe;
+$default-inline-pre-text-color: #114;
+
+$default-container-background-color: #225;
+$default-container-text-color: #ccf;
+$default-container-row-background-color: #012;
+
+$sidebar-box-border: 2px solid;
+$sidebar-box-background-color: #225;
+$sidebar-box-text-color: #ccf;
+$sidebar-box-row-background-color: #012;
+$sidebar-menu-entry-row-background-color: #012;
+
+$toc-box-background-color: #447;
+$toc-box-text-color: #fff;
+
+$doc-date-background-color: #225;
+$doc-date-text-color: #ccf;
+
+$default-top-bar-background-color: #346;
+$site-badge-graphic-background-color: #bbe;
+
+$menubar-submenu-background-color: #225;
+
+$local-nav-background-color: #bbb;
+$local-nav-none-background-color: #666;
+$local-nav-text-color: #000;
+$local-nav-link-color: #222;
+$local-nav-hover-background-color: #ddd;
+$local-nav-hover-color: #222;
+
+
+$section-nav-max-menu-level: 3;
+$section-nav-entry-background-color: #555;
+
+$homepage-title-background-color: #777;
+$homepage-title-text-color: #fff;
+
+$splash-screenshot-frame-border: 20px solid #fff;
+$splash-screenshot-image-border: 2px solid #202020;
+$splash-screenshot-outside-border: 2px solid #202020;
+$splash-screenshot-box-shadow: 6px 6px 6px #000;
+
+$default-table-even-row-background-color: #226;
+$default-table-heading-background-colour: #336;
+
+$ctoc-bg-color: #225;
+
+$ctoc-off-canvas-height: 100%;
+$ctoc-off-canvas-width: 80%;
+$ctoc-off-canvas-overlay-opacity: .5;
+$ctoc-off-canvas-overlay-color: #114;
+$ctoc-off-canvas-overlay-z-index: 30;
+
+$hamburger-ctoc-width: 2em;
+$hamburger-ctoc-height: 2em;
+$hamburger-ctoc-z-index: 10;
+
+$ctoc-link-font-color: $default-link-color;
+
+$ctoc-link-hover-bg-color: $default-hover-background-color;
+$ctoc-link-hover-font-color: $default-hover-color;
+
+$hamburger-top-bar-menu-border-color: #111;
+
+$top-bar-off-canvas-height: 100%;
+$top-bar-off-canvas-width: 80%;
+$top-bar-off-canvas-overlay-opacity: .5;
+$top-bar-off-canvas-overlay-z-index: 39;
+
+$hamburger-top-bar-width: 2em;
+$hamburger-top-bar-height: 2em;
+$hamburger-top-bar-z-index: 40;
+
+$top-bar-link-padding: .4em;
+$top-bar-submenu-left-margin: .2em;
+$top-bar-link-min-width: 8em;
+$flyout-z-index: 40;
+$flyout-menu-item-width: 10em;
+$flyout-max-menu-level: 4;
+$flyout-menu-column-height: 16em;
+$flyout-menu-column-width: 34em;
+
+$flyout-submenu-colors-0: #444;
+$flyout-submenu-colors-1: #222;
+$flyout-submenu-colors-2: #000;
+
+$back-to-top-z-index: 888;
+

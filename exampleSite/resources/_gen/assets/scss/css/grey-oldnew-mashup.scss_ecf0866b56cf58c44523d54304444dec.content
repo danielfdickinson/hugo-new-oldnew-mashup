@@ -246,6 +246,15 @@ template {
 [hidden] {
   display: none; }
 
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+/*! Copyright 2019-2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
 /*! Copyright 2019-2020 Daniel F. Dickinson <cshored@thecshore.com>
  *  Released under the Creative Commons BY (Attribution) 4.0 License
  */
@@ -255,17 +264,17 @@ template {
 body {
   background-color: #333;
   color: #eee;
-  font-family: "Lucida Sans Unicode", "Lucida Granda", sans-serif; }
+  font-family: "Lucida Sans Unicode", "Lucida Granda", "sans-serif"; }
 
 pre,
 samp {
   border: dashed 1px;
-  font-family: "Lucida Console", Monaco, monospace; }
+  font-family: "Lucida Console", "Monaco", "monospace"; }
 
 kbd,
 var,
 code {
-  font-family: "Lucida Console", Monaco, monospace; }
+  font-family: "Lucida Console", "Monaco", "monospace"; }
 
 abbr,
 dfn {
@@ -321,7 +330,7 @@ kbd {
       color: #fff; }
 
 ul {
-  list-style-position: outside; }
+  list-style-position: inside; }
   ul li {
     padding-bottom: 3px; }
     ul li:last-child {
@@ -354,16 +363,16 @@ a {
 
 h1 {
   display: none;
-  font-family: Georgia, serif;
+  font-family: "Georgia", "serif";
   text-align: center; }
   h1.page-title {
     display: block;
-    font-family: Georgia, serif;
+    font-family: "Georgia", "serif";
     text-align: center; }
 
 .article-title {
   display: block;
-  font-family: Georgia, serif;
+  font-family: "Georgia", "serif";
   text-align: center; }
 
 input[type='text'] {
@@ -436,7 +445,7 @@ tr th {
   text-align: left; }
   .toc-box h2 {
     border-bottom: 1px dashed;
-    font-family: Georgia, serif;
+    font-family: "Georgia", "serif";
     font-size: 1.2em; }
   .toc-box a:link, .toc-box a:visited, .toc-box a:hover, .toc-box a:active {
     color: #ddd; }
@@ -568,7 +577,7 @@ tr th {
     margin-top: 0; }
   .main-article ul,
   .regular-content ul {
-    list-style-position: outside;
+    list-style-position: inside;
     margin-left: .8em;
     padding-left: .8em; }
     .main-article ul ul,
@@ -577,7 +586,7 @@ tr th {
       padding-left: .8em; }
     .main-article ul li,
     .regular-content ul li {
-      list-style-position: outside; }
+      list-style-position: inside; }
       .main-article ul li::marker,
       .regular-content ul li::marker {
         display: inline-block; }
@@ -594,7 +603,7 @@ tr th {
       padding-left: .8em; }
     .main-article ol li,
     .regular-content ol li {
-      list-style-position: outside; }
+      list-style-position: inside; }
       .main-article ol li::marker,
       .regular-content ol li::marker {
         display: inline-block; }
@@ -941,7 +950,7 @@ pre {
       color: #fff;
       display: block;
       flex: 0 0 80%;
-      font-family: Georgia, serif;
+      font-family: "Georgia", "serif";
       font-size: 1.3em;
       margin-left: 12%;
       margin-right: 12%;
@@ -2501,7 +2510,7 @@ div.ctoc-overlay {
       max-width: 37px; }
     .header-wrapper .site-badge .site-id {
       display: block;
-      font-family: Georgia, serif;
+      font-family: "Georgia", "serif";
       height: 100%;
       margin-left: .2em;
       overflow: hidden;
@@ -15381,4 +15390,4 @@ div.ctoc-overlay {
     display: none;
     visibility: hidden; } }
 
-/*# sourceMappingURL=oldnew-mashup.css.map */
+/*# sourceMappingURL=grey-oldnew-mashup.css.map */

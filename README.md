@@ -11,8 +11,8 @@ inspired by old-school themes.
 
 It attempts to be accessible, private, and responsive.
 
-The theme is currently a work in progress, but is still working well
-at <https://thecshore.com>.
+The theme is currently a work in progress, but works well at
+<https://thecshore.com>.
 
 You can view the [documentation for New OldNew Mashup Theme](https://new-oldnew-mashup.thecshore.com/docs)
 

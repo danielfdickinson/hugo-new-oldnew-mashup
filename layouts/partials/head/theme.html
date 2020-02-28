@@ -5,34 +5,48 @@
        Released under the Creative Commons 4.0 BY (Attribution) License -->
 {{ end }}
 {{ block "metadata" . }}
-  {{ if (index .Params "categories") }}<meta name="keywords" content="{{ delimit (index .Params "categories") ", " }}">{{ end }}
-  {{ if (index .Params "description") }}<meta name="description" content="{{ index .Params "description" }}">{{ end }}
-  {{ if (index .Params "author") }}<meta name="author" content="{{ index .Params "author" }}">{{ end }}
+  {{- if (index .Params "categories") }}<meta name="keywords" content="{{ delimit (index .Params "categories") ", " }}">{{ end -}}
+  {{- if (index .Params "description") }}<meta name="description" content="{{ index .Params "description" }}">{{ end -}}
+  {{- if (index .Params "author") }}<meta name="author" content="{{ index .Params "author" }}">{{ end -}}
 {{ end }}
 {{ block "links" . }}
-    {{ if ne (.Param "nobaseurl") true }}{{ if $.Site.BaseURL }}<base href="{{ $.Site.BaseURL }}">{{ end }}{{ end }}
-    {{ $options := (dict "enableSourceMap" true "compress" true "targetPath" "css/oldnew-mashup.css" "includePaths" (slice "assets/scss/oldnew")) }}
-    {{ $nb := resources.Get "css/new-base.scss" }}
-    {{ $sv := resources.Get "css/vars.scss" }}
-    {{ $nm := resources.Get "css/normalize.scss" }}
-    {{ if not (and $nb $sv $nm) }}
-      {{ errorf "Missing SCSS resources" }}
+    {{- if ne (.Param "nobaseurl") true }}{{ if $.Site.BaseURL -}}<base href="{{ $.Site.BaseURL }}">{{ end }}{{ end -}}
+    {{- $nb := resources.Get "css/new-base.scss" -}}
+    {{- $nm := resources.Get "css/normalize.scss" -}}
+    {{- $ds := resources.Get "css/define-scheme-vars.scss" -}}
+    {{- if not (and $nb $nm $ds ) -}}
+      {{- errorf "Missing static SCSS resources" -}}
+    {{- end -}}
+    {{- $ctx := . -}}
+    {{- $activescheme := default "grey" (.Param "style_scheme") -}}
+    {{ range $schemename := (slice "grey" "deepblue" "user" ) }}
+      {{- $options := (dict "enableSourceMap" true "compress" true "targetPath" ( printf "css/%s-oldnew-mashup.css" $schemename ) "includePaths" (slice "assets/scss/oldnew" )) -}}
+      {{- $gsvresname := printf "css/scheme-%s.scss" $schemename -}}
+      {{- $gsv := resources.Get $gsvresname -}}
+      {{- if not $gsv -}}
+        {{- errorf "Missing SCSS style scheme resources" -}}
+      {{- end -}}
+      {{- $nbtpl := $gsv -}}
+      {{- if (eq $schemename "user") -}}
+        {{- $nbtplname := printf "css/hugo-%s-scheme.scss" $schemename -}}
+        {{- $nbtpl = $gsv | resources.ExecuteAsTemplate $nbtplname $ctx -}}
+      {{- end }}
+      {{- $nbnmcatname := printf "css/%s-oldnew-mashup.scss" $schemename -}}
+      {{- $nbnmcat := slice $nm $ds $nbtpl $nb | resources.Concat $nbnmcatname -}}
+      {{- $nbstyle := $nbnmcat | resources.ToCSS $options | resources.Fingerprint -}}
+      <link rel="{{ if (ne $schemename $activescheme) }}alternate {{ end }}stylesheet" href="{{ $nbstyle.Permalink }}" title="{{ $schemename | humanize }} Style" />
     {{ end }}
-    {{ $nbtpl := resources.ExecuteAsTemplate "css/hugo-vars.scss" . $sv }}
-    {{ $nbnmcat := slice $nm $nbtpl $nb | resources.Concat "css/oldnew-mashup.scss" }}
-    {{ $nbstyle := $nbnmcat | resources.ToCSS $options }}
-    <link rel="stylesheet" href="{{ $nbstyle.Permalink }}"/>
 {{ end }}
 {{ block "output-formats" . }}
-  {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-  {{ end -}}
+  {{- range .AlternativeOutputFormats -}}
+    {{- printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML -}}
+  {{- end -}}
 {{ end }}
 {{ block "scripts" . }}
-  {{ $fusejs := resources.Get "js/krisk-Fuse.js" }}
-  {{ $jmarkjs := resources.Get "js/julmot-mark.js" | resources.Minify }}
-  {{ $search := resources.Get "js/search.js" | resources.Minify }}
-  {{ $confirmation := resources.Get "js/confirmation.js" | resources.Minify }}
+  {{- $fusejs := resources.Get "js/krisk-Fuse.js" | resources.Fingerprint -}}
+  {{- $jmarkjs := resources.Get "js/julmot-mark.js" | resources.Minify | resources.Fingerprint -}}
+  {{- $search := resources.Get "js/search.js" | resources.Minify | resources.Fingerprint -}}
+  {{- $confirmation := resources.Get "js/confirmation.js" | resources.Minify | resources.Fingerprint -}}
   <script src="{{ $fusejs.RelPermalink }}"></script>
   <script src="{{ $jmarkjs.RelPermalink }}"></script>
   <script>

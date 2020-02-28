@@ -1,0 +1,491 @@
+/*! Copyright 2019-2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+// OldNew Mashup theme SCSS variables -- try to keep them all in one place
+
+// Defaults for undefined variables; favours greyish scheme
+
+@if $serif-font-stack == null {
+  $serif-font-stack: ('Georgia', 'serif');
+}
+
+@if $sans-font-stack == null {
+  $sans-font-stack: ('Lucida Sans Unicode', 'Lucida Granda', 'sans-serif');
+}
+
+@if $mono-font-stack == null {
+  $mono-font-stack: ('Lucida Console', 'Monaco', 'monospace');
+}
+
+@if $default-unordered-list-position == null {
+  $default-unordered-list-position: inside;
+}
+
+@if $default-ordered-list-position == null {
+  $default-ordered-list-position: outside;
+}
+
+@if $default-background-color == null {
+  $default-background-color: #333;
+}
+
+@if $default-text-color == null {
+  $default-text-color: #eee;
+}
+
+@if $default-link-color == null {
+  $default-link-color: #ccf;
+}
+
+@if $default-visited-link-color == null {
+  $default-visited-link-color: #cde;
+}
+
+@if $default-hover-background-color == null {
+  $default-hover-background-color: #777;
+}
+
+@if $default-hover-color == null {
+  $default-hover-color: #f00;
+}
+
+@if $default-pre-background-color == null {
+  $default-pre-background-color: #000;
+}
+
+@if $default-pre-text-color == null {
+  $default-pre-text-color: #aaa;
+}
+
+@if $default-pre-link-color == null {
+  $default-pre-link-color: #999;
+}
+
+@if $default-pre-visited-color == null {
+  $default-pre-visited-color: $default-visited-link-color;
+}
+
+@if $default-pre-hover-color == null {
+  $default-pre-hover-color: #fff;
+}
+
+@if $default-inline-pre-background-color == null {
+  $default-inline-pre-background-color: #bbb;
+}
+
+@if $default-inline-pre-text-color == null {
+  $default-inline-pre-text-color: #000;
+}
+
+@if $default-inline-pre-link-color == null {
+  $default-inline-pre-link-color: #222;
+}
+
+@if $default-inline-pre-visited-color == null {
+  $default-inline-pre-visited-color: #111;
+}
+
+@if $default-inline-pre-hover-color == null {
+  $default-inline-pre-hover-color: #fff;
+}
+
+@if $default-separator-color == null {
+  $default-separator-color: #909090;
+}
+
+@if $default-container-border == null {
+  $default-container-border: 4px solid;
+}
+
+@if $default-container-border-color == null {
+  $default-container-border-color: #ccc;
+}
+
+@if $default-container-background-color == null {
+  $default-container-background-color: #222;
+}
+
+@if $default-container-text-color == null {
+  $default-container-text-color: #ccc;
+}
+
+@if $default-container-row-background-color == null {
+  $default-container-row-background-color: #000;
+}
+
+@if $sidebar-box-border == null {
+  $sidebar-box-border: 2px solid;
+}
+
+@if $sidebar-box-border-color == null {
+  $sidebar-box-border-color: $default-container-border-color;
+}
+
+@if $sidebar-box-background-color == null {
+  $sidebar-box-background-color: $default-container-background-color;
+}
+
+@if $sidebar-box-text-color == null {
+  $sidebar-box-text-color: $default-container-text-color;
+}
+
+@if $sidebar-box-row-background-color == null {
+  $sidebar-box-row-background-color: $default-container-row-background-color;
+}
+
+@if $sidebar-menu-entry-row-background-color == null {
+  $sidebar-menu-entry-row-background-color: $sidebar-box-row-background-color;
+}
+
+@if $toc-box-border == null {
+  $toc-box-border: 2px dotted;
+}
+
+@if $toc-box-border-color == null {
+  $toc-box-border-color: #666;
+}
+
+@if $toc-box-background-color == null {
+  $toc-box-background-color: #444;
+}
+
+@if $toc-box-text-color == null {
+  $toc-box-text-color: #ddd;
+}
+
+@if $toc-box-row-background-color == null {
+  $toc-box-row-background-color: #222;
+}
+
+@if $doc-date-border == null {
+  $doc-date-border: $default-container-border;
+}
+
+@if $doc-date-border-color == null {
+  $doc-date-border-color: $default-container-border-color;
+}
+
+@if $doc-date-background-color == null {
+  $doc-date-background-color: $default-container-background-color;
+}
+
+@if $doc-date-text-color == null {
+  $doc-date-text-color: $default-container-text-color;
+}
+
+@if $default-top-bar-background-color == null {
+  $default-top-bar-background-color: $default-background-color;
+}
+
+@if $default-top-bar-box-shadow-color == null {
+  $default-top-bar-box-shadow-color: #000;
+}
+
+@if $default-top-bar-border-color == null {
+  $default-top-bar-border-color: #444;
+}
+
+@if $default-top-bar-hover-border-color == null {
+  $default-top-bar-hover-border-color: #000;
+}
+
+@if $default-top-bar-hover-box-shadow-color == null {
+  $default-top-bar-hover-box-shadow-color: #666;
+}
+
+@if $site-badge-graphic-background-color == null {
+  $site-badge-graphic-background-color: $default-inline-pre-background-color;
+}
+
+@if $site-badge-graphic-width == null {
+  $site-badge-graphic-width: 37px;
+}
+
+@if $site-badge-width == null {
+  $site-badge-width: 12em;
+}
+
+@if $site-id-width == null {
+  $site-id-width: 10em;
+}
+
+@if $menubar-box-shadow-color == null {
+  $menubar-box-shadow-color: $default-top-bar-box-shadow-color;
+}
+
+@if $menubar-top-level-border-color == null {
+  $menubar-top-level-border-color: $default-top-bar-border-color;
+}
+
+@if $menubar-submenu-background-color == null {
+  $menubar-submenu-background-color: $default-container-background-color;
+}
+
+@if $local-nav-background-color == null {
+  $local-nav-background-color: #bbb;
+}
+
+@if $local-nav-none-background-color == null {
+  $local-nav-none-background-color: #666;
+}
+
+@if $local-nav-text-color == null {
+  $local-nav-text-color: #000;
+}
+
+@if $local-nav-link-color == null {
+  $local-nav-link-color: #222;
+}
+
+@if $local-nav-hover-background-color == null {
+  $local-nav-hover-background-color: #ddd;
+}
+
+@if $local-nav-hover-color == null {
+  $local-nav-hover-color: #222;
+}
+
+@if $section-nav-max-menu-level == null {
+  $section-nav-max-menu-level: 3;
+}
+
+@if $section-nav-entry-background-color == null {
+  $section-nav-entry-background-color: #555;
+}
+
+@if $homepage-title-background-color == null {
+  $homepage-title-background-color: #777;
+}
+
+@if $homepage-title-text-color == null {
+  $homepage-title-text-color: #fff;
+}
+
+@if $splash-screenshot-frame-border == null {
+  $splash-screenshot-frame-border: 20px solid #fff;
+}
+
+@if $splash-screenshot-image-border == null {
+  $splash-screenshot-image-border: 2px solid #202020;
+}
+
+@if $splash-screenshot-outside-border == null {
+  $splash-screenshot-outside-border: 2px solid #202020;
+}
+
+@if $splash-screenshot-box-shadow == null {
+  $splash-screenshot-box-shadow: 6px 6px 6px #000;
+}
+
+@if $search-results-background-color == null {
+  $search-results-background-color: $default-inline-pre-background-color;
+}
+
+@if $search-results-text-color == null {
+  $search-results-text-color: $default-inline-pre-text-color;
+}
+
+@if $search-results-link-color == null {
+  $search-results-link-color: $default-inline-pre-link-color;
+}
+
+@if $search-results-visited-color == null {
+  $search-results-visited-color: $default-inline-pre-visited-color;
+}
+
+@if $search-results-hover-color == null {
+  $search-results-hover-color: $default-inline-pre-hover-color;
+}
+
+@if $default-table-border == null {
+  $default-table-border: $default-container-border;
+}
+
+@if $default-table-border-color == null {
+  $default-table-border-color: $default-container-border-color;
+}
+
+@if $default-table-background-color == null {
+  $default-table-background-color: #333;
+}
+
+@if $default-table-text-color == null {
+  $default-table-text-color: $default-container-text-color;
+}
+
+@if $default-table-even-row-background-color == null {
+  $default-table-even-row-background-color: #111;
+}
+
+@if $default-table-heading-background-colour == null {
+  $default-table-heading-background-colour: $default-pre-background-color;
+}
+
+@if $ctoc-bg-color == null {
+  $ctoc-bg-color: $default-container-background-color;
+}
+
+@if $ctoc-off-canvas-height == null {
+  $ctoc-off-canvas-height: 100%;
+}
+
+@if $ctoc-off-canvas-width == null {
+  $ctoc-off-canvas-width: 80%;
+}
+
+@if $ctoc-off-canvas-overlay-opacity == null {
+  $ctoc-off-canvas-overlay-opacity: .5;
+}
+
+@if $ctoc-off-canvas-overlay-color == null {
+  $ctoc-off-canvas-overlay-color: $default-pre-background-color;
+}
+
+@if $ctoc-off-canvas-overlay-z-index == null {
+  $ctoc-off-canvas-overlay-z-index: 30;
+}
+
+@if $hamburger-ctoc-width == null {
+  $hamburger-ctoc-width: 2em;
+}
+
+@if $hamburger-ctoc-height == null {
+  $hamburger-ctoc-height: 2em;
+}
+
+@if $hamburger-ctoc-z-index == null {
+  $hamburger-ctoc-z-index: 10;
+}
+
+@if $ctoc-link-font-color == null {
+  $ctoc-link-font-color: $default-link-color;
+}
+
+@if $ctoc-link-hover-bg-color == null {
+  $ctoc-link-hover-bg-color: $default-hover-background-color;
+}
+
+@if $ctoc-link-hover-font-color == null {
+  $ctoc-link-hover-font-color: $default-hover-color;
+}
+
+@if $hamburger-start-background-color == null {
+  $hamburger-start-background-color: $default-hover-background-color;
+}
+
+@if $hamburger-start-hover-background-color == null {
+  $hamburger-start-hover-background-color: $default-inline-pre-hover-color;
+}
+
+@if $hamburger-top-bar-background-color == null {
+  $hamburger-top-bar-background-color: $default-table-background-color;
+}
+
+@if $hamburger-top-bar-menu-text-color == null {
+  $hamburger-top-bar-menu-text-color: $default-table-text-color;
+}
+
+@if $hamburger-top-bar-menu-link-color == null {
+  $hamburger-top-bar-menu-link-color: $default-link-color;
+}
+
+@if $hamburger-top-bar-menu-border-color == null {
+  $hamburger-top-bar-menu-border-color: #111;
+}
+
+@if $top-bar-off-canvas-height == null {
+  $top-bar-off-canvas-height: 100%;
+}
+
+@if $top-bar-off-canvas-width == null {
+  $top-bar-off-canvas-width: 80%;
+}
+
+@if $top-bar-off-canvas-overlay-opacity == null {
+  $top-bar-off-canvas-overlay-opacity: .5;
+}
+
+@if $top-bar-off-canvas-overlay-color == null {
+  $top-bar-off-canvas-overlay-color: $default-pre-background-color;
+}
+
+@if $top-bar-off-canvas-overlay-z-index == null {
+  $top-bar-off-canvas-overlay-z-index: 39;
+}
+
+@if $hamburger-top-bar-width == null {
+  $hamburger-top-bar-width: 2em;
+}
+
+@if $hamburger-top-bar-height == null {
+  $hamburger-top-bar-height: 2em;
+}
+
+@if $hamburger-top-bar-z-index == null {
+  $hamburger-top-bar-z-index: 40;
+}
+
+@if $top-bar-link-padding == null {
+  $top-bar-link-padding: .4em;
+}
+
+@if $top-bar-link-font-color == null {
+  $top-bar-link-font-color: $default-link-color;
+}
+
+@if $top-bar-link-hover-bg-color == null {
+  $top-bar-link-hover-bg-color: s$default-hover-background-color;
+}
+
+@if $top-bar-link-hover-font-color == null {
+  $top-bar-link-hover-font-color: $default-hover-color;
+}
+
+@if $top-bar-submenu-left-margin == null {
+  $top-bar-submenu-left-margin: .2em;
+}
+
+@if $top-bar-link-min-width == null {
+  $top-bar-link-min-width: 8em;
+}
+
+@if $flyout-z-index == null {
+  $flyout-z-index: 40;
+}
+
+@if $flyout-menu-item-height == null {
+  $flyout-menu-item-height: $hamburger-top-bar-height;
+}
+
+@if $flyout-menu-item-width == null {
+  $flyout-menu-item-width: 10em;
+}
+
+@if $flyout-max-menu-level == null {
+  $flyout-max-menu-level: 4;
+}
+
+@if $flyout-menu-column-height == null {
+  $flyout-menu-column-height: 16em;
+}
+
+@if $flyout-menu-column-width == null {
+  $flyout-menu-column-width: 34em;
+}
+
+@if $flyout-submenu-colors-0 == null {
+  $flyout-submenu-colors-0: #444;
+}
+
+@if $flyout-submenu-colors-1 == null {
+  $flyout-submenu-colors-1: #222;
+}
+
+@if $flyout-submenu-colors-2 == null {
+  $flyout-submenu-colors-2: #000;
+}
+
+@if $back-to-top-z-index == null {
+  $back-to-top-z-index: 888;
+}
+
