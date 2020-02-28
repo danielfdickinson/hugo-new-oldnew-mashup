@@ -489,3 +489,7 @@
   $back-to-top-z-index: 888;
 }
 
+@if $page-footer-link-background-color == null {
+  $page-footer-link-background-color: $default-background-color;
+}
+

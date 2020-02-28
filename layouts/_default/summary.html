@@ -1,4 +1,4 @@
-{{ if or (ge (len .Summary) 10) .Page.Params.description }}
+{{- if or (ge (len .Summary) 10) .Page.Params.description -}}
 <article class="recent-change">
 <!-- Copyright 2018-2019 Daniel F. Dickinson
      Released under the Creative Commons BY (Attribution) 4.0 License) -->
@@ -8,8 +8,8 @@
   </header>
   <div>{{ if .Page.Params.description }}{{ .Page.Params.description }}{{ else }}{{ .Summary }}{{ end }}</div>
   <footer class="recent-changes-footer">
-    {{ if (or .Truncated .Page.Params.description) }}  <a href='{{ .RelPermalink }}'>Read full article for "{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}"</a>
-  {{ end }}
+    {{- if (or .Truncated .Page.Params.description) }}  <a href='{{ .RelPermalink }}'>Read full article for "{{ if .Title }}{{ .Title }}{{ else }}{{ .File.TranslationBaseName | title }}{{ end }}"</a>
+  {{- end -}}
   </footer>
 </article>
-{{ end }}
+{{- end -}}

@@ -13,7 +13,12 @@
         &:link,
         &:active,
         &:hover {
+          background-color: $page-footer-link-background-color;
+          display: block;
+          height: 100%;
+          padding: .2em;
           text-decoration: none;
+          width: 100%;
         }
       }
 
@@ -21,7 +26,6 @@
         border: 3px ridge $default-separator-color;
         display: inline-block;
         margin: .5%;
-        padding: .2em;
       }
     } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
       @if $sub-devcap == 'ie11+' {

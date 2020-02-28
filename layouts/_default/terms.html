@@ -1,25 +1,21 @@
-{{ define "title" }}
-  {{ if .Title }}{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title | singularize | humanize }}{{ else }}{{ .Title }}{{ end }}{{ end }}{{ end }}
-{{ end }}
-{{ define "bodytag" }}
-  <body>
-<!-- Copyright 2018-2019 Daniel F. Dickinson
-     Released under the Create Commons BY (Attribution) 4.0 License -->
-{{ end }}
-{{ define "main" }}
+{{/* Copyright 2018-2020 Daniel F. Dickinson.  Released under the
+  Creative Commons BY (Attribution) 4.0 License */}}
+{{- define "title" -}}
+  {{- if .Title -}}{{- if .Data.Terms -}}Taxonomy: {{- .Title -}}{{- else -}}{{- if .Data.Singular -}}{{- .Data.Singular | humanize -}}: {{- .Title | singularize | humanize -}}{{- else -}}{{- .Title -}}{{- end -}}{{- end -}}{{- end -}}
+{{- end -}}
+{{- define "main" -}}
   <div class="main-wrapper taxonomy-term-content-wrapper {{ if (eq (.Param "norbar") true) }}full-page-content-wrapper{{ end }}">
-
     <main class="main taxonomy-term-content {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
       <div class="main-article-wrapper">
         <article aria-label="Main Article" id="main-article" class="main-article">
-  {{ if .Title }}<h1 class="article-title">{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title }}{{ else }}{{ .Title }}{{ end }}{{ end }}</h1>{{ end }}
+  {{- if .Title -}}<h1 class="article-title">{{ if .Data.Terms }}Taxonomy: {{ .Title }}{{ else }}{{ if .Data.Singular }}{{ .Data.Singular | humanize }}: {{ .Title }}{{ else }}{{ .Title }}{{ end }}{{ end }}</h1>{{- end -}}
           <div class="taxonomy-term-content-wrapper">
             <section class="taxonomy-term-content">
   {{ .Content }}
   {{ partial "generic-helpers/aside" . }}
             </section>
           </div>
-  {{ if .Data.Pages }}
+  {{- if .Data.Pages }}
           <div class="taxonomy-term-list-wrapper">
             <section aria-labelledby="taxonomy-term-heading" class="taxonomy-term-list">
               <h2 id="section-contents-heading" class="taxonomy-term-heading">{{ if .Data.Terms }}{{ .Data.Singular | singularize | humanize }} List{{ else}}{{ .Title | singularize | humanize }} Pages{{ end }}</h2>
@@ -28,9 +24,9 @@
               </ol>
             </section>
           </div>
-  {{ end }}
+  {{- end -}}
         </article>
       </div>
     </main>
   </div>
-{{ end }}
+{{- end -}}

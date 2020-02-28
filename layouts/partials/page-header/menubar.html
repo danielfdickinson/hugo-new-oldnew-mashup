@@ -1,9 +1,8 @@
-<nav id="menu-bar" class="menubar-site-menu {{ if .IsSection }}section-site-menu{{ else if .IsPage }}page-site-menu{{ end }}">
-<ul id="menubar-site-menu-list" class="menubar-site-menu-list menu-parent">
-  <!-- Copyright 2018-2019 Daniel F. Dickinson,
-       Released under the Creative Commons 4.0 BY (Attribution) License -->
-{{ $ctx := . }}
-
+{{/* Copyright 2018-2019 Daniel F. Dickinson,  Released under the
+  Creative Commons 4.0 BY (Attribution) License */}}
+    <nav id="menu-bar" class="menubar-site-menu {{ if .IsSection }}section-site-menu{{ else if .IsPage }}page-site-menu{{ end }}">
+      <ul id="menubar-site-menu-list" class="menubar-site-menu-list menu-parent">
+{{- $ctx := . -}}
 {{ partial "generic-site-menu/full-tree" ( dict "menu_node" $ctx "menu_type" "site" ) }}
-</ul>
-</nav>
+    </ul>
+    </nav>

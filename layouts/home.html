@@ -1,46 +1,42 @@
-{{ define "title" }}
-  {{ if .Title }}
-    {{.Title}}
-  {{ else }}
-    {{ .Site.Title }}
-  {{ end }}
-{{ end }}
-{{ define "bodytag" }}
-<body>
-{{ end }}
-{{ define "header" }}
-  {{ if not (eq (.Param "new_landing_page") true) }}
+{{/* Copyright 2018-2020 Daniel F. Dickinson.  Released under the
+  Creative Commons BY (Attribution) 4.0 License */}}
+{{- define "title" -}}
+  {{- if .Title -}}
+    {{- .Title -}}
+  {{- else -}}
+    {{- .Site.Title -}}
+  {{- end -}}
+{{- end -}}
+{{- define "header" -}}
+  {{- if not (eq (.Param "new_landing_page") true) }}
   <div class="homepage">
-    {{ else }}
+    {{- else }}
   <div class="default-body-wrapper">
-    {{ end }}
-    <!-- Copyright 2018-2020 Daniel F. Dickinson
-         Released under the Creative Commons BY (Attribution) 4.0 License -->
+    {{- end -}}
     {{ partial "page-header" . }}
-
-{{ end }}
-{{ define "main" }}
-  {{ if not (eq (.Param "new_landing_page") true) }}
+{{- end -}}
+{{- define "main" -}}
+  {{- if not (eq (.Param "new_landing_page") true) }}
     <main id="main-content" class="main landing-page-content">
       <h1 class="title">{{if not .Page.Title}}{{.Site.Title}}{{else}}{{.Page.Title}}{{end}}</h1>
       <div class="taglines">
-        {{ if .Param "oneliner" }}
+        {{- if .Param "oneliner" -}}
         <h2 class="one-liner">{{ .Param "oneliner" }}</h2>
-          {{ if .Param "subliner" }}
+          {{- if .Param "subliner" -}}
           <h3 class="sub-liner">{{ .Param "subliner" }}</h3>
-          {{ end }}
-        {{ end }}
+          {{- end -}}
+        {{- end -}}
         {{ partial "generic-helpers/find-real-home/findnextpage" . }}
       </div>
       <aside class="aside">
-        {{ markdownify .Page.Params.aside}}
+        {{- markdownify .Page.Params.aside -}}
       </aside>
      {{ partial "splash-screenshots.html" . }}
       <aside class="aside-footer">
-        {{ markdownify .Page.Params.asidefooter }}
+        {{- markdownify .Page.Params.asidefooter -}}
       </aside>
     </main>
-  {{ else }}
+  {{- else -}}
     <div class="main-wrapper landing-content-wrapper {{ if (eq (.Param "norbar") true) }}full-page-content-wrapper{{ end }}">
       <main class="main landing-content {{ if (eq (.Param "norbar") true) }}full-page-content{{ end }}">
         <div class="main-article-wrapper">
@@ -55,8 +51,8 @@
         </div>
       </main>
     </div>
-  {{ end }}
-{{ end }}
-{{ define "footer" }}
+  {{- end -}}
+{{- end -}}
+{{- define "footer" -}}
   {{ partial "footer.html" . }}
-{{ end }}
+{{- end -}}

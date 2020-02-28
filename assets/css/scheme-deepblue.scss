@@ -41,9 +41,9 @@ $local-nav-link-color: #222;
 $local-nav-hover-background-color: #ddd;
 $local-nav-hover-color: #222;
 
-
 $section-nav-max-menu-level: 3;
-$section-nav-entry-background-color: #555;
+$section-nav-entry-background-color: #336;
+
 
 $homepage-title-background-color: #777;
 $homepage-title-text-color: #fff;
@@ -73,7 +73,10 @@ $ctoc-link-font-color: $default-link-color;
 $ctoc-link-hover-bg-color: $default-hover-background-color;
 $ctoc-link-hover-font-color: $default-hover-color;
 
-$hamburger-top-bar-menu-border-color: #111;
+$default-top-bar-border-color: #447;
+$hamburger-top-bar-menu-border-color: #012;
+$hamburger-start-background-color: #99c;
+$hamburger-start-hover-background-color: #bbf;
 
 $top-bar-off-canvas-height: 100%;
 $top-bar-off-canvas-width: 80%;
@@ -93,9 +96,11 @@ $flyout-max-menu-level: 4;
 $flyout-menu-column-height: 16em;
 $flyout-menu-column-width: 34em;
 
-$flyout-submenu-colors-0: #444;
-$flyout-submenu-colors-1: #222;
+$flyout-submenu-colors-0: #347;
+$flyout-submenu-colors-1: #226;
 $flyout-submenu-colors-2: #000;
 
 $back-to-top-z-index: 888;
+
+$page-footer-link-background-color: #137;
 

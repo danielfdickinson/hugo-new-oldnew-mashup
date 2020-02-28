@@ -1,89 +1,83 @@
-{{ define "title" }}
-  {{ if .Title }}{{ .Title }}{{ else if .Name }}{{ .Name }}{{ else }}{{ .Site.Title }}{{ end }}
-{{ end }}
-{{ define "bodytag" }}
-  <body>
-<!-- Copyright 2018-2019 Daniel F. Dickinson
-     Released under the Create Commons BY (Attribution) 4.0 License -->
-{{ end }}
-{{ define "main" }}
+{{/* Copyright 2018-2020 Daniel F. Dickinson.   Released under the
+  Creative Commons BY (Attribution) 4.0 License */}}
+{{- define "main" -}}
   <div class="main-wrapper{{ if (eq (.Param "norbar") true) }} full-page-content-wrapper{{ end }} section-page-content-wrapper">
 
     <main class="main{{ if (eq (.Param "norbar") true) }} full-page-content{{ end }} section-page-content">
       <div class="main-article-wrapper">
         <article aria-label="Main Article" id="main-article" class="main-article">
   {{ partial "generic-helpers/article-header" . }}
-  {{ if (trim ( replaceRE "<h1.*</h1>" "" .Content | safeHTML ) " \t\n") }}
+  {{- if (trim ( replaceRE "<h1.*</h1>" "" .Content | safeHTML ) " \t\n") -}}
           <div class="regular-content-wrapper">
             <section class="regular-content" aria-labelledby="regular-content-heading">
               <h2 id="regular-content-heading" class="regular-content-heading">Preface</h2>
-    {{ replaceRE "<h1.*</h1>" "" .Content | safeHTML }}
+    {{- replaceRE "<h1.*</h1>" "" .Content | safeHTML -}}
     {{ partial "generic-helpers/aside" . }}
             </section>
           </div>
-  {{ end }}
-  {{ if .Data.Pages }}
-    {{ $timeTypes := .Param "time_types" }}
-    {{ if (in $timeTypes .Type ) }}
+  {{- end -}}
+  {{- if .Data.Pages -}}
+    {{- $timeTypes := .Param "time_types" -}}
+    {{- if (in $timeTypes .Type ) -}}
           <div class="section-time-wrapper">
             <section aria-labelledby="section-contents-heading" class="section-time-toc">
               <h2 id="section-contents-heading" class="section-time-contents-heading">Section Contents</h2>
-      {{ $sections := ( partial "generic-site-menu/nodes-included" (dict "nodes" .Sections "menu_node" . "menu_type" "section" ) )}}
-      {{ if $sections }}
+      {{- $sections := ( partial "generic-site-menu/nodes-included" (dict "nodes" .Sections "menu_node" . "menu_type" "section" ) ) -}}
+      {{- if $sections -}}
               <ol class="section-time-contents">
-          {{ range $sections }}
+          {{- range $sections -}}
                 <li><a href="{{ .RelPermalink }}">{{ if .Title }}{{ .Title }}{{ else if .Name }}{{ .Name }}{{ else }}Untitled{{ end }}</a></li>
-          {{ end }}
+          {{- end -}}
               </ol>
-      {{ end }}
-      {{ $baseNodes :=  .Data.Pages}}
-      {{ $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $baseNodes "menu_node" . "menu_type" "section" ) ) }}
-      {{ if $nodes }}
-        {{ $nodes_and_children := slice $.Site.Home }}
-        {{ range $nodes }}
-          {{ if in $nodes_and_children $.Site.Home }}
-            {{ $nodes_and_children = slice .Page }}
-          {{ else }}
-            {{ $nodes_and_children  = $nodes_and_children | append .Page }}
-          {{ end }}
-          {{ $subNodes := partial "generic-helpers/all-children" . }}
-          {{ if $subNodes }}
-            {{ range $subNodes }}
-              {{ $nodes_and_children  = $nodes_and_children | append .Page }}
-            {{ end }}
-          {{ end }}
-        {{ end }}
-        {{ $section_nodes := $nodes_and_children }}
-        {{ if .Params.exclude_section }}
-          {{ $section_nodes = where $nodes_and_children "Type" "not in" .Params.exclude_section }}
-        {{ end }}
-        {{ if $section_nodes }}
-          {{ range $section_nodes.GroupByDate "2006-01" "desc" }}
+      {{- end -}}
+      {{- $baseNodes :=  .Data.Pages -}}
+      {{- $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $baseNodes "menu_node" . "menu_type" "section" ) ) -}}
+      {{- if $nodes -}}
+        {{- $nodes_and_children := slice $.Site.Home -}}
+        {{- range $nodes -}}
+          {{- if in $nodes_and_children $.Site.Home -}}
+            {{- $nodes_and_children = slice .Page -}}
+          {{- else -}}
+            {{- $nodes_and_children  = $nodes_and_children | append .Page -}}
+          {{- end -}}
+          {{- $subNodes := partial "generic-helpers/all-children" . -}}
+          {{- if $subNodes -}}
+            {{- range $subNodes -}}
+              {{- $nodes_and_children  = $nodes_and_children | append .Page -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $section_nodes := $nodes_and_children -}}
+        {{- if .Params.exclude_section -}}
+          {{- $section_nodes = where $nodes_and_children "Type" "not in" .Params.exclude_section -}}
+        {{- end -}}
+        {{- if $section_nodes -}}
+          {{- range $section_nodes.GroupByDate "2006-01" "desc" -}}
               <h3>{{ .Key }}</h3>
                 <ul>
-            {{ range .Pages.ByDate.Reverse }}
+            {{- range .Pages.ByDate.Reverse -}}
                   <li>
                     <span class="list-item-date">{{ .Date.Format "Mon, 2006/01/02 15:04 MST" }}</span>
                     <span class="date-list-item"><a href="{{ .Permalink }}">{{ if .Title }}{{ .Title }}{{ else if .File.TranslationBaseName }}{{ .File.TranslationBaseName | title }}{{ end }}</a></span>
                   </li>
-            {{ end }}
+            {{- end -}}
                 </ul>
-         {{ end }}
-        {{ end }}
-      {{ end }}
-    {{ else }}
+         {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- else -}}
           <div class="section-toc-wrapper">
             <section aria-labelledby="section-contents-heading" class="section-toc">
               <h2 id="section-contents-heading" class="section-contents-heading">Sections</h2>
               <ol class="section-contents page-list-parent">
       {{ partial "generic-helpers/section/nesting" . }}
               </ol>
-    {{ end }}
+    {{- end -}}
             </section>
           </div>
-  {{ end }}
+  {{- end -}}
         </article>
       </div>
     </main>
   </div>
-{{ end }}
+{{- end -}}
