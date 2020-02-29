@@ -20,15 +20,12 @@
 
 OTS=SUCCESS
 
-htfiles="$(find public -name '*.html' -print)"
 
-for htfile in $htfiles; do
-	if ! tidy -o /dev/null -q --drop-empty-elements no --indent auto $htfile; then
-		echo "FAIL: Linting (tidy) fails for $htfile"
-		exit 3
-	fi
-done
-
-echo "PASS: Linting (tidy) succeeds"
+if ! eslint --max-warnings 1 assets/js ; then
+	echo "FAIL: Linting (ESLint) fails"
+	exit 3
+else
+	echo "PASS: Linting (ESLint) succeeds"
+fi
 
 exit 0

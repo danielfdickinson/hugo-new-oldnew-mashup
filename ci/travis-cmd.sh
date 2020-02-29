@@ -8,5 +8,6 @@ cd binaries
 wget https://github.com/gohugoio/hugo/releases/download/v0.65.3/hugo_extended_0.65.3_Linux-64bit.tar.gz
 tar -xzf hugo_extended_0.65.3_Linux-64bit.tar.gz
 cd ..
-export PATH=$(pwd)/binaries:$PATH
+export PATH=$(pwd)/binaries:./node_modules/.bin:$PATH
+npm install
 ./tests/scripts/run_all_tests
