@@ -21,12 +21,27 @@
   {{- if not $gsv -}}
     {{- errorf "Missing SCSS style scheme resources" -}}
   {{- end -}}
-  {{- $nbtplname := printf "css/hugo-%s-scheme.scss" "base" -}}
-  {{- $nbtpl := $gsv | resources.ExecuteAsTemplate $nbtplname . -}}
-  {{- $nbnmcatname := printf "css/%s-oldnew-mashup.scss" "cat" -}}
-  {{- $nbnmcat := slice $nbtpl $nb | resources.Concat $nbnmcatname -}}
-  {{- $nbstyle := $nbnmcat | resources.ToCSS $options | resources.Fingerprint -}}
+  {{- $pregenstylesheetname := printf "css/oldnew-mashup/%s-oldnew-mashup.css" "new" -}}
+  {{- $nbstyle := resources.Get $pregenstylesheetname -}}
+  {{- if or (and ( eq (string hugo.Environment) "for-basic" ) ( not $.Site.IsServer )) (eq (string hugo.Environment) "development") -}}
+    {{- $nbtplname := printf "css/hugo-%s-scheme.scss" "base" -}}
+    {{- $nbtpl := $gsv | resources.ExecuteAsTemplate $nbtplname . -}}
+    {{- $nbnmcatname := printf "css/%s-oldnew-mashup.scss" "cat" -}}
+    {{- $nbnmcat := slice $nbtpl $nb | resources.Concat $nbnmcatname -}}
+    {{- if and ( eq (string hugo.Environment) "for-basic" ) ( not $.Site.IsServer ) -}}
+      {{- $nbstyle = $nbnmcat | resources.ToCSS $options -}}
+    {{ else }}
+      {{- $nbstyle = $nbnmcat | resources.ToCSS $options | resources.Fingerprint -}}
+    {{ end }}
+  {{- else -}}
+    {{- if not $nbstyle -}}
+      {{- errorf ( printf "Missing stylesheet '%s'" $pregenstylesheetname ) -}}
+    {{- end -}}
+    {{- $nbstyle = $nbstyle | resources.Fingerprint -}}
+  {{- end -}}
+  {{ if $nbstyle }}
   <link rel="stylesheet" href="{{ $nbstyle.Permalink }}"/>
+  {{- end }}
 {{ end }}
 {{ block "output-formats" . }}
   {{ range .AlternativeOutputFormats -}}
