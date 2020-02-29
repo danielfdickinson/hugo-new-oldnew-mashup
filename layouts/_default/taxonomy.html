@@ -16,7 +16,7 @@
   {{- if eq .Data.Singular "license" -}}
           <div class="license-section-wrapper">
             <section class="license-section">
-    {{- if .Title -}}<h1 class="article-title">License: {{- .Title -}}</h1>{{- end -}}
+    {{- if .Title -}}<h1 class="article-title">License: {{ .Title -}}</h1>{{- end -}}
   {{- else -}}
           <div class="taxonomy-contact-wrapper">
               <section class="taxonomy-content">
@@ -24,7 +24,7 @@
   {{- end -}}
   {{- if eq .Data.Singular "license" -}}
                 <h2>License Text</h2>
-                  <pre class="license-block chroma">{{ $license = .Data.Term }}{{ if $license }}{{ $licenseFile := resources.Get (print "licenses/" $license) }}{{ with $licenseFile }}{{ .Content }}{{ else }}Missing{{ end }}{{ else }}Missing Term{{ end }}</pre>
+                  <pre class="license-block chroma">{{ $license = .Data.Term | upper }}{{ if $license }}{{ $licenseFile := resources.Get (print "licenses/" $license) }}{{ with $licenseFile }}{{ .Content }}{{ else }}Missing{{ end }}{{ else }}Missing Term{{ end }}</pre>
   {{- else -}}
     {{ .Content }}
   {{- end -}}

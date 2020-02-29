@@ -1,0 +1,162 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+// OldNewMashup Theme Page Header Menubar Columns & Overflow Styling
+
+@mixin menubar-needs-overflow-submenu($device-capabilities: 'all-browsers', $menu-level: 2, $sub-devcap: null) {
+  $submenu-pos-number: $menu-level;
+
+  @if $menu-level <= $flyout-max-menu-level {
+    $submenu-mod: ($menu-level % 2);
+
+    @if $submenu-mod == 1 {
+      $submenu-pos-number: $menu-level + 1;
+    }
+  }
+
+  & > .menu-item {
+    @include menubar-menu-list-position-submenus($device-capabilities, $submenu-pos-number);
+
+    @if $device-capabilities == 'all-browsers' {
+      height: $flyout-menu-item-height;
+      width: $flyout-menu-item-width;
+
+      & .menu-parent {
+        height: auto;
+        width: $flyout-menu-item-width;
+      }
+    } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+      height: auto;
+      width: 100%;
+
+      & .menu-parent {
+        width: 100%;
+      }
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      height: $flyout-menu-item-height;
+      overflow: visible;
+      width: $flyout-menu-item-width;
+
+      & .menu-parent {
+        height: auto;
+        overflow: visible;
+        width: $flyout-menu-item-width;
+      }
+    }
+  }
+}
+
+@mixin menubar-needs-columns-submenu($device-capabilities: 'all-browsers', $menu-level: 2, $sub-devcap: null) {
+
+  height: auto;
+
+  @if $device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen' {
+    left: 0;
+    position: relative;
+    width: $flyout-menu-item-width;
+
+    & > .menu-item {
+      @if $sub-devcap != 'ms-edge12+' and $sub-devcap != 'ie11+' {
+        @include menubar-menu-list-position-submenus($device-capabilities, $menu-level + 1);
+      } @else {
+        & > ul {
+          &.menu-parent {
+            left: 0;
+          }
+        }
+      }
+    }
+  } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+    left: 0;
+    position: static;
+    width: 100%;
+
+    & > .menu-item {
+      @include menubar-menu-list-position-submenus($device-capabilities, $menu-level);
+    }
+  }
+}
+
+@mixin menubar-needs-columns($device-capabilities: 'all-browsers', $sub-devcap: null, $menu-level: 1) {
+  @if $menu-level <= $flyout-max-menu-level {
+    $submenu-pos-number: ($menu-level % 2);
+    $left-pos: -100%;
+
+    @if $submenu-pos-number == 1 {
+      $left-pos: 100%;
+    }
+
+    top: auto;
+
+    &.needs-columns {
+      @if $device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen' {
+        height: $flyout-menu-column-height;
+        left: $left-pos;
+        overflow: auto;
+        width: $flyout-menu-column-width + .1em;
+      }
+
+      @if $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+        height: auto;
+        left: 0;
+        overflow: hidden;
+        width: 100%;
+
+        & > .menu-item {
+          height: auto;
+          left: 0;
+          overflow: hidden;
+          width: 100%;
+        }
+      }
+
+      &.needs-overflow {
+        @include menubar-needs-overflow-submenu($device-capabilities, $menu-level, $sub-devcap);
+
+        @if $device-capabilities == 'normal-plus-screen' {
+          overflow-y: scroll;
+
+          @if $sub-devcap == 'ie11+' {
+            column-width: inherit;
+          }
+        }
+      }
+
+      &:not(.needs-overflow) {
+        @include menubar-needs-overflow-submenu($device-capabilities, $menu-level, $sub-devcap);
+        @include menubar-needs-columns-submenu($device-capabilities, $menu-level, $sub-devcap);
+
+        @if $device-capabilities == 'normal-plus-screen' {
+          height: $flyout-menu-column-height;
+          left: $left-pos;
+          overflow: auto;
+          width: $flyout-menu-column-width + .1em;
+
+          @supports (column-width: $flyout-menu-item-width) {
+            column-fill: auto;
+            column-gap: 0;
+            column-width: $flyout-menu-item-width;
+            overflow: visible;
+          }
+
+          @if $sub-devcap == 'ie11+' {
+            &.menu-parent {
+              column-fill: auto;
+              column-gap: 0;
+              column-width: $flyout-menu-item-width;
+              height: $flyout-menu-column-height + .4em;
+              overflow: visible;
+            }
+          }
+        } @elseif $device-capabilities == 'no-hover' {
+          column-width: inherit;
+          height: auto;
+          left: 0;
+          overflow: hidden;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+

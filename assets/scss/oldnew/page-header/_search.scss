@@ -1,0 +1,183 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+// OldNewMashup Theme Page Header Search Styling
+
+@mixin page-top-search-form($device-capabilities: 'normal-plus-screen', $sub-devcap: null) {
+
+  & form {
+    display: inline-block;
+    height: 100%;
+    text-align: right;
+
+    @supports (display: flex) {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      text-align: left;
+    }
+
+    width: 100%;
+
+    @supports (border-radius: 12px) {
+      & input {
+        border-radius: 12px;
+      }
+    }
+
+    & input {
+      border: 2px solid $default-top-bar-border-color;
+      height: 100%;
+
+      &[type='search'] {
+        display: inline-block;
+        width: 66%;
+
+        @supports (flex: 1 2 5em) {
+          flex: 1 2 5em;
+          width: auto;
+        }
+      }
+
+      &[type='submit'] {
+        display: inline-block;
+        max-width: 3em;
+        width: 33%;
+
+        @supports (flex: 0 1 3em) {
+          flex: 0 1 3em;
+          max-width: none;
+          width: auto;
+        }
+      }
+    }
+  } @if $device-capabilities == 'speech' {
+    & form {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin top-bar-search-results($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & .search-results {
+    @if $device-capabilities == 'all-browsers' {
+      display: none;
+      visibility: hidden;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      background-color: $search-results-background-color;
+      bottom: 0;
+      color: $search-results-text-color;
+      display: block;
+      @if $sub-devcap == 'ie9+' {
+        display: none;
+      } @elseif $sub-devcap == 'ms-edge12+' {
+        display: block;
+      }
+
+      max-height: 80%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      position: fixed;
+      right: 0;
+      width: 100%;
+      z-index: $flyout-z-index + 1;
+
+      & a {
+        background-color: $search-results-background-color;
+        color: $search-results-link-color;
+
+        &:link {
+          color: $search-results-link-color;
+        }
+
+        &:visited {
+          color: $search-results-visited-color;
+        }
+
+        &:active,
+        &:hover {
+          color: $search-results-hover-color;
+        }
+      }
+    } @elseif $device-capabilities == 'no-hover' {
+      background-color: $search-results-background-color;
+      bottom: 0;
+      color: $search-results-text-color;
+      display: block;
+      max-height: 80%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      position: fixed;
+      right: 0;
+      width: 100%;
+      z-index: $flyout-z-index + 1;
+
+      & a {
+        background-color: $search-results-background-color;
+        color: $search-results-link-color;
+
+        &:link {
+          color: $search-results-link-color;
+        }
+
+        &:visited {
+          color: $search-results-visited-color;
+        }
+
+        &:active,
+        &:hover {
+          color: $search-results-hover-color;
+        }
+      }
+    } @elseif $device-capabilities == 'speech' {
+      display: none;
+    }
+  }
+}
+
+@mixin top-bar-search($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & .top-search {
+    @if $device-capabilities == 'all-browsers' {
+      display: none;
+      visibility: hidden;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      @if ($sub-devcap != 'ie9+' and $sub-devcap != 'ie11+') or $sub-devcap == 'ms-edge12+' {
+        @include page-top-search-form($device-capabilities, $sub-devcap);
+
+        display: block;
+        float: right;
+        height: $hamburger-top-bar-height;
+        visibility: visible;
+        width: 60%;
+      }
+   } @elseif $device-capabilities == 'no-hover' {
+      @if ($sub-devcap != 'ie9+' and $sub-devcap != 'ie11+') or $sub-devcap == 'ms-edge12+' {
+        @include page-top-search-form($device-capabilities, $sub-devcap);
+
+        display: block;
+        float: none;
+        height: $hamburger-top-bar-height;
+        left: 0;
+        margin: 0;
+        position: absolute;
+        right: auto;
+        top: $hamburger-top-bar-height;
+        visibility: hidden;
+        width: 100%;
+        z-index: $hamburger-top-bar-z-index;
+        @supports (display: flex) {
+          display: flex;
+          justify-content: stretch;
+        }
+      }
+    } @elseif $device-capabilities == 'speech' {
+      @include page-top-search-form($device-capabilities, $sub-devcap);
+
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+

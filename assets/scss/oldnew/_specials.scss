@@ -640,9 +640,10 @@
     .local-nav-bar-wrapper {
       display: block;
       margin: 0;
-      margin-bottom: .2em;
-      margin-top: .2em;
-      padding: .2em;
+      max-height: $hamburger-top-bar-height;
+      padding: 0;
+      padding-bottom: .2em;
+      padding-top: .2em;
       position: absolute;
       right: 0;
       text-align: center;
@@ -664,9 +665,11 @@
         height: 100%;
         margin: 0;
         padding: 0;
+        padding-bottom: .2em;
+        padding-top: .2em;
         text-align: center;
         text-decoration: none;
-        width: 30%;
+        width: 31%;
 
         &:link,
         &:active,
@@ -678,7 +681,7 @@
           padding-top: .2em;
           text-align: center;
           text-decoration: none;
-          width: 30%;
+          width: 31%;
         }
 
         &:link,
@@ -730,6 +733,7 @@
     .local-nav-bar-wrapper {
       & .local-nav-bar {
         display: block;
+        height: 100%;
         visibility: visible;
         width: 100%;
       }
@@ -752,7 +756,6 @@
       }
 
       @supports (display: grid) {
-        grid-column-end: 3;
         grid-column-start: 2;
         grid-row-start: 2;
         max-width: none;

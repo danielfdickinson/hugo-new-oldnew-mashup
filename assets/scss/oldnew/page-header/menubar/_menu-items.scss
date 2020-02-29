@@ -1,0 +1,135 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+// OldNewMashup Theme Page Header Menubar Menu Items Styling
+
+@mixin menubar-menu-link($device-capabilities: 'all-browsers') {
+
+  & > .menu-link {
+    @if $device-capabilities == 'all-browsers' {
+      background-color: inherit;
+      display: block;
+      height: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+
+      &:link,
+      &:hover,
+      &:active {
+        display: block;
+        text-decoration: none;
+      }
+
+      &:hover,
+      &:active {
+        background-color: $default-hover-background-color;
+      }
+
+      & .menu-entry {
+        display: block;
+        overflow: hidden;
+        position: relative;
+        text-overflow: ellipsis;
+        top: 20%;
+        white-space: nowrap;
+      }
+    } @elseif $device-capabilities == 'small-screen' {
+      padding: .4em;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      padding: .4em;
+    }
+  }
+}
+
+@mixin menubar-menu-entry-wrapper($device-capabilities: 'all-browsers') {
+
+  & > .menu-entry-wrapper {
+
+    @include menubar-menu-link($device-capabilities);
+
+    @if $device-capabilities == 'all-browsers' {
+      background-color: inherit;
+      height: 100%;
+      width: 100%;
+    } @elseif $device-capabilities == 'small-screen' {
+      border: 0 none;
+      border-bottom: 2px solid $hamburger-top-bar-menu-border-color;
+      height: $flyout-menu-item-height;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      border: 0 none;
+    } @elseif $device-capabilities == 'no-hover' {
+      border-bottom: 2px solid $hamburger-top-bar-menu-border-color;
+    }
+  }
+}
+
+@mixin menubar-menu-list-position($device-capabilities: 'all-browsers', $menu-level: 0) {
+  $left-pos: -100%;
+
+  @if $device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen' {
+    $submenu-pos-number: ($menu-level % 2);
+    @if $submenu-pos-number == 1 {
+      $left-pos: 100%;
+    }
+
+    left: $left-pos;
+    z-index: $flyout-z-index + $menu-level;
+
+    & > .menu-item {
+      & > .menu-entry-wrapper {
+        padding-left: inherit;
+      }
+    }
+  } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+    & > .menu-item {
+      & > .menu-entry-wrapper {
+        padding-left: #{$menu-level}em;
+      }
+    }
+  }
+}
+
+@mixin menubar-menu-list-position-submenus($device-capabilities: 'all-browsers', $menu-level: 0) {
+  @if $menu-level <= $flyout-max-menu-level {
+    & > .menu-parent {
+      @include menubar-menu-list-position($device-capabilities, $menu-level + 1)
+
+      & > .menu-item {
+        @include menubar-menu-list-position-submenus($device-capabilities, $menu-level + 1);
+      }
+    }
+  }
+}
+
+@mixin menubar-menu-list-color($device-capabilities: 'all-browsers', $menu-level: 0) {
+  $submenu-background-color: $flyout-submenu-colors-0;
+
+  @if $device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen' {
+    $submenu-color-number: ($menu-level % 3);
+    @if $submenu-color-number == 0 {
+      $submenu-background-color: $flyout-submenu-colors-0;
+    } @elseif $submenu-color-number == 1 {
+      $submenu-background-color: $flyout-submenu-colors-1;
+    } @else {
+      $submenu-background-color: $flyout-submenu-colors-2;
+    }
+
+    background-color: $submenu-background-color;
+  } @else {
+    background-color: $submenu-background-color;
+  }
+}
+
+@mixin menubar-menu-list-color-submenus($device-capabilities: 'all-browsers', $menu-level: 0) {
+  @if $menu-level <= $flyout-max-menu-level {
+    & > .menu-parent {
+      @include menubar-menu-list-color($device-capabilities, $menu-level + 1)
+
+      & > .menu-item {
+        @include menubar-menu-list-color-submenus($device-capabilities, $menu-level + 1);
+      }
+    }
+  }
+}
+

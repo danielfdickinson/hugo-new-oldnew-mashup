@@ -1,0 +1,15 @@
+{{ $ctx := . }}
+{{ if not (.Param "norbar") }}
+  {{ $newsPages := (where (where .Site.Pages "Type" "news") ".Params.date" "!=" nil) }}
+  {{ $newsNodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $newsPages "menu_node" . "menu_type" "sidebar-news" "exclude_self" true ) ) }}
+  {{ if $newsNodes }}
+  <div class="sidebar-news-wrapper">
+    <section aria-labelledby="sidebar-news-title" id="sidebar-news" class="page-news sidebar-box">
+      <h2 id="sidebar-news-title" class="sidebar-title">{{ if .Param "recent_news" }}{{ if .Site.GetPage ( .Param "recent_news") }}<a href="{{ .Param "recent_news" }}">{{ end }}{{ end }}News{{ if .Param "recent_news" }}{{ if .Site.GetPage (.Param "recent_news") }}</a>{{ end }}{{ end }}</h2>
+        {{ range first 8 $newsNodes.ByDate.Reverse }}
+          {{ partial "generic-helpers/newsitems" . }}
+        {{ end }}
+    </section>
+  </div>
+  {{ end }}
+{{ end }}

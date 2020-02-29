@@ -1,0 +1,63 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+// OldNewMashup Theme Page Header Menubar Menu Visibility Styling
+
+@mixin menubar-sub-submenu-inactive($device-capabilities: 'all-browsers', $menu-level: 1) {
+  @if $menu-level <= $flyout-max-menu-level {
+    visibility: hidden;
+
+    & > .menu-item {
+      visibility: hidden;
+
+      & > .menu-parent {
+        @include menubar-sub-submenu-inactive($device-capabilities, $menu-level + 1)
+
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+@mixin menubar-site-menu-list-active($device-capabilities: 'all-browsers', $menu-level: 0, $is-visible: false) {
+
+  @if $menu-level <= $flyout-max-menu-level {
+
+    $maybe-hidden: hidden;
+
+    @if $is-visible == true {
+      $maybe-hidden: visible;
+    }
+
+    @if $is-visible {
+      visibility: $maybe-hidden;
+
+      & > .menu-item {
+        visibility: $maybe-hidden;
+      }
+    }
+
+    @if $is-visible == false {
+      @include menubar-sub-submenu-inactive($device-capabilities, $menu-level);
+    } @elseif $is-visible == true {
+      & > .menu-item {
+        & > .menu-parent {
+          @if ($device-capabilities == 'small-screen') or ($device-capabilities == 'no-hover') {
+            @include menubar-site-menu-list-active($device-capabilities, $menu-level + 1, true);
+          } @else {
+            @include menubar-sub-submenu-inactive($device-capabilities, $menu-level);
+          }
+        }
+      }
+    }
+
+    & > .menu-item {
+      &:hover {
+        & > .menu-parent {
+          @include menubar-site-menu-list-active($device-capabilities, $menu-level + 1, true);
+        }
+      }
+    }
+  }
+}
+

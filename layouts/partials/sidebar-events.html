@@ -1,0 +1,15 @@
+{{ $ctx := . }}
+{{ if not (.Param "norbar") }}
+  {{ $eventPages := (where (where .Site.Pages "Type" "events") ".Params.date" "!=" nil) }}
+  {{ $eventNodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $eventPages "menu_node" . "menu_type" "sidebar-events"  "exclude_self" true ) ) }}
+  {{ if $eventNodes }}
+  <div class="sidebar-events-wrapper">
+    <section aria-labelledby="sidebar-events-title" id="sidebar-events" class="sidebar-page-events sidebar-box">
+      <h2 id="sidebar-events-title" class="sidebar-title">{{ if .Param "recent_events" }}{{ if .Site.GetPage ( .Param "recent_events") }}<a href="{{ .Param "recent_events" }}">{{ end }}{{ end }}Events{{ if .Param "recent_events" }}{{ if .Site.GetPage ( .Param "recent_events" ) }}</a>{{ end }}{{ end }}</h2>
+        {{ range first 5 $eventNodes.ByDate.Reverse }}
+        {{ .Render "summary" }}
+        {{ end }}
+    </section>
+  </div>>
+  {{ end }}
+{{ end }}

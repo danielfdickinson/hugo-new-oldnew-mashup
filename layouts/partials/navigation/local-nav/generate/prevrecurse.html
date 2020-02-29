@@ -40,17 +40,17 @@
       {{/*No previous node, but found ourselves*/}}
       {{- if not .Parent.Parent -}}
         <span>Prev</span>
-      {{- else -}}
+      {{ else }}
         {{/*Go up one level and go to last previous leaf*/}}
         {{- partial "navigation/local-nav/generate/prevrecurse" ( dict "cur_node" $curCtx.cur_node "menu_node" .Parent ) -}}
       {{- end -}}
     {{- else -}}
       <span>Prev</span>
-    {{- end -}}
-  {{- else -}}
+    {{ end }}
+  {{- else }}
     {{/* No parent */}}
     <span>Prev</span>
-  {{- end -}}
-{{- else -}}
+  {{ end }}
+{{- else }}
 <span>Prev</span>
-{{- end -}}
+{{ end }}

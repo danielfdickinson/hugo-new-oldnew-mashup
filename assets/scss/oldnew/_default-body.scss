@@ -178,6 +178,28 @@
   }
 }
 
+.taxonomy-term-contents {
+  list-style: decimal outside;
+
+  & li {
+
+    & div {
+      display: inline-block;
+    }
+  }
+}
+
+.taxonomy-contents {
+  list-style: decimal outside;
+
+  & li {
+
+    & div {
+      display: inline-block;
+    }
+  }
+}
+
 .license-pages-section {
   @include license-pages;
 }
@@ -260,10 +282,9 @@
   @include article-toc;
 }
 
-@mixin regular-main {
-  .main-article,
-  .regular-content {
-
+@mixin regular-main($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & .main-article,
+  & .regular-content {
     overflow: hidden;
 
     & .sitemap-main {
@@ -311,32 +332,19 @@
       }
     }
 
+    & ul,
     & ol {
-      margin-left: .8em;
-      padding-left: .8em;
-
-      & ol {
-        margin-left: 0;
-        padding-left: .8em;
-      }
-
-      & li {
-        list-style-position: $default-unordered-list-position;
-
-        // sass-lint:disable nesting-depth
-        &::marker {
-          display: inline-block;
-        }
-
-        & p {
-          display: inline;
-        }
-      }
+      display: block;
+      height: auto;
+      left: 2%;
+      margin-block-end: .8em;
+      margin-block-start: .8em;
+      margin-left: .4em;
+      position: relative;
+      width: 98%;
     }
   }
 }
-
-@include regular-main;
 
 @media screen and (min-height: 36em) and (min-width: 50em) {
 
@@ -409,6 +417,9 @@
 
 @mixin main-wrapper-mq($device-capabilities, $sub-devcap: null) {
   .main-wrapper {
+
+    @include regular-main($device-capabilities, $sub-devcap: null);
+
     @if $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
       @supports (flex: 1 1 100%) and (not (display: grid)) {
         display: block;
@@ -477,10 +488,11 @@
         float: none;
         grid-column-end: 2;
         grid-column-start: 1;
-        grid-row-end: 6;
+        grid-row-end: 9;
         grid-row-start: 2;
         height: auto;
         max-width: none;
+        overflow: visible;
         visibility: visible;
         width: auto;
       }
@@ -502,11 +514,16 @@
       }
 
       @supports (display: grid) {
+        display: block;
+        float: none;
         grid-column-end: 3;
         grid-column-start: 1;
-        grid-row-end: 6;
+        grid-row-end: 9;
         grid-row-start: 2;
+        height: auto;
         max-width: none;
+        overflow: visible;
+        visibility: visible;
         width: auto;
       }
 
@@ -520,7 +537,7 @@
       } @elseif $sub-devcap == 'ms-edge12-plus' {
         grid-column-end: 3;
         grid-column-start: 1;
-        grid-row-end: 6;
+        grid-row-end: 9;
         grid-row-start: 2;
         max-width: none;
         width: auto;
@@ -619,7 +636,7 @@
         display: grid;
         grid-auto-flow: row;
         grid-template-columns: 75% 25%;
-        grid-template-rows: auto 2fr auto auto auto auto auto auto auto;
+        grid-template-rows: repeat(8, minmax(0, min-content)) auto;
       }
 
       @if $sub-devcap == 'ie11+' {
@@ -633,7 +650,6 @@
         display: grid;
         grid-auto-flow: row;
         grid-template-columns: 75% 25%;
-        grid-template-rows: auto 1fr auto auto auto auto auto auto auto;
       }
     } @elseif $device-capabilities == 'no-hover' {
       @supports (display: flex) and (not (display: grid)) {
@@ -648,7 +664,6 @@
         display: grid;
         grid-auto-flow: row;
         grid-template-columns: 75% 25%;
-        grid-template-rows: auto auto auto auto auto auto auto auto auto;
       }
     }
   }

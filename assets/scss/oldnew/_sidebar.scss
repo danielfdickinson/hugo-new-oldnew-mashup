@@ -1,28 +1,3 @@
-.sidebar-box {
-  background-color: $sidebar-box-background-color;
-  border-bottom: $sidebar-box-border $sidebar-box-border-color;
-  border-top: $sidebar-box-border $sidebar-box-border-color;
-  color: $sidebar-box-text-color;
-  display: block;
-  margin-bottom: .4em;
-  overflow: hidden;
-  padding: .6em;
-  text-align: left;
-
-  & h2 {
-    border-bottom: solid 1px;
-    font-size: 1em;
-    margin-bottom: .2em;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: .4em;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-  }
-}
-
 .recent-changes-footer,
 .news-footer {
   font-size: .8em;
@@ -50,98 +25,197 @@
   font-style: italic;
 }
 
-.news-item,
-.recent-change {
-  border-bottom: 1px solid;
-  max-width: 100%;
-  overflow: hidden;
-  padding-bottom: .4em;
+@mixin sidebar-box($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @if $device-capabilities == 'all-browsers' {
+    background-color: $sidebar-box-background-color;
+    border-bottom: $sidebar-box-border $sidebar-box-border-color;
+    border-top: $sidebar-box-border $sidebar-box-border-color;
+    color: $sidebar-box-text-color;
+    display: block;
+    margin-bottom: .4em;
+    overflow: hidden;
+    padding: .6em;
+    text-align: left;
 
-  &:last-child {
-    border-bottom: 0 none;
-    padding-bottom: 0;
+    & h2 {
+      border-bottom: solid 1px;
+      font-size: 1em;
+      margin-bottom: .2em;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      padding-bottom: .4em;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 0;
+    }
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    @supports (display: grid) {
+      grid-column-end: 3;
+      grid-column-start: 2;
+      position: static;
+      width: auto;
+    }
+  }
+}
+
+@mixin sidebar-recent-changes-items($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  .sidebar-recent-changes-wrapper {
+    @include sidebar-box($device-capabilities, $sub-devcap);
+    order: 7;
+
+    @if $device-capabilities == 'all-browsers' {
+      & .recent-change {
+        border-bottom: 1px solid;
+        max-width: 100%;
+        overflow: hidden;
+        padding-bottom: .4em;
+
+        &:last-child {
+          border-bottom: 0 none;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin sidebar-recent-additions-items($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  .sidebar-recent-additions-wrapper {
+    @include sidebar-box($device-capabilities, $sub-devcap);
+    order: 6;
+
+    @if $device-capabilities == 'all-browsers' {
+      & .recent-change {
+        border-bottom: 1px solid;
+        max-width: 100%;
+        overflow: hidden;
+        padding-bottom: .4em;
+
+        &:last-child {
+          border-bottom: 0 none;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin sidebar-events-items($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  .sidebar-events-wrapper {
+    @include sidebar-box($device-capabilities, $sub-devcap);
+    order: 5;
+
+    @if $device-capabilities == 'all-browsers' {
+      & .recent-change {
+        border-bottom: 1px solid;
+        max-width: 100%;
+        overflow: hidden;
+        padding-bottom: .4em;
+
+        &:last-child {
+          border-bottom: 0 none;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin sidebar-news-items($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  .sidebar-news-wrapper {
+    @include sidebar-box($device-capabilities, $sub-devcap);
+    order: 4;
+
+    @if $device-capabilities == 'all-browsers' {
+      & .news-item {
+        border-bottom: 1px solid;
+        max-width: 100%;
+        overflow: hidden;
+        padding-bottom: .4em;
+
+        &:last-child {
+          border-bottom: 0 none;
+          padding-bottom: 0;
+        }
+      }
+    }
   }
 }
 
 @mixin sidebar($device-capabilities: 'all-browsers', $sub-devcap: null) {
-  @if $device-capabilities == 'all-browsers' {
-    .sidebar {
+  @include sidebar-news-items($device-capabilities, $sub-devcap);
+  @include sidebar-events-items($device-capabilities, $sub-devcap);
+  @include sidebar-recent-additions-items($device-capabilities, $sub-devcap);
+  @include sidebar-recent-changes-items($device-capabilities, $sub-devcap);
+
+  .sidebar {
+    @if $device-capabilities == 'all-browsers' {
       display: block;
       font-size: .9em;
       margin: 0;
-      order: 5;
+      order: 7;
       overflow: hidden;
       padding: 0;
       visibility: visible;
-    }
-  } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
-    @supports (order: 6) and (not (display: grid)) {
-      .sidebar {
+    } @elseif $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+      @supports (order: 7) and (not (display: grid)) {
         display: inline-block;
         flex: 1 1 100%;
         max-width: none;
-        order: 6;
+        order: 7;
         visibility: visible;
         width: auto;
       }
-    }
 
-    @if $sub-devcap == 'ie11+' {
-      .sidebar {
-        display: inline-block;
-        flex: 1 1 100%;
-        max-width: none;
-        order: 6;
-        visibility: visible;
-        width: auto;
+      @if $sub-devcap == 'ie11+' {
+        .sidebar {
+          display: inline-block;
+          flex: 1 1 100%;
+          max-width: none;
+          order: 7;
+          visibility: visible;
+          width: auto;
+        }
       }
-    }
 
-    @supports (display: grid) {
-      .sidebar {
-        display: block;
-        grid-column-end: 3;
-        grid-column-start: 1;
-        grid-row-start: 8;
-        visibility: visible;
-        width: auto;
+      @supports (display: grid) {
+        .sidebar {
+          display: block;
+          grid-column-end: 3;
+          grid-column-start: 1;
+          visibility: visible;
+          width: auto;
+        }
       }
-    }
-  } @elseif $device-capabilities == 'normal-plus-screen' {
-    @supports (order: 4) and (not (display: grid)) {
-      .sidebar {
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      @supports (order: 7) and (not (display: grid)) {
         display: inline-block;
         flex: 1 1 22%;
         max-width: 22%;
-        order: 4;
+        order: 7;
         visibility: visible;
       }
-    }
 
-    @if $sub-devcap == 'ie11+' {
-      .sidebar {
+      @if $sub-devcap == 'ie11+' {
         display: inline-block;
         flex: 1 1 22%;
         max-width: 22%;
-        order: 4;
+        order: 7;
         visibility: visible;
       }
-    }
 
-    @supports (display: grid) {
-      .sidebar {
+      @supports (display: grid) {
         display: block;
         grid-column-end: 3;
         grid-column-start: 2;
-        grid-row-start: 4;
         visibility: visible;
         width: auto;
       }
-    }
-  } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
-    .sidebar {
+    } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
       display: none;
       visibility: hidden;
     }
   }
 }
+

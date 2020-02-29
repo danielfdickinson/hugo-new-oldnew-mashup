@@ -1,0 +1,287 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+// OldNewMashup Theme Page Header Hamburger & Trigger Styling
+
+@mixin top-bar-trigger-checked-header($device-capabilities: 'small-screen', $sub-devcap: null) {
+
+  & ~ .top-bar {
+
+    @if $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+      position: fixed;
+      visibility: visible;
+    }
+
+    & .top-bar-start {
+      background-color: $hamburger-start-hover-background-color;
+    }
+
+    & .site-badge {
+      @if $device-capabilities == 'normal-plus-screen' {
+        left: $hamburger-top-bar-width;
+        position: fixed;
+        top: 0;
+      } @elseif $device-capabilities == 'no-hover' {
+        left: 0;
+        position: absolute;
+        top: 0;
+      }
+      visibility: visible;
+    }
+
+    & .menubar-site-menu {
+      @if $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+        @include menubar-site-menu-active($device-capabilities, true);
+      } @else {
+        @include menubar-site-menu-active($device-capabilities, false);
+      }
+    }
+
+    & .top-search {
+      @if $sub-devcap != 'ie9+' and $sub-devcap != 'ie11+' and $device-capabilities != 'speech' {
+        @if $device-capabilities == 'normal-plus-screen' {
+          position: fixed;
+          right: 0;
+          top: 0;
+        }
+        visibility: visible;
+      }
+      @if $sub-devcap == 'ms-edge12+' {
+        @if $device-capabilities == 'normal-plus-screen' {
+          position: fixed;
+          right: 0;
+          top: 0;
+        }
+        visibility: visible;
+      }
+      @if $device-capabilities == 'no-hover' {
+        position: absolute;
+        right: auto;
+        top: $hamburger-top-bar-height;
+      }
+    }
+  }
+}
+
+@mixin top-bar-trigger-checked($device-capabilities: 'small-screen', $sub-devcap: null) {
+
+  @include top-bar-trigger-checked-header($device-capabilities, $sub-devcap);
+
+  & ~ .top-bar-overlay {
+    @if $device-capabilities == 'small-screen' {
+      visibility: visible;
+    } @elseif $device-capabilities == 'no-hover' {
+      visibility: visible;
+    }
+  }
+}
+
+@mixin mobile-overlay($device-capabilities: 'small-screen', $sub-devcap: null) {
+  background-color: $top-bar-off-canvas-overlay-color;
+  height: 100%;
+  position: fixed;
+  visibility: hidden;
+  z-index: $top-bar-off-canvas-overlay-z-index;
+
+  @supports (opacity: $top-bar-off-canvas-overlay-opacity) {
+    opacity: $top-bar-off-canvas-overlay-opacity;
+  }
+
+  @if $sub-devcap == 'ie9+' {
+    opacity: $top-bar-off-canvas-overlay-opacity;
+  }
+}
+
+@mixin desktop-overlay($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  background-color: $default-background-color;
+  height: $hamburger-top-bar-height + 1em;
+  visibility: visible;
+  z-index: 0;
+
+  @supports (background-color: transparent) {
+    background-color: transparent;
+  }
+
+  @supports (opacity: 0) {
+    opacity: 0;
+  }
+
+  @if $sub-devcap == 'ie9+' {
+    background-color: transparent;
+    opacity: 0;
+  }
+}
+
+@mixin top-bar-overlay($device-capabilities: 'all-browsers', $sub-devcap: null) {
+
+  & .top-bar-overlay {
+    @if $device-capabilities == 'all-browsers' {
+      @include desktop-overlay($device-capabilities, $sub-devcap);
+
+      visibility: visible;
+      width: 100%;
+    } @elseif $device-capabilities == 'small-screen' {
+      @include mobile-overlay($device-capabilities, $sub-devcap);
+
+      left: 0;
+      top: 0;
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      display: none;
+      left: 0;
+      position: relative;
+      top: 0;
+      visibility: hidden;
+    } @elseif $device-capabilities == 'no-hover' {
+      @include mobile-overlay($device-capabilities, $sub-devcap);
+      display: block;
+    } @elseif $device-capabilities == 'speech' or $device-capabilities == 'print' {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin default-top-bar-trigger($device-capabilities: 'small-screen', $sub-devcap: null) {
+  @supports (background-color: transparent) {
+    background-color: transparent;
+  }
+  @if $sub-devcap == 'ie9+' {
+    background-color: transparent;
+  }
+  cursor: pointer;
+  display: block;
+  height: $hamburger-top-bar-height;
+  @supports (opacity: 0) {
+    opacity: 0;
+  }
+  @if $sub-devcap == 'ie9+' {
+    opacity: 0;
+  }
+  position: fixed;
+  top: 0;
+  visibility: visible;
+  width: $hamburger-top-bar-width;
+  z-index: $hamburger-top-bar-z-index + 2;
+
+  @if $device-capabilities == 'small-screen' or $device-capabilities == 'no-hover' {
+    left: auto;
+    right: 0;
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    left: 0;
+    right: auto;
+  }
+}
+
+@mixin top-bar-trigger($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & .top-bar-trigger {
+    &:checked,
+    &:hover {
+      @include top-bar-trigger-checked($device-capabilities, $sub-devcap);
+    }
+
+    @if $device-capabilities == 'all-browsers' {
+      display: none;
+      height: 0;
+      visibility: hidden;
+      width: 0;
+      z-index: 0;
+    } @elseif $device-capabilities == 'small-screen' {
+      @include default-top-bar-trigger($device-capabilities, $sub-devcap);
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      @include default-top-bar-trigger($device-capabilities, $sub-devcap);
+    } @elseif $device-capabilities == 'no-hover' {
+      @include default-top-bar-trigger($device-capabilities, $sub-devcap);
+    } @elseif $device-capabilities == 'speech' {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin default-top-bar-start($device-capabilities: 'small-screen', $sub-devcap: null, $left: auto, $right: 0) {
+  background-color: $hamburger-start-background-color;
+  display: block;
+  height: $hamburger-top-bar-height;
+  left: $left;
+  @supports (opacity: .5) {
+    opacity: .5;
+  }
+  padding: 0;
+  position: fixed;
+  right: $right;
+  text-align: center;
+  visibility: visible;
+  width: $hamburger-top-bar-width;
+  z-index: $hamburger-top-bar-z-index + 1;
+
+  @supports (border-radius: 12px) {
+    border-radius: 12px;
+  }
+
+  @if $sub-devcap == 'ie9+' {
+    border-radius: 12px;
+    opacity: .5;
+  }
+
+  & a {
+    z-index: $hamburger-top-bar-z-index;
+
+    &:link {
+      background-color: $hamburger-start-background-color;
+      display: block;
+      height: $hamburger-top-bar-height;
+      left: $left;
+      @supports (opacity: .5) {
+        opacity: .5;
+      }
+      padding: 0;
+      position: fixed;
+      right: $right;
+      text-align: center;
+      visibility: visible;
+      width: $hamburger-top-bar-width;
+      @supports (border-radius: 12px) {
+        border-radius: 12px;
+      }
+
+      @if $sub-devcap == 'ie9+' {
+        border-radius: 12px;
+        opacity: .5;
+      }
+    }
+
+    &:hover,
+    &:active {
+      background-color: $hamburger-start-hover-background-color;
+      @supports (opacity: .5) {
+        opacity: .5;
+      }
+      @supports (border-radius: 12px) {
+        border-radius: 12px;
+      }
+      @if $sub-devcap == 'ie9+' {
+        border-radius: 12px;
+        opacity: .5;
+      }
+    }
+  }
+}
+
+@mixin top-bar-start($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  & .top-bar-start {
+    @if $device-capabilities == 'all-browsers' {
+      display: none;
+      visibility: hidden;
+    } @elseif $device-capabilities == 'small-screen' {
+      @include default-top-bar-start($device-capabilities, $sub-devcap);
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      @include default-top-bar-start($device-capabilities, $sub-devcap, 0, auto);
+    } @elseif $device-capabilities == 'no-hover' {
+      @include default-top-bar-start($device-capabilities, $sub-devcap);
+    } @elseif $device-capabilities == 'speech' {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+

@@ -1,0 +1,262 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+// OldNewMashup Theme Page Header Menubar Styling
+
+@import 'page-header/menubar/columns+overflow';
+@import 'page-header/menubar/menu-items';
+@import 'page-header/menubar/menu-visibility';
+
+@mixin menubar-site-menu-list($device-capabilities: 'all-browsers', $sub-devcap: null) {
+
+  @include menubar-menu-list-color($device-capabilities, 0);
+
+  & .menu-item {
+    @include menubar-menu-entry-wrapper($device-capabilities);
+
+    background-color: inherit;
+    margin: 0;
+    padding: 0;
+
+    & .menu-parent {
+
+      @include menubar-needs-columns($device-capabilities, $sub-devcap, 1);
+
+      display: block;
+      list-style-position: outside;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      @if (($device-capabilities == 'small-screen') or ($device-capabilities == 'no-hover')) {
+        border: 0 none;
+        margin-top: 0;
+        position: static;
+      } @elseif $device-capabilities == 'all-browsers' or $device-capabilities == 'normal-plus-screen' {
+        border: 2px solid $hamburger-top-bar-menu-border-color;
+        margin-top: -4ex;
+        position: relative;
+      }
+    }
+  }
+
+  & > .menu-item {
+    @include menubar-menu-list-color-submenus($device-capabilities, 0);
+    @include menubar-menu-list-position-submenus($device-capabilities, 0);
+  }
+
+  @if $device-capabilities == 'all-browsers' {
+    border: 2px solid $hamburger-top-bar-menu-border-color;
+    border-top: 0 none;
+    display: block;
+    left: .5%;
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 5.5%;
+    width: $flyout-menu-item-width;
+
+    & .menu-item {
+      display: block;
+      height: $flyout-menu-item-height - .1em;
+      margin: 0;
+      overflow: visible;
+      padding: 0;
+      width: $flyout-menu-item-width - .3em;
+      z-index: $flyout-z-index;
+
+      & .menu-parent {
+        margin: 0;
+        margin-top: -4ex;
+      }
+
+      & a {
+        &:link {
+          color: $hamburger-top-bar-menu-link-color;
+        }
+      }
+    }
+
+  } @elseif $device-capabilities == 'small-screen' {
+    height: 100%;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    top: $hamburger-top-bar-width;
+    width: 100%;
+
+    & .menu-item {
+      height: auto;
+      width: 100%;
+
+      & .menu-parent {
+        width: 100%;
+      }
+    }
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    height: auto;
+    left: $hamburger-top-bar-width;
+    margin: 0;
+    position: fixed;
+    top: $hamburger-top-bar-height;
+    width: $flyout-menu-item-width;
+
+    & .menu-item {
+      height: $flyout-menu-item-height;
+      width: 100%;
+
+      & .menu-parent {
+        width: $flyout-menu-item-width;
+      }
+    }
+  } @elseif $device-capabilities == 'no-hover' {
+    height: 100%;
+    left: 0;
+    margin: 0;
+    position: relative;
+    top: $hamburger-top-bar-width;
+    width: 100%;
+
+    & .menu-item {
+      height: auto;
+      width: 100%;
+
+      & .menu-parent {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@mixin menubar-activate-site-menu-list($device-capabilities, $activate-menu, $is-first: true) {
+
+  $maybe-visible: hidden;
+
+  @if $activate-menu == true {
+    $maybe-visible: visible;
+  }
+
+  @if $activate-menu == true {
+    @include menubar-site-menu-list-active($device-capabilities, 0, true);
+  } @else {
+    @include menubar-site-menu-list-active($device-capabilities, 0, false);
+  }
+
+  @if ($device-capabilities == 'small-screen') or ($device-capabilities == 'no-hover') {
+    visibility: $maybe-visible;
+
+    & .menu-item {
+      visibility: $maybe-visible;
+
+      & .menu-parent {
+        visibility: $maybe-visible;
+      }
+    }
+  } @elseif ($device-capabilities == 'all-browsers') or ($device-capabilities == 'normal-plus-screen') {
+    visibility: $maybe-visible;
+
+    & > .menu-item {
+      visibility: $maybe-visible;
+
+      & .menu-parent {
+        visibility: hidden;
+
+        & .menu-item {
+          visibility: hidden;
+        }
+      }
+    }
+  } @elseif ($device-capabilities == 'speech') {
+    & .menu-item {
+      visibility: visible;
+
+      & .menu-parent {
+        visibility: visible;
+      }
+    }
+  }
+
+  @if $is-first {
+    &:hover {
+      @include menubar-activate-site-menu-list($device-capabilities, true, false);
+    }
+  }
+}
+
+@mixin menubar-site-menu-active($device-capabilities, $maybe-activate-menu) {
+
+  $standalone-specificity: '.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list';
+
+  @if $device-capabilities != 'small-screen' and $device-capabilities != 'no-hover' {
+    // Making standalone hover ul makes no sense when there is no hover
+    @at-root ul {
+      &#{$standalone-specificity} {
+        @include menubar-activate-site-menu-list($device-capabilities, false, true);
+      }
+    }
+  }
+
+  & > ul {
+    &.menubar-site-menu-list {
+      @include menubar-activate-site-menu-list($device-capabilities, $maybe-activate-menu, true);
+    }
+  }
+}
+
+@mixin menubar-site-menu($device-capabilities: 'small-screen', $sub-devcap: null) {
+
+  @if $device-capabilities == 'all-browsers' {
+    & .menubar-site-menu-list {
+      @include menubar-site-menu-list($device-capabilities, $sub-devcap);
+    }
+  } @else {
+    & .menubar-site-menu {
+      & .menubar-site-menu-list {
+        @include menubar-site-menu-list($device-capabilities, $sub-devcap);
+      }
+    }
+  }
+
+  & .menubar-site-menu {
+    @if $device-capabilities == 'all-browsers' {
+      // For the case where nav tag is not understood
+      display: block;  // So children can be visible
+      height: 0;
+      overflow: visible;  // So children can be visible
+      visibility: hidden;
+      width: 0;
+      z-index: 0;
+    } @elseif $device-capabilities == 'small-screen' {
+      left: 0;
+      top: 0;
+      width: 100%;
+
+      & .menubar-site-menu-list {
+        border: 2px solid $hamburger-top-bar-menu-border-color;
+        border-top: 0;
+      }
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      left: $hamburger-top-bar-width;
+      top: $hamburger-top-bar-height;
+      width: $flyout-menu-item-width;
+
+      & .menubar-site-menu-list {
+        @include menubar-site-menu-list($device-capabilities);
+      }
+
+    } @elseif $device-capabilities == 'no-hover' {
+      left: 0;
+      top: 0;
+      width: 100%;
+
+      & .menubar-site-menu-list {
+        border: 2px solid $hamburger-top-bar-menu-border-color;
+        border-top: 0;
+      }
+    }
+  }
+}
+
+

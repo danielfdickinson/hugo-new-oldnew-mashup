@@ -49,7 +49,10 @@
     </div>
   {{- end -}}
   {{- block "sidebar" . -}}
-    {{- partial "sidebar" . -}}
+    {{- partial "sidebar-news" . -}}
+    {{- partial "sidebar-events" . -}}
+    {{- partial "sidebar-recent-additions" . -}}
+    {{- partial "sidebar-recent-changes" . -}}
   {{- end -}}
   {{- block "footer" . -}}
     {{ partial "footer" . }}

@@ -1,0 +1,253 @@
+/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+ *  Released under the Creative Commons BY (Attribution) 4.0 License
+ */
+// OldNewMashup Theme Page Header Site Badge Styling
+
+@mixin site-badge-hover($device-capabilities: 'all-browsers') {
+
+  $standalone-specificity: '.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list.menubar-site-menu-list';
+
+  &:hover {
+    border: 2px inset $default-top-bar-hover-border-color;
+    visibility: visible;
+
+    @if $device-capabilities == 'all-browsers' {
+      & ~ ul {
+        &#{$standalone-specificity} {
+          @include menubar-activate-site-menu-list($device-capabilities, true, true);
+        }
+      }
+
+      @at-root ul {
+        &#{$standalone-specificity} {
+          @include menubar-activate-site-menu-list($device-capabilities, false, true);
+        }
+      }
+    } @elseif $device-capabilities == 'normal-plus-screen' {
+      $specificity: '.menubar-site-menu.menubar-site-menu.menubar-site-menu';
+
+      & + nav {
+        &#{$specificity} {
+          @include menubar-site-menu-active($device-capabilities, true);
+        }
+      }
+    }
+  }
+}
+
+@mixin curved-site-badge($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @supports (border-radius: 12px) {
+    border-radius: 12px;
+
+    &:hover,
+    &:active,
+    &:link {
+      border-radius: 12px;
+    }
+
+    & > .graphics-row {
+      border-radius: 0; // sass-lint:disable-line property-sort-order
+      border-bottom-left-radius: 12px; // sass-lint:disable-line property-sort-order
+      border-top-left-radius: 12px;
+    }
+  }
+
+  @if $sub-devcap == 'ie9+' {
+    border-radius: 12px;
+
+    &:hover,
+    &:active,
+    &:link {
+      border-radius: 12px;
+    }
+
+    & > .graphics-row {
+      border-radius: 0; // sass-lint:disable-line property-sort-order
+      border-bottom-left-radius: 12px; // sass-lint:disable-line property-sort-order
+      border-top-left-radius: 12px;
+    }
+  }
+}
+
+@mixin mobile-site-badge($device-capabilities: 'small-screen', $sub-devcap: null) {
+  & .site-badge {
+
+    @include curved-site-badge($device-capabilities, $sub-devcap);
+
+    left: 0;
+    margin: 0;
+    position: absolute;
+    text-align: left;
+    visibility: hidden;
+
+    @if $device-capabilities == 'no-hover' {
+      & > .graphics-row {
+        float: none;
+      }
+    }
+
+    @supports (display: flex) {
+      align-items: center;
+      display: flex;
+      justify-content: stretch;
+      position: relative;
+
+      & .graphics-row {
+        align-content: center;
+        align-items: stretch;
+        display: inline-flex;
+        flex: 0 1 $hamburger-top-bar-width;
+        justify-content: stretch;
+        text-align: left;
+      }
+
+      & .site-badge-graphic {
+        align-self: center;
+        flex: 0 1 $site-badge-graphic-width;
+      }
+
+      & .site-id {
+        align-self: center;
+        flex: 0 1 $site-id-width;
+        height: auto;
+        text-align: left;
+
+        & span {
+          display: inline;
+          vertical-align: baseline;
+        }
+      }
+    }
+  }
+}
+
+@mixin site-badge($device-capabilities: 'all-browsers', $sub-devcap: null) {
+  @if $device-capabilities == 'all-browsers' {
+    & .site-badge {
+      @include site-badge-hover($device-capabilities);
+
+      background-color: $default-top-bar-background-color;
+      border: 2px solid $default-top-bar-border-color;
+      color: $default-link-color;
+      display: block;
+      height: $hamburger-top-bar-height;
+      left: 0;
+      margin: 0;
+      margin-left: .5%;
+      margin-top: .5%;
+      max-width: $site-badge-width;
+      overflow: hidden;
+      padding: 0;
+      position: fixed;
+      text-align: center;
+      top: 0;
+      visibility: visible;
+      z-index: $hamburger-top-bar-z-index;
+
+      & .graphics-row {
+        background-color: $site-badge-graphic-background-color;
+
+        display: block;
+        float: left;
+        height: 100%;
+        max-width: $site-badge-graphic-width;
+      }
+
+      & .site-id {
+        display: block;
+        font-family: $serif-font-stack;
+        height: 100%;
+        margin-left: .2em;
+        overflow: hidden;
+        text-align: left;
+        width: $site-id-width;
+        @supports (text-overflow: ellipsis) {
+          text-overflow: ellipsis;
+        }
+
+        & span {
+          display: block;
+          left: .2em;
+          position: relative;
+          top: 20%;
+
+          @supports (white-space: nowrap) {
+            white-space: nowrap;
+          }
+        }
+      }
+
+      &:link,
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+
+      &:hover {
+        .graphics-row {
+          background-color: $default-background-color;
+        }
+      }
+
+      & .site-badge-graphic {
+        height: 100%;
+        overflow: hidden;
+        padding: 0;
+        text-align: center;
+        width: auto;
+      }
+    }
+  } @elseif $device-capabilities == 'small-screen' {
+    @include mobile-site-badge($device-capabilities, $sub-devcap);
+  } @elseif $device-capabilities == 'normal-plus-screen' {
+    & .site-badge {
+      @include curved-site-badge($device-capabilities, $sub-devcap);
+
+      left: $hamburger-top-bar-width;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      visibility: visible;
+
+      & .site-id {
+        & span {
+          display: inline;
+        }
+      }
+
+      @supports (display: flex) {
+        align-items: center;
+        display: flex;
+        justify-content: stretch;
+        text-align: left;
+      }
+    }
+
+    & a {
+      &.site-badge {
+        @include site-badge-hover($device-capabilities);
+      }
+    }
+  } @elseif $device-capabilities == 'no-hover' {
+    @include mobile-site-badge($device-capabilities, $sub-devcap);
+  } @elseif $device-capabilities == 'speech' {
+    & .site-badge {
+      visibility: visible;
+
+      & .graphics-row {
+        display: none;
+        visibility: hidden;
+      }
+
+      & .site-badge-graphic {
+        display: none;
+        visibility: hidden;
+      }
+
+      & .site-id {
+        visibility: visible;
+      }
+    }
+  }
+}
+

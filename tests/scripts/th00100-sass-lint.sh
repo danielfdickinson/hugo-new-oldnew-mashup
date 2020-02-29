@@ -21,7 +21,7 @@
 OTS=SUCCESS
 
 
-if ! sass-lint -qv; then
+if ! sass-lint -qv --max-warnings 1; then
 	echo "FAIL: Linting (SASS/SCSS) fails"
 	exit 3
 else

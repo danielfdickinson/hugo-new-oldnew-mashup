@@ -417,28 +417,8 @@ tr th {
   tr th:first-of-type {
     border-left: 0 none; }
 
-/*! Copyright 2007-2020 Daniel F. Dickinson <cshored@thecshore.com>
- *  Released under the Creative Commons BY (Attribution) 4.0 License
- */
-/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
- *  Released under the Creative Commons BY (Attribution) 4.0 License
- */
-/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
- *  Released under the Creative Commons BY (Attribution) 4.0 License
- */
-/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
- *  Released under the Creative Commons BY (Attribution) 4.0 License
- */
-/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
- *  Released under the Creative Commons BY (Attribution) 4.0 License
- */
-/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
- *  Released under the Creative Commons BY (Attribution) 4.0 License
- */
-/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
- *  Released under the Creative Commons BY (Attribution) 4.0 License
- */
-/*! Copyright 2020 Daniel F. Dickinson <cshored@thecshore.com>
+/*! Copyright 2007-2020 Daniel F. Dickinson
+    <cshored@thecshore.com>
  *  Released under the Creative Commons BY (Attribution) 4.0 License
  */
 /*! Copyright 2007-2020 Daniel F. Dickinson <cshored@thecshore.com>
@@ -480,16 +460,6 @@ tr th {
 .tags-list {
   text-align: center;
   width: 100%; }
-
-.taxonomy-term-contents {
-  list-style: decimal outside; }
-  .taxonomy-term-contents li div {
-    display: inline-block; }
-
-.taxonomy-contents {
-  list-style: decimal outside; }
-  .taxonomy-contents li div {
-    display: inline-block; }
 
 .license-pages-section h2 {
   flex: 1 1 100%;
@@ -555,6 +525,92 @@ tr th {
   .article-toc a {
     text-decoration: none; }
 
+.main-article,
+.regular-content {
+  overflow: hidden; }
+  .main-article .sitemap-main .menu-item,
+  .regular-content .sitemap-main .menu-item {
+    display: list-item; }
+    .main-article .sitemap-main .menu-item .menu-entry-wrapper,
+    .regular-content .sitemap-main .menu-item .menu-entry-wrapper {
+      display: inline-block; }
+  .main-article .article-toc,
+  .regular-content .article-toc {
+    display: block;
+    font-size: .9em;
+    margin-right: .8em;
+    margin-top: .4em;
+    padding-right: .8em;
+    padding-top: 0; }
+    .main-article .article-toc h2:first-of-type,
+    .regular-content .article-toc h2:first-of-type {
+      display: inline-block;
+      padding-left: .2em;
+      vertical-align: top; }
+    .main-article .article-toc h2,
+    .regular-content .article-toc h2 {
+      margin: 0;
+      padding: 0; }
+    .main-article .article-toc li,
+    .regular-content .article-toc li {
+      display: block; }
+      .main-article .article-toc li a,
+      .regular-content .article-toc li a {
+        display: block;
+        padding: .2em; }
+    .main-article .article-toc ul,
+    .regular-content .article-toc ul {
+      list-style: none;
+      list-style-position: outside;
+      margin: 0;
+      margin-bottom: .4em;
+      padding-left: .2em; }
+      .main-article .article-toc ul ul,
+      .regular-content .article-toc ul ul {
+        padding-left: 1em; }
+    .main-article .article-toc a,
+    .regular-content .article-toc a {
+      text-decoration: none; }
+  .main-article > h2,
+  .regular-content > h2 {
+    margin-bottom: 0;
+    margin-top: 0; }
+  .main-article ul,
+  .regular-content ul {
+    list-style-position: outside;
+    margin-left: .8em;
+    padding-left: .8em; }
+    .main-article ul ul,
+    .regular-content ul ul {
+      margin-left: 0;
+      padding-left: .8em; }
+    .main-article ul li,
+    .regular-content ul li {
+      list-style-position: outside; }
+      .main-article ul li::marker,
+      .regular-content ul li::marker {
+        display: inline-block; }
+      .main-article ul li p,
+      .regular-content ul li p {
+        display: inline; }
+  .main-article ol,
+  .regular-content ol {
+    margin-left: .8em;
+    padding-left: .8em; }
+    .main-article ol ol,
+    .regular-content ol ol {
+      margin-left: 0;
+      padding-left: .8em; }
+    .main-article ol li,
+    .regular-content ol li {
+      list-style-position: outside; }
+      .main-article ol li::marker,
+      .regular-content ol li::marker {
+        display: inline-block; }
+      .main-article ol li p,
+      .regular-content ol li p {
+        display: inline; }
+
 @media screen and (min-height: 36em) and (min-width: 50em) {
   .article-toc {
     display: inline-block;
@@ -562,6 +618,28 @@ tr th {
     margin-top: .4em;
     padding-top: 0;
     width: 33%; } }
+
+.sidebar-box {
+  background-color: #222;
+  border-bottom: 2px solid #ccc;
+  border-top: 2px solid #ccc;
+  color: #ccc;
+  display: block;
+  margin-bottom: .4em;
+  overflow: hidden;
+  padding: .6em;
+  text-align: left; }
+  .sidebar-box h2 {
+    border-bottom: solid 1px;
+    font-size: 1em;
+    margin-bottom: .2em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: .4em;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0; }
 
 .recent-changes-footer,
 .news-footer {
@@ -584,6 +662,17 @@ tr th {
 .page-metadata {
   font-size: .8em;
   font-style: italic; }
+
+.news-item,
+.recent-change {
+  border-bottom: 1px solid;
+  max-width: 100%;
+  overflow: hidden;
+  padding-bottom: .4em; }
+  .news-item:last-child,
+  .recent-change:last-child {
+    border-bottom: 0 none;
+    padding-bottom: 0; }
 
 .chroma {
   background-color: #272822;
@@ -2653,10 +2742,9 @@ div.ctoc-overlay {
 .local-nav-bar-wrapper {
   display: block;
   margin: 0;
-  max-height: 2em;
-  padding: 0;
-  padding-bottom: .2em;
-  padding-top: .2em;
+  margin-bottom: .2em;
+  margin-top: .2em;
+  padding: .2em;
   position: absolute;
   right: 0;
   text-align: center;
@@ -2674,11 +2762,9 @@ div.ctoc-overlay {
     height: 100%;
     margin: 0;
     padding: 0;
-    padding-bottom: .2em;
-    padding-top: .2em;
     text-align: center;
     text-decoration: none;
-    width: 31%; }
+    width: 30%; }
     .local-nav-bar-wrapper a:link, .local-nav-bar-wrapper a:active, .local-nav-bar-wrapper a:hover, .local-nav-bar-wrapper span:link, .local-nav-bar-wrapper span:active, .local-nav-bar-wrapper span:hover {
       display: inline-block;
       margin: 0;
@@ -2687,7 +2773,7 @@ div.ctoc-overlay {
       padding-top: .2em;
       text-align: center;
       text-decoration: none;
-      width: 31%; }
+      width: 30%; }
     .local-nav-bar-wrapper a:link, .local-nav-bar-wrapper a:visited, .local-nav-bar-wrapper span:link, .local-nav-bar-wrapper span:visited {
       color: #222; }
     .local-nav-bar-wrapper a:active, .local-nav-bar-wrapper a:hover, .local-nav-bar-wrapper span:active, .local-nav-bar-wrapper span:hover {
@@ -3049,135 +3135,11 @@ div.ctoc-overlay {
     padding-top: .4em;
     width: 100%; }
 
-.sidebar-news-wrapper {
-  background-color: #222;
-  border-bottom: 2px solid #ccc;
-  border-top: 2px solid #ccc;
-  color: #ccc;
-  display: block;
-  margin-bottom: .4em;
-  overflow: hidden;
-  padding: .6em;
-  text-align: left;
-  order: 4; }
-  .sidebar-news-wrapper h2 {
-    border-bottom: solid 1px;
-    font-size: 1em;
-    margin-bottom: .2em;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: .4em;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0; }
-  .sidebar-news-wrapper .news-item {
-    border-bottom: 1px solid;
-    max-width: 100%;
-    overflow: hidden;
-    padding-bottom: .4em; }
-    .sidebar-news-wrapper .news-item:last-child {
-      border-bottom: 0 none;
-      padding-bottom: 0; }
-
-.sidebar-events-wrapper {
-  background-color: #222;
-  border-bottom: 2px solid #ccc;
-  border-top: 2px solid #ccc;
-  color: #ccc;
-  display: block;
-  margin-bottom: .4em;
-  overflow: hidden;
-  padding: .6em;
-  text-align: left;
-  order: 5; }
-  .sidebar-events-wrapper h2 {
-    border-bottom: solid 1px;
-    font-size: 1em;
-    margin-bottom: .2em;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: .4em;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0; }
-  .sidebar-events-wrapper .recent-change {
-    border-bottom: 1px solid;
-    max-width: 100%;
-    overflow: hidden;
-    padding-bottom: .4em; }
-    .sidebar-events-wrapper .recent-change:last-child {
-      border-bottom: 0 none;
-      padding-bottom: 0; }
-
-.sidebar-recent-additions-wrapper {
-  background-color: #222;
-  border-bottom: 2px solid #ccc;
-  border-top: 2px solid #ccc;
-  color: #ccc;
-  display: block;
-  margin-bottom: .4em;
-  overflow: hidden;
-  padding: .6em;
-  text-align: left;
-  order: 6; }
-  .sidebar-recent-additions-wrapper h2 {
-    border-bottom: solid 1px;
-    font-size: 1em;
-    margin-bottom: .2em;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: .4em;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0; }
-  .sidebar-recent-additions-wrapper .recent-change {
-    border-bottom: 1px solid;
-    max-width: 100%;
-    overflow: hidden;
-    padding-bottom: .4em; }
-    .sidebar-recent-additions-wrapper .recent-change:last-child {
-      border-bottom: 0 none;
-      padding-bottom: 0; }
-
-.sidebar-recent-changes-wrapper {
-  background-color: #222;
-  border-bottom: 2px solid #ccc;
-  border-top: 2px solid #ccc;
-  color: #ccc;
-  display: block;
-  margin-bottom: .4em;
-  overflow: hidden;
-  padding: .6em;
-  text-align: left;
-  order: 7; }
-  .sidebar-recent-changes-wrapper h2 {
-    border-bottom: solid 1px;
-    font-size: 1em;
-    margin-bottom: .2em;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: .4em;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0; }
-  .sidebar-recent-changes-wrapper .recent-change {
-    border-bottom: 1px solid;
-    max-width: 100%;
-    overflow: hidden;
-    padding-bottom: .4em; }
-    .sidebar-recent-changes-wrapper .recent-change:last-child {
-      border-bottom: 0 none;
-      padding-bottom: 0; }
-
 .sidebar {
   display: block;
   font-size: .9em;
   margin: 0;
-  order: 7;
+  order: 5;
   overflow: hidden;
   padding: 0;
   visibility: visible; }
@@ -3199,7 +3161,7 @@ div.ctoc-overlay {
     display: block;
     padding: .3em; }
     .page-footer-wrapper .footer-links a:link, .page-footer-wrapper .footer-links a:active, .page-footer-wrapper .footer-links a:hover {
-      background-color: #444;
+      background-color: #333;
       display: block;
       height: 100%;
       padding: .2em;
@@ -3314,66 +3276,6 @@ div.ctoc-overlay {
     max-height: 100%;
     visibility: visible;
     width: 100%; }
-  .main-wrapper .main-article, .main-wrapper .regular-content {
-    overflow: hidden; }
-    .main-wrapper .main-article .sitemap-main .menu-item, .main-wrapper .regular-content .sitemap-main .menu-item {
-      display: list-item; }
-      .main-wrapper .main-article .sitemap-main .menu-item .menu-entry-wrapper, .main-wrapper .regular-content .sitemap-main .menu-item .menu-entry-wrapper {
-        display: inline-block; }
-    .main-wrapper .main-article .article-toc, .main-wrapper .regular-content .article-toc {
-      display: block;
-      font-size: .9em;
-      margin-right: .8em;
-      margin-top: .4em;
-      padding-right: .8em;
-      padding-top: 0; }
-      .main-wrapper .main-article .article-toc h2:first-of-type, .main-wrapper .regular-content .article-toc h2:first-of-type {
-        display: inline-block;
-        padding-left: .2em;
-        vertical-align: top; }
-      .main-wrapper .main-article .article-toc h2, .main-wrapper .regular-content .article-toc h2 {
-        margin: 0;
-        padding: 0; }
-      .main-wrapper .main-article .article-toc li, .main-wrapper .regular-content .article-toc li {
-        display: block; }
-        .main-wrapper .main-article .article-toc li a, .main-wrapper .regular-content .article-toc li a {
-          display: block;
-          padding: .2em; }
-      .main-wrapper .main-article .article-toc ul, .main-wrapper .regular-content .article-toc ul {
-        list-style: none;
-        list-style-position: outside;
-        margin: 0;
-        margin-bottom: .4em;
-        padding-left: .2em; }
-        .main-wrapper .main-article .article-toc ul ul, .main-wrapper .regular-content .article-toc ul ul {
-          padding-left: 1em; }
-      .main-wrapper .main-article .article-toc a, .main-wrapper .regular-content .article-toc a {
-        text-decoration: none; }
-    .main-wrapper .main-article > h2, .main-wrapper .regular-content > h2 {
-      margin-bottom: 0;
-      margin-top: 0; }
-    .main-wrapper .main-article ul, .main-wrapper .regular-content ul {
-      list-style-position: outside;
-      margin-left: .8em;
-      padding-left: .8em; }
-      .main-wrapper .main-article ul ul, .main-wrapper .regular-content ul ul {
-        margin-left: 0;
-        padding-left: .8em; }
-      .main-wrapper .main-article ul li, .main-wrapper .regular-content ul li {
-        list-style-position: outside; }
-        .main-wrapper .main-article ul li::marker, .main-wrapper .regular-content ul li::marker {
-          display: inline-block; }
-        .main-wrapper .main-article ul li p, .main-wrapper .regular-content ul li p {
-          display: inline; }
-    .main-wrapper .main-article ul, .main-wrapper .main-article ol, .main-wrapper .regular-content ul, .main-wrapper .regular-content ol {
-      display: block;
-      height: auto;
-      left: 2%;
-      margin-block-end: .8em;
-      margin-block-start: .8em;
-      margin-left: .4em;
-      position: relative;
-      width: 98%; }
   @supports (flex: 1 1 100%) and (not (display: grid)) {
     .main-wrapper {
       display: block;
@@ -3407,16 +3309,11 @@ div.ctoc-overlay {
       width: auto; } }
   @supports (display: grid) {
     .main-wrapper.full-page-content-wrapper {
-      display: block;
-      float: none;
       grid-column-end: 3;
       grid-column-start: 1;
-      grid-row-end: 9;
+      grid-row-end: 6;
       grid-row-start: 2;
-      height: auto;
       max-width: none;
-      overflow: visible;
-      visibility: visible;
       width: auto; } }
   .main-wrapper.full-page-content-wrapper .full-page-content {
     display: block;
@@ -3941,6 +3838,7 @@ div.ctoc-overlay {
       .header-wrapper {
         grid-column-end: 3;
         grid-column-start: 1;
+        grid-row-end: 2;
         grid-row-start: 1;
         position: relative;
         width: auto; } }
@@ -4110,27 +4008,20 @@ div.ctoc-overlay {
     display: none;
     top: 0;
     visibility: hidden; }
-  .sidebar-news-wrapper {
-    order: 4; }
-  .sidebar-events-wrapper {
-    order: 5; }
-  .sidebar-recent-additions-wrapper {
-    order: 6; }
-  .sidebar-recent-changes-wrapper {
-    order: 7; }
-  @supports (order: 7) and (not (display: grid)) {
+  @supports (order: 6) and (not (display: grid)) {
     .sidebar {
       display: inline-block;
       flex: 1 1 100%;
       max-width: none;
-      order: 7;
+      order: 6;
       visibility: visible;
       width: auto; } }
   @supports (display: grid) {
-    .sidebar .sidebar {
+    .sidebar {
       display: block;
       grid-column-end: 3;
       grid-column-start: 1;
+      grid-row-start: 8;
       visibility: visible;
       width: auto; } }
   .page-footer-wrapper .page-footer {
@@ -4177,73 +4068,13 @@ div.ctoc-overlay {
         display: grid;
         grid-auto-flow: row;
         grid-template-columns: 75% 25%;
-        grid-template-rows: repeat(8, minmax(0, min-content)) auto; } }
+        grid-template-rows: auto 2fr auto auto auto auto auto auto auto; } }
     .main-article {
       display: block;
       height: auto;
       max-height: 100%;
       visibility: visible;
       width: 100%; }
-    .main-wrapper .main-article, .main-wrapper .regular-content {
-      overflow: hidden; }
-      .main-wrapper .main-article .sitemap-main .menu-item, .main-wrapper .regular-content .sitemap-main .menu-item {
-        display: list-item; }
-        .main-wrapper .main-article .sitemap-main .menu-item .menu-entry-wrapper, .main-wrapper .regular-content .sitemap-main .menu-item .menu-entry-wrapper {
-          display: inline-block; }
-      .main-wrapper .main-article .article-toc, .main-wrapper .regular-content .article-toc {
-        display: block;
-        font-size: .9em;
-        margin-right: .8em;
-        margin-top: .4em;
-        padding-right: .8em;
-        padding-top: 0; }
-        .main-wrapper .main-article .article-toc h2:first-of-type, .main-wrapper .regular-content .article-toc h2:first-of-type {
-          display: inline-block;
-          padding-left: .2em;
-          vertical-align: top; }
-        .main-wrapper .main-article .article-toc h2, .main-wrapper .regular-content .article-toc h2 {
-          margin: 0;
-          padding: 0; }
-        .main-wrapper .main-article .article-toc li, .main-wrapper .regular-content .article-toc li {
-          display: block; }
-          .main-wrapper .main-article .article-toc li a, .main-wrapper .regular-content .article-toc li a {
-            display: block;
-            padding: .2em; }
-        .main-wrapper .main-article .article-toc ul, .main-wrapper .regular-content .article-toc ul {
-          list-style: none;
-          list-style-position: outside;
-          margin: 0;
-          margin-bottom: .4em;
-          padding-left: .2em; }
-          .main-wrapper .main-article .article-toc ul ul, .main-wrapper .regular-content .article-toc ul ul {
-            padding-left: 1em; }
-        .main-wrapper .main-article .article-toc a, .main-wrapper .regular-content .article-toc a {
-          text-decoration: none; }
-      .main-wrapper .main-article > h2, .main-wrapper .regular-content > h2 {
-        margin-bottom: 0;
-        margin-top: 0; }
-      .main-wrapper .main-article ul, .main-wrapper .regular-content ul {
-        list-style-position: outside;
-        margin-left: .8em;
-        padding-left: .8em; }
-        .main-wrapper .main-article ul ul, .main-wrapper .regular-content ul ul {
-          margin-left: 0;
-          padding-left: .8em; }
-        .main-wrapper .main-article ul li, .main-wrapper .regular-content ul li {
-          list-style-position: outside; }
-          .main-wrapper .main-article ul li::marker, .main-wrapper .regular-content ul li::marker {
-            display: inline-block; }
-          .main-wrapper .main-article ul li p, .main-wrapper .regular-content ul li p {
-            display: inline; }
-      .main-wrapper .main-article ul, .main-wrapper .main-article ol, .main-wrapper .regular-content ul, .main-wrapper .regular-content ol {
-        display: block;
-        height: auto;
-        left: 2%;
-        margin-block-end: .8em;
-        margin-block-start: .8em;
-        margin-left: .4em;
-        position: relative;
-        width: 98%; }
     @supports (flex: 1 1 75%) and (not (display: grid)) {
       .main-wrapper {
         display: block;
@@ -4260,11 +4091,10 @@ div.ctoc-overlay {
         float: none;
         grid-column-end: 2;
         grid-column-start: 1;
-        grid-row-end: 9;
+        grid-row-end: 6;
         grid-row-start: 2;
         height: auto;
         max-width: none;
-        overflow: visible;
         visibility: visible;
         width: auto; } }
     .main-wrapper .main {
@@ -4280,16 +4110,11 @@ div.ctoc-overlay {
         width: auto; } }
     @supports (display: grid) {
       .main-wrapper.full-page-content-wrapper {
-        display: block;
-        float: none;
         grid-column-end: 3;
         grid-column-start: 1;
-        grid-row-end: 9;
+        grid-row-end: 6;
         grid-row-start: 2;
-        height: auto;
         max-width: none;
-        overflow: visible;
-        visibility: visible;
         width: auto; } }
     .main-wrapper.full-page-content-wrapper .full-page-content {
       display: block;
@@ -5630,12 +5455,12 @@ div.ctoc-overlay {
         .header-wrapper {
           grid-column-end: 3;
           grid-column-start: 1;
+          grid-row-end: 2;
           grid-row-start: 1;
           position: relative;
           width: auto; } }
     .local-nav-bar-wrapper .local-nav-bar {
       display: block;
-      height: 100%;
       visibility: visible;
       width: 100%; }
     @supports (flex: 1 1 100%) and (not (display: grid)) {
@@ -5646,6 +5471,7 @@ div.ctoc-overlay {
         position: static; } }
     @supports (display: grid) {
       .local-nav-bar-wrapper {
+        grid-column-end: 3;
         grid-column-start: 2;
         grid-row-start: 2;
         max-width: none;
@@ -5947,6 +5773,7 @@ div.ctoc-overlay {
     @supports (display: grid) {
       .section-nav-sitemap-wrapper {
         display: block;
+        grid-column-end: 3;
         grid-column-start: 2;
         grid-row-start: 3;
         max-width: none;
@@ -5955,50 +5782,19 @@ div.ctoc-overlay {
         .section-nav-sitemap-wrapper .section-nav-sitemap {
           display: block;
           visibility: visible; } }
-    .sidebar-news-wrapper {
-      order: 4; }
-      @supports (display: grid) {
-        .sidebar-news-wrapper {
-          grid-column-end: 3;
-          grid-column-start: 2;
-          position: static;
-          width: auto; } }
-    .sidebar-events-wrapper {
-      order: 5; }
-      @supports (display: grid) {
-        .sidebar-events-wrapper {
-          grid-column-end: 3;
-          grid-column-start: 2;
-          position: static;
-          width: auto; } }
-    .sidebar-recent-additions-wrapper {
-      order: 6; }
-      @supports (display: grid) {
-        .sidebar-recent-additions-wrapper {
-          grid-column-end: 3;
-          grid-column-start: 2;
-          position: static;
-          width: auto; } }
-    .sidebar-recent-changes-wrapper {
-      order: 7; }
-      @supports (display: grid) {
-        .sidebar-recent-changes-wrapper {
-          grid-column-end: 3;
-          grid-column-start: 2;
-          position: static;
-          width: auto; } }
-    @supports (order: 7) and (not (display: grid)) {
+    @supports (order: 4) and (not (display: grid)) {
       .sidebar {
         display: inline-block;
         flex: 1 1 22%;
         max-width: 22%;
-        order: 7;
+        order: 4;
         visibility: visible; } }
     @supports (display: grid) {
       .sidebar {
         display: block;
         grid-column-end: 3;
         grid-column-start: 2;
+        grid-row-start: 4;
         visibility: visible;
         width: auto; } }
     .page-footer-wrapper .page-footer {
@@ -6043,73 +5839,13 @@ div.ctoc-overlay {
       display: grid;
       grid-auto-flow: row;
       grid-template-columns: 75% 25%;
-      grid-template-rows: repeat(8, minmax(0, min-content)) auto; } }
+      grid-template-rows: auto 2fr auto auto auto auto auto auto auto; } }
   .main-article {
     display: block;
     height: auto;
     max-height: 100%;
     visibility: visible;
     width: 100%; }
-  .main-wrapper .main-article, .main-wrapper .regular-content {
-    overflow: hidden; }
-    .main-wrapper .main-article .sitemap-main .menu-item, .main-wrapper .regular-content .sitemap-main .menu-item {
-      display: list-item; }
-      .main-wrapper .main-article .sitemap-main .menu-item .menu-entry-wrapper, .main-wrapper .regular-content .sitemap-main .menu-item .menu-entry-wrapper {
-        display: inline-block; }
-    .main-wrapper .main-article .article-toc, .main-wrapper .regular-content .article-toc {
-      display: block;
-      font-size: .9em;
-      margin-right: .8em;
-      margin-top: .4em;
-      padding-right: .8em;
-      padding-top: 0; }
-      .main-wrapper .main-article .article-toc h2:first-of-type, .main-wrapper .regular-content .article-toc h2:first-of-type {
-        display: inline-block;
-        padding-left: .2em;
-        vertical-align: top; }
-      .main-wrapper .main-article .article-toc h2, .main-wrapper .regular-content .article-toc h2 {
-        margin: 0;
-        padding: 0; }
-      .main-wrapper .main-article .article-toc li, .main-wrapper .regular-content .article-toc li {
-        display: block; }
-        .main-wrapper .main-article .article-toc li a, .main-wrapper .regular-content .article-toc li a {
-          display: block;
-          padding: .2em; }
-      .main-wrapper .main-article .article-toc ul, .main-wrapper .regular-content .article-toc ul {
-        list-style: none;
-        list-style-position: outside;
-        margin: 0;
-        margin-bottom: .4em;
-        padding-left: .2em; }
-        .main-wrapper .main-article .article-toc ul ul, .main-wrapper .regular-content .article-toc ul ul {
-          padding-left: 1em; }
-      .main-wrapper .main-article .article-toc a, .main-wrapper .regular-content .article-toc a {
-        text-decoration: none; }
-    .main-wrapper .main-article > h2, .main-wrapper .regular-content > h2 {
-      margin-bottom: 0;
-      margin-top: 0; }
-    .main-wrapper .main-article ul, .main-wrapper .regular-content ul {
-      list-style-position: outside;
-      margin-left: .8em;
-      padding-left: .8em; }
-      .main-wrapper .main-article ul ul, .main-wrapper .regular-content ul ul {
-        margin-left: 0;
-        padding-left: .8em; }
-      .main-wrapper .main-article ul li, .main-wrapper .regular-content ul li {
-        list-style-position: outside; }
-        .main-wrapper .main-article ul li::marker, .main-wrapper .regular-content ul li::marker {
-          display: inline-block; }
-        .main-wrapper .main-article ul li p, .main-wrapper .regular-content ul li p {
-          display: inline; }
-    .main-wrapper .main-article ul, .main-wrapper .main-article ol, .main-wrapper .regular-content ul, .main-wrapper .regular-content ol {
-      display: block;
-      height: auto;
-      left: 2%;
-      margin-block-end: .8em;
-      margin-block-start: .8em;
-      margin-left: .4em;
-      position: relative;
-      width: 98%; }
   @supports (flex: 1 1 75%) and (not (display: grid)) {
     .main-wrapper {
       display: block;
@@ -6126,11 +5862,10 @@ div.ctoc-overlay {
       float: none;
       grid-column-end: 2;
       grid-column-start: 1;
-      grid-row-end: 9;
+      grid-row-end: 6;
       grid-row-start: 2;
       height: auto;
       max-width: none;
-      overflow: visible;
       visibility: visible;
       width: auto; } }
   .main-wrapper .main {
@@ -6146,16 +5881,11 @@ div.ctoc-overlay {
       width: auto; } }
   @supports (display: grid) {
     .main-wrapper.full-page-content-wrapper {
-      display: block;
-      float: none;
       grid-column-end: 3;
       grid-column-start: 1;
-      grid-row-end: 9;
+      grid-row-end: 6;
       grid-row-start: 2;
-      height: auto;
       max-width: none;
-      overflow: visible;
-      visibility: visible;
       width: auto; } }
   .main-wrapper.full-page-content-wrapper .full-page-content {
     display: block;
@@ -7468,12 +7198,12 @@ div.ctoc-overlay {
       .header-wrapper {
         grid-column-end: 3;
         grid-column-start: 1;
+        grid-row-end: 2;
         grid-row-start: 1;
         position: relative;
         width: auto; } }
   .local-nav-bar-wrapper .local-nav-bar {
     display: block;
-    height: 100%;
     visibility: visible;
     width: 100%; }
   @supports (flex: 1 1 100%) and (not (display: grid)) {
@@ -7484,6 +7214,7 @@ div.ctoc-overlay {
       position: static; } }
   @supports (display: grid) {
     .local-nav-bar-wrapper {
+      grid-column-end: 3;
       grid-column-start: 2;
       grid-row-start: 2;
       max-width: none;
@@ -7821,6 +7552,7 @@ div.ctoc-overlay {
   @supports (display: grid) {
     .section-nav-sitemap-wrapper {
       display: block;
+      grid-column-end: 3;
       grid-column-start: 2;
       grid-row-start: 3;
       max-width: none;
@@ -7829,50 +7561,19 @@ div.ctoc-overlay {
       .section-nav-sitemap-wrapper .section-nav-sitemap {
         display: block;
         visibility: visible; } }
-  .sidebar-news-wrapper {
-    order: 4; }
-    @supports (display: grid) {
-      .sidebar-news-wrapper {
-        grid-column-end: 3;
-        grid-column-start: 2;
-        position: static;
-        width: auto; } }
-  .sidebar-events-wrapper {
-    order: 5; }
-    @supports (display: grid) {
-      .sidebar-events-wrapper {
-        grid-column-end: 3;
-        grid-column-start: 2;
-        position: static;
-        width: auto; } }
-  .sidebar-recent-additions-wrapper {
-    order: 6; }
-    @supports (display: grid) {
-      .sidebar-recent-additions-wrapper {
-        grid-column-end: 3;
-        grid-column-start: 2;
-        position: static;
-        width: auto; } }
-  .sidebar-recent-changes-wrapper {
-    order: 7; }
-    @supports (display: grid) {
-      .sidebar-recent-changes-wrapper {
-        grid-column-end: 3;
-        grid-column-start: 2;
-        position: static;
-        width: auto; } }
-  @supports (order: 7) and (not (display: grid)) {
+  @supports (order: 4) and (not (display: grid)) {
     .sidebar {
       display: inline-block;
       flex: 1 1 22%;
       max-width: 22%;
-      order: 7;
+      order: 4;
       visibility: visible; } }
   @supports (display: grid) {
     .sidebar {
       display: block;
       grid-column-end: 3;
       grid-column-start: 2;
+      grid-row-start: 4;
       visibility: visible;
       width: auto; } }
   .page-footer-wrapper .page-footer {
@@ -7921,66 +7622,6 @@ div.ctoc-overlay {
     max-height: 100%;
     visibility: visible;
     width: 100%; }
-  .main-wrapper .main-article, .main-wrapper .regular-content {
-    overflow: hidden; }
-    .main-wrapper .main-article .sitemap-main .menu-item, .main-wrapper .regular-content .sitemap-main .menu-item {
-      display: list-item; }
-      .main-wrapper .main-article .sitemap-main .menu-item .menu-entry-wrapper, .main-wrapper .regular-content .sitemap-main .menu-item .menu-entry-wrapper {
-        display: inline-block; }
-    .main-wrapper .main-article .article-toc, .main-wrapper .regular-content .article-toc {
-      display: block;
-      font-size: .9em;
-      margin-right: .8em;
-      margin-top: .4em;
-      padding-right: .8em;
-      padding-top: 0; }
-      .main-wrapper .main-article .article-toc h2:first-of-type, .main-wrapper .regular-content .article-toc h2:first-of-type {
-        display: inline-block;
-        padding-left: .2em;
-        vertical-align: top; }
-      .main-wrapper .main-article .article-toc h2, .main-wrapper .regular-content .article-toc h2 {
-        margin: 0;
-        padding: 0; }
-      .main-wrapper .main-article .article-toc li, .main-wrapper .regular-content .article-toc li {
-        display: block; }
-        .main-wrapper .main-article .article-toc li a, .main-wrapper .regular-content .article-toc li a {
-          display: block;
-          padding: .2em; }
-      .main-wrapper .main-article .article-toc ul, .main-wrapper .regular-content .article-toc ul {
-        list-style: none;
-        list-style-position: outside;
-        margin: 0;
-        margin-bottom: .4em;
-        padding-left: .2em; }
-        .main-wrapper .main-article .article-toc ul ul, .main-wrapper .regular-content .article-toc ul ul {
-          padding-left: 1em; }
-      .main-wrapper .main-article .article-toc a, .main-wrapper .regular-content .article-toc a {
-        text-decoration: none; }
-    .main-wrapper .main-article > h2, .main-wrapper .regular-content > h2 {
-      margin-bottom: 0;
-      margin-top: 0; }
-    .main-wrapper .main-article ul, .main-wrapper .regular-content ul {
-      list-style-position: outside;
-      margin-left: .8em;
-      padding-left: .8em; }
-      .main-wrapper .main-article ul ul, .main-wrapper .regular-content ul ul {
-        margin-left: 0;
-        padding-left: .8em; }
-      .main-wrapper .main-article ul li, .main-wrapper .regular-content ul li {
-        list-style-position: outside; }
-        .main-wrapper .main-article ul li::marker, .main-wrapper .regular-content ul li::marker {
-          display: inline-block; }
-        .main-wrapper .main-article ul li p, .main-wrapper .regular-content ul li p {
-          display: inline; }
-    .main-wrapper .main-article ul, .main-wrapper .main-article ol, .main-wrapper .regular-content ul, .main-wrapper .regular-content ol {
-      display: block;
-      height: auto;
-      left: 2%;
-      margin-block-end: .8em;
-      margin-block-start: .8em;
-      margin-left: .4em;
-      position: relative;
-      width: 98%; }
   @supports (flex: 1 1 100%) and (not (display: grid)) {
     .main-wrapper {
       display: block;
@@ -8014,16 +7655,11 @@ div.ctoc-overlay {
       width: auto; } }
   @supports (display: grid) {
     .main-wrapper.full-page-content-wrapper {
-      display: block;
-      float: none;
       grid-column-end: 3;
       grid-column-start: 1;
-      grid-row-end: 9;
+      grid-row-end: 6;
       grid-row-start: 2;
-      height: auto;
       max-width: none;
-      overflow: visible;
-      visibility: visible;
       width: auto; } }
   .main-wrapper.full-page-content-wrapper .full-page-content {
     display: block;
@@ -8562,6 +8198,7 @@ div.ctoc-overlay {
       .header-wrapper {
         grid-column-end: 3;
         grid-column-start: 1;
+        grid-row-end: 2;
         grid-row-start: 1;
         position: relative;
         width: auto; } }
@@ -8793,27 +8430,20 @@ div.ctoc-overlay {
     display: none;
     top: 0;
     visibility: hidden; }
-  .sidebar-news-wrapper {
-    order: 4; }
-  .sidebar-events-wrapper {
-    order: 5; }
-  .sidebar-recent-additions-wrapper {
-    order: 6; }
-  .sidebar-recent-changes-wrapper {
-    order: 7; }
-  @supports (order: 7) and (not (display: grid)) {
+  @supports (order: 6) and (not (display: grid)) {
     .sidebar {
       display: inline-block;
       flex: 1 1 100%;
       max-width: none;
-      order: 7;
+      order: 6;
       visibility: visible;
       width: auto; } }
   @supports (display: grid) {
-    .sidebar .sidebar {
+    .sidebar {
       display: block;
       grid-column-end: 3;
       grid-column-start: 1;
+      grid-row-start: 8;
       visibility: visible;
       width: auto; } }
   .page-footer-wrapper .page-footer {
@@ -8864,7 +8494,7 @@ div.ctoc-overlay {
         display: grid;
         grid-auto-flow: row;
         grid-template-columns: 75% 25%;
-        grid-template-rows: repeat(8, minmax(0, min-content)) auto; } }
+        grid-template-rows: auto 2fr auto auto auto auto auto auto auto; } }
   .main-article {
     display: block;
     height: auto;
@@ -8884,66 +8514,6 @@ div.ctoc-overlay {
     order: 3;
     visibility: visible;
     width: auto; }
-    .main-wrapper .main-article, .main-wrapper .regular-content {
-      overflow: hidden; }
-      .main-wrapper .main-article .sitemap-main .menu-item, .main-wrapper .regular-content .sitemap-main .menu-item {
-        display: list-item; }
-        .main-wrapper .main-article .sitemap-main .menu-item .menu-entry-wrapper, .main-wrapper .regular-content .sitemap-main .menu-item .menu-entry-wrapper {
-          display: inline-block; }
-      .main-wrapper .main-article .article-toc, .main-wrapper .regular-content .article-toc {
-        display: block;
-        font-size: .9em;
-        margin-right: .8em;
-        margin-top: .4em;
-        padding-right: .8em;
-        padding-top: 0; }
-        .main-wrapper .main-article .article-toc h2:first-of-type, .main-wrapper .regular-content .article-toc h2:first-of-type {
-          display: inline-block;
-          padding-left: .2em;
-          vertical-align: top; }
-        .main-wrapper .main-article .article-toc h2, .main-wrapper .regular-content .article-toc h2 {
-          margin: 0;
-          padding: 0; }
-        .main-wrapper .main-article .article-toc li, .main-wrapper .regular-content .article-toc li {
-          display: block; }
-          .main-wrapper .main-article .article-toc li a, .main-wrapper .regular-content .article-toc li a {
-            display: block;
-            padding: .2em; }
-        .main-wrapper .main-article .article-toc ul, .main-wrapper .regular-content .article-toc ul {
-          list-style: none;
-          list-style-position: outside;
-          margin: 0;
-          margin-bottom: .4em;
-          padding-left: .2em; }
-          .main-wrapper .main-article .article-toc ul ul, .main-wrapper .regular-content .article-toc ul ul {
-            padding-left: 1em; }
-        .main-wrapper .main-article .article-toc a, .main-wrapper .regular-content .article-toc a {
-          text-decoration: none; }
-      .main-wrapper .main-article > h2, .main-wrapper .regular-content > h2 {
-        margin-bottom: 0;
-        margin-top: 0; }
-      .main-wrapper .main-article ul, .main-wrapper .regular-content ul {
-        list-style-position: outside;
-        margin-left: .8em;
-        padding-left: .8em; }
-        .main-wrapper .main-article ul ul, .main-wrapper .regular-content ul ul {
-          margin-left: 0;
-          padding-left: .8em; }
-        .main-wrapper .main-article ul li, .main-wrapper .regular-content ul li {
-          list-style-position: outside; }
-          .main-wrapper .main-article ul li::marker, .main-wrapper .regular-content ul li::marker {
-            display: inline-block; }
-          .main-wrapper .main-article ul li p, .main-wrapper .regular-content ul li p {
-            display: inline; }
-      .main-wrapper .main-article ul, .main-wrapper .main-article ol, .main-wrapper .regular-content ul, .main-wrapper .regular-content ol {
-        display: block;
-        height: auto;
-        left: 2%;
-        margin-block-end: .8em;
-        margin-block-start: .8em;
-        margin-left: .4em;
-        position: relative;
-        width: 98%; }
     @supports (flex: 1 1 75%) and (not (display: grid)) {
       .main-wrapper {
         display: block;
@@ -8960,11 +8530,10 @@ div.ctoc-overlay {
         float: none;
         grid-column-end: 2;
         grid-column-start: 1;
-        grid-row-end: 9;
+        grid-row-end: 6;
         grid-row-start: 2;
         height: auto;
         max-width: none;
-        overflow: visible;
         visibility: visible;
         width: auto; } }
     .main-wrapper .main {
@@ -8987,16 +8556,11 @@ div.ctoc-overlay {
           width: auto; } }
       @supports (display: grid) {
         .main-wrapper.full-page-content-wrapper {
-          display: block;
-          float: none;
           grid-column-end: 3;
           grid-column-start: 1;
-          grid-row-end: 9;
+          grid-row-end: 6;
           grid-row-start: 2;
-          height: auto;
           max-width: none;
-          overflow: visible;
-          visibility: visible;
           width: auto; } }
       .main-wrapper.full-page-content-wrapper .full-page-content {
         display: block;
@@ -10293,6 +9857,7 @@ div.ctoc-overlay {
       .header-wrapper {
         grid-column-end: 3;
         grid-column-start: 1;
+        grid-row-end: 2;
         grid-row-start: 1;
         position: relative;
         width: auto; } }
@@ -10306,7 +9871,6 @@ div.ctoc-overlay {
     text-align: center; }
     .local-nav-bar-wrapper .local-nav-bar {
       display: block;
-      height: 100%;
       visibility: visible;
       width: 100%; }
     @supports (flex: 1 1 100%) and (not (display: grid)) {
@@ -10317,6 +9881,7 @@ div.ctoc-overlay {
         position: static; } }
     @supports (display: grid) {
       .local-nav-bar-wrapper {
+        grid-column-end: 3;
         grid-column-start: 2;
         grid-row-start: 2;
         max-width: none;
@@ -10676,6 +10241,7 @@ div.ctoc-overlay {
   @supports (display: grid) {
     .section-nav-sitemap-wrapper {
       display: block;
+      grid-column-end: 3;
       grid-column-start: 2;
       grid-row-start: 3;
       max-width: none;
@@ -10684,58 +10250,27 @@ div.ctoc-overlay {
       .section-nav-sitemap-wrapper .section-nav-sitemap {
         display: block;
         visibility: visible; } }
-  .sidebar-news-wrapper {
-    order: 4; }
-    @supports (display: grid) {
-      .sidebar-news-wrapper {
-        grid-column-end: 3;
-        grid-column-start: 2;
-        position: static;
-        width: auto; } }
-  .sidebar-events-wrapper {
-    order: 5; }
-    @supports (display: grid) {
-      .sidebar-events-wrapper {
-        grid-column-end: 3;
-        grid-column-start: 2;
-        position: static;
-        width: auto; } }
-  .sidebar-recent-additions-wrapper {
-    order: 6; }
-    @supports (display: grid) {
-      .sidebar-recent-additions-wrapper {
-        grid-column-end: 3;
-        grid-column-start: 2;
-        position: static;
-        width: auto; } }
-  .sidebar-recent-changes-wrapper {
-    order: 7; }
-    @supports (display: grid) {
-      .sidebar-recent-changes-wrapper {
-        grid-column-end: 3;
-        grid-column-start: 2;
-        position: static;
-        width: auto; } }
+  @supports (order: 4) and (not (display: grid)) {
+    .sidebar {
+      display: inline-block;
+      flex: 1 1 22%;
+      max-width: 22%;
+      order: 4;
+      visibility: visible; } }
   .sidebar {
     display: inline-block;
     flex: 1 1 22%;
     max-width: 22%;
-    order: 7;
+    order: 4;
     visibility: visible; }
-    @supports (order: 7) and (not (display: grid)) {
-      .sidebar {
-        display: inline-block;
-        flex: 1 1 22%;
-        max-width: 22%;
-        order: 7;
-        visibility: visible; } }
-    @supports (display: grid) {
-      .sidebar {
-        display: block;
-        grid-column-end: 3;
-        grid-column-start: 2;
-        visibility: visible;
-        width: auto; } }
+  @supports (display: grid) {
+    .sidebar {
+      display: block;
+      grid-column-end: 3;
+      grid-column-start: 2;
+      grid-row-start: 4;
+      visibility: visible;
+      width: auto; } }
   .page-footer-wrapper {
     grid-column-end: initial;
     grid-column-start: initial;
@@ -10804,66 +10339,6 @@ div.ctoc-overlay {
     order: 2;
     visibility: visible;
     width: auto; }
-    .main-wrapper .main-article, .main-wrapper .regular-content {
-      overflow: hidden; }
-      .main-wrapper .main-article .sitemap-main .menu-item, .main-wrapper .regular-content .sitemap-main .menu-item {
-        display: list-item; }
-        .main-wrapper .main-article .sitemap-main .menu-item .menu-entry-wrapper, .main-wrapper .regular-content .sitemap-main .menu-item .menu-entry-wrapper {
-          display: inline-block; }
-      .main-wrapper .main-article .article-toc, .main-wrapper .regular-content .article-toc {
-        display: block;
-        font-size: .9em;
-        margin-right: .8em;
-        margin-top: .4em;
-        padding-right: .8em;
-        padding-top: 0; }
-        .main-wrapper .main-article .article-toc h2:first-of-type, .main-wrapper .regular-content .article-toc h2:first-of-type {
-          display: inline-block;
-          padding-left: .2em;
-          vertical-align: top; }
-        .main-wrapper .main-article .article-toc h2, .main-wrapper .regular-content .article-toc h2 {
-          margin: 0;
-          padding: 0; }
-        .main-wrapper .main-article .article-toc li, .main-wrapper .regular-content .article-toc li {
-          display: block; }
-          .main-wrapper .main-article .article-toc li a, .main-wrapper .regular-content .article-toc li a {
-            display: block;
-            padding: .2em; }
-        .main-wrapper .main-article .article-toc ul, .main-wrapper .regular-content .article-toc ul {
-          list-style: none;
-          list-style-position: outside;
-          margin: 0;
-          margin-bottom: .4em;
-          padding-left: .2em; }
-          .main-wrapper .main-article .article-toc ul ul, .main-wrapper .regular-content .article-toc ul ul {
-            padding-left: 1em; }
-        .main-wrapper .main-article .article-toc a, .main-wrapper .regular-content .article-toc a {
-          text-decoration: none; }
-      .main-wrapper .main-article > h2, .main-wrapper .regular-content > h2 {
-        margin-bottom: 0;
-        margin-top: 0; }
-      .main-wrapper .main-article ul, .main-wrapper .regular-content ul {
-        list-style-position: outside;
-        margin-left: .8em;
-        padding-left: .8em; }
-        .main-wrapper .main-article ul ul, .main-wrapper .regular-content ul ul {
-          margin-left: 0;
-          padding-left: .8em; }
-        .main-wrapper .main-article ul li, .main-wrapper .regular-content ul li {
-          list-style-position: outside; }
-          .main-wrapper .main-article ul li::marker, .main-wrapper .regular-content ul li::marker {
-            display: inline-block; }
-          .main-wrapper .main-article ul li p, .main-wrapper .regular-content ul li p {
-            display: inline; }
-      .main-wrapper .main-article ul, .main-wrapper .main-article ol, .main-wrapper .regular-content ul, .main-wrapper .regular-content ol {
-        display: block;
-        height: auto;
-        left: 2%;
-        margin-block-end: .8em;
-        margin-block-start: .8em;
-        margin-left: .4em;
-        position: relative;
-        width: 98%; }
     @supports (flex: 1 1 100%) and (not (display: grid)) {
       .main-wrapper {
         display: block;
@@ -10904,16 +10379,11 @@ div.ctoc-overlay {
           width: auto; } }
       @supports (display: grid) {
         .main-wrapper.full-page-content-wrapper {
-          display: block;
-          float: none;
           grid-column-end: 3;
           grid-column-start: 1;
-          grid-row-end: 9;
+          grid-row-end: 6;
           grid-row-start: 2;
-          height: auto;
           max-width: none;
-          overflow: visible;
-          visibility: visible;
           width: auto; } }
       .main-wrapper.full-page-content-wrapper .full-page-content {
         display: block;
@@ -11442,6 +10912,7 @@ div.ctoc-overlay {
       .header-wrapper {
         grid-column-end: 3;
         grid-column-start: 1;
+        grid-row-end: 2;
         grid-row-start: 1;
         position: relative;
         width: auto; } }
@@ -11649,34 +11120,27 @@ div.ctoc-overlay {
     display: none;
     top: 0;
     visibility: hidden; }
-  .sidebar-news-wrapper {
-    order: 4; }
-  .sidebar-events-wrapper {
-    order: 5; }
-  .sidebar-recent-additions-wrapper {
-    order: 6; }
-  .sidebar-recent-changes-wrapper {
-    order: 7; }
-  @supports (order: 7) and (not (display: grid)) {
+  @supports (order: 6) and (not (display: grid)) {
     .sidebar {
       display: inline-block;
       flex: 1 1 100%;
       max-width: none;
-      order: 7;
+      order: 6;
       visibility: visible;
       width: auto; } }
-  .sidebar .sidebar {
+  .sidebar {
     display: inline-block;
     flex: 1 1 100%;
     max-width: none;
-    order: 7;
+    order: 6;
     visibility: visible;
     width: auto; }
   @supports (display: grid) {
-    .sidebar .sidebar {
+    .sidebar {
       display: block;
       grid-column-end: 3;
       grid-column-start: 1;
+      grid-row-start: 8;
       visibility: visible;
       width: auto; } }
   .page-footer-wrapper {
@@ -11733,73 +11197,13 @@ div.ctoc-overlay {
         display: grid;
         grid-auto-flow: row;
         grid-template-columns: 75% 25%;
-        grid-template-rows: repeat(8, minmax(0, min-content)) auto; } }
+        grid-template-rows: auto 2fr auto auto auto auto auto auto auto; } }
     .main-article {
       display: block;
       height: auto;
       max-height: 100%;
       visibility: visible;
       width: 100%; }
-    .main-wrapper .main-article, .main-wrapper .regular-content {
-      overflow: hidden; }
-      .main-wrapper .main-article .sitemap-main .menu-item, .main-wrapper .regular-content .sitemap-main .menu-item {
-        display: list-item; }
-        .main-wrapper .main-article .sitemap-main .menu-item .menu-entry-wrapper, .main-wrapper .regular-content .sitemap-main .menu-item .menu-entry-wrapper {
-          display: inline-block; }
-      .main-wrapper .main-article .article-toc, .main-wrapper .regular-content .article-toc {
-        display: block;
-        font-size: .9em;
-        margin-right: .8em;
-        margin-top: .4em;
-        padding-right: .8em;
-        padding-top: 0; }
-        .main-wrapper .main-article .article-toc h2:first-of-type, .main-wrapper .regular-content .article-toc h2:first-of-type {
-          display: inline-block;
-          padding-left: .2em;
-          vertical-align: top; }
-        .main-wrapper .main-article .article-toc h2, .main-wrapper .regular-content .article-toc h2 {
-          margin: 0;
-          padding: 0; }
-        .main-wrapper .main-article .article-toc li, .main-wrapper .regular-content .article-toc li {
-          display: block; }
-          .main-wrapper .main-article .article-toc li a, .main-wrapper .regular-content .article-toc li a {
-            display: block;
-            padding: .2em; }
-        .main-wrapper .main-article .article-toc ul, .main-wrapper .regular-content .article-toc ul {
-          list-style: none;
-          list-style-position: outside;
-          margin: 0;
-          margin-bottom: .4em;
-          padding-left: .2em; }
-          .main-wrapper .main-article .article-toc ul ul, .main-wrapper .regular-content .article-toc ul ul {
-            padding-left: 1em; }
-        .main-wrapper .main-article .article-toc a, .main-wrapper .regular-content .article-toc a {
-          text-decoration: none; }
-      .main-wrapper .main-article > h2, .main-wrapper .regular-content > h2 {
-        margin-bottom: 0;
-        margin-top: 0; }
-      .main-wrapper .main-article ul, .main-wrapper .regular-content ul {
-        list-style-position: outside;
-        margin-left: .8em;
-        padding-left: .8em; }
-        .main-wrapper .main-article ul ul, .main-wrapper .regular-content ul ul {
-          margin-left: 0;
-          padding-left: .8em; }
-        .main-wrapper .main-article ul li, .main-wrapper .regular-content ul li {
-          list-style-position: outside; }
-          .main-wrapper .main-article ul li::marker, .main-wrapper .regular-content ul li::marker {
-            display: inline-block; }
-          .main-wrapper .main-article ul li p, .main-wrapper .regular-content ul li p {
-            display: inline; }
-      .main-wrapper .main-article ul, .main-wrapper .main-article ol, .main-wrapper .regular-content ul, .main-wrapper .regular-content ol {
-        display: block;
-        height: auto;
-        left: 2%;
-        margin-block-end: .8em;
-        margin-block-start: .8em;
-        margin-left: .4em;
-        position: relative;
-        width: 98%; }
     @supports (flex: 1 1 75%) and (not (display: grid)) {
       .main-wrapper {
         display: block;
@@ -11816,11 +11220,10 @@ div.ctoc-overlay {
         float: none;
         grid-column-end: 2;
         grid-column-start: 1;
-        grid-row-end: 9;
+        grid-row-end: 6;
         grid-row-start: 2;
         height: auto;
         max-width: none;
-        overflow: visible;
         visibility: visible;
         width: auto; } }
     .main-wrapper .main {
@@ -11836,16 +11239,11 @@ div.ctoc-overlay {
         width: auto; } }
     @supports (display: grid) {
       .main-wrapper.full-page-content-wrapper {
-        display: block;
-        float: none;
         grid-column-end: 3;
         grid-column-start: 1;
-        grid-row-end: 9;
+        grid-row-end: 6;
         grid-row-start: 2;
-        height: auto;
         max-width: none;
-        overflow: visible;
-        visibility: visible;
         width: auto; } }
     .main-wrapper.full-page-content-wrapper .full-page-content {
       display: block;
@@ -13178,12 +12576,12 @@ div.ctoc-overlay {
         .header-wrapper {
           grid-column-end: 3;
           grid-column-start: 1;
+          grid-row-end: 2;
           grid-row-start: 1;
           position: relative;
           width: auto; } }
     .local-nav-bar-wrapper .local-nav-bar {
       display: block;
-      height: 100%;
       visibility: visible;
       width: 100%; }
     @supports (flex: 1 1 100%) and (not (display: grid)) {
@@ -13194,6 +12592,7 @@ div.ctoc-overlay {
         position: static; } }
     @supports (display: grid) {
       .local-nav-bar-wrapper {
+        grid-column-end: 3;
         grid-column-start: 2;
         grid-row-start: 2;
         max-width: none;
@@ -13495,6 +12894,7 @@ div.ctoc-overlay {
     @supports (display: grid) {
       .section-nav-sitemap-wrapper {
         display: block;
+        grid-column-end: 3;
         grid-column-start: 2;
         grid-row-start: 3;
         max-width: none;
@@ -13503,50 +12903,19 @@ div.ctoc-overlay {
         .section-nav-sitemap-wrapper .section-nav-sitemap {
           display: block;
           visibility: visible; } }
-    .sidebar-news-wrapper {
-      order: 4; }
-      @supports (display: grid) {
-        .sidebar-news-wrapper {
-          grid-column-end: 3;
-          grid-column-start: 2;
-          position: static;
-          width: auto; } }
-    .sidebar-events-wrapper {
-      order: 5; }
-      @supports (display: grid) {
-        .sidebar-events-wrapper {
-          grid-column-end: 3;
-          grid-column-start: 2;
-          position: static;
-          width: auto; } }
-    .sidebar-recent-additions-wrapper {
-      order: 6; }
-      @supports (display: grid) {
-        .sidebar-recent-additions-wrapper {
-          grid-column-end: 3;
-          grid-column-start: 2;
-          position: static;
-          width: auto; } }
-    .sidebar-recent-changes-wrapper {
-      order: 7; }
-      @supports (display: grid) {
-        .sidebar-recent-changes-wrapper {
-          grid-column-end: 3;
-          grid-column-start: 2;
-          position: static;
-          width: auto; } }
-    @supports (order: 7) and (not (display: grid)) {
+    @supports (order: 4) and (not (display: grid)) {
       .sidebar {
         display: inline-block;
         flex: 1 1 22%;
         max-width: 22%;
-        order: 7;
+        order: 4;
         visibility: visible; } }
     @supports (display: grid) {
       .sidebar {
         display: block;
         grid-column-end: 3;
         grid-column-start: 2;
+        grid-row-start: 4;
         visibility: visible;
         width: auto; } }
     .page-footer-wrapper .page-footer {
@@ -13591,67 +12960,8 @@ div.ctoc-overlay {
     .default-body-wrapper {
       display: grid;
       grid-auto-flow: row;
-      grid-template-columns: 75% 25%; } }
-  .main-wrapper .main-article, .main-wrapper .regular-content {
-    overflow: hidden; }
-    .main-wrapper .main-article .sitemap-main .menu-item, .main-wrapper .regular-content .sitemap-main .menu-item {
-      display: list-item; }
-      .main-wrapper .main-article .sitemap-main .menu-item .menu-entry-wrapper, .main-wrapper .regular-content .sitemap-main .menu-item .menu-entry-wrapper {
-        display: inline-block; }
-    .main-wrapper .main-article .article-toc, .main-wrapper .regular-content .article-toc {
-      display: block;
-      font-size: .9em;
-      margin-right: .8em;
-      margin-top: .4em;
-      padding-right: .8em;
-      padding-top: 0; }
-      .main-wrapper .main-article .article-toc h2:first-of-type, .main-wrapper .regular-content .article-toc h2:first-of-type {
-        display: inline-block;
-        padding-left: .2em;
-        vertical-align: top; }
-      .main-wrapper .main-article .article-toc h2, .main-wrapper .regular-content .article-toc h2 {
-        margin: 0;
-        padding: 0; }
-      .main-wrapper .main-article .article-toc li, .main-wrapper .regular-content .article-toc li {
-        display: block; }
-        .main-wrapper .main-article .article-toc li a, .main-wrapper .regular-content .article-toc li a {
-          display: block;
-          padding: .2em; }
-      .main-wrapper .main-article .article-toc ul, .main-wrapper .regular-content .article-toc ul {
-        list-style: none;
-        list-style-position: outside;
-        margin: 0;
-        margin-bottom: .4em;
-        padding-left: .2em; }
-        .main-wrapper .main-article .article-toc ul ul, .main-wrapper .regular-content .article-toc ul ul {
-          padding-left: 1em; }
-      .main-wrapper .main-article .article-toc a, .main-wrapper .regular-content .article-toc a {
-        text-decoration: none; }
-    .main-wrapper .main-article > h2, .main-wrapper .regular-content > h2 {
-      margin-bottom: 0;
-      margin-top: 0; }
-    .main-wrapper .main-article ul, .main-wrapper .regular-content ul {
-      list-style-position: outside;
-      margin-left: .8em;
-      padding-left: .8em; }
-      .main-wrapper .main-article ul ul, .main-wrapper .regular-content ul ul {
-        margin-left: 0;
-        padding-left: .8em; }
-      .main-wrapper .main-article ul li, .main-wrapper .regular-content ul li {
-        list-style-position: outside; }
-        .main-wrapper .main-article ul li::marker, .main-wrapper .regular-content ul li::marker {
-          display: inline-block; }
-        .main-wrapper .main-article ul li p, .main-wrapper .regular-content ul li p {
-          display: inline; }
-    .main-wrapper .main-article ul, .main-wrapper .main-article ol, .main-wrapper .regular-content ul, .main-wrapper .regular-content ol {
-      display: block;
-      height: auto;
-      left: 2%;
-      margin-block-end: .8em;
-      margin-block-start: .8em;
-      margin-left: .4em;
-      position: relative;
-      width: 98%; }
+      grid-template-columns: 75% 25%;
+      grid-template-rows: auto auto auto auto auto auto auto auto auto; } }
   @supports (flex: 1 1 100%) and (not (display: grid)) {
     .main-wrapper {
       display: block;
@@ -13685,16 +12995,11 @@ div.ctoc-overlay {
       width: auto; } }
   @supports (display: grid) {
     .main-wrapper.full-page-content-wrapper {
-      display: block;
-      float: none;
       grid-column-end: 3;
       grid-column-start: 1;
-      grid-row-end: 9;
+      grid-row-end: 6;
       grid-row-start: 2;
-      height: auto;
       max-width: none;
-      overflow: visible;
-      visibility: visible;
       width: auto; } }
   .main-wrapper.full-page-content-wrapper .full-page-content {
     display: block;
@@ -14297,6 +13602,7 @@ div.ctoc-overlay {
       .header-wrapper {
         grid-column-end: 3;
         grid-column-start: 1;
+        grid-row-end: 2;
         grid-row-start: 1;
         position: relative;
         width: auto; } }
@@ -14487,27 +13793,20 @@ div.ctoc-overlay {
     display: none;
     top: 0;
     visibility: hidden; }
-  .sidebar-news-wrapper {
-    order: 4; }
-  .sidebar-events-wrapper {
-    order: 5; }
-  .sidebar-recent-additions-wrapper {
-    order: 6; }
-  .sidebar-recent-changes-wrapper {
-    order: 7; }
-  @supports (order: 7) and (not (display: grid)) {
+  @supports (order: 6) and (not (display: grid)) {
     .sidebar {
       display: inline-block;
       flex: 1 1 100%;
       max-width: none;
-      order: 7;
+      order: 6;
       visibility: visible;
       width: auto; } }
   @supports (display: grid) {
-    .sidebar .sidebar {
+    .sidebar {
       display: block;
       grid-column-end: 3;
       grid-column-start: 1;
+      grid-row-start: 8;
       visibility: visible;
       width: auto; } }
   .page-footer-wrapper .page-footer {
@@ -15542,14 +14841,6 @@ div.ctoc-overlay {
   .back-to-top-button {
     display: none;
     visibility: hidden; }
-  .sidebar-news-wrapper {
-    order: 4; }
-  .sidebar-events-wrapper {
-    order: 5; }
-  .sidebar-recent-additions-wrapper {
-    order: 6; }
-  .sidebar-recent-changes-wrapper {
-    order: 7; }
   .sidebar {
     display: none;
     visibility: hidden; } }
@@ -16099,14 +15390,6 @@ div.ctoc-overlay {
   .back-to-top-button {
     display: none;
     visibility: hidden; }
-  .sidebar-news-wrapper {
-    order: 4; }
-  .sidebar-events-wrapper {
-    order: 5; }
-  .sidebar-recent-additions-wrapper {
-    order: 6; }
-  .sidebar-recent-changes-wrapper {
-    order: 7; }
   .sidebar {
     display: none;
     visibility: hidden; } }

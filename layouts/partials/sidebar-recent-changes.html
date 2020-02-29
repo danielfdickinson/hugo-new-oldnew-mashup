@@ -1,0 +1,15 @@
+{{ $ctx := . }}
+{{ if not (.Param "norbar") }}
+  {{ $startNodes := (where (where .Site.Pages ".Params.lastmod" "!=" nil)  "Type" "!=" "news" ) }}
+  {{ $nodes := ( partial "generic-site-menu/nodes-included" (dict "nodes" $startNodes "menu_node" . "menu_type" "sidebar-recent"  "exclude_self" true ) ) }}
+  {{ if $nodes }}
+  <div class="sidebar-recent-changes-wrapper">
+    <section aria-labelledby="sidebar-recent-changes" class="sidebar-recent-changes sidebar-box">
+      <h2 id="sidebar-recent-changes" class="sidebar-title">{{ if .Param "recent_changes" }}{{ if .Site.GetPage ( .Param "recent_changes") }}<a href="{{ .Param "recent_changes" }}">{{ end }}{{ end }}Recent Changes{{ if .Param "recent_changes" }}{{ if .Site.GetPage (.Param "recent_changes") }}</a>{{ end }}{{ end }}</h2>
+      {{ range first 8 $nodes.ByLastmod.Reverse }}
+        {{ .Render "summary" }}
+      {{ end }}
+    </section>
+  </div>
+  {{ end }}
+{{ end }}

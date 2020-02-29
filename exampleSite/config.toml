@@ -29,7 +29,6 @@ min_version = "0.64.0"
   recent_events = "/siteentry/recent-events"
   recent_news = "/siteentry/recent-news"
   nobaseurl = false
-  default_unordered_list_position = "outside"
 
 [outputs]
   home = ["HTML", "JSON", "RSS"]
