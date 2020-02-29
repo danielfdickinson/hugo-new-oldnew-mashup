@@ -1795,8 +1795,7 @@ tr th {
     color: #ae81ff; }
   .chroma .ld {
     color: #e6db74; }
-  pre
-.chroma .s {
+  .chroma .s {
     color: #e6db74; }
   .chroma .sa {
     color: #e6db74; }

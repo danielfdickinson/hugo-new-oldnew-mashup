@@ -1,15 +1,15 @@
 function ready(fn) {
-  if (document.readyState != 'loading') {
+  if (document.readyState != "loading") {
     fn();
   } else {
-    document.addEventListener('DOMContentLoaded', fn);
+    document.addEventListener("DOMContentLoaded", fn);
   }
 }
 
 ready(doConfirmation);
 
 function param(name) {
-  return decodeURIComponent((location.search.split(name + '=')[1] || '').split('&')[0]).replace(/\+/g, ' ');
+  return decodeURIComponent((location.search.split(name + "=")[1] || "").split("&")[0]).replace(/\+/g, " ");
 }
 
 var confirmationCode = param("ConfirmationCode");
