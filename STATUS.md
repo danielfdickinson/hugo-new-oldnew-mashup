@@ -39,6 +39,6 @@ request.
 
 © 2009-2020 Daniel F. Dickinson
 Licensed under the [Creative Commons Attribution License 4.0](https://creativecommons.org/licenses/by/4.0/)
-[![Creative Commons License](https://github.com/cshoredaniel/new-oldnew-mashup/raw/master/by.svg?sanitize=true)](https://creativecommons.org/licenses/by/4.0/)
+[![Creative Commons License](by.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 The License Image (above) is Copyright Creative Commons and Licensed under the [Creative Commons Share-Alike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
