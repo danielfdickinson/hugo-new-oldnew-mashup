@@ -1,6 +1,6 @@
 /* global indexurl, Mark, Fuse */
 
-var summaryInclude = 60;
+var summaryInclude = 300;
 var fuseOptions = {
   shouldSort: true,
   includeMatches: true,
@@ -31,7 +31,8 @@ var fuseOptions = {
 
 function doCloseSearch() { // eslint-disable-line no-unused-vars
   if (document.getElementById("search-results")) {
-    document.getElementById("search-results").style = "display: none;";
+    document.getElementById("search-results").style = "display: none; visibility: hidden;";
+    document.getElementById("search-results").innerHTML = "<h2>Search Results</h2>";
   }
 }
 
@@ -39,7 +40,7 @@ function doSearch() { // eslint-disable-line no-unused-vars
   var searchQuery = document.search_form.s.value;
   if (searchQuery) {
     if (document.getElementById("search-query")) {
-      document.getElementById("search-results").style = "display: block;";
+      document.getElementById("search-results").style = "display: block; visibility: visible;";
       executeSearch(searchQuery);
     }
   } else {
@@ -47,6 +48,7 @@ function doSearch() { // eslint-disable-line no-unused-vars
     para.innerText = "Please enter a word or phrase above";
     if (document.getElementById("search-results")) {
       document.getElementById("search-results").appendChild(para);
+      document.getElementById("search-results").style = "display: block; visibility: visible;";
     }
   }
   return false;
@@ -60,11 +62,11 @@ function getJSON(url, fn) {
       var data = JSON.parse(request.responseText);
       fn(data);
     } else {
-      console.log("Target reached on " + url + " with error " + request.status);
+      console.log("OldNewMashup had error " + request.status + " on " + url);
     }
   };
   request.onerror = function () {
-    console.log("Connection error " + request.status);
+    console.log("OldNewMashup search connection error " + request.status);
   };
   request.send();
 }
@@ -74,9 +76,6 @@ function executeSearch(searchQuery) {
     var pages = data;
     var fuse = new Fuse(pages, fuseOptions);
     var result = fuse.search(searchQuery);
-    console.log({
-      "matches": result
-    });
     if (result.length > 0) {
       populateResults(result, searchQuery);
     } else {
@@ -110,8 +109,7 @@ function populateResults(result, searchQuery) {
     if (snippet.length < 1) {
       snippet += content.substring(0, summaryInclude * 2);
     }
-    //pull template from hugo template definition
-    var templateDefinition = document.getElementById("search-result-template").innerHTML;
+    var templateDefinition = "<div id=\"summary-${key}\"><h4><a href=\"${link}\">${title}</a></h4><p>${snippet}</p>${ isset tags }<p>Tags: ${tags}</p>${ end }\n${ isset categories }<p>Categories: ${categories}</p>${ end }</div>";
     //replace values
     var output = render(templateDefinition, {
       key: key,
@@ -126,7 +124,6 @@ function populateResults(result, searchQuery) {
     snippetHighlights.forEach(function (snipvalue, snipkey) {  // eslint-disable-line no-unused-vars
       new Mark(document.getElementById("summary-" + key)).mark(snipvalue);
     });
-
   });
 }
 
