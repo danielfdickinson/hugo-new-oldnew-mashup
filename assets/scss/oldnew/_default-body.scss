@@ -283,8 +283,8 @@
 }
 
 @mixin regular-main($device-capabilities: 'all-browsers', $sub-devcap: null) {
-  & .main-article,
-  & .regular-content {
+  & .main-article-wrapper,
+  & .regular-content-wrapper {
     overflow: hidden;
 
     & .sitemap-main {
@@ -331,7 +331,9 @@
         }
       }
     }
+  }
 
+  .regular-content-wrapper {
     & ul,
     & ol {
       display: block;
@@ -342,6 +344,18 @@
       margin-left: .4em;
       position: relative;
       width: 98%;
+    }
+    
+    & .top-level-menu-wrapper {
+      & ul,
+      & ol {
+        left: auto;
+        margin-block-end: 0;
+        margin-block-start: 0;
+        margin-left: 0;
+        position: static;
+        width: auto;
+      }
     }
   }
 }
@@ -373,6 +387,7 @@
         & h3 {
           text-align: center;
         }
+        
       }
     }
 
@@ -387,6 +402,14 @@
       height: 0;
       visibility: hidden;
       width: 0;
+
+      & .footnote-ref,
+      & .footnote-backref {
+        left: 0;
+        position: relative;
+        top: 0;
+        z-index: 4;
+      }
     }
   } @elseif $device-capabilities == 'small-screen' {
     .main-article {
@@ -607,6 +630,7 @@
       top: 0;
       width: 100%;
       z-index: 0;
+
     } @elseif $device-capabilities == 'small-screen' {
       @supports (display: flex) and (not (display: grid)) {
         align-content: stretch;

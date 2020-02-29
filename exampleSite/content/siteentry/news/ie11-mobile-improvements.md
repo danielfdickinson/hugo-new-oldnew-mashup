@@ -12,8 +12,9 @@ categories:
 tags:
   - website
   - theme
-type: news
 weight: 2000
+aliases:
+  - /siteentry/ie11-mobile-improvements/
 ---
 
 # IE 11 & Mobile Improvements

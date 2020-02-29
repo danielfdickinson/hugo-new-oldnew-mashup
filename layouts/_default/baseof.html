@@ -30,8 +30,8 @@
   {{- block "main" . -}}
     <div class="main-wrapper{{ if (eq (.Param "norbar") true) }} full-page-content-wrapper{{ end }}">
       <main class="main{{ if (eq (.Param "norbar") true) }} full-page-content{{ end }}">
-        <div class="main-article-wrapper">
-          <article aria-label="Main Article" id="main-article" class="main-article">
+        <div class="main-article-wrapper regular-content-wrapper">
+          <article aria-label="Main Article" id="main-article" class="main-article regular-content">
     {{ partial "generic-helpers/article-header" . }}
     {{- if (not (or .Data.Terms .Data.Singular ) ) -}}
     {{- partial "generic-helpers/article-toc" . -}}
