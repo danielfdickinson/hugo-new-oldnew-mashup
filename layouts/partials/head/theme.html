@@ -10,14 +10,23 @@
   {{ if (index .Params "author") }}<meta name="author" content="{{ index .Params "author" }}">{{ end }}
 {{ end }}
 {{ block "links" . }}
-    {{ if ne (.Param "nobaseurl") true }}{{ if $.Site.BaseURL }}<base href="{{ $.Site.BaseURL }}">{{ end }}{{ end }}
-    {{ $options := (dict "enableSourceMap" true "compress" true "targetPath" "css/oldnew-mashup.css" ) }}
-    {{ $nb := resources.Get "css/new-base.scss" }}
-    {{ $nm := resources.Get "css/normalize.scss" }}
-    {{ $nbnmcat := slice $nm $nb | resources.Concat "css/oldnew-mashup.scss" }}
-    {{ $nbtpl := resources.ExecuteAsTemplate "css/oldnew-mashup.scss" . $nbnmcat }}
-    {{ $nbstyle := $nbtpl | resources.ToCSS $options }}
-    <link rel="stylesheet" href="{{ $nbstyle.Permalink }}"/>
+  {{ if ne (.Param "nobaseurl") true }}{{ if $.Site.BaseURL }}<base href="{{ $.Site.BaseURL }}">{{ end }}{{ end }}
+  {{- $nb := resources.Get "css/new-base.scss" -}}
+  {{- if not $nb -}}
+    {{- errorf "Missing static SCSS resources" -}}
+  {{- end -}}
+  {{- $options := (dict "enableSourceMap" true "compress" true "targetPath" "css/new-oldnew-mashup.css" "includePaths" (slice "assets/scss/oldnew" "assets/scss/normalize") ) -}}
+  {{- $gsvresname := "css/oldnew-vars.scss" -}}
+  {{- $gsv := resources.Get $gsvresname -}}
+  {{- if not $gsv -}}
+    {{- errorf "Missing SCSS style scheme resources" -}}
+  {{- end -}}
+  {{- $nbtplname := printf "css/hugo-%s-scheme.scss" "base" -}}
+  {{- $nbtpl := $gsv | resources.ExecuteAsTemplate $nbtplname . -}}
+  {{- $nbnmcatname := printf "css/%s-oldnew-mashup.scss" "cat" -}}
+  {{- $nbnmcat := slice $nbtpl $nb | resources.Concat $nbnmcatname -}}
+  {{- $nbstyle := $nbnmcat | resources.ToCSS $options | resources.Fingerprint -}}
+  <link rel="stylesheet" href="{{ $nbstyle.Permalink }}"/>
 {{ end }}
 {{ block "output-formats" . }}
   {{ range .AlternativeOutputFormats -}}
