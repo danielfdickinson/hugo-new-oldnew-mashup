@@ -9,12 +9,12 @@ theme = 'new-oldnew-mashup'
 summaryLength = 30
 description = "Sample site for OldNew Mashup Theme (the new version)"
 themesDir = "../.."
-min_version = "0.61.1"
+min_version = "0.65.3"
 
 [params]
   siteid = 'OldNew Mashup'
   licenses = ['CC-BY-4.0']
-  copyright = '© 2018-2019 Daniel F. Dickinson'
+  copyright = '© 2018-2020 Daniel F. Dickinson'
   GitHubRepo = 'cshoredaniel/new-oldnew-mashup'
   rssfeedlink = true
   validatorlink = true
@@ -33,7 +33,7 @@ min_version = "0.61.1"
 
 [frontmatter]
   lastmod = ["lastmod",":git","date","publishDate"]
-  date = ["publishDate", "date"]
+  date = ["publishDate","date",":git","lastmod"]
 
 [privacy]
   [privacy.disqus]
@@ -57,7 +57,8 @@ min_version = "0.61.1"
 [module]
 
 [module.hugoVersion]
-  min = "0.60.1"
+  min = "0.65.3"
+  extended = false
 
   [[module.mounts]]
     source = "content"
@@ -90,7 +91,7 @@ min_version = "0.61.1"
 [author]
   name = "Daniel F. Dickinson"
   homepage = "https://www.thecshore.com"
-  copyright = "©2009-2019 Daniel F. Dickinson"
+  copyright = "©2009-2020 Daniel F. Dickinson"
   email = "<cshored@thecshore.com>"
 
 [related]
