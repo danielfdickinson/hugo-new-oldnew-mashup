@@ -4,7 +4,7 @@ Version 1.3.0
 
 ## Status
 
-If you wish you can view the [Status of New OldNew Mashup on Github](https://github.com/cshoredaniel/new-oldnew-mashup/blob/devel-1.3.0/STATUS.md)
+If you wish you can view the [Status of New OldNew Mashup on Github](https://github.com/cshoredaniel/new-oldnew-mashup/blob/master/STATUS.md)
 
 ## Examples of Sites Using This Theme
 *   [The C Shore](https://www.thecshore.com)
