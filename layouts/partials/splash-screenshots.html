@@ -1,15 +1,15 @@
-{{ $curPage := . }}
-{{ $splashImageBundle := .Param "splash_images_bundle" }}
-{{ if $splashImageBundle }}
-  {{ $resPage := $.Site.GetPage $splashImageBundle }}
-  {{ $splashImages := $resPage.Resources.ByType "image" }}
-  {{ if $splashImages }}
+{{- $curPage := . -}}
+{{- $splashImageBundle := .Param "splash_images_bundle" -}}
+{{- if $splashImageBundle -}}
+  {{- $resPage := $.Site.GetPage $splashImageBundle -}}
+  {{- $splashImages := $resPage.Resources.ByType "image" -}}
+  {{- if $splashImages -}}
   <div class="splash">
     <ul class="screenshot-list">
-      {{ range $splashImages }}
+      {{- range $splashImages }}
         <li><a href="{{ .Params.dlinkfile | relURL }}"><img class="screenshot" alt="{{ .Params.alt }}" src="{{ .RelPermalink }}" /></a></li>
-      {{ end }}
+      {{ end -}}
       </ul>
     </div>
-  {{ end }}
-{{ end }}
+  {{- end -}}
+{{- end -}}

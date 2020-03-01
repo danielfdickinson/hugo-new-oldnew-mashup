@@ -1,15 +1,13 @@
 {{/*Default Footer for OldNew Mashup Theme*/}}
 <footer aria-label="Page Footer" id="page-footer" class="page-footer">
-<!-- Copyright 2019 Daniel F. Dickinson,
-     Released under the Creative Commons 4.0 BY (Attribution) License -->
-  {{ block "footerlinks" . }}
-    {{ if not (.Param "nofooterlinks") }}
-      {{ partial "footer/links" . }}
-    {{ end }}
-  {{ end }}
-  {{ block "footercolophon" .}}
-    {{ if not (.Param "nocolophon") }}
-      {{ partial "footer/colophon" . }}
-    {{ end }}
-  {{ end }}
+{{- block "footerlinks" . -}}
+  {{- if not (.Param "nofooterlinks") -}}
+    {{ partial "footer/links" . }}
+  {{- end -}}
+{{- end -}}
+{{- block "footercolophon" . -}}
+  {{- if not (.Param "nocolophon") -}}
+    {{ partial "footer/colophon" . }}
+  {{- end -}}
+{{- end -}}
 </footer>
