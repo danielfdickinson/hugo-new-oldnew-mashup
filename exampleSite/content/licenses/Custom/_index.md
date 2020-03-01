@@ -10,5 +10,5 @@ categories:
 tags:
   - licenses
   - custom
-
+not_in_lists: [site,local-nav,section-nav,sitemap,section,sidebar-recent,sidebar-events,sidebar-news]
 ---
