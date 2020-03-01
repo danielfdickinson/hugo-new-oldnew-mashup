@@ -5,4 +5,4 @@
 {{- else -}}
   {{- $link = (.Destination | safeURL) -}}
 {{- end -}}
-<img {{- with $.Text -}}alt="{{- $.Text -}}"{{- end -}} src="{{- $link -}}" {{- with $.Title -}}title="{{- $.Title -}}"{{- end -}} />
+<img {{ with $.Text }}alt="{{- $.Text -}}"{{ end }} src="{{- $link -}}" {{ with $.Title }}title="{{- $.Title -}}"{{ end }} />
