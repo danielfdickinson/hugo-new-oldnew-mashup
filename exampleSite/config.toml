@@ -14,6 +14,7 @@ min_version = "0.65.3"
 [params]
   siteid = 'OldNew Mashup'
   licenses = ['CC-BY-4.0']
+  default_page_licenses = ['CC-BY-4.0']
   copyright = '© 2018-2020 Daniel F. Dickinson'
   GitHubRepo = 'cshoredaniel/new-oldnew-mashup'
   rssfeedlink = true
