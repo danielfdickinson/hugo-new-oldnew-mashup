@@ -22,7 +22,7 @@
     {{ if not $parentNode }}
       {{ if (and .IsSection ( eq $curNode . ) ) }}
         <ul class="menu-parent has-submenu">
-         {{ partial "generic-site-menu/menu-section" ( dict "cur_node" $curNode "menu_node" . "menu_type" "section-nav" "nosub" "true" ) }}
+        {{ partial "generic-site-menu/menu-section" ( dict "cur_node" $curNode "menu_node" . "menu_type" "section-nav" "nosub" "true" ) }}
         </ul>
       {{ end }}
       </li>
