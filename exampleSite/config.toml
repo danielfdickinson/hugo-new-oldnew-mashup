@@ -9,7 +9,7 @@ theme = 'new-oldnew-mashup'
 summaryLength = 60
 description = "Sample site for OldNew Mashup Theme (the new version)"
 themesDir = "../.."
-min_version = "0.64.0"
+min_version = "0.65.3"
 
 [params]
   siteid = 'OldNew Mashup'
@@ -35,7 +35,7 @@ min_version = "0.64.0"
 
 [frontmatter]
   lastmod = ["lastmod",":git","date","publishDate"]
-  date = ["publishDate", "date", ":git", "lastmod"]
+  date = ["publishDate","date",":git","lastmod"]
 
 [privacy]
   [privacy.disqus]
@@ -59,7 +59,8 @@ min_version = "0.64.0"
 [module]
 
 [module.hugoVersion]
-  min = "0.64.0"
+  min = "0.65.3"
+  extended = false
 
   [[module.mounts]]
     source = "content"
@@ -90,8 +91,35 @@ min_version = "0.64.0"
     target = "archetypes"
 
   [[module.imports]]
-  # We include the theme by "../.." above, but we need one module import for Hugo to detect us as a Hugo Module.
-  path="github.com/bep/empty-hugo-module"
+    path = "new-oldnew-mashup"
+
+  [[module.imports.mounts]]
+    source = "layouts"
+    target = "layouts"
+
+  [[module.imports.mounts]]
+    source = "assets"
+    target = "assets"
+
+  [[module.imports.mounts]]
+    source = "static"
+    target = "static"
+
+  [[module.imports.mounts]]
+    source = "data"
+    target = "data"
+
+  [[module.imports.mounts]]
+    source = "i18n"
+    target = "i18n"
+
+  [[module.imports.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+
+  [[module.imports.mounts]]
+    source = "."
+    target = "assets/new-oldnew-mashup-theme-root"
 
 [author]
   name = "Daniel F. Dickinson"
