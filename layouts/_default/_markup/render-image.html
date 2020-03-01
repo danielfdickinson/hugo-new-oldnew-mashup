@@ -1,5 +1,8 @@
 {{- $link := .Destination -}}
 {{- $img := .Page.Resources.GetMatch .Destination -}}
+{{- if not $img -}}
+  {{- $img = resources.GetMatch .Destination -}}
+{{- end -}}
 {{- with $img -}}
   {{- $link = $img.RelPermalink -}}
 {{- else -}}
