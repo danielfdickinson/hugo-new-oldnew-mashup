@@ -1,12 +1,9 @@
-{{ define "bodytag" }}
-  <body>
-<!-- Copyright 2018-2019 Daniel F. Dickinson
-     Released under the Create Commons BY (Attribution) 4.0 License -->
-{{ end }}
-{{ define "header" }}
-  {{ if (eq .CurrentSection.File.Dir "projects/bots-and-bytes-fall-2019/") }}
+{{/* Copyright 2018-2019 Daniel F. Dickinson.  Released under the
+  Creative Commons BY (Attribution) 4.0 License */}}
+{{- define "header" -}}
+  {{- if (eq .CurrentSection.File.Dir "projects/bots-and-bytes-fall-2019/") -}}
   <div class="bots-bytes-body-wrapper">
-  {{ else }}
+  {{- else -}}
   <div class="default-body-wrapper">
   {{ end }}
     {{ partial "page-header" . }}
