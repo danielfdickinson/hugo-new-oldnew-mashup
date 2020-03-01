@@ -41,7 +41,7 @@ description = "Modules for OldNew Mashup Theme (the new version)"
 
   [[module.imports.mounts]]
     source="."
-    target="assets/scss/normalize"
+    target="assets/css/normalize"
 
   [[module.imports]]
     path="github.com/cshoredaniel/julmot-mark.js"

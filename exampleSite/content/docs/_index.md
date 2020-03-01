@@ -1,7 +1,7 @@
 ---
 title: "Docs"
 date: 2019-09-02T00:51:16-04:00
-copyright: 2019 Daniel F. Dickinson
+copyright: © 2019-2020 Daniel F. Dickinson
 author: Daniel F. Dickinson <cshored@thecshore.com>
 description: Documentation for OldNew Mashup Theme
 licenses:
@@ -10,14 +10,15 @@ categories: [theme, documentation, manual]
 tags: [theme, website, documentation, manual]
 weight: 2
 ---
+## Overview
 
 Modern high-contrast CSS3 & HTML5 [Hugo](https://gohugo.io) theme
 inspired by old-school themes.
 
 It attempts to be accessible, private, and responsive.
 
-The theme is currently a work in progress, although useful releases have been
-made from time to time.
+The theme is currently a work in progress, but there are still useful
+releases from time to time.
 
 ## Example Site
 
