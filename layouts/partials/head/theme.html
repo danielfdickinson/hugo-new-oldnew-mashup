@@ -9,40 +9,55 @@
   {{ if (index .Params "description") }}<meta name="description" content="{{ index .Params "description" }}">{{ end }}
   {{ if (index .Params "author") }}<meta name="author" content="{{ index .Params "author" }}">{{ end }}
 {{ end }}
-{{ block "links" . }}
+{{- block "links" . -}}
   {{ if ne (.Param "nobaseurl") true }}{{ if $.Site.BaseURL }}<base href="{{ $.Site.BaseURL }}">{{ end }}{{ end }}
   {{- $nb := resources.Get "css/new-base.scss" -}}
   {{- if not $nb -}}
     {{- errorf "Missing static SCSS resources" -}}
   {{- end -}}
-  {{- $options := (dict "enableSourceMap" true "compress" true "targetPath" "css/new-oldnew-mashup.css" "includePaths" (slice "assets/scss/oldnew" "assets/scss/normalize") ) -}}
+  {{- $options := (dict "enableSourceMap" true "compress" true "targetPath" "css/scss-oldnew-mashup.css" "includePaths" (slice "assets/scss/oldnew")) -}}
   {{- $gsvresname := "css/oldnew-vars.scss" -}}
   {{- $gsv := resources.Get $gsvresname -}}
   {{- if not $gsv -}}
     {{- errorf "Missing SCSS style scheme resources" -}}
   {{- end -}}
-  {{- $pregenstylesheetname := printf "css/oldnew-mashup/%s-oldnew-mashup.css" "new" -}}
-  {{- $nbstyle := resources.Get $pregenstylesheetname -}}
-  {{- if or (and ( eq (string hugo.Environment) "for-basic" ) ( not $.Site.IsServer )) (eq (string hugo.Environment) "development") -}}
+
+  {{- $pregenstyles := slice (printf "css/oldnew-mashup/%s-oldnew-mashup.css" "scss") "css/oldnew-mashup/normalize.min.css" -}}
+  {{- $ctx := . -}}
+  {{- $catstyles := slice -}}
+  {{- range $pregenstyle := $pregenstyles -}}
+    {{- $stres := resources.Get $pregenstyle -}}
+    {{- if (and (not $stres) (and (ne (string hugo.Environment) "for-basic" ) (ne (string hugo.Environment) "development" ) ) ) -}}
+      {{- errorf (printf "Missing Pre-generated SCSS style %s" $pregenstyle) -}}
+    {{- end -}}
+    {{- $catstyles = $catstyles | append $stres -}}
+  {{- end -}}
+  {{- $csstofingerprint := $catstyles -}}
+  
+  {{- $nmfile := resources.Get "css/normalize/normalize.css" -}}
+
+  {{- if or (eq (string hugo.Environment) "for-basic" ) (eq (string hugo.Environment) "development") -}}
+ 
+    {{- $csstofingerprint = (slice ($nmfile | resources.Minify)) -}}
+ 
     {{- $nbtplname := printf "css/hugo-%s-scheme.scss" "base" -}}
     {{- $nbtpl := $gsv | resources.ExecuteAsTemplate $nbtplname . -}}
-    {{- $nbnmcatname := printf "css/%s-oldnew-mashup.scss" "cat" -}}
-    {{- $nbnmcat := slice $nbtpl $nb | resources.Concat $nbnmcatname -}}
-    {{- if and ( eq (string hugo.Environment) "for-basic" ) ( not $.Site.IsServer ) -}}
-      {{- $nbstyle = $nbnmcat | resources.ToCSS $options -}}
-    {{ else }}
-      {{- $nbstyle = $nbnmcat | resources.ToCSS $options | resources.Fingerprint -}}
-    {{ end }}
-  {{- else -}}
-    {{- if not $nbstyle -}}
-      {{- errorf ( printf "Missing stylesheet '%s'" $pregenstylesheetname ) -}}
-    {{- end -}}
-    {{- $nbstyle = $nbstyle | resources.Fingerprint -}}
+    {{- $nbtplcatname := printf "css/%s-oldnew-mashup.scss" "cat" -}}
+    {{- $nbtplcat := slice $nbtpl $nb | resources.Concat $nbtplcatname -}}
+    {{- $nbcssstyle := $nbtplcat | resources.ToCSS $options -}}
+    {{- $csstofingerprint = $csstofingerprint | append $nbcssstyle -}}
   {{- end -}}
-  {{ if $nbstyle }}
-  <link rel="stylesheet" href="{{ $nbstyle.Permalink }}"/>
-  {{- end }}
-{{ end }}
+  {{- if and ( ne (string hugo.Environment) "for-basic" ) ( not $.Site.IsServer ) -}}
+    {{- range $cssfingerprint := $csstofingerprint -}}
+       {{- $cssfingerprint = $cssfingerprint | resources.Fingerprint -}}
+       <link rel="stylesheet" href="{{ $cssfingerprint.Permalink }}"/>
+     {{- end -}}
+  {{- else -}}
+    {{- range $cssfingerprint := $csstofingerprint -}}
+       <link rel="stylesheet" href="{{ $cssfingerprint.Permalink }}"/>
+     {{- end -}}
+  {{- end -}}
+{{- end -}}
 {{ block "output-formats" . }}
   {{ range .AlternativeOutputFormats -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
