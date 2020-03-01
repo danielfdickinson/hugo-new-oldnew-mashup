@@ -22,6 +22,11 @@
            {{ $includeNode = false }}
          {{ end }}
       {{ end }}
+      {{ if and (and $ctx.minSummaryLen $includeNode) (not (in .RawContent "summary-list-expansion" )) }}
+        {{ if and (lt (len .Summary) (int $ctx.minSummaryLen)) (not .Params.description) }}
+          {{ $includeNode = false }}
+        {{ end }}
+      {{ end }}
       {{ if $includeNode }}
         {{ if not $haveNode }}
           {{ $scratch.Set "nodes_included" ( slice . ) }}
