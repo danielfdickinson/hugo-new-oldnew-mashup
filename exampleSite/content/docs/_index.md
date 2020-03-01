@@ -10,7 +10,6 @@ categories: [theme, documentation, manual]
 tags: [theme, website, documentation, manual]
 weight: 2
 ---
-## Overview
 
 Modern high-contrast CSS3 & HTML5 [Hugo](https://gohugo.io) theme
 inspired by old-school themes.
