@@ -91,7 +91,7 @@ weight: 20
 
 | Part                           | Description                         |
 |--------------------------------|-------------------------------------|
-| footer-links                   | Various links (see [Reference Guide](/docs/reference-guide) ) |
+| footer-links                   | Various links (see [Reference Guide](reference-guide) ) |
 | colophon                       | Various document information bits |
 
 #### Colophon for Document

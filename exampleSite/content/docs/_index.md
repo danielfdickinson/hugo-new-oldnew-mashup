@@ -1,7 +1,7 @@
 ---
 title: "Docs"
 date: 2019-09-02T00:51:16-04:00
-copyright: 2020 Daniel F. Dickinson
+copyright: © 2019-2020 Daniel F. Dickinson
 author: Daniel F. Dickinson <cshored@thecshore.com>
 description: Documentation for OldNew Mashup Theme
 licenses:
