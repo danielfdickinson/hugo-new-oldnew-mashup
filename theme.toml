@@ -5,10 +5,10 @@ license = "CC-BY-4.0"
 licenselink = "https://github.com/cshoredaniel/new-oldnew-mashup/blob/master/LICENSE"
 description = "Modern HTML5 & CSS3 Hugo theme inspired by old-school themes"
 homepage = "https://new-oldnew-mashup.thecshore.com/"
-features = ['blog', 'high-contrast', 'a11y', 'accessibility','responsive', 'privacy']
+features = ['blog', 'high-contrast', 'a11y', 'accessibility','responsive','privacy']
 tags = ['old-school', 'modern', 'postmodern', 'high-contrast','responsive','privacy']
-min_version = "0.64.0"
-summaryLength = "30"
+min_version = "0.65.3"
+summaryLength = "60"
 
 [author]
   name = "Daniel F. Dickinson"

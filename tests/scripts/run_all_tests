@@ -20,6 +20,9 @@
 
 OTS=SUCCESS
 
+PATH="$PATH:./node_modules/.bin"
+export PATH
+
 
 for thscript in "$(pwd)"/tests/scripts/th[0-9][0-9]*.sh; do
 	if ! $thscript; then
@@ -32,7 +35,7 @@ done
 if [ "$OTS" != "FAIL" ]; then
 	for tscript in "$(pwd)"/tests/scripts/t[0-9][0-9]*.sh; do
 		if [ -d ./exampleSite ]; then
-			cd ./exampleSite	
+			cd ./exampleSite
 			if ! $tscript; then
 				OTS=FAIL
 				cd ..

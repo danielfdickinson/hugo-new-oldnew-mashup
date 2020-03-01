@@ -5,7 +5,8 @@ description = "Modules for OldNew Mashup Theme (the new version)"
 [module]
 
 [module.hugoVersion]
-  min = "0.64.0"
+  min = "0.65.3"
+  extended = false
 
   [[module.mounts]]
     source = "content"
@@ -39,22 +40,22 @@ description = "Modules for OldNew Mashup Theme (the new version)"
     path="github.com/cshoredaniel/necolas-normalize.css"
 
   [[module.imports.mounts]]
-    source="normalize.css"
-    target="assets/css/normalize.scss"
+    source="."
+    target="assets/scss/normalize"
 
   [[module.imports]]
     path="github.com/cshoredaniel/julmot-mark.js"
 
   [[module.imports.mounts]]
-    source="dist/mark.js"
-    target="assets/js/julmot-mark.js"
+    source="."
+    target="assets/js/julmot-mark"
 
   [[module.imports]]
     path="github.com/cshoredaniel/krisk-Fuse"
 
   [[module.imports.mounts]]
-    source="dist/fuse.js"
-    target="assets/js/krisk-Fuse.js"
+    source="."
+    target="assets/js/krisk-Fuse"
 
 [author]
   name = "Daniel F. Dickinson"

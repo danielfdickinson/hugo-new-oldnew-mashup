@@ -5,7 +5,7 @@ var fuseOptions = {
   shouldSort: true,
   includeMatches: true,
   threshold: 0.3, // for parsing diacritics
-  tokenize: false,
+  tokenize: true,
   location: 0,
   distance: 100,
   maxPatternLength: 32,
@@ -31,7 +31,7 @@ var fuseOptions = {
 
 function doCloseSearch() { // eslint-disable-line no-unused-vars
   if (document.getElementById("search-results")) {
-    document.getElementById("search-results").style = "visibility: hidden;";
+    document.getElementById("search-results").style = "display: none; visibility: hidden;";
     document.getElementById("search-results").innerHTML = "<h2>Search Results</h2>";
   }
 }
@@ -40,7 +40,7 @@ function doSearch() { // eslint-disable-line no-unused-vars
   var searchQuery = document.search_form.s.value;
   if (searchQuery) {
     if (document.getElementById("search-query")) {
-      document.getElementById("search-results").style = "visibility: visible;";
+      document.getElementById("search-results").style = "display: block; visibility: visible;";
       executeSearch(searchQuery);
     }
   } else {
@@ -48,7 +48,7 @@ function doSearch() { // eslint-disable-line no-unused-vars
     para.innerText = "Please enter a word or phrase above";
     if (document.getElementById("search-results")) {
       document.getElementById("search-results").appendChild(para);
-      document.getElementById("search-results").style = "visibility: visible;";
+      document.getElementById("search-results").style = "display: block; visibility: visible;";
     }
   }
   return false;

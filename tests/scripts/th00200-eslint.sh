@@ -21,7 +21,7 @@
 OTS=SUCCESS
 
 
-if ! eslint . ; then
+if ! eslint --max-warnings 1 assets/js ; then
 	echo "FAIL: Linting (ESLint) fails"
 	exit 3
 else
