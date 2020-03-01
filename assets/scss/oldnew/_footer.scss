@@ -82,10 +82,11 @@
   .colophon {
     @include license-block;
     @include rollup-section-named(doc-date) {
-      @include utility-box($doc-date-border, $doc-date-border-color, $doc-date-text-color);
 
-      background-color: $doc-date-background-color;
-      color: $doc-date-text-color;
+      font-size: .8rem;
+      font-style: italic;
+      padding: .4em;
+
     };
 
     border-top: 2px solid $default-separator-color;

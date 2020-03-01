@@ -735,12 +735,9 @@ tr th {
       .page-footer .colophon .license-block .label {
         font-weight: normal; }
     .page-footer .colophon .doc-date-block {
-      border: 4px solid #ccc;
-      color: #ccc;
-      padding: .6em;
-      text-align: left;
-      background-color: #222;
-      color: #ccc; }
+      font-size: .8rem;
+      font-style: italic;
+      padding: .4em; }
 
 .colophon .doc-date-hoversite {
   font-style: italic; }
