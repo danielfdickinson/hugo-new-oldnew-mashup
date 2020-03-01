@@ -165,7 +165,7 @@ This theme will looks for the following pages at either
 | Param                               | Description                    |
 |-------------------------------------|--------------------------------|
 | sans_font_stack                     | Default sans-serif font selection preferences |
-| serif_mono_font_stack               | Default serif font selection preferences
+| serif_mono_font_stack               | Default serif font selection preferences |
 | mono_font_stack                     | Default monospace font selection preferences |
 | default_background_color            | self-explanatory               |
 | default_background_image            | ditto (default no image)       |
@@ -197,12 +197,12 @@ This theme will looks for the following pages at either
 | sidebar_box_row_background_color    | default background color for highlighted text in sidebar boxes |
 | sidebar_menu_entry_row_background_color | background color for rows containing menu items in a sidebar box |
 | toc_box_border                  | default border for table-of-contents boxes notable-of-contentst including colour. E.g. '4px solid' |
-| toc_box_border_color            | default colour for table-of-contents boxes botable-of-contents
+| toc_box_border_color            | default colour for table-of-contents boxes botable-of-contents |
 | toc_box_background_color        | default background for table-of-contents boxes |
 | toc_box_text_color              | default colour for any text in table-of-contents boxes |
 | toc_box_row_background_color    | default background color for highlighted text in table-of-contents boxes |
 | doc_date_border                 | default border for document date boxes notable-of-contentst including colour. E.g. '4px solid' |
-| doc_date_border_color           | default colour for document date boxes botable-of-contents
+| doc_date_border_color           | default colour for document date boxes botable-of-contents |
 | doc_date_background_color       | background colour for the document date information colophon hover block |
 | doc_date_text_color             | default colour for any text in document date boxes |
 | default_top_bar_background_color | default background for top bar |
@@ -254,9 +254,9 @@ These have a few elements to make their magic.
     For example:
 ```
  ## The 30 most recently published events
- {{ summary-list-expansion "events" 30 >}}
+ {{\< summary-list-expansion "events" 30 \>}}
 ```
-*  In the sidebar there is a conditional that checks for the site for
+*   In the sidebar there is a conditional that checks for the site for
    the following parameters:
 
 | Param | Notes |
@@ -265,7 +265,7 @@ These have a few elements to make their magic.
 | recent_news  | Likewise but only for "news" pages |
 | recent_events | Likewise but only for "events" pages |
 
-*  If page exists at the specified path, then the header (e.g. "News")
+*   If page exists at the specified path, then the header (e.g. "News")
    in the sidebar links to the page at the specified path.
 
 ## Generic Styles Available

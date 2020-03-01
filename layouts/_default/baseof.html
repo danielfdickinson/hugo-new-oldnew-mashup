@@ -1,65 +1,55 @@
 <!DOCTYPE html>
+{{/* Copyright 2018 Daniel F. Dickinson <cshored@thecshore.com>
+     Released under the Create Commons BY (Attribution) 4.0 License */}}
 <html lang="{{ $.Site.Language.Lang }}">
-<!-- Copyright 2018 Daniel F. Dickinson <cshored@thecshore.com
-     Released under the Create Commons BY (Attribution) 4.0 License -->
-  <head>
-    <title>{{ block "title" . }}
-      {{ if .Title }}{{ .Title }}{{ else if .Name }}{{ .Name }}{{ else }}{{ .Site.Title }}{{ end }}
-    {{ end }}</title>
-    {{ block "head" . }}
-       {{ partial "head/theme" . }}
-       {{ partial "head/site" . }}
-    {{ end }}
-  </head>
-  {{ block "bodytag" .}}
-  <body>
-  {{ end }}
-  {{ block "header" . }}
-    <div class="default-body-wrapper">
-      {{ partial "page-header" . }}
-  {{ end }}
-  {{ block "navigation" . }}
-    {{ if not (or .Params.nornav .Site.Params.nornav) }}
+<head>
+  <title>{{- block "title" . -}}
+    {{- if .Title -}}{{- .Title -}}{{- else if .Name -}}{{- .Name -}}{{- else -}}{{- .Site.Title -}}{{ end -}}
+  {{- end -}}
+  </title>
+  {{ block "head" . -}}
+     {{ partial "head/theme" . -}}
+     {{- partial "head/site" . -}}
+  {{- end -}}
+</head>
+  {{- block "bodytag" . }}
+<body>
+  {{- end -}}
+  {{- block "header" . }}
+  <div class="default-body-wrapper">
+      {{- partial "page-header" . -}}
+  {{- end -}}
+  {{- block "navigation" . -}}
+    {{- if not (or .Params.nornav .Site.Params.nornav) -}}
       {{ partial "navigation/local-nav/bar" .Page }}
-    {{ end }}
-    {{ if not (or .Params.normenu .Site.Params.normenu) }}
+    {{- end -}}
+    {{- if not (or .Params.normenu .Site.Params.normenu) -}}
       {{ partial "navigation/menu" . }}
-    {{ end }}
-  {{ end }}
-  {{ block "main" . }}
+    {{- end -}}
+  {{- end -}}
+  {{- block "main" . -}}
       <main class="main">
       <article aria-label="Main Article" id="main-article" class="main-article">
     {{ partial "generic-helpers/article-header" . }}
-    {{ if (not (or .Data.Terms .Data.Singular ) ) }}
-    {{ partial "generic-helpers/article-toc" . }}
-    {{ end }}
-    {{ .Content }}
-    {{ partial "generic-helpers/aside" . }}
-    {{ block "tags-list" . }}
+    {{- if (not (or .Data.Terms .Data.Singular ) ) -}}
+    {{- partial "generic-helpers/article-toc" . -}}
+    {{- end -}}
+    {{- replaceRE "<h1.*</h1>" "" .Content | safeHTML -}}
+    {{- partial "generic-helpers/aside" . -}}
+    {{- block "tags-list" . -}}
       {{ partial "generic-helpers/taxonomy/taxonomy-list" (dict "curRegPage" . "taxonomyType" "tag" ) }}
-    {{ end }}
+    {{- end -}}
       </article>
-    {{ block "main-footer" . }}
-    {{ end }}
+    {{- block "main-footer" . -}}
+    {{- end -}}
       </main>
-  {{ end }}
+  {{- end -}}
   {{ block "sidebar" . }}
     {{ partial "sidebar" . }}
   {{ end }}
   {{ block "footer" . }}
     {{ partial "footer" . }}
-    </div>
-  {{ end }}
-  {{ block "search-results-template" . }}
-  <!-- this template is sucked in by search.js and appended to the search-results div above. So editing here will adjust style -->
-  <script id="search-result-template" type="text/x-js-template" style="display:none">
-      <div id="summary-${key}">
-        <h4><a href="${link}">${title}</a></h4>
-        <p>${snippet}</p>
-        ${ isset tags }<p>Tags: ${tags}</p>${ end }
-        ${ isset categories }<p>Categories: ${categories}</p>${ end }
-      </div>
-  </script>
-  {{ end }}
-  </body>
+  {{- end -}}
+  </div>
+</body>
 </html>

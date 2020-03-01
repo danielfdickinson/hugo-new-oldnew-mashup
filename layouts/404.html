@@ -1,12 +1,7 @@
-{{ define "title" }}
-  404 Resource  not found
-{{ end }}
-{{ define "bodytag" }}
-  <body>
-<!-- Copyright 2018-2019 Daniel F. Dickinson <cshored@thecshore.com
-     Release under the Create Commons BY (Attribution) 4.0 License -->
-{{ end }}
-{{ define "main" }}
+{{- define "title" -}}
+  404 Resource Not Found
+{{- end -}}
+{{- define "main" -}}
    <main class="main four-oh-four">
        <article aria-label="Main Article" id="main-article" class="main-article not-found-box">
          <h1 class="title">404 Resource not found</h1>
@@ -22,4 +17,4 @@
          </div>
        </article>
    </main>
-{{ end }}
+{{- end -}}

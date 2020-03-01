@@ -13,7 +13,7 @@ weight: 30
 
 # Search Setup
 
-This implementation uses Fusejs, jquery and mark.js
+This implementation uses Fusejs, and mark.js (without jQuery)
 
 
 ## Initial setup

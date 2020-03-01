@@ -8,6 +8,4 @@ weight: 999999
 layout: siteentry
 ---
 
-## Description of Site Logo
-
-[Description of the Site Logo](siteentry/site-badge-description)
+[Description of the Site Logo](site-badge-description)

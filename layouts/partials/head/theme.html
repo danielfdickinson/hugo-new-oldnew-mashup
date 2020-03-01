@@ -1,34 +1,74 @@
-{{ block "metarender" . }}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <!-- Copyright 2018 Daniel F. Dickinson,
-       Released under the Creative Commons 4.0 BY (Attribution) License -->
-{{ end }}
+{{/* Copyright 2018 Daniel F. Dickinson, Released under the Creative
+  Commons 4.0 BY (Attribution) License */}}
+{{- block "metarender" . -}}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{{- end -}}
 {{ block "metadata" . }}
   {{ if (index .Params "categories") }}<meta name="keywords" content="{{ delimit (index .Params "categories") ", " }}">{{ end }}
   {{ if (index .Params "description") }}<meta name="description" content="{{ index .Params "description" }}">{{ end }}
   {{ if (index .Params "author") }}<meta name="author" content="{{ index .Params "author" }}">{{ end }}
-{{ end }}
+  {{ hugo.Generator }}
+{{- end -}}
 {{ block "links" . }}
-    {{ if ne (.Param "nobaseurl") true }}{{ if $.Site.BaseURL }}<base href="{{ $.Site.BaseURL }}">{{ end }}{{ end }}
-    {{ $options := (dict "enableSourceMap" true "compress" true "targetPath" "css/oldnew-mashup.css" ) }}
-    {{ $nb := resources.Get "css/new-base.scss" }}
-    {{ $nm := resources.Get "css/normalize.scss" }}
-    {{ $nbnmcat := slice $nm $nb | resources.Concat "css/oldnew-mashup.scss" }}
-    {{ $nbtpl := resources.ExecuteAsTemplate "css/oldnew-mashup.scss" . $nbnmcat }}
-    {{ $nbstyle := $nbtpl | resources.ToCSS $options }}
-    <link rel="stylesheet" href="{{ $nbstyle.Permalink }}"/>
-{{ end }}
+  {{ if ne (.Param "nobaseurl") true }}{{ if $.Site.BaseURL }}<base href="{{ $.Site.BaseURL }}">{{ end }}{{ end }}
+  {{- $nb := resources.Get "css/new-base.scss" -}}
+  {{- if not $nb -}}
+    {{- errorf "Missing static SCSS resources" -}}
+  {{- end -}}
+  {{- $options := (dict "enableSourceMap" true "compress" true "targetPath" "css/scss-oldnew-mashup.css" "includePaths" (slice "assets/scss/oldnew")) -}}
+  {{- $gsvresname := "css/oldnew-vars.scss" -}}
+  {{- $gsv := resources.Get $gsvresname -}}
+  {{- if not $gsv -}}
+    {{- errorf "Missing SCSS style scheme resources" -}}
+  {{- end -}}
+
+  {{- $pregenstyles := slice (printf "css/oldnew-mashup/%s-oldnew-mashup.css" "scss") "css/oldnew-mashup/normalize.min.css" -}}
+  {{- $ctx := . -}}
+  {{- $pregenprint := slice -}}
+  {{- range $pregenstyle := $pregenstyles -}}
+    {{- $stres := resources.Get $pregenstyle -}}
+    {{- if (and (not $stres) (and (ne (string hugo.Environment) "for-basic" ) (ne (string hugo.Environment) "development" ) ) ) -}}
+      {{- errorf (printf "Missing Pre-generated SCSS style %s" $pregenstyle) -}}
+    {{- end -}}
+    {{- $pregenprint = $pregenprint | append $stres -}}
+  {{- end -}}
+  {{- $csstofingerprint := $pregenprint -}}
+  
+  {{- $nmfile := resources.Get "css/normalize/normalize.css" -}}
+
+  {{- if or (eq (string hugo.Environment) "for-basic" ) (eq (string hugo.Environment) "development") -}}
+ 
+    {{- $csstofingerprint = (slice ($nmfile | resources.Minify)) -}}
+ 
+    {{- $nbtplname := printf "css/hugo-%s-scheme.scss" "base" -}}
+    {{- $nbtpl := $gsv | resources.ExecuteAsTemplate $nbtplname . -}}
+    {{- $nbtplcatname := printf "css/%s-oldnew-mashup.scss" "cat" -}}
+    {{- $nbtplcat := slice $nbtpl $nb | resources.Concat $nbtplcatname -}}
+    {{- $nbcssstyle := $nbtplcat | resources.ToCSS $options -}}
+    {{- $csstofingerprint = $csstofingerprint | append $nbcssstyle -}}
+  {{- end -}}
+  {{- if and (and ( ne (string hugo.Environment) "for-basic" ) ( not $.Site.IsServer ) ) ( ne (string hugo.Environment) "development" ) -}}
+    {{- range $cssfingerprint := $csstofingerprint -}}
+       {{- $cssfingerprint = $cssfingerprint | resources.Fingerprint -}}
+       <link rel="stylesheet" href="{{ $cssfingerprint.Permalink }}"/>
+     {{- end -}}
+  {{- else -}}
+    {{- range $cssfingerprint := $csstofingerprint -}}
+       <link rel="stylesheet" href="{{ $cssfingerprint.Permalink }}"/>
+     {{- end -}}
+  {{- end -}}
+{{- end }}
 {{ block "output-formats" . }}
-  {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ range .AlternativeOutputFormats }}
+    {{- printf `<link rel="%s" type="%s" href="%s" title="%s %s" />` .Rel .MediaType.Type .Permalink $.Site.Title (upper .MediaType.SubType) | safeHTML }}
   {{ end -}}
-{{ end }}
-{{ block "scripts" . }}
-  {{ $fusejs := resources.Get "js/krisk-Fuse.js" }}
-  {{ $jmarkjs := resources.Get "js/julmot-mark.js" | resources.Minify }}
-  {{ $search := resources.Get "js/search.js" | resources.Minify }}
-  {{ $confirmation := resources.Get "js/confirmation.js" | resources.Minify }}
+{{- end -}}
+{{- block "scripts" . -}}
+  {{- $fusejs := resources.Get "js/krisk-Fuse/dist/fuse.js" | resources.Fingerprint -}}
+  {{- $jmarkjs := resources.Get "js/julmot-mark/dist/mark.js" | resources.Minify | resources.Fingerprint -}}
+  {{- $search := resources.Get "js/search.js" | resources.Minify | resources.Fingerprint -}}
+  {{- $confirmation := resources.Get "js/confirmation.js" | resources.Minify | resources.Fingerprint }}
   <script src="{{ $fusejs.RelPermalink }}"></script>
   <script src="{{ $jmarkjs.RelPermalink }}"></script>
   <script>
@@ -36,4 +76,4 @@
   </script>
   <script src="{{ $search.RelPermalink }}"></script>
   <script src="{{ $confirmation.RelPermalink }}"></script>
-{{ end }}
+{{- end }}

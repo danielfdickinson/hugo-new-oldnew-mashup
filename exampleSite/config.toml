@@ -6,16 +6,17 @@ languageLang = 'en'
 title = 'Oldnew Mashup'
 enableGitInfo = true
 theme = 'new-oldnew-mashup'
-summaryLength = 30
+summaryLength = 60
 description = "Sample site for OldNew Mashup Theme (the new version)"
 themesDir = "../.."
-min_version = "0.61.1"
+min_version = "0.65.3"
 
 [params]
   siteid = 'OldNew Mashup'
   licenses = ['CC-BY-4.0']
-  copyright = '© 2018-2019 Daniel F. Dickinson'
-  GitHubRepo = 'cshoredaniel/new-oldnew-mashup'
+  default_page_licenses = ['CC-BY-4.0']
+  copyright = '© 2018-2020 Daniel F. Dickinson'
+  git_hub_repo = 'cshoredaniel/new-oldnew-mashup'
   rssfeedlink = true
   validatorlink = true
   site_badge_graphic = "/images/sample_image.png"
@@ -23,6 +24,7 @@ min_version = "0.61.1"
   splash_images_bundle = "/siteentry/splash-images"
   enable_search = true
   time_types = ["Viverra Justo", "Ipsum", "news"]
+  recent_additions = "/siteentry/recent-additions"
   recent_changes = "/siteentry/recent-changes"
   recent_events = "/siteentry/recent-events"
   recent_news = "/siteentry/recent-news"
@@ -33,7 +35,7 @@ min_version = "0.61.1"
 
 [frontmatter]
   lastmod = ["lastmod",":git","date","publishDate"]
-  date = ["publishDate", "date"]
+  date = ["publishDate","date",":git","lastmod"]
 
 [privacy]
   [privacy.disqus]
@@ -57,7 +59,8 @@ min_version = "0.61.1"
 [module]
 
 [module.hugoVersion]
-  min = "0.60.1"
+  min = "0.65.3"
+  extended = false
 
   [[module.mounts]]
     source = "content"
@@ -88,13 +91,40 @@ min_version = "0.61.1"
     target = "archetypes"
 
   [[module.imports]]
-  # We include the theme by "../.." above, but we need one module import for Hugo to detect us as a Hugo Module.
-  path="github.com/bep/empty-hugo-module"
+    path = "new-oldnew-mashup"
+
+  [[module.imports.mounts]]
+    source = "layouts"
+    target = "layouts"
+
+  [[module.imports.mounts]]
+    source = "assets"
+    target = "assets"
+
+  [[module.imports.mounts]]
+    source = "static"
+    target = "static"
+
+  [[module.imports.mounts]]
+    source = "data"
+    target = "data"
+
+  [[module.imports.mounts]]
+    source = "i18n"
+    target = "i18n"
+
+  [[module.imports.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+
+  [[module.imports.mounts]]
+    source = "."
+    target = "assets/new-oldnew-mashup-theme-root"
 
 [author]
   name = "Daniel F. Dickinson"
   homepage = "https://www.thecshore.com"
-  copyright = "©2009-2019 Daniel F. Dickinson"
+  copyright = "©2009-2020 Daniel F. Dickinson"
   email = "<cshored@thecshore.com>"
 
 [related]

@@ -23,6 +23,7 @@
   <p><input type="submit" value="Send" size="6" /> <input type="reset" value="Reset" size="6" /></p>
 </form>
 {{ else }}
-  {{ $altEmail := .Get 2 }}
-<div>No contact form available.  {{ if $altEmail }}Please email <a href="mailto:{{ $altEmail }}">{{ $altEmail }}</a> instead.{{ end }}</div>
+  {{ $altEmailName := .Get 2 }}
+  {{ $altEmailDomain := .Get 3 }}
+<div>No contact form available.  {{ if $altEmailName }}Please send an email to user '{{- $altEmailName -}}'{{ if $altEmailDomain }} at this domain ({{- $altEmailDomain -}}){{ end }}.{{ end }}</div>
 {{ end }}

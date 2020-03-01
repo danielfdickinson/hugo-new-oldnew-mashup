@@ -1,20 +1,10 @@
 # OldNew Mashup
 
-Version 1.2.0
+Version 1.3.0
 
-[![Travis CI results](https://travis-ci.org/cshoredaniel/new-oldnew-mashup.svg?branch=master)](https://travis-ci.org/cshoredaniel/new-oldnew-mashup?branch=master)
+## Status
 
-## Overview
-
-Modern high-contrast CSS3 & HTML5 [Hugo](https://gohugo.io) theme
-inspired by old-school themes.
-
-It attempts to be accessible, private, and responsive.
-
-The theme is currently a work in progress, but is still working well
-at <https://thecshore.com>.
-
-You can view the [documentation for New OldNew Mashup Theme](https://new-oldnew-mashup.thecshore.com/docs)
+If you wish you can view the [Status of New OldNew Mashup on Github](https://github.com/cshoredaniel/new-oldnew-mashup/blob/devel-1.3.0/STATUS.md)
 
 ## Examples of Sites Using This Theme
 *   [The C Shore](https://www.thecshore.com)
@@ -69,7 +59,7 @@ in a copyright field.
 
 ```yaml
 ---
-copyright: © 2019 Daniel F. Dickinson
+copyright: © 2020 Daniel F. Dickinson
 licenses:
   - CC-BY-4.0
 ---
@@ -90,7 +80,7 @@ the footer by default: creation, modification, and site generation.
 
 Hugo's RSS feed generation is enabled and linked to from the footer.
 
-### Goal: 100% W3C valid HTML5 and CSS3
+### Goal: 100% W3 valid HTML5 and CSS3
 
 Efforts are made to keep the theme 100% valid HTML5 and CSS3 according
 the the <https://w3.org> [Unicorn validator](https://validator.w3.org/unicorn).
@@ -107,51 +97,57 @@ A Human-readable sitemap shortcode is available.
 
 Hugo Taxonomies are implemented.
 
-## Quick Start
+## Documentation & Quick Start
 
-1.  Obtain the code in **one** of the following ways:
-    *   Grab a release tarball from <https://github.com/cshoredaniel/new-oldnew-mashup/releases>
-        and place it in your site's ``themes`` directory.  **NB** the
-        theme directory must be named ``new-oldnew-mashup``.  If you
-        extract from a ZIP or tarball you'll probably have ``new-oldnew-mashup-<version>`` and will need to rename it.
-    *   ``hugo mod get github.com/cshoredaniel/new-oldnew-mashup``
-        to define the use of a [Hugo Module](https://gohugo.io/hugo-modules/).  (Don't do this if you're using the ZIP above).
-        correctly.
-2.  Add ``theme = "new-oldnew-mashup"`` to your ``config.toml`` (or the
-    equivalent for YAML or JSON if you use one of those).
-3.  Generate and view the site:
-    *   Generate your site with ``hugo``, and copy the `public``
-        directory to a web server and browse to the appropriate location
-        on the server.
-    *   Generate and serve a local live version with ``hugo server -b http://localhost:1313/``,
-        and browse to <http://localhost:1313>.
-4.  For configuration and options see
-    [OldNew Mashup](https://new-oldnew-mashup.thecshore.com/docs).
+If you are interested in this theme you may wish to view the
+[New OldNew Mashup Documentation](https://new-oldnew-mashup.thecshore.com/docs/),
+and especially the [New OldNew Mashup Quick Start Guide](https://new-oldnew-mashup.thecshore.com/docs/quick-start/).
 
-**NB** If you are deploying from ZIP or tarball and attempt to create
-a site by copying the ``config.toml`` from ``exampleSite`` into the
-theme, the build will fail complaining that it's not a git repository.
-In that case remove ``enableGitInfo = true`` from your ``config.toml``.
+## Hugo Extended
 
-## Some features require Hugo Extended
+### Avoiding Extended with 'hugo server'
 
-*   Changing the styling via Params (e.g. colour selection) requires
+When using ``hugo server`` the default is to use features found in
+the Hugo Extended version.  This is because the server by default
+runs with the 'development' environment.
+
+If you wish to use ``hugo server`` with Hugo Basic you need to pass
+and environment parameter other than 'development'.
+
+For example: ``hugo server -b http://localhost:1313/ --environment basic``.
+
+### Some features require Hugo Extended
+
+Changing the styling via Params (e.g. colour selection) requires
 Hugo Extended as the CSS must be regenerated from the base SCSS, which
 requires Hugo Extended not just Basic.
 
+### Generating Resources Required by Hugo Basic
+
+From the root of the theme execute (for Linux):
+
+1.  ``rm -rf resources exampleSite/resources exampleSite/public``
+2.  ``(cd exampleSite && hugo --environment for-basic)``
+3.  ``cp -r exampleSite/resources ./``
+4.  ``mkdir -p assets/css/oldnew-mashup``
+5.  ``cp -r exampleSite/public/css/new-oldnew-mashup.css assets/css/oldnew-mashup/``
+
+You should now be able to use Hugo Basic with this theme (although you won't be able
+to use user-defined colours and other SCSS-based tweaks to the style).
+
 ## Issues / Bugs / Enhancements
 
-Go to the [OldNew Mashup issue tracker on GitHub](https://github.com/cshoredaniel/new-oldnew-mashup/issues).
+Go to the [New OldNew Mashup Issue Tracker on GitHub](https://github.com/cshoredaniel/new-oldnew-mashup/issues).
 
 ## Development
 
-If you wish to make submission to the repository, please send a pull
-request.
+If you wish to contribute to development of the theme please send a pull request on the
+[New OldNew Mashup Github Repo](https://github.com/cshoredaniel/new-oldnew-mashup).
 
 ## Copyright & License
 
-© 2009-2019 Daniel F. Dickinson
+© 2009-2020 Daniel F. Dickinson
 Licensed under the [Creative Commons Attribution License 4.0](https://creativecommons.org/licenses/by/4.0/)
-[![Creative Commons License](https://github.com/cshoredaniel/new-oldnew-mashup/raw/master/by.svg?sanitize=true)](https://creativecommons.org/licenses/by/4.0/)
+[![Creative Commons License](by.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 The License Image (above) is Copyright Creative Commons and Licensed under the [Creative Commons Share-Alike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
