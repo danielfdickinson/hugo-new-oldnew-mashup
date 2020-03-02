@@ -23,7 +23,7 @@
   {{ end }}
   {{ if eq .Data.Singular "license" }}
     <h2>License Text</h2>
-      <pre class="license-block chroma">{{ $license = .Data.Term }}{{ if $license }}{{ $licenseFile := resources.Get (print "licenses/" $license) }}{{ with $licenseFile }}{{ .Content }}{{ else }}Missing{{ end }}{{ else }}Missing Term{{ end }}</pre>
+      <pre class="license-block chroma">{{ $license = .Data.Term }}{{ if $license }}{{ $licenseFile := resources.GetMatch (print "licenses/" $license) }}{{ with $licenseFile }}{{ .Content }}{{ else }}Missing{{ end }}{{ else }}Missing Term{{ end }}</pre>
   {{ else }}
     {{ .Content }}
   {{ end }}
@@ -31,7 +31,7 @@
   </section>
   {{ if eq .Data.Singular "license" }}
   <section class="license-pages-section">
-    <h2>Pages with {{ $license }} license</h2>
+    <h2>Pages with {{ $license | title }} license</h2>
   {{ else }}
   <section aria-labelledby="taxonomy-contents-heading" class="taxonomy-list">
     <h2 id="taxonomy-contents-heading" class="taxonomy-contents-heading">{{ if .Data.Terms }}{{ .Data.Singular | singularize | title }} List{{ else}}{{ .Title | singularize | title }} Pages{{ end }}</h2>

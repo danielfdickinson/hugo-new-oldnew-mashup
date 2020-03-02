@@ -14,7 +14,7 @@
 {{- else if .Data.Singular -}}
   {{- $nodes = ( partial "generic-site-menu/nodes-included" (dict "nodes" .Data.Pages "menu_node" . "menu_type" "taxonomy-term" ) ) -}}
   {{- range $nodes -}}
-    {{ partial "generic-helpers/section/listitem" (dict "itemPage" .Page "parentPage" $curCtx ) }}
+    {{ partial "generic-helpers/section/listitem" (dict "itemPage" .Page "parentPage" $curCtx "menu_type" "taxonomy-term" ) }}
   {{- end -}}
 {{- else -}}
   {{- range $nodes -}}
