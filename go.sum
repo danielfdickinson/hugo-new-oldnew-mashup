@@ -1,6 +1,8 @@
 github.com/cshoredaniel/julmot-mark.js v0.0.0-20181210172629-31a7315c6024 h1:HDBJTkLy15ac7NB+Kjv/XaPhohWgxjQlazIGE/P6qGc=
 github.com/cshoredaniel/julmot-mark.js v0.0.0-20181210172629-31a7315c6024/go.mod h1:L69LVXjqqOcBSD0RJsBt2NKyCr/uDajUei44KyDaadU=
-github.com/cshoredaniel/krisk-Fuse v3.4.5+incompatible h1:8UaC8XR/KuRecuMwk4kyTAJ1ejg6C4woB0A1H3650SM=
-github.com/cshoredaniel/krisk-Fuse v3.4.5+incompatible/go.mod h1:434Ez74tgfxcK9MT4rtvYSEvM26lvKJ4ofJozK5kZtc=
+github.com/cshoredaniel/krisk-Fuse v1.5.2 h1:FyOlDrUCMQRfCUj5B4A3EHeaJVwMJeOF68+ZjrjGWIs=
+github.com/cshoredaniel/krisk-Fuse v1.5.2/go.mod h1:434Ez74tgfxcK9MT4rtvYSEvM26lvKJ4ofJozK5kZtc=
 github.com/cshoredaniel/necolas-normalize.css v2.1.4-0.20190824072103-16ca898b030e+incompatible h1:+SuxIZ8d586ItS/kVt3QUPEGVpd75PE6YYgZIRmDOXw=
 github.com/cshoredaniel/necolas-normalize.css v2.1.4-0.20190824072103-16ca898b030e+incompatible/go.mod h1:hIQuEJDaX3gyw6Dc1h8a1Jz2An2sEC7adEvouNCDezY=
+github.com/cshoredaniel/necolas-normalize.css v8.0.2+incompatible h1:SMUe6f3rRSIJJMS4XvChSNICixPthdeayski0hGQv1o=
+github.com/cshoredaniel/necolas-normalize.css v8.0.2+incompatible/go.mod h1:hIQuEJDaX3gyw6Dc1h8a1Jz2An2sEC7adEvouNCDezY=
