@@ -129,8 +129,6 @@ From the root of the theme execute (for Linux):
 1.  ``rm -rf resources exampleSite/resources exampleSite/public``
 2.  ``(cd exampleSite && hugo --environment for-basic)``
 3.  ``cp -r exampleSite/resources ./``
-4.  ``mkdir -p assets/css/oldnew-mashup``
-5.  ``cp -r exampleSite/public/css/new-oldnew-mashup.css assets/css/oldnew-mashup/``
 
 You should now be able to use Hugo Basic with this theme (although you won't be able
 to use user-defined colours and other SCSS-based tweaks to the style).

@@ -9,7 +9,7 @@ theme = 'new-oldnew-mashup'
 summaryLength = 60
 description = "Sample site for OldNew Mashup Theme (the new version)"
 themesDir = "../.."
-min_version = "0.65.3"
+min_version = "0.66.0"
 
 [params]
   siteid = 'OldNew Mashup'
@@ -29,6 +29,8 @@ min_version = "0.65.3"
   recent_events = "/siteentry/recent-events"
   recent_news = "/siteentry/recent-news"
   nobaseurl = false
+  homepage_title_background_color = "#ccf"
+  homepage_title_text_color = "#114"
 
 [outputs]
   home = ["HTML", "JSON", "RSS"]
@@ -36,6 +38,9 @@ min_version = "0.65.3"
 [frontmatter]
   lastmod = ["lastmod",":git","date","publishDate"]
   date = ["publishDate","date"]
+  
+[build]
+  useResourceCacheWhen = "fallback"
 
 [privacy]
   [privacy.disqus]
