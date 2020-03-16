@@ -2,7 +2,7 @@
 
 TS=PASS
 
-hugo --ignoreCache || TS=FAIL
+hugo || TS=FAIL
 
 echo "$TS: Generate site with Hugo"
 
