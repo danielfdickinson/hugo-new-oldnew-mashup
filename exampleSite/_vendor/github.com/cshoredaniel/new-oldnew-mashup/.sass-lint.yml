@@ -7,6 +7,6 @@ files:
   ignore:
     - 'assets/css/oldnew-vars.scss'
     - 'assets/scss/oldnew/_printcss.scss'
-    - '_vendor'
-    - '**/_vendor'
+    - '_vendor/**'
+    - '**/_vendor/**'
 rules:

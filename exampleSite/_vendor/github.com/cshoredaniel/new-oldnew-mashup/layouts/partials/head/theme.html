@@ -28,7 +28,7 @@
   {{- $nbtpl := $gsv | resources.ExecuteAsTemplate $nbtplname . -}}
   {{- $nbtplcatname := printf "css/%s-oldnew-mashup.scss" "cat" -}}
   {{- $nbtplcat := slice $nbtpl $nb | resources.Concat $nbtplcatname -}}
-  {{- if and (and ( ne (string hugo.Environment) "for-basic" ) ( not $.Site.IsServer ) ) ( ne (string hugo.Environment) "development" ) -}}
+  {{- if or (or ( eq (string hugo.Environment) "for-basic" ) $.Site.IsServer ) ( eq (string hugo.Environment) "development" ) -}}
     {{- $nm := $nmfile | resources.Minify -}}
     {{- $nbcssstyle := $nbtplcat | resources.ToCSS $options -}}
      <link rel="stylesheet" href="{{ $nm.Permalink }}"/>
