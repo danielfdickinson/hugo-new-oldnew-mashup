@@ -1,4 +1,4 @@
-# github.com/cshoredaniel/new-oldnew-mashup v1.3.1-0.20200316010141-79ed0d38b620
+# github.com/cshoredaniel/new-oldnew-mashup v1.3.1-0.20200316020007-faae01a1e517
 # github.com/cshoredaniel/necolas-normalize.css v8.0.2+incompatible
 # github.com/cshoredaniel/julmot-mark.js v0.0.0-20181210172629-31a7315c6024
 # github.com/cshoredaniel/krisk-Fuse v1.5.2
