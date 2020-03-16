@@ -6,7 +6,7 @@ description = "Modules for OldNew Mashup Theme (the new version)"
 
 [module.hugoVersion]
   min = "0.66.0"
-  extended = true
+  extended = false
 
   [[module.mounts]]
     source = "content"
