@@ -1,3 +1,48 @@
+# Version 5.0.1-beta
+
+- Removed `matchAllTokens` option.
+
+# Version 5.0.0-beta
+
+- Added ability to search patterns longer > 32 characters
+- Removed `maxPatternLength` option
+
+# Version 4.1.0-beta
+
+- Perf optimization on nested array search
+
+# Version 4.0.4-beta
+
+- Re-added license information
+
+# Version 4.0.3-beta
+
+- Increased Node version
+
+# Version 4.0.2-beta
+
+- Added missing tests
+
+# Version 4.0.1-beta
+
+- Removed unused codepath
+- Fixed case sensititivity check
+- Upgraded dev dependencies
+
+# Version 4.0.0-beta
+
+- Added extended search [Discussion](https://github.com/krisk/Fuse/issues/356)
+- Removed tokenization [Discussion](https://github.com/krisk/Fuse/issues/355)
+
+# Version 3.6.0
+
+- Improved error handling for keys
+
+# Version 3.5.0
+
+- Fixed #341, adjusting weights into the calculation
+- Improved performance by ~10% (really can only be seen when you have 10k+ items)
+
 # Version 3.4.3
 
 - Fixed #261
