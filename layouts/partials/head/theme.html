@@ -47,14 +47,13 @@
 {{- end -}}
 {{- block "scripts" . -}}
   {{- $fusejs := resources.Get "js/krisk-Fuse/dist/fuse.js" | resources.Fingerprint -}}
-  {{- $jmarkjs := resources.Get "js/julmot-mark/dist/mark.js" | resources.Minify | resources.Fingerprint -}}
-  {{- $search := resources.Get "js/search.js" | resources.Minify | resources.Fingerprint -}}
+  {{- $fusebar := resources.Get "js/fusebar/dist/fusebar.min.js" | resources.Fingerprint -}}
   {{- $confirmation := resources.Get "js/confirmation.js" | resources.Minify | resources.Fingerprint }}
   <script src="{{ $fusejs.RelPermalink }}"></script>
-  <script src="{{ $jmarkjs.RelPermalink }}"></script>
   <script>
     var indexurl = {{ "index.json" | absURL }}
   </script>
+  <script src="{{ $fusebar.RelPermalink }}"></script>
   <script src="{{ $search.RelPermalink }}"></script>
   <script src="{{ $confirmation.RelPermalink }}"></script>
 {{- end }}
