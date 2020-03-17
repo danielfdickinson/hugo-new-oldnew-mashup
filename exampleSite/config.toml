@@ -38,7 +38,7 @@ min_version = "0.66.0"
 [frontmatter]
   lastmod = ["lastmod",":git","date","publishDate"]
   date = ["publishDate","date"]
-  
+
 [build]
   useResourceCacheWhen = "fallback"
 
@@ -66,34 +66,6 @@ min_version = "0.66.0"
 [module.hugoVersion]
   min = "0.66.0"
   extended = false
-
-  [[module.mounts]]
-    source = "content"
-    target = "content"
-
-  [[module.mounts]]
-    source = "static"
-    target = "static"
-
-  [[module.mounts]]
-    source = "layouts"
-    target = "layouts"
-
-  [[module.mounts]]
-    source = "data"
-    target = "data"
-
-  [[module.mounts]]
-    source = "assets"
-    target = "assets"
-
-  [[module.mounts]]
-    source = "i18n"
-    target = "i18n"
-
-  [[module.mounts]]
-    source = "archetypes"
-    target = "archetypes"
 
   [[module.imports]]
     path = "github.com/cshoredaniel/new-oldnew-mashup"
@@ -125,13 +97,6 @@ min_version = "0.66.0"
   [[module.imports.mounts]]
     source = "."
     target = "assets/new-oldnew-mashup-theme-root"
-
-  [[module.imports]]
-    path = "github.com/cshoredaniel/fusebar"
-
-  [[module.imports.mounts]]
-    source = "."
-    target = "assets/js/fusebar"
 
 [author]
   name = "Daniel F. Dickinson"
