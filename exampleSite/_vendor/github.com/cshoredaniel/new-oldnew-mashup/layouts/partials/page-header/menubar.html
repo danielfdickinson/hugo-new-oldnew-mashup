@@ -7,13 +7,13 @@
 {{ partial "generic-site-menu/full-tree" ( dict "menu_node" $ctx "menu_type" "site" ) }}
 
 {{ if (eq (.Param "enable_search" ) true ) }}
-<li aria-labelledby="search-query" class="top-search"><form name="search_form" onSubmit="return doSearch()">
+<li aria-labelledby="search-query" class="top-search"><form name="search_form" onSubmit="return fusebar.doSearch()">
   <input id="search-query" aria-label="Search box" type="search" name="s" size="4" /><input id="search-button" type="submit" value="Search" size="3" />
 </form></li>
 {{ end }}
 </ul>
 {{ if (eq (.Param "enable_search" ) true ) }}
-<div id="search-results" class="search-results" onclick="doCloseSearch()" onkeypress="doCloseSearch">
+<div id="search-results" class="search-results" onclick="fusebar.doCloseSearch()" onkeypress="fusebar.doCloseSearch">
   <h2>Search Results</h2>
 </div>
 {{ end }}
