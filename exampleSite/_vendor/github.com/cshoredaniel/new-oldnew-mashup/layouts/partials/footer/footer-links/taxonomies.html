@@ -1,5 +1,0 @@
-{{- if gt (len .Site.Taxonomies) 0 -}}
-  {{- range $taxonomyname, $taxonomy := .Site.Taxonomies }}
-    <span class="taxonomy"><a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">{{ $taxonomyname | humanize }}</a></span>
-  {{ end -}}
-{{- end -}}

@@ -1,7 +1,9 @@
+github.com/cshoredaniel/fusebar v0.2.0/go.mod h1:IT1gU8/4JY3Tfb1BlWcPGYCuXUVlprOtBWqqSeNj9JA=
 github.com/cshoredaniel/julmot-mark.js v0.0.0-20181210172629-31a7315c6024 h1:HDBJTkLy15ac7NB+Kjv/XaPhohWgxjQlazIGE/P6qGc=
 github.com/cshoredaniel/julmot-mark.js v0.0.0-20181210172629-31a7315c6024/go.mod h1:L69LVXjqqOcBSD0RJsBt2NKyCr/uDajUei44KyDaadU=
 github.com/cshoredaniel/krisk-Fuse v1.5.2 h1:FyOlDrUCMQRfCUj5B4A3EHeaJVwMJeOF68+ZjrjGWIs=
 github.com/cshoredaniel/krisk-Fuse v1.5.2/go.mod h1:434Ez74tgfxcK9MT4rtvYSEvM26lvKJ4ofJozK5kZtc=
+github.com/cshoredaniel/krisk-Fuse v1.6.0/go.mod h1:434Ez74tgfxcK9MT4rtvYSEvM26lvKJ4ofJozK5kZtc=
 github.com/cshoredaniel/krisk-\!fuse v1.5.2 h1:FyOlDrUCMQRfCUj5B4A3EHeaJVwMJeOF68+ZjrjGWIs=
 github.com/cshoredaniel/krisk-\!fuse v1.5.2/go.mod h1:434Ez74tgfxcK9MT4rtvYSEvM26lvKJ4ofJozK5kZtc=
 github.com/cshoredaniel/necolas-normalize.css v2.1.4-0.20190824072103-16ca898b030e+incompatible h1:+SuxIZ8d586ItS/kVt3QUPEGVpd75PE6YYgZIRmDOXw=
@@ -16,3 +18,5 @@ github.com/cshoredaniel/new-oldnew-mashup v1.3.1-0.20200316015228-48a7502f7e10 h
 github.com/cshoredaniel/new-oldnew-mashup v1.3.1-0.20200316015228-48a7502f7e10/go.mod h1:D8+B4x/o7blQzxJ2jMRCPHK0pqWO9Az/xHslgMhoky8=
 github.com/cshoredaniel/new-oldnew-mashup v1.3.1-0.20200316020007-faae01a1e517 h1:vobzmyYRdlHM469AkuET7uLLxjqE6hj7HwZwRx3L0bI=
 github.com/cshoredaniel/new-oldnew-mashup v1.3.1-0.20200316020007-faae01a1e517/go.mod h1:D8+B4x/o7blQzxJ2jMRCPHK0pqWO9Az/xHslgMhoky8=
+github.com/cshoredaniel/new-oldnew-mashup v1.3.2-0.20200317023839-075ac08d0fa6 h1:i5o8nqPeCd6nvEp1RpJAIbGy+YShC64xk6+qdSdmMdY=
+github.com/cshoredaniel/new-oldnew-mashup v1.3.2-0.20200317023839-075ac08d0fa6/go.mod h1:oc486UWV8GWLY6dg+1Ydmzc3f9CDtwL7JiBkMOn6PUo=
