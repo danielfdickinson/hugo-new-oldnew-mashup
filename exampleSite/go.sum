@@ -3,3 +3,5 @@ github.com/cshoredaniel/krisk-Fuse v1.6.0/go.mod h1:434Ez74tgfxcK9MT4rtvYSEvM26l
 github.com/cshoredaniel/necolas-normalize.css v8.0.2+incompatible/go.mod h1:hIQuEJDaX3gyw6Dc1h8a1Jz2An2sEC7adEvouNCDezY=
 github.com/cshoredaniel/new-oldnew-mashup v1.3.2-0.20200317025133-d55da28825ca h1:VxeurYRA1E2kH2z6Y8bsYfMQGXd4N759XEP69As/kd0=
 github.com/cshoredaniel/new-oldnew-mashup v1.3.2-0.20200317025133-d55da28825ca/go.mod h1:oc486UWV8GWLY6dg+1Ydmzc3f9CDtwL7JiBkMOn6PUo=
+github.com/cshoredaniel/new-oldnew-mashup v1.3.2-0.20200317025538-6a07cc83581c h1:UrmA05/35Rym1FTsgQVwATFNI51SInITZsB37SPAAKc=
+github.com/cshoredaniel/new-oldnew-mashup v1.3.2-0.20200317025538-6a07cc83581c/go.mod h1:oc486UWV8GWLY6dg+1Ydmzc3f9CDtwL7JiBkMOn6PUo=
