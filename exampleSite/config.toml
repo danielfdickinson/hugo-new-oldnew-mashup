@@ -65,7 +65,7 @@ min_version = "0.66.0"
 
 [module.hugoVersion]
   min = "0.66.0"
-  extended = false
+  extended = true 
 
   [[module.mounts]]
     source = "layouts"
