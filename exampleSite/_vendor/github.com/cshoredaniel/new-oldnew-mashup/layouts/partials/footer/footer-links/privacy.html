@@ -1,4 +1,0 @@
-{{- $footerPage := "/siteentry/privacy" -}}
-{{- if .Param  "footersection" -}}
-  {{- $footerPage = printf "/%s/privacy" (.Param "footersection") -}}
-{{- end -}}{{- if .Site.GetPage $footerPage }}<span class="privacy"><a href="{{ $footerPage | relURL }}" title="Privacy / GDPR Statement">Privacy</a></span>{{ end -}}
