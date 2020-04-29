@@ -8,6 +8,7 @@ homepage = "https://new-oldnew-mashup.thecshore.com/"
 features = ['blog', 'high-contrast', 'a11y', 'accessibility','responsive','privacy']
 tags = ['old-school', 'modern', 'postmodern', 'high-contrast','responsive','privacy']
 min_version = "0.66.0"
+extended = false
 summaryLength = "60"
 
 [author]
