@@ -2,7 +2,11 @@
 
 TS=PASS
 
-hugo || TS=FAIL
+if [ -n "$(command -v hugo-basic)" ]; then
+	hugo-basic || TS=FAIL
+else
+	hugo || TS=FAIL
+fi
 
 echo "$TS: Generate site with Hugo"
 

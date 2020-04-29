@@ -10,6 +10,7 @@ summaryLength = 60
 description = "Sample site for OldNew Mashup Theme (the new version)"
 themesDir = "../.."
 min_version = "0.66.0"
+extended = false
 
 [params]
   siteid = 'OldNew Mashup'
@@ -65,7 +66,7 @@ min_version = "0.66.0"
 
 [module.hugoVersion]
   min = "0.66.0"
-  extended = true 
+  extended = false 
 
   [[module.mounts]]
     source = "layouts"

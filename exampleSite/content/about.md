@@ -14,7 +14,7 @@ tags:
 ---
 # About New OldNew Mashup
 
-Version 1.3.11
+Version 1.3.12
 
 ## Status
 
@@ -44,7 +44,7 @@ intentionally excluded, that the entire site can be read from landing
 page to last page of the last section by clicking 'Enter Site', and then
 'Next' on every subsequent page.
 
-Finally the right sidebar will contain a navigation menu for the
+On a final note: the right sidebar will contain a navigation menu for the
 current section and one level of subsections.
 
 #### A note on navigation and display order
@@ -56,8 +56,8 @@ is by date).  Lower weight sorts earlier.
 
 ### Search
 
-This theme implements a search functionality using Fuse.js, Mark.js, and
-some custom code.
+This theme implements a search functionality using Fuse.js, and
+fusebar.js.
 
 ### Contact Form
 
