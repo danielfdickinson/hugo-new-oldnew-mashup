@@ -2,9 +2,9 @@
 os: linux
 language: go
 before_install:
-    - sudo apt update
+   - sudo apt update
 install:
-    - sudo apt -y install tidy nodejs npm
+    - sudo apt -y install tidy
 script: "FROM_YAML=yes ./ci/travis-cmd.sh"
 dist: bionic
 branches:
