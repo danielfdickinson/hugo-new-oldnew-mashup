@@ -46,9 +46,14 @@
   {{ end -}}
 {{- end -}}
 {{- block "scripts" . -}}
-  {{- $fusejs := resources.Get "js/krisk-Fuse/dist/fuse.js" | resources.Fingerprint -}}
-  {{- $fusebar := resources.Get "js/fusebar/dist/fusebar.min.js" | resources.Fingerprint -}}
-  {{- $confirmation := resources.Get "js/confirmation.js" | resources.Minify | resources.Fingerprint }}
+  {{- $fusejs := resources.Get "js/krisk-Fuse/dist/fuse.js" -}}
+  {{- $fusebar := resources.Get "js/fusebar/dist/fusebar.dev.js" -}}
+  {{- $confirmation := resources.Get "js/confirmation.js" -}}
+  {{- if ne (string hugo.Environment) "development" -}}
+    {{- $fusejs = resources.Get "js/krisk-Fuse/dist/fuse.js" | resources.Minify | resources.Fingerprint -}}
+    {{- $fusebar = resources.Get "js/fusebar/dist/fusebar.js" | resources.Minify | resources.Fingerprint -}}
+    {{- $confirmation = resources.Get "js/confirmation.js" | resources.Minify | resources.Fingerprint -}}
+  {{- end -}}
   <script src="{{ $fusejs.RelPermalink }}"></script>
   <script>
     var indexurl = {{ "index.json" | absURL }}
