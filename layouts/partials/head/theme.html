@@ -28,17 +28,10 @@
   {{- $nbtpl := $gsv | resources.ExecuteAsTemplate $nbtplname . -}}
   {{- $nbtplcatname := printf "css/%s-oldnew-mashup.scss" "cat" -}}
   {{- $nbtplcat := slice $nbtpl $nb | resources.Concat $nbtplcatname -}}
-  {{- if or (or ( eq (string hugo.Environment) "for-basic" ) $.Site.IsServer ) ( eq (string hugo.Environment) "development" ) -}}
-    {{- $nm := $nmfile | resources.Minify -}}
-    {{- $nbcssstyle := $nbtplcat | resources.ToCSS $options -}}
-     <link rel="stylesheet" href="{{ $nm.Permalink }}"/>
-     <link rel="stylesheet" href="{{ $nbcssstyle.Permalink }}"/>
-  {{ else }}
-    {{- $nm := $nmfile | resources.Minify | resources.Fingerprint -}}
-    {{- $nbcssstyle := $nbtplcat | resources.ToCSS $options | resources.Fingerprint -}}
-     <link rel="stylesheet" href="{{ $nm.Permalink }}"/>
-     <link rel="stylesheet" href="{{ $nbcssstyle.Permalink }}"/>
-  {{- end -}}
+  {{- $nm := $nmfile | resources.Minify | resources.Fingerprint -}}
+  {{- $nbcssstyle := $nbtplcat | resources.ToCSS $options | resources.Fingerprint -}}
+    <link rel="stylesheet" href="{{ $nm.Permalink }}"/>
+    <link rel="stylesheet" href="{{ $nbcssstyle.Permalink }}"/>
 {{- end }}
 {{ block "output-formats" . }}
   {{ range .AlternativeOutputFormats }}
@@ -53,6 +46,10 @@
     {{- $fusejs = resources.Get "js/krisk-Fuse/dist/fuse.js" | resources.Minify | resources.Fingerprint -}}
     {{- $fusebar = resources.Get "js/fusebar/dist/fusebar.js" | resources.Minify | resources.Fingerprint -}}
     {{- $confirmation = resources.Get "js/confirmation.js" | resources.Minify | resources.Fingerprint -}}
+  {{- else -}}
+    {{- $fusejs = resources.Get "js/krisk-Fuse/dist/fuse.js" -}}
+    {{- $fusebar = resources.Get "js/fusebar/dist/fusebar.dev.js" -}}
+    {{- $confirmation = resources.Get "js/confirmation.js" -}}
   {{- end -}}
   <script src="{{ $fusejs.RelPermalink }}"></script>
   <script>
