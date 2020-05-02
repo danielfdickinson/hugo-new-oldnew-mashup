@@ -1,6 +1,6 @@
 {
   "name": "new-oldnew-mashup",
-  "version": "1.3.12",
+  "version": "1.4.0",
   "description": "Dummy package for CI dependencies",
   "main": "index.js",
   "directories": {
