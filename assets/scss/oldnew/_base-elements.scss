@@ -1,3 +1,12 @@
+// Use border-box sizing unless too old a browser
+* {
+  box-sizing: content-box;
+}
+
+@media screen {
+  box-sizing: border-box;
+}
+
 body {
   // People seem to like sans-serif better than serif
   // so use a good looking default
@@ -203,13 +212,6 @@ tr {
     }
   }
 }
-
-@media screen {
-  * {
-    box-sizing: border-box;
-  }
-}
-
 
 @media not speech {
   html {
