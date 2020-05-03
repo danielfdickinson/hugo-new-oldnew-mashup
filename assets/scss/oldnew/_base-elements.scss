@@ -2,7 +2,7 @@ body {
   // People seem to like sans-serif better than serif
   // so use a good looking default
   background-color: $default-background-color;
-  @if($default-background-image) {
+  @if $default-background-image and $default-background-image != '' {
     background-image: url($default-background-image);
   }
   color: $default-text-color;
