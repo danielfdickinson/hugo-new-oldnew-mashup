@@ -81,17 +81,17 @@
 
   .colophon {
     @include license-block;
-    @include rollup-section-named(doc-date) {
 
+    border-top: 2px solid $default-separator-color;
+    padding: .3em;
+    text-align: left;
+
+    & .doc-date-block {
       font-size: .8rem;
       font-style: italic;
       padding: .4em;
 
     };
-
-    border-top: 2px solid $default-separator-color;
-    padding: .3em;
-    text-align: left;
   }
 }
 
