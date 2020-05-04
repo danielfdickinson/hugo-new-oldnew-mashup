@@ -288,7 +288,7 @@
   }
 
   .article-toc {
-    display: inline-block;
+    display: block;
     float: left;
     margin-top: .4em;
     padding-top: 0;
@@ -298,10 +298,9 @@
   .article-toc ~ ul {
     &:first-of-type {
       bottom: 0;
-      display: inline-block;
+      display: block;
       position: relative;
       right: 0;
-      width: 63%;
 
       & ul {
         display: block;
@@ -312,20 +311,18 @@
   .article-toc ~ h2 {
     &:first-of-type {
       bottom: 0;
-      display: inline-block;
+      display: block;
       position: relative;
       right: 0;
-      width: 63%;
     }
   }
 
   .article-toc ~ ol {
     &:first-of-type {
       bottom: 0;
-      display: inline-block;
+      display: block;
       position: relative;
       right: 0;
-      width: 63%;
 
       & ol {
         display: block;
