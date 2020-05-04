@@ -6,6 +6,12 @@
 
 // Remember, for the level of specificity last rule wins
 
+@mixin enable-z-index($initial-z-index, $topbottom) {
+  #{$topbottom}: 0;
+  position: relative;
+  z-index: $initial-z-index;
+}
+
 @mixin menubar-menu-entry-wrapper {
   & > .menu-entry-wrapper {
     border-radius: 12px;

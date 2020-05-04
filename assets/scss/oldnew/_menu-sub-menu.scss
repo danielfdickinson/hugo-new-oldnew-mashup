@@ -72,8 +72,10 @@
 
   &:active,
   &:hover {
-    @include enable-z-index($initial-z-index, top);
     @include active-menu-parent($on-display);
+    top: 0;
+    position: relative;
+    z-index: $initial-z-index;
   }
 }
 
