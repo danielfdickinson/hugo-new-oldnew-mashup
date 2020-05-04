@@ -4,18 +4,14 @@
 
 // The C Shore Generic Styling Elements
 
-// When not using Flex, use this to force following HTML to be rendered
-// below the current element
+// When not using Flex or Grid, use this to force following HTML to be
+// rendered below the current element
 .clear {
   &::after {
     clear: both;
     content: '';
     display: block;
   }
-}
-
-.label {
-  font-weight: bold;
 }
 
 // rises from bottom of viewport
