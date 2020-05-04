@@ -84,8 +84,9 @@ kbd {
   }
 }
 
-ul {
-  list-style-position: inside;
+ul,
+ol {
+  list-style-position: outside;
 
   & li {
     padding-bottom: 3px;
@@ -153,7 +154,7 @@ h1 {
   text-align: center;
 }
 
-// We always surround input by divs if we want to contain the size
+// We always surround input by div if we want to contain the size
 input {
   &[type='text'] {
     width: 100%;
