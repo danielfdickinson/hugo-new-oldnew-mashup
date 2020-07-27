@@ -1,8 +1,14 @@
 [build]
     publish = "exampleSite/public/"
-    command = "sh -c 'cd exampleSite && hugo --verbose --gc --minify'"
+    command = "sh -c 'cd exampleSite && hugo --minify -b https://new-oldnew-mashup.thecshore.com/'"
 
 [context.production.environment]
     HUGO_VERSION = "0.74.2"
     HUGO_ENV = "production"
+    HUGO_ENABLEGITINFO = "true"
+
+
+[context.deploy-preview.environment]
+    HUGO_VERSION = "0.74.2"
+    HUGO_ENV = "deploy-preview"
     HUGO_ENABLEGITINFO = "true"
