@@ -73,8 +73,8 @@
   &:active,
   &:hover {
     @include active-menu-parent($on-display);
-    top: 0;
     position: relative;
+    top: 0;
     z-index: $initial-z-index;
   }
 }
