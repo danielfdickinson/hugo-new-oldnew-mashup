@@ -8,4 +8,6 @@ licenses:
 
 # Contact Success
 
-{{< contact/basic-success >}}
+Your submission has been accepted.
+
+Thank you for taking the time to contact the site operator.
