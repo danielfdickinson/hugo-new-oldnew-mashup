@@ -7,8 +7,8 @@ Version 1.4.0
 If you wish you can view the [Status of New OldNew Mashup on Github](https://github.com/cshoredaniel/new-oldnew-mashup/blob/master/STATUS.md)
 
 ## Examples of Sites Using This Theme
-*   [The C Shore](https://www.thecshore.com)
-*   [New OldNew Mashup Demo Site](https://new-oldnew-mashup.thecshore.com)
+
+* [New OldNew Mashup Demo Site](https://new-oldnew-mashup.thecshore.com)
 
 ## Example Site
 
@@ -85,7 +85,6 @@ Hugo's RSS feed generation is enabled and linked to from the footer.
 Efforts are made to keep the theme 100% valid HTML5 and CSS3 according
 the the <https://w3.org> [Unicorn validator](https://validator.w3.org/unicorn).
 
-
 At present, due to the requirement to support IE11, there are
 non-compliant media queries used to detect IE11.
 
@@ -126,9 +125,9 @@ requires Hugo Extended not just Basic.
 
 From the root of the theme execute (for Linux):
 
-1.  ``rm -rf resources exampleSite/resources exampleSite/public``
-2.  ``(cd exampleSite && hugo --environment for-basic)``
-3.  ``cp -r exampleSite/resources ./``
+1. ``rm -rf resources exampleSite/resources exampleSite/public``
+2. ``(cd exampleSite && hugo --environment for-basic)``
+3. ``cp -r exampleSite/resources ./``
 
 You should now be able to use Hugo Basic with this theme (although you won't be able
 to use user-defined colours and other SCSS-based tweaks to the style).
