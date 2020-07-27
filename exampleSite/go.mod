@@ -1,4 +1,4 @@
-module github.com/cshoredaniel/new-oldnew-mashup
+module github.com/cshoredaniel/new-oldnew-mashup-exampleSite
 
 go 1.13
 
