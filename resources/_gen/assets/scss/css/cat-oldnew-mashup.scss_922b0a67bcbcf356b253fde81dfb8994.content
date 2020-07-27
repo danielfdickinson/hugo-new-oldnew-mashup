@@ -1958,9 +1958,9 @@ pre {
         text-align: center;
         width: 70%; }
     .homepage .main-content .title {
-      background-color: #777;
+      background-color: #ccf;
       border-radius: 16px;
-      color: #fff;
+      color: #114;
       display: block;
       flex: 0 0 80%;
       font-family: "Georgia", "serif";
