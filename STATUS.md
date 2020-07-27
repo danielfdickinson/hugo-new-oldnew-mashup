@@ -11,14 +11,13 @@ inspired by old-school themes.
 
 It attempts to be accessible, private, and responsive.
 
-The theme is currently a work in progress, but is working well
-at <https://thecshore.com>.
+The theme is currently a work in progress.
 
 You can view the [documentation for New OldNew Mashup Theme](https://new-oldnew-mashup.thecshore.com/docs)
 
 ## Examples of Sites Using This Theme
-*   [The C Shore](https://www.thecshore.com)
-*   [New OldNew Mashup Demo Site](https://new-oldnew-mashup.thecshore.com)
+
+* [New OldNew Mashup Demo Site](https://new-oldnew-mashup.thecshore.com)
 
 ## Example Site
 
