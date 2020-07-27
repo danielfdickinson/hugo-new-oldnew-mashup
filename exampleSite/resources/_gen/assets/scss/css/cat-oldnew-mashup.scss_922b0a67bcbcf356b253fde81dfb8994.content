@@ -1,9 +1,5 @@
-#all {
-  background-color: #333; }
-
 body {
   background-color: #333;
-  background-image: url("");
   color: #eee;
   font-family: "Lucida Sans Unicode", "Lucida Granda", "sans-serif"; }
 
@@ -27,7 +23,7 @@ pre {
   color: #aaa;
   display: block;
   overflow: hidden;
-  padding-bottom: 12px; }
+  padding-bottom: 17px; }
   pre a {
     color: #aaa; }
     pre a:link {
@@ -70,11 +66,14 @@ kbd {
     kbd a:hover {
       color: #fff; }
 
-ul {
-  list-style-position: inside; }
-  ul li {
+ul,
+ol {
+  list-style-position: outside; }
+  ul li,
+  ol li {
     padding-bottom: 3px; }
-    ul li:last-child {
+    ul li:last-child,
+    ol li:last-child {
       padding-bottom: 0; }
 
 html {
@@ -122,29 +121,41 @@ input[type='text'] {
 table {
   border: 4px solid #ccc;
   border-collapse: collapse;
-  max-width: 100%; }
-  table th, table thead {
-    background-color: #000; }
-    table th th, table thead th {
-      border-bottom: 4px solid #ccc; }
-  table tbody tr:nth-child(even) {
-    background-color: #111; }
+  table-layout: fixed;
+  width: 100%; }
+  table thead {
+    background-color: #000;
+    width: 100%; }
+  table th {
+    border-bottom: 4px solid #ccc;
+    overflow-wrap: break-word;
+    padding: .2em;
+    width: 100%; }
+  table tbody {
+    width: 100%; }
+    table tbody tr {
+      width: 100%; }
+      table tbody tr:nth-child(even) {
+        background-color: #111; }
 
 tr td {
   border-bottom: 4px solid #ccc;
-  border-left: 4px solid #ccc; }
+  border-left: 4px solid #ccc;
+  overflow-wrap: break-word;
+  padding: .2em;
+  width: 100%; }
   tr td:first-of-type {
     border-left: 0 none; }
 
 tr th {
+  background-color: #000;
   border-bottom: 4px solid #ccc;
-  border-left: 4px solid #ccc; }
+  border-left: 4px solid #ccc;
+  overflow-wrap: break-word;
+  padding: .2em;
+  width: 100%; }
   tr th:first-of-type {
     border-left: 0 none; }
-
-@media screen {
-  * {
-    box-sizing: border-box; } }
 
 @media not speech {
   html {
@@ -177,21 +188,6 @@ tr th {
   clear: both;
   content: '';
   display: block; }
-
-.label {
-  font-weight: bold; }
-
-.rollup-element {
-  bottom: 33%;
-  display: none;
-  left: 33%;
-  overflow: auto;
-  position: fixed;
-  z-index: 99999; }
-
-.rollup-hoversite:Active + .rollup-element, .rollup-hoversite:Hover + .rollup-element {
-  display: block;
-  opacity: 1; }
 
 .semiblockwrapper p::before {
   text-indent: 5%; }
@@ -236,24 +232,6 @@ tr th {
 
 .four-image-toc-row ~ figure + a + p + p {
   display: none; }
-
-@media print {
-  .rollup-element {
-    display: block;
-    position: static;
-    z-index: 0; }
-  .rollup-hoversite {
-    display: none;
-    position: static; }
-  .homepage {
-    height: initial;
-    position: static; }
-    .homepage .topbar {
-      height: initial;
-      position: static; }
-    .homepage .footer {
-      height: initial;
-      position: static; } }
 
 /*! Copyright 2007-2009,2017-2018 Daniel F. Dickinson <cshored@thecshore.com>
  *  Released under the Creative Commons BY (Attribution) 4.0 License
@@ -482,31 +460,28 @@ tr th {
     grid-row-end: 6;
     grid-row-start: 2; }
   .article-toc {
-    display: inline-block;
+    display: block;
     float: left;
     margin-top: .4em;
     padding-top: 0;
     width: 33%; }
   .article-toc ~ ul:first-of-type {
     bottom: 0;
-    display: inline-block;
+    display: block;
     position: relative;
-    right: 0;
-    width: 63%; }
+    right: 0; }
     .article-toc ~ ul:first-of-type ul {
       display: block; }
   .article-toc ~ h2:first-of-type {
     bottom: 0;
-    display: inline-block;
+    display: block;
     position: relative;
-    right: 0;
-    width: 63%; }
+    right: 0; }
   .article-toc ~ ol:first-of-type {
     bottom: 0;
-    display: inline-block;
+    display: block;
     position: relative;
-    right: 0;
-    width: 63%; }
+    right: 0; }
     .article-toc ~ ol:first-of-type ol {
       display: block; }
   .article-toc ~ h2 ~ h2 ul:first-of-type {

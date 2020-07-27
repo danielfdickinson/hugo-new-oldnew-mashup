@@ -1,16 +1,25 @@
   <!-- Copyright 2019 Daniel F. Dickinson,
        Released under the Creative Commons 4.0 BY (Attribution) License -->
 {{ $bURL := urls.Parse $.Site.BaseURL }}
-{{ $hostOnly := delimit (first 1 (split $bURL.Host ":")) ""}}
-{{ $port := int (.Get 0) }}
-{{ $liveURL := urls.Parse (.Get 1) }}
+
+{{ $port := 0 }}
 {{ $isLive := false }}
-{{ if eq $bURL $liveURL }}
-  {{ $isLive = true }}
-{{ end }}
-{{ if and $port $isLive }}
+{{ if ne (.Get 0) "netlify" }}
+  {{ $hostOnly := delimit (first 1 (split $bURL.Host ":")) ""}}
+  {{ $port = int (.Get 0) }}
+  {{ $liveURL := urls.Parse (.Get 1) }}
+  {{ $isLive = false }}
+  {{ if eq $bURL $liveURL }}
+    {{ $isLive = true }}
+  {{ end }}
+  {{ if and $port $isLive }}
 <form class="contact-form" action="{{ printf "%s://%s:%d" $bURL.Scheme $hostOnly $port }}" method="post" enctype="multipart/form-data" accept-charset="utf-8">
-  <p><label for="name">Name:</label> <input type="text" name="name" id="name" /></p>
+  {{ end}}
+{{ else if eq (.Get 0) "netlify" }}
+<form class="contact-form" name="oldnew-contact-form" action="{{ (default "/contactsuccess" ( .Page.Param "contact_success_page" ) ) }}" method="POST" data-netlify="true">
+  {{ end }}
+{{ if or (eq (.Get 0) "netlify") (and $port $isLive) }}
+    <p><label for="name">Name:</label> <input type="text" name="name" id="name" /></p>
   <p><label for="subject">Subject:</label> <input type="text" name="subject" id="subject" /></p>
   <div class="contact-information-wrapper">
     <label for="contact-information">Contact Information:</label>
