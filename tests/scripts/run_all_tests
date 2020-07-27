@@ -35,7 +35,10 @@ done
 if [ "$OTS" != "FAIL" ]; then
 	for tscript in "$(pwd)"/tests/scripts/t[0-9][0-9]*.sh; do
 		if [ -d ./exampleSite ]; then
-			cd ./exampleSite
+			cd ./exampleSite || {
+				OTS=FAIL
+				break
+			}
 			if ! $tscript; then
 				OTS=FAIL
 				cd ..
