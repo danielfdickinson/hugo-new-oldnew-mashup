@@ -14,14 +14,13 @@ tags:
 ---
 # About New OldNew Mashup
 
-Version 1.4.0
+Version 1.4.1
 
 ## Status
 
 If you wish you can view the [Status of New OldNew Mashup on Github](https://github.com/cshoredaniel/new-oldnew-mashup/blob/master/STATUS.md)
 
 ## Examples of Sites Using This Theme
-*   [The C Shore](https://www.thecshore.com)
 *   [New OldNew Mashup Demo Site](https://new-oldnew-mashup.thecshore.com)
 
 ## Example Site
