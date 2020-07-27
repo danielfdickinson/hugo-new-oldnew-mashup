@@ -1,6 +1,6 @@
 [build]
     publish = "exampleSite/public/"
-    command = "sh -c 'cd exampleSite && hugo --minify -b https://new-oldnew-mashup.thecshore.com/'"
+    command = "sh -c 'cd exampleSite && hugo --minify -b https://new-oldnew-mashup.danielfdickinson.ca/'"
 
 [context.production.environment]
     HUGO_VERSION = "0.74.2"
