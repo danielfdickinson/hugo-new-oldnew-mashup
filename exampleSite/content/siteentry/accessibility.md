@@ -23,7 +23,7 @@ tags:
 ## When located at primary location
 
 The following statements apply to this site when hosted at
-<https://hugo-oldnew-mashup.thecshore.com>
+<https://hugo-oldnew-mashup.danielfdickinson.ca>
 
 ## Colour Scheme
 
@@ -43,8 +43,16 @@ higher DPI.
 
 ## Avoiding Flicker
 
-This site has dropped a 'smooth font scaling' Javascript from use because its
+This site/theme has dropped a 'smooth font scaling' Javascript from use because its
 tendency to cause screen redraws, which results in flicker.
+
+## Avoiding Mobility Barriers
+
+This site/theme has dropped a 'hover for information' mechanism because it represents
+an accessibility barrier for those with motor control impairment.  Efforts are underway
+to modify the menuing system so that 'flyouts' don't require fine control or
+timing to avoid the menu disappearing from under the user (still using a pure
+CSS design).
 
 ## Validation
 
