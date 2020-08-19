@@ -9,6 +9,6 @@ wget https://github.com/gohugoio/hugo/releases/download/v0.69.2/hugo_0.69.2_Linu
 tar -xzf hugo_0.69.2_Linux-64bit.tar.gz
 cd ..
 export PATH=$(pwd)/binaries:./node_modules/.bin:$PATH
-npm install
+yarn install -D
 hugo version >&2
 ./tests/scripts/run_all_tests
