@@ -9,6 +9,6 @@ tar -xzf hugo_0.74.2_Linux-64bit.tar.gz
 cd ..
 PATH=$(pwd)/binaries:./node_modules/.bin:$PATH
 export PATH
-npm install
+yarn install -D
 hugo version >&2
 ./tests/scripts/run_all_tests
