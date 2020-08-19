@@ -14,7 +14,7 @@ tags:
 ---
 # About New OldNew Mashup
 
-Version 1.3.13
+Version 1.3.14
 
 ## Status
 
