@@ -16,7 +16,7 @@
 <form class="contact-form" action="{{ printf "%s://%s:%d" $bURL.Scheme $hostOnly $port }}" method="post" enctype="multipart/form-data" accept-charset="utf-8">
   {{ end}}
 {{ else if eq (.Get 0) "netlify" }}
-<form class="contact-form" name="oldnew-contact-form" action="{{ (default "/contactsuccess" ( .Page.Param "contact_success_page" ) ) }}" method="POST" data-netlify="true">
+<form class="contact-form" name="oldnew-contact-form" action="{{ (default "/contactsuccess" ( .Page.Param "contact_success_page" ) ) }}" method="POST" data-netlify="true" netlify-honeypot="human-name">
   {{ end }}
 {{ if or (eq (.Get 0) "netlify") (and $port $isLive) }}
     <p><label for="name">Name:</label> <input type="text" name="name" id="name" /></p>
@@ -28,6 +28,10 @@
   <div class="question-comment-wrapper">
     <label for="question-comment">Question or Comment:</label>
     <textarea class="question-comment" name="question-comment" id="question-comment"></textarea>
+  </div>
+  <div class="non-humans-only">
+    <label for="human-name">A human who wants to be heard should <b>not</b> enter text in this field</label>
+    <input type="text" name="human-name" id="human-name" />
   </div>
   <p><input type="submit" value="Send" size="6" /> <input type="reset" value="Reset" size="6" /></p>
 </form>

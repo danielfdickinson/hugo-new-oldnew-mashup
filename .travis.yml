@@ -6,7 +6,7 @@ before_install:
 install:
     - sudo apt -y install tidy
 script: "FROM_YAML=yes ./ci/travis-cmd.sh"
-dist: bionic
+dist: focal
 branches:
     only:
         - master
