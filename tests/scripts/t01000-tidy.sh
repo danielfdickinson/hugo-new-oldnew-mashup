@@ -25,7 +25,7 @@ htfiles="$(find public -name '*.html' -print)"
 for htfile in $htfiles; do
 	if grep -q 'meta http-equiv="refresh' $htfile; then
 		echo "SKIP: Linting (tidy) for $htfile; it's an alias (meta refresh only)"
-	elif ! tidy -o /dev/null -q --drop-empty-elements no --indent auto $htfile; then
+	elif ! tidy -o /dev/null -q --drop-empty-elements no --indent auto --warn-proprietary-attributes no $htfile; then
 		echo "FAIL: Linting (tidy) for $htfile"
 		exit 3
 	fi
