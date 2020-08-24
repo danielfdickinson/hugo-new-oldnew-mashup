@@ -4,7 +4,7 @@ Version 1.4.0
 
 ## Status
 
-If you wish you can view the [Status of New OldNew Mashup on Github](https://github.com/cshoredaniel/new-oldnew-mashup/blob/master/STATUS.md)
+If you wish you can view the [Status of New OldNew Mashup on GitHub](https://github.com/cshoredaniel/new-oldnew-mashup/blob/devel-1.4.0/STATUS.md)
 
 ## Examples of Sites Using This Theme
 
@@ -138,8 +138,9 @@ Go to the [New OldNew Mashup Issue Tracker on GitHub](https://github.com/cshored
 
 ## Development
 
-If you wish to contribute to development of the theme please send a pull request on the
-[New OldNew Mashup Github Repo](https://github.com/cshoredaniel/new-oldnew-mashup).
+If you wish to contribute to development of the theme please send a pull request
+on the
+[New OldNew Mashup GitHub Repo](https://github.com/cshoredaniel/new-oldnew-mashup).
 
 ## Copyright & License
 
@@ -147,4 +148,5 @@ If you wish to contribute to development of the theme please send a pull request
 Licensed under the [Creative Commons Attribution License 4.0](https://creativecommons.org/licenses/by/4.0/)
 [![Creative Commons License](by.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-The License Image (above) is Copyright Creative Commons and Licensed under the [Creative Commons Share-Alike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
+The License Image (above) is Copyright Creative Commons and Licensed under the
+[Creative Commons Share-Alike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
