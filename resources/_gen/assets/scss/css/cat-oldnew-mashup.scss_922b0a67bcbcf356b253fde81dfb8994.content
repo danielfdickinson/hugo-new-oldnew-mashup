@@ -1983,9 +1983,9 @@ pre {
         text-align: center;
         width: 70%; }
     .homepage .main-content .title {
-      background-color: #ccf;
+      background-color: #777;
       border-radius: 16px;
-      color: #114;
+      color: #fff;
       display: block;
       flex: 0 0 80%;
       font-family: "Georgia", "serif";

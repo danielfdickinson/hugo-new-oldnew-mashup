@@ -1,6 +1,6 @@
 # Config for using theme as Hugo website
 
-baseURL = 'https://example.com/'
+baseURL = 'https://new-oldnew-mashup.danielfdickinson.ca/'
 languageCode = 'en-ca'
 languageLang = 'en'
 title = 'Oldnew Mashup'

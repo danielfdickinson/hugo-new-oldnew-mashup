@@ -16,12 +16,7 @@ tags:
 
 Version 1.3.14
 
-## Status
-
-If you wish you can view the [Status of New OldNew Mashup on Github](https://github.com/cshoredaniel/new-oldnew-mashup/blob/master/STATUS.md)
-
 ## Examples of Sites Using This Theme
-*   [The C Shore](https://www.thecshore.com)
 *   [New OldNew Mashup Demo Site](https://new-oldnew-mashup.thecshore.com)
 
 ## Example Site
@@ -146,15 +141,9 @@ From the root of the theme execute (for Linux):
 
 You should now be able to use Hugo Basic with this theme (although you won't be able
 to use user-defined colours and other SCSS-based tweaks to the style).
+## UNMAINTAINED
 
-## Issues / Bugs / Enhancements
-
-Go to the [New OldNew Mashup Issue Tracker on GitHub](https://github.com/cshoredaniel/new-oldnew-mashup/issues).
-
-## Development
-
-If you wish to contribute to development of the theme please send a pull request on the
-[New OldNew Mashup Github Repo](https://github.com/cshoredaniel/new-oldnew-mashup).
+This project is no longer developed and is unmaintained.
 
 ## Copyright & License
 
